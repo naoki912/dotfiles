@@ -1,0 +1,162 @@
+# Created by newuser for 5.0.7
+
+# .bashrc Imput
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Arch Wiki Imput{
+autoload -U compinit promptinit
+compinit
+promptinit
+
+autoload -U colors && colors
+
+# This will set the default prompt to the walters theme
+prompt walters
+# }Arch Wiki Imput 
+
+# zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# android-ndk
+#source /etc/profile.d/android-ndk.sh
+
+
+export EDITOR="vim"
+
+
+
+## Command history configuration
+##
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data 
+
+
+
+# コマンドのオプション省略、ただのエイリアス
+alias ls='ls -F --color=auto'
+alias grep='grep -n --color=auto'
+alias egrep='grep -n --color=auto'
+alias lsa='ls -laiF --color=auto'
+alias vi='vim'
+alias browser='echo "start lynx" ; lynx'
+alias cdc='cd;clear'
+
+# ssh
+alias sshage='echo "start ssh-agent zsh ! \nplease sshad" ; ssh-agent zsh ; echo "exit ssh-agent"'
+alias sshad='ssh-add'
+alias ssh2='ssh -p2222'
+alias scp2='scp -P2222'
+
+# 追加コマンド
+alias :q='exit'
+alias eng='LANG=C'
+alias jng='LANG=ja_JP.UTF-8'
+alias py='ipython'
+alias picture='eog'
+alias pdf='evince'
+alias noipv6='sudo sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1 && echo "exec sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1"'
+alias えぃｔ='exit'
+alias c='clear'
+alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
+alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
+
+# ファイルを開くソフトウェアの選択
+alias -s asta=astah
+
+# 情報を表示させる
+alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
+alias saddr='echo 157.7.113.185'
+alias hmount='echo mount -w -o uid=user,iocharset=utf8 /target /mountPoint'
+
+
+# ssh先のIPを補完
+function print_known_hosts (){ 
+    if [ -f $HOME/.ssh/known_hosts ]; then
+        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1 
+    fi
+}
+_cache_hosts=($( print_known_hosts ))
+
+# ーバインドをemacsに変更
+bindkey -e
+
+# 変態キーバインド
+function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
+
+
+
+##########
+#
+##########
+
+function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
+function is_osx() { [[ $OSTYPE == darwin* ]]; }
+function is_screen_running() { [ ! -z "$STY" ]; }
+function is_tmux_runnning() { [ ! -z "$TMUX" ]; }
+function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
+function shell_has_started_interactively() { [ ! -z "$PS1" ]; }
+function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
+
+function tmux_automatically_attach_session()
+{
+    if is_screen_or_tmux_running; then
+        ! is_exists 'tmux' && return 1
+
+        if is_tmux_runnning; then
+            echo "${fg_bold[green]} _____ __  __ _   ___  __ ${reset_color}"
+            echo "${fg_bold[green]}|_   _|  \/  | | | \ \/ / ${reset_color}"
+            echo "${fg_bold[green]}  | | | |\/| | | | |\  /  ${reset_color}"
+            echo "${fg_bold[green]}  | | | |  | | |_| |/  \  ${reset_color}"
+            echo "${fg_bold[green]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
+        elif is_screen_running; then
+            echo "This is on screen."
+        fi
+    else
+        if shell_has_started_interactively && ! is_ssh_running; then
+            if ! is_exists 'tmux'; then
+                echo 'Error: tmux command not found' 2>&1
+                return 1
+            fi
+
+            if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '.*]$'; then
+                # detached session exists
+                tmux list-sessions
+                echo -n "Tmux: attach? (y/N/num) "
+                read
+                if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
+                    tmux attach-session
+                    if [ $? -eq 0 ]; then
+                        echo "$(tmux -V) attached session"
+                        return 0
+                    fi
+                elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
+                    tmux attach -t "$REPLY"
+                    if [ $? -eq 0 ]; then
+                        echo "$(tmux -V) attached session"
+                        return 0
+                    fi
+                fi
+            fi
+
+            if is_osx && is_exists 'reattach-to-user-namespace'; then
+                # on OS X force tmux's default command
+                # to spawn a shell in the user's namespace
+                tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
+                tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
+            else
+                tmux new-session && echo "tmux created new session"
+            fi
+        fi
+    fi
+}
+tmux_automatically_attach_session
+

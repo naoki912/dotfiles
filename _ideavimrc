@@ -1,0 +1,14 @@
+" 入力モード中に素早くjjと入力した場合はESCとみなす
+inoremap jj <Esc>
+" ESCを二回押すことでハイライトを消す
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+" " vを二回で行末まで選択
+vnoremap v $h
+
+" like Emacs
+imap <C-a> <Home>
+imap <C-e> <End>
+

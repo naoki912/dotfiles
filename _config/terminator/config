@@ -1,0 +1,29 @@
+[global_config]
+  geometry_hinting = False
+  title_transmit_bg_color = "#af0d00"
+  focus = mouse
+  title_transmit_fg_color = "#dd454c"
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#ff4949:#40ff40:#ffa448:#5a5aff:#ff5eff:#44ffff:#aaaaaa:#555555:#ff9999:#a3ffa3:#ffff58:#a1a1ff:#ffa8ff:#bfffff:#ffffff"
+    background_image = None
+    background_darkness = 0.0
+    background_type = transparent
+    use_system_font = False
+    foreground_color = "#ffffff"
+    icon_bell = False
+    delete_binding = ascii-del
+    font = Ricty Discord 12
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
