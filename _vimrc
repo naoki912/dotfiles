@@ -182,11 +182,19 @@ endif
 " プラギン
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 call neobundle#end()
 
 filetype plugin indent on
 filetype indent on
 syntax on
+
+"Pluginで追加する設定
+""" nathanaelkane/vim-indent-guides
+" インデントに色を付けて見やすくする
+NeoBundle 'nathanaelkane/vim-indent-guides'
+" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
 
 
