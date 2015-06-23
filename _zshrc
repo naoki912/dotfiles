@@ -63,6 +63,7 @@ alias えぃｔ='exit'
 alias c='clear'
 alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
 alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
+alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
 
 # ファイルを開くソフトウェアの選択
 alias -s asta=astah
