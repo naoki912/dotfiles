@@ -69,7 +69,6 @@ alias -s asta=astah
 
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
-alias saddr='echo 157.7.113.185'
 alias hmount='echo mount -w -o uid=user,iocharset=utf8 /target /mountPoint'
 
 
