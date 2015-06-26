@@ -73,7 +73,7 @@ alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and
 alias showmount='echo mount -w -o uid=user,iocharset=utf8 /target /mountPoint'
 alias showmount1='echo mount -orw,uid=user,utf8 /target /mountPoint'
 alias showmount2='mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/'
-alias showpacstrap='sudo pacstrap -i -c -d dns base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git'
+alias showpacstrap='sudo pacstrap -i -c -d $SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh'
 
 
 # ssh先のIPを補完
