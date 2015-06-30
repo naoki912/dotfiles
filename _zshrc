@@ -26,9 +26,6 @@ export EDITOR="vim"
 # cd ls 関連
 setopt AUTO_CD
 cdpath=(.. ~)
-precmd() {
-    ls_addrev
-}
 chpwd() {
     ls_abbrev
 }
