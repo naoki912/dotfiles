@@ -44,6 +44,7 @@ alias vi='vim'
 alias browser='echo "start lynx" ; lynx'
 alias cdc='cd;clear'
 alias firefoxprivate='firefox --private-window'
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 
 # ssh
 alias sshage='echo "start ssh-agent zsh ! \nplease sshad" ; ssh-agent zsh ; echo "exit ssh-agent"'
