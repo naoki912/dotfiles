@@ -5,10 +5,9 @@
 [[ $- != *i* ]] && return
 
 # Arch Wiki Imput{
-autoload -U compinit promptinit predict-on
+autoload -U compinit promptinit
 compinit
 promptinit
-predict-on
 
 autoload -U colors && colors
 
@@ -27,6 +26,9 @@ export EDITOR="vim"
 # cd ls 関連
 setopt AUTO_CD
 cdpath=(.. ~)
+precmd() {
+    ls_addrev
+}
 chpwd() {
     ls_abbrev
 }
