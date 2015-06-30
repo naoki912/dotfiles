@@ -9,6 +9,7 @@ autoload -U compinit promptinit
 compinit
 promptinit
 
+
 autoload -U colors && colors
 
 # This will set the default prompt to the walters theme
