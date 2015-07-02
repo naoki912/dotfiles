@@ -81,11 +81,12 @@ alias ls='ls -F --color=auto'
 alias grep='grep -n --color=auto'
 alias egrep='grep -n --color=auto'
 alias lsa='ls -laiF --color=auto'
-alias vi='vim'
 alias browser='echo "start lynx" ; lynx'
-alias cdc='cd;clear'
 alias firefoxprivate='firefox --private-window'
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+alias clear='clear;def_clear'
+alias vi='vim'
+alias v='vim'
 
 # ssh
 alias sshage='echo "start ssh-agent zsh ! \nplease sshad" ; ssh-agent zsh ; echo "exit ssh-agent"'
@@ -103,6 +104,7 @@ alias pdf='evince'
 alias noipv6='sudo sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1 && echo "exec sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1"'
 alias えぃｔ='exit'
 alias c='clear'
+alias cdc='cd;clear'
 alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
 alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
 alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
@@ -138,10 +140,19 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
-
+# function
+function def_clear() {
+    echo "${fg_bold[yellow]}
+ ██████╗██╗     ███████╗ █████╗ ██████╗ 
+██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗
+██║     ██║     █████╗  ███████║██████╔╝
+██║     ██║     ██╔══╝  ██╔══██║██╔══██╗
+╚██████╗███████╗███████╗██║  ██║██║  ██║
+╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ${reset_color}"
+}
 
 ##########
-#
+# TMUX
 ##########
 
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
@@ -206,9 +217,30 @@ function tmux_automatically_attach_session()
 }
 tmux_automatically_attach_session
 
+# ユーザによってpromptを変更
 case ${UID} in
 0)
     prompt grml
+    echo "${fg_bold[red]}
+ ██▀███   ▒█████   ▒█████  ▄▄▄█████▓
+ ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓  ██▒ ▓▒
+ ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▒ ▓██░ ▒░
+ ▒██▀▀█▄  ▒██   ██░▒██   ██░░ ▓██▓ ░ 
+ ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░  ▒██▒ ░ 
+ ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░   ▒ ░░   
+   ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░     ░    
+     ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒    ░      
+        ░         ░ ░      ░ ░  ${reset_color}"
 esac
+
+
+# startup script
+COMMENT="【`date "+%Y-%m-%d (%a)"`】"
+IFS=">"
+AA=(`sed -e "s/__DATE__/$COMMENT/g" ./dotfiles/aa.txt`)
+NUM=${#AA[*]}
+NO=`expr $RANDOM % $NUM`
+echo ${AA[$NO]}
+#http://d.hatena.ne.jp/kiyotune/20120329/1333029068
 
 
