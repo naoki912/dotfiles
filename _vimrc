@@ -185,7 +185,10 @@ NeoBundle 'Shougo/vimproc'
 " インデントに色を付けて見やすくする
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 call neobundle#end()
 
