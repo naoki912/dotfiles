@@ -156,7 +156,9 @@ nnoremap k gk
 vnoremap v $h
 " w!! でスーパーユーザーとして保存（sudoが使える環境限定）
 cmap w!! w !sudo tee > /dev/null %
-
+" コマンドモードで;で:を読みだす
+nnoremap ; :
+nnoremap <S-y> <C-e>
 
 " like Emacs
 imap <C-a> <Home>
@@ -171,6 +173,11 @@ ab #/ /////////////////////////////////////////
 ab #i #include <stdio.h>
 ab #p #!/usr/bin/python
 ab #s #!/bin/sh
+
+" color
+if $TERM == '*256*'
+    set t_Co=256
+endif
 
 
 "プラギン設定
@@ -189,6 +196,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
+" ディレクトリのツリー表示
+NeoBundle 'scrooloose/nerdtree'
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 call neobundle#end()
 
