@@ -199,6 +199,11 @@ let g:indent_guides_guide_size=1
 " ディレクトリのツリー表示
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" コメントを操作するプラギン
+NeoBundle 'scrooloose/nerdcommenter'
+let NERDSpaceDelims = 1
+nmap ,, <Plug>NERDCommenterToggle
+vmap ,, <Plug>NERDCommenterToggle
 
 call neobundle#end()
 
