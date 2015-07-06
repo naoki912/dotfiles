@@ -580,72 +580,72 @@ else
                \   "unix": ["pip install flake8", "npm -g install coffeelint"],
                \ }}
 
+    "##### Python関係 #####
+
+    "### virtualenvとdjango問題の解決 ###
+    " Djangoを正しくVimで読み込めるようにする
+    NeoBundleLazy "lambdalisue/vim-django-support", {
+                \ "autoload": {
+                \   "filetypes": ["python", "python3", "djangohtml"]
+                \ }}
+    " Vimで正しくvirtualenvを処理できるようにする
+    NeoBundleLazy "jmcantrell/vim-virtualenv", {
+                \ "autoload": {
+                \   "filetypes": ["python", "python3", "djangohtml"]
+                \ }}
+
+    "### jedi-vim python補完・リファクタリング・リファレンス環境 ###
+    NeoBundleLazy "davidhalter/jedi-vim", {
+                \ "autoload": {
+                \   "filetypes": ["python", "python3", "djangohtml"],
+                \ },
+                \ "build": {
+                \   "mac": "pip install jedi",
+                \   "unix": "pip install jedi",
+                \ }}
+    let s:hooks = neobundle#get_hooks("jedi-vim")
+    function! s:hooks.on_source(bundle)
+        " jediにvimの設定を任せると'completeopt+=preview'するので
+        " 自動設定機能をOFFにし手動で設定を行う
+        let g:jedi#auto_vim_configuration = 0
+        " 補完の最初の項目が選択された状態だと使いにくいためオフにする
+        let g:jedi#popup_select_first = 0
+        " quickrunと被るため大文字に変更
+        let g:jedi#rename_command = '<Leader>R'
+        " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
+        let g:jedi#goto_command = '<Leader>G'
+        " docstringは表示しない
+        autocmd FileType python setlocal completeopt-=preview
+    endfunction
+
+    "### コメントを操作するプラギン ###
+    NeoBundle 'scrooloose/nerdcommenter'
+    let NERDSpaceDelims = 1
+    nmap ,, <Plug>NERDCommenterToggle
+    vmap ,, <Plug>NERDCommenterToggle
+    nmap ,a <Plug>NERDCommenterAppend
+    nmap ,9 <Plug>NERDCommenterToEOL
+    nmap ,s <Plug>NERDCommenterSexy
+    vmap ,s <Plug>NERDCommenterSexy
+    nmap ,b <Plug>NERDCommenterMinima
+    vmap ,b <Plug>NERDCommenterMinima
+
+    "### 行末の不要な半角スペースを可視化 ###
+    NeoBundle 'bronson/vim-trailing-whitespace'
+    nmap d<TAB> :FixWhitespace<CR>
+
+    "##### ドキュメント関連 #####
+
+    "### vim-pandoc markdownとかのシンタックス・インデント用
+    NeoBundleLazy "vim-pandoc/vim-pandoc", {
+                \ "autoload": {
+                \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
+                \ }}
 
 
 
-
-
-""""こっから
-"" コメントを操作するプラギン
-"NeoBundle 'scrooloose/nerdcommenter'
-"let NERDSpaceDelims = 1
-"nmap ,, <Plug>NERDCommenterToggle
-"vmap ,, <Plug>NERDCommenterToggle
-"nmap ,a <Plug>NERDCommenterAppend
-"nmap ,9 <Plug>NERDCommenterToEOL
-"nmap ,s <Plug>NERDCommenterSexy
-"vmap ,s <Plug>NERDCommenterSexy
-"nmap ,b <Plug>NERDCommenterMinima
-"vmap ,b <Plug>NERDCommenterMinima
-"" 行末の不要な半角スペースを可視化
-"NeoBundle 'bronson/vim-trailing-whitespace'
-"nmap d<TAB> :FixWhitespace<CR>
-"
-"" jedi関連の設定
-"autocmd FileType python setlocal completeopt-=preview
-"autocmd FileType python setlocal omnifunc=jedi#completions
-"let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"    let g:neocomplete#force_omni_input_patterns = {}
-"endif
-"let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-"
-"" Enable heavy omni completion.(重いオムニ補完を有効にする)
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-"    let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-""let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-""let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-""let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"
-"" For perlomni.vim setting.
-"" https://github.com/c9s/perlomni.vim
-""let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"""""""""""""""""""""""""""""""""""""""""
-"
-"" jedi Python補完
-"NeoBundleLazy "davidhalter/jedi-vim", {
-"            \ "autoload": {
-"            \   "filetypes": ["python", "python3", "djangohtml"],
-"            \ },
-"            \ "build": {
-"            \   "unix": "pip install jedi",
-"            \   "mac": "pip install jedi",
-"            \ }}
-"let s:hooks = neobundle#get_hooks("jedi-vim")
-"function! s:hooks.on_source(bundle)
-"    " jediにvimの設定を任せると'completeopt+=preview'するので
-"    " 自動設定機能をOFFにし手動で設定を行う
-"    let g:jedi#auto_vim_configuration = 0
-"    " 補完の最初の項目が選択された状態だと使いにくいためオフにする
-"    let g:jedi#popup_select_first = 0
-"    " docstringは表示しない
-"endfunction
-
-" ##### ToDo
-" Git関連の設定
-NeoBundleCheck
+    " ToDo Git関連の設定
+    NeoBundleCheck
 endif
 
 call neobundle#end()
