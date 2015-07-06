@@ -434,7 +434,7 @@ else
     endfunction
 
     "##### テキスト編集関係 #####
-    
+
     "### 囲まれているものに対していろいろする ###
     NeoBundle 'tpope/vim-surround'
     "### テキスト整形用プラギン ###
@@ -458,7 +458,7 @@ else
             let g:neocomplet#enable_smart_case = 1
             " NeoCompleteを有効化
             " NeoCompleteEnable
-            
+
             "let g:neocomplete#sources#syntax#min_keyword_length = 3
             "let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
             " Plugin key-mappings.
@@ -490,7 +490,7 @@ else
             let g:acp_enableAtStartup = 0
             let g:neocomplcache_enable_smart_case = 1
             " NeoComplCacheを有効化
-            " NeoComplCacheEnable 
+            " NeoComplCacheEnable
         endfunction
     endif
 
@@ -642,6 +642,10 @@ else
                 \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
                 \ }}
 
+    "##### 見た目 #####
+
+    "### PowerLine 見た目かっちょよく変更 ###
+    NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 
     " ToDo Git関連の設定
@@ -690,4 +694,5 @@ endfunction
 
 filetype plugin indent on
 syntax on
+
 
