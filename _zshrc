@@ -261,3 +261,9 @@ echo ${AA[$NO]}
 #http://d.hatena.ne.jp/kiyotune/20120329/1333029068
 
 
+# powerlineの設定
+export PATH=$PATH:~/.local/bin
+powerline-daemon -q
+. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+
+
