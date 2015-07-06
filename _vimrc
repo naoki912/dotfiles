@@ -191,7 +191,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 " インデントに色を付けて見やすくする
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
@@ -204,6 +203,15 @@ NeoBundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims = 1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
+nmap ,a <Plug>NERDCommenterAppend
+nmap ,9 <Plug>NERDCommenterToEOL
+nmap ,s <Plug>NERDCommenterSexy
+vmap ,s <Plug>NERDCommenterSexy
+nmap ,b <Plug>NERDCommenterMinima
+vmap ,b <Plug>NERDCommenterMinima
+" 行末の不要な半角スペースを可視化
+NeoBundle 'bronson/vim-trailing-whitespace'
+nmap d<TAB> :FixWhitespace<CR>
 
 call neobundle#end()
 
