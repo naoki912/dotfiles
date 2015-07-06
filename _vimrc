@@ -346,6 +346,8 @@ else
                 \    },
                 \ }
 
+    "##### ファイル管理関係 #####
+
     "### vim-templateによるテンプレートファイルの使用 ###
     NeoBundle "thinca/vim-template"
     " テンプレート中に含まれる特定文字列を置き換える
@@ -407,6 +409,7 @@ else
                 \   "explorer": 1,
                 \ }}
     nnoremap <silent><C-e> :VimFilerExplorer<CR>
+    nnoremap <Leader>e :VimFilerExplorer<CR>
     " close vimfiler automatically when there are only vimfiler open
     autocmd MyAutoCmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
     let s:hooks = neobundle#get_hooks("vimfiler")
@@ -430,69 +433,159 @@ else
         endfunction
     endfunction
 
+    "##### テキスト編集関係 #####
+    
+    "### 囲まれているものに対していろいろする ###
+    NeoBundle 'tpope/vim-surround'
+    "### テキスト整形用プラギン ###
+    NeoBundle 'vim-scripts/Align'
+    "### 'p'によるペースト後Ctrl-p,Ctrl-nで履歴と置き換え
+    NeoBundle 'vim-scripts/YankRing.vim'
+
+    "### neocomplete補完 ###
+    " if has('lua') && v:version > 703 && has('patch825') 2013-07-03 14:30 > から >= に修正
+    " if has('lua') && v:version >= 703 && has('patch825') 2013-07-08 10:00 必要バージョンが885にアップデートされていました
+    if has('lua') && v:version >= 703 && has('patch885')
+        NeoBundleLazy "Shougo/neocomplete.vim", {
+                    \ "autoload": {
+                    \   "insert": 1,
+                    \ }}
+        " 2013-07-03 14:30 NeoComplCacheに合わせた
+        let g:neocomplete#enable_at_startup = 1
+        let s:hooks = neobundle#get_hooks("neocomplete.vim")
+        function! s:hooks.on_source(bundle)
+            let g:acp_enableAtStartup = 0
+            let g:neocomplet#enable_smart_case = 1
+            " NeoCompleteを有効化
+            " NeoCompleteEnable
+            
+            "let g:neocomplete#sources#syntax#min_keyword_length = 3
+            "let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+            " Plugin key-mappings.
+            inoremap <expr><C-g>     neocomplete#undo_completion()
+            inoremap <expr><C-l>     neocomplete#complete_common_string()
+            inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+            function! s:my_cr_function()
+                return neocomplete#close_popup() . "\<CR>"
+                return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+            endfunction
+            inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+            inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+            inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+            inoremap <expr><C-y>  neocomplete#close_popup()
+            inoremap <expr><C-e>  neocomplete#cancel_popup()
+            " ポップアップを<Space>で消す
+            "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+        endfunction
+    else
+        NeoBundleLazy "Shougo/neocomplcache.vim", {
+                    \ "autoload": {
+                    \   "insert": 1,
+                    \ }}
+        " 2013-07-03 14:30 原因不明だがNeoComplCacheEnableコマンドが見つからないので変更
+        let g:neocomplcache_enable_at_startup = 1
+        let s:hooks = neobundle#get_hooks("neocomplcache.vim")
+        function! s:hooks.on_source(bundle)
+            let g:acp_enableAtStartup = 0
+            let g:neocomplcache_enable_smart_case = 1
+            " NeoComplCacheを有効化
+            " NeoComplCacheEnable 
+        endfunction
+    endif
+
+    "### neosnippetコード入力の簡略化 ###
+    NeoBundleLazy "Shougo/neosnippet.vim", {
+                \ "depends": ["honza/vim-snippets"],
+                \ "autoload": {
+                \   "insert": 1,
+                \ }}
+    let s:hooks = neobundle#get_hooks("neosnippet.vim")
+    function! s:hooks.on_source(bundle)
+        " Plugin key-mappings.
+        imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+        smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+        xmap <C-k>     <Plug>(neosnippet_expand_target)
+        " SuperTab like snippets behavior.
+        imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                    \ "\<Plug>(neosnippet_expand_or_jump)"
+                    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+        smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                    \ "\<Plug>(neosnippet_expand_or_jump)"
+                    \: "\<TAB>"
+        " For snippet_complete marker.
+        if has('conceal')
+            set conceallevel=2 concealcursor=i
+        endif
+        " Enable snipMate compatibility feature.
+        let g:neosnippet#enable_snipmate_compatibility = 1
+        " Tell Neosnippet about the other snippets
+        let g:neosnippet#snippets_directory=s:bundle_root . '/vim-snippets/snippets'
+    endfunction
+
+    "### インデントに色を付けて見やすくする ###
+    NeoBundle "nathanaelkane/vim-indent-guides"
+    let s:hooks = neobundle#get_hooks("vim-indent-guides")
+    function! s:hooks.on_source(bundle)
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_enable_on_vim_startup = 1
+        "IndentGuidesEnable
+    endfunction
+
+    "### Gundo.vimによる高機能アンドゥ実装 ###
+    NeoBundleLazy "sjl/gundo.vim", {
+                \ "autoload": {
+                \   "commands": ['GundoToggle'],
+                \}}
+    nnoremap <Leader>g :GundoToggle<CR>
+
+    "### TaskList.vim ToDo管理
+    NeoBundleLazy "vim-scripts/TaskList.vim", {
+                \ "autoload": {
+                \   "mappings": ['<Plug>TaskList'],
+                \}}
+    nmap <Leader>T <plug>TaskList
+
+    "##### プログラミング関係 #####
+
+    "### quickrunによる即時実行 ###
+    NeoBundleLazy "thinca/vim-quickrun", {
+                \ "autoload": {
+                \   "mappings": [['nxo', '<Plug>(quickrun)']]
+                \ }}
+    nmap <Leader>r <Plug>(quickrun)
+    let s:hooks = neobundle#get_hooks("vim-quickrun")
+    function! s:hooks.on_source(bundle)
+        let g:quickrun_config = {
+                    \ "*": {"runner": "vimproc"},
+                    \ }
+   endfunction
+
+   "### Tarbarによるクラスアウトライン
+   NeoBundleLazy 'majutsushi/tagbar', {
+               \ "autload": {
+               \   "commands": ["TagbarToggle"],
+               \ },
+               \ "build": {
+               \   "mac": "brew install ctags",
+               \   "unix": "pacman -S ctags",
+               \ }}
+   nmap <Leader>t :TagbarToggle<CR>
+   " Exuberant ctags必須
+
+   "### syntastic 構文エラー表示
+   NeoBundle "scrooloose/syntastic", {
+               \ "build": {
+               \   "mac": ["pip install flake8", "npm -g install coffeelint"],
+               \   "unix": ["pip install flake8", "npm -g install coffeelint"],
+               \ }}
 
 
 
 
 
-
-
-
-
-
-
-
-
-"    " Insertモードに入るまではneocompleteはロードされない
-"    NeoBundleLazy 'Shougo/neocomplete.vim', {
-"                \ "autoload": {"insert": 1}}
-"    " neocompleteのhooksを取得
-"    let s:hooks = neobundle#get_hooks("neocomplete.vim")
-"    " neocomplete用の設定関数を定義。下記関数はneocompleteロード時に実行される
-"    function! s:hooks.on_source(bundle)
-"        let g:acp_enableAtStartup = 0
-"        let g:neocomplete#enable_smart_case = 1
-"        " NeoCompleteを有効化
-"        NeoCompleteEnable
-"    endfunction
-
-"" 補完
-"NeoBundle 'Shougo/neocomplete.vim'
-"let g:acp_enableAtStartup = 0
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#sources#syntax#min_keyword_length = 3
-"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplete#undo_completion()
-"inoremap <expr><C-l>     neocomplete#complete_common_string()
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"    return neocomplete#close_popup() . "\<CR>"
-"    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"endfunction
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplete#close_popup()
-"inoremap <expr><C-e>  neocomplete#cancel_popup()
-"" ポップアップを<Space>で消す
-""inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-"" Enable omni completion.(オムニ補完を有効にする)
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 """"こっから
-"" インデントに色を付けて見やすくする
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_guide_size=1
-
 "" コメントを操作するプラギン
 "NeoBundle 'scrooloose/nerdcommenter'
 "let NERDSpaceDelims = 1
