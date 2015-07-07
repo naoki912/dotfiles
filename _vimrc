@@ -645,7 +645,10 @@ else
     "##### 見た目 #####
 
     "### PowerLine 見た目かっちょよく変更 ###
+    NeoBundle 'alpaca-tc/alpaca_powertabline'
     NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+    NeoBundle 'Lokaltog/powerline-fontpatcher'
+
 
 
     " ToDo Git関連の設定

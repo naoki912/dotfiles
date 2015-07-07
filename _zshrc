@@ -12,9 +12,7 @@ promptinit
 
 autoload -U colors && colors
 
-# This will set the default prompt to the walters theme
-prompt walters
-# }Arch Wiki Imput 
+prompt grml-large
 
 # zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -157,6 +155,12 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
+
+# powerlineの設定
+export PATH=$PATH:~/.local/bin
+#powerline-daemon -q
+#. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # function
 function def_clear() {
     echo "${fg_bold[yellow]}
@@ -165,7 +169,7 @@ function def_clear() {
 ██║     ██║     █████╗  ███████║██████╔╝
 ██║     ██║     ██╔══╝  ██╔══██║██╔══██╗
 ╚██████╗███████╗███████╗██║  ██║██║  ██║
-╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ${reset_color}"
+ ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ${reset_color}"
 }
 
 ##########
@@ -261,9 +265,5 @@ echo ${AA[$NO]}
 #http://d.hatena.ne.jp/kiyotune/20120329/1333029068
 
 
-# powerlineの設定
-export PATH=$PATH:~/.local/bin
-powerline-daemon -q
-. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
 
 
