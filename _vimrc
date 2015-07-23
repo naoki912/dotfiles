@@ -701,7 +701,8 @@ else
                 \ }
                 " \   'pyenv' : 'pyenv#statusline#component',
     function! MyPyenv()
-        return pyenv#info#format('%ss %iv %ev')
+        " return pyenv#info#format('%ss %iv %ev')
+        return pyenv#info#preset('long')
     endfunction
 
     function! MyModified()
