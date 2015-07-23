@@ -316,6 +316,27 @@ if $TERM == '*256*'
 endif
 
 "### プラギン設定 ###
+" PATHの自動更新関数
+" | 指定された path が $PATH に存在せず、ディレクトリとして存在している場合
+" | のみ $PATH に加える
+function! IncludePath(path)
+  " define delimiter depends on platform
+  if has('win16') || has('win32') || has('win64')
+    let delimiter = ";"
+  else
+    let delimiter = ":"
+  endif
+  let pathlist = split($PATH, delimiter)
+  if isdirectory(a:path) && index(pathlist, a:path) == -1
+    let $PATH=a:path.delimiter.$PATH
+  endif
+endfunction
+
+" ~/.pyenv/shims を $PATH に追加する
+" これを行わないとpythonが正しく検索されない
+call IncludePath(expand("~/.pyenv/shims"))
+
+
 let s:noplugin = 0
 let s:bundle_root = expand('~/.vim/bundle')
 let s:neobundle_root = s:bundle_root . '/neobundle.vim'
@@ -617,13 +638,21 @@ else
         " docstringは表示しない
         autocmd FileType python setlocal completeopt-=preview
     endfunction
+    " 補完用設定
+    NeoBundleLazy "lambdalisue/vim-pyenv", {
+                \ "depends": ['davidhalter/jedi-vim'],
+                \ "autoload": {
+                \   "filetypes": ["python", "python3", "djangohtml"]
+                \ }}
 
     "### コメントを操作するプラギン ###
     NeoBundle 'scrooloose/nerdcommenter'
     let NERDSpaceDelims = 1
     nmap ,, <Plug>NERDCommenterToggle
     vmap ,, <Plug>NERDCommenterToggle
+    " 行の最後にコメントを追加
     nmap ,a <Plug>NERDCommenterAppend
+    " カーソルの位置から行の最後までをコメントに変更
     nmap ,9 <Plug>NERDCommenterToEOL
     nmap ,s <Plug>NERDCommenterSexy
     vmap ,s <Plug>NERDCommenterSexy
@@ -643,12 +672,142 @@ else
                 \ }}
 
     "##### 見た目 #####
+    NeoBundle 'itchyny/lightline.vim'
+    let g:lightline = {
+                \ 'colorscheme': 'wombat',
+                \ 'active': {
+                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+                \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+                \ },
+                \ 'component_function': {
+                \   'fugitive': 'MyFugitive',
+                \   'filename': 'MyFilename',
+                \   'fileformat': 'MyFileformat',
+                \   'filetype': 'MyFiletype',
+                \   'fileencoding': 'MyFileencoding',
+                \   'mode': 'MyMode',
+                \   'ctrlpmark': 'CtrlPMark',
+                \   'pyenv' : 'MyPyenv',
+                \ },
+                \ 'component_expand': {
+                \   'syntastic': 'SyntasticStatuslineFlag',
+                \ },
+                \ 'component': {
+                \ },
+                \ 'component_type': {
+                \   'syntastic': 'error',
+                \ },
+                \ 'subseparator': { 'left': '|', 'right': '|' }
+                \ }
+                " \   'pyenv' : 'pyenv#statusline#component',
+    function! MyPyenv()
+        return pyenv#info#format('%ss %iv %ev')
+    endfunction
 
-    "### PowerLine 見た目かっちょよく変更 ###
-    NeoBundle 'alpaca-tc/alpaca_powertabline'
-    NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-    NeoBundle 'Lokaltog/powerline-fontpatcher'
+    function! MyModified()
+        return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    endfunction
 
+    function! MyReadonly()
+        return &ft !~? 'help' && &readonly ? 'RO' : ''
+    endfunction
+
+    function! MyFilename()
+        let fname = expand('%:t')
+        return fname == 'ControlP' ? g:lightline.ctrlp_item :
+                    \ fname == '__Tagbar__' ? g:lightline.fname :
+                    \ fname =~ '__Gundo\|NERD_tree' ? '' :
+                    \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+                    \ &ft == 'unite' ? unite#get_status_string() :
+                    \ &ft == 'vimshell' ? vimshell#get_status_string() :
+                    \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+                    \ ('' != fname ? fname : '[No Name]') .
+                    \ ('' != MyModified() ? ' ' . MyModified() : '')
+    endfunction
+
+    function! MyFugitive()
+        try
+            if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+                let mark = ''  " edit here for cool mark
+                let _ = fugitive#head()
+                return strlen(_) ? mark._ : ''
+            endif
+        catch
+        endtry
+        return ''
+    endfunction
+
+    function! MyFileformat()
+        return winwidth(0) > 70 ? &fileformat : ''
+    endfunction
+
+    function! MyFiletype()
+        return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+    endfunction
+
+    function! MyFileencoding()
+        return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+    endfunction
+
+    function! MyMode()
+        let fname = expand('%:t')
+        return fname == '__Tagbar__' ? 'Tagbar' :
+                    \ fname == 'ControlP' ? 'CtrlP' :
+                    \ fname == '__Gundo__' ? 'Gundo' :
+                    \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+                    \ fname =~ 'NERD_tree' ? 'NERDTree' :
+                    \ &ft == 'unite' ? 'Unite' :
+                    \ &ft == 'vimfiler' ? 'VimFiler' :
+                    \ &ft == 'vimshell' ? 'VimShell' :
+                    \ winwidth(0) > 60 ? lightline#mode() : ''
+    endfunction
+
+    function! CtrlPMark()
+        if expand('%:t') =~ 'ControlP'
+            call lightline#link('iR'[g:lightline.ctrlp_regex])
+            return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+                        \ , g:lightline.ctrlp_next], 0)
+        else
+            return ''
+        endif
+    endfunction
+
+    let g:ctrlp_status_func = {
+                \ 'main': 'CtrlPStatusFunc_1',
+                \ 'prog': 'CtrlPStatusFunc_2',
+                \ }
+
+    function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+        let g:lightline.ctrlp_regex = a:regex
+        let g:lightline.ctrlp_prev = a:prev
+        let g:lightline.ctrlp_item = a:item
+        let g:lightline.ctrlp_next = a:next
+        return lightline#statusline(0)
+    endfunction
+
+    function! CtrlPStatusFunc_2(str)
+        return lightline#statusline(0)
+    endfunction
+
+    let g:tagbar_status_func = 'TagbarStatusFunc'
+
+    function! TagbarStatusFunc(current, sort, fname, ...) abort
+        let g:lightline.fname = a:fname
+        return lightline#statusline(0)
+    endfunction
+
+    augroup AutoSyntastic
+        autocmd!
+        autocmd BufWritePost *.c,*.cpp call s:syntastic()
+    augroup END
+    function! s:syntastic()
+        SyntasticCheck
+        call lightline#update()
+    endfunction
+
+    let g:unite_force_overwrite_statusline = 0
+    let g:vimfiler_force_overwrite_statusline = 0
+    let g:vimshell_force_overwrite_statusline = 0
 
 
     " ToDo Git関連の設定
@@ -656,9 +815,6 @@ else
 endif
 
 call neobundle#end()
-
-
-
 
 
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
