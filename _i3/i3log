@@ -1,0 +1,637 @@
+2015年06月25日 18時53分51秒 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2015年06月25日 18時53分51秒 - i3 4.10.2 (2015-04-16, branch "4.10.2") starting
+2015年06月25日 18時53分51秒 - Parsing configfile /home/hnron/.i3/config
+2015年06月25日 18時53分51秒 - deciding for version 4 due to this line: # i3 config file (v4)
+2015年06月25日 18時53分51秒 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+2015年06月25日 18時53分51秒 - [libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+2015年06月25日 18時53分51秒 - Used number 1 for workspace with name 1:term
+2015年06月25日 18時53分51秒 - This is not an in-place restart, copying root window contents to a pixmap
+2015年06月25日 18時53分51秒 - auto-starting feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月25日 18時53分51秒 - executing: feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月25日 18時53分51秒 - auto-starting nm-applet
+2015年06月25日 18時53分51秒 - executing: nm-applet
+2015年06月25日 18時53分51秒 - auto-starting mate-volume-control-applet
+2015年06月25日 18時53分51秒 - executing: mate-volume-control-applet
+2015年06月25日 18時53分51秒 - auto-starting shutter &
+2015年06月25日 18時53分51秒 - executing: shutter &
+/bin/sh: nm-applet: コマンドが見つかりません
+2015年06月25日 18時53分51秒 - auto-starting pidgin &
+2015年06月25日 18時53分51秒 - executing: pidgin &
+2015年06月25日 18時53分51秒 - auto-starting ibus-daemon -drx &
+2015年06月25日 18時53分51秒 - executing: ibus-daemon -drx &
+/bin/sh: mate-volume-control-applet: コマンドが見つかりません
+2015年06月25日 18時53分51秒 - auto-starting think.sh
+2015年06月25日 18時53分51秒 - executing: think.sh
+2015年06月25日 18時53分51秒 - auto-starting xmodmap ~/.xmodmaprc
+2015年06月25日 18時53分51秒 - startup id = i3/xmodmap/30969-0-HTPX220Arch_TIME0
+2015年06月25日 18時53分51秒 - executing: xmodmap ~/.xmodmaprc
+2015年06月25日 18時53分51秒 - Starting bar process: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.30969"
+2015年06月25日 18時53分51秒 - executing: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.30969"
+2015年06月25日 18時53分51秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時53分51秒 - IPC: looking for config for bar ID "bar-0"
+2015年06月25日 18時53分51秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時53分51秒 - WM_CLASS changed to i3bar (instance), i3bar (class)
+2015年06月25日 18時53分51秒 - WM_NAME changed to "i3bar for output xinerama-0"
+2015年06月25日 18時53分51秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時53分51秒 - This window is of type dock
+2015年06月25日 18時53分51秒 - Checking window 0x00e00007 (class i3bar)
+2015年06月25日 18時53分51秒 - dock status does not match
+2015年06月25日 18時53分51秒 - Checking window 0x00e00007 (class i3bar)
+2015年06月25日 18時53分51秒 - dock status matches
+2015年06月25日 18時53分51秒 - Urgency flag changed to 0
+2015年06月25日 18時53分51秒 - ClientMessage for window 0x000000c3
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2015年06月25日 18時53分52秒 - Not a managed window, ignoring UnmapNotify event
+WARNING: gnome-web-photo is missing --> screenshots of websites will be disabled!
+
+WARNING: Gtk2::AppIndicator is missing --> there will be no icon showing up in the status bar when running Unity!
+
+2015年06月25日 18時53分52秒 - ClientMessage for window 0x01200024
+2015年06月25日 18時53分52秒 - WM_CLASS changed to shutter (instance), Shutter (class)
+2015年06月25日 18時53分52秒 - WM_NAME changed to "shutter"
+2015年06月25日 18時53分52秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時53分52秒 - _NET_WM_NAME changed to "shutter"
+2015年06月25日 18時53分52秒 - WM_HINTS.input changed to "1"
+2015年06月25日 18時53分52秒 - Checking window 0x01200024 (class Shutter)
+2015年06月25日 18時53分52秒 - dock status does not match
+2015年06月25日 18時53分52秒 - Checking window 0x01200024 (class Shutter)
+2015年06月25日 18時53分52秒 - dock status does not match
+2015年06月25日 18時53分52秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時53分52秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時53分52秒 - ClientMessage for window 0x01200024
+2015年06月25日 18時53分52秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時53分52秒 - ClientMessage for window 0x01200024
+2015年06月25日 18時53分52秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時53分55秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月25日 18時54分01秒 - Sending WM_DELETE to the client
+2015年06月25日 18時54分01秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時54分01秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分01秒 - expose event for unknown window, ignoring
+2015年06月25日 18時54分01秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分01秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分01秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分06秒 - startup id = i3/dmenu_run/30969-1-HTPX220Arch_TIME94255539
+2015年06月25日 18時54分06秒 - executing: dmenu_run
+2015年06月25日 18時54分06秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分09秒 - startup id = i3/i3-nagbar/30969-2-HTPX220Arch_TIME94258577
+2015年06月25日 18時54分09秒 - executing: i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+2015年06月25日 18時54分09秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時54分09秒 - This window is of type dock
+2015年06月25日 18時54分09秒 - Checking window 0x01c00001 (class (null))
+2015年06月25日 18時54分09秒 - dock status matches
+2015年06月25日 18時54分09秒 - Urgency flag changed to 0
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 907, y = 12
+button released on x = 907, y = 12
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31063.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31063.nagbar_cmd
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月25日 18時54分12秒 - ClientMessage for window 0x01e00003
+2015年06月25日 18時54分12秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月25日 18時54分12秒 - WM_NAME changed to "None"
+2015年06月25日 18時54分12秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時54分12秒 - _NET_WM_NAME changed to "None"
+2015年06月25日 18時54分12秒 - WM_HINTS.input changed to "1"
+2015年06月25日 18時54分12秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月25日 18時54分12秒 - dock status does not match
+2015年06月25日 18時54分12秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月25日 18時54分12秒 - dock status does not match
+2015年06月25日 18時54分12秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時54分12秒 - workspace visible? fs = 0x1980330, ws = 0x1980330
+2015年06月25日 18時54分12秒 - _NET_WM_NAME changed to "None"
+2015年06月25日 18時54分12秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月25日 18時54分12秒 - IPC: received: *exit*
+2015年06月25日 18時54分12秒 - Exiting due to user command.
+Exiting due to signal.
+[libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 907, y = 12
+button released on x = 907, y = 12
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31063.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31063.nagbar_cmd
+shutter: Fatal IO error 11 (リソースが一時的に利用できません) on X server :1.
+Pidgin: Fatal IO error 11 (リソースが一時的に利用できません) on X server :1.
+2015年06月25日 18時55分12秒 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2015年06月25日 18時55分12秒 - i3 4.10.2 (2015-04-16, branch "4.10.2") starting
+2015年06月25日 18時55分12秒 - Parsing configfile /home/hnron/.i3/config
+2015年06月25日 18時55分12秒 - deciding for version 4 due to this line: # i3 config file (v4)
+2015年06月25日 18時55分12秒 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+2015年06月25日 18時55分12秒 - [libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+2015年06月25日 18時55分12秒 - Used number 1 for workspace with name 1:term
+2015年06月25日 18時55分12秒 - This is not an in-place restart, copying root window contents to a pixmap
+2015年06月25日 18時55分12秒 - auto-starting feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月25日 18時55分12秒 - executing: feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月25日 18時55分12秒 - auto-starting nm-applet
+2015年06月25日 18時55分12秒 - executing: nm-applet
+2015年06月25日 18時55分12秒 - auto-starting mate-volume-control-applet
+2015年06月25日 18時55分12秒 - executing: mate-volume-control-applet
+2015年06月25日 18時55分12秒 - auto-starting shutter &
+2015年06月25日 18時55分12秒 - executing: shutter &
+2015年06月25日 18時55分12秒 - auto-starting pidgin &
+2015年06月25日 18時55分12秒 - executing: pidgin &
+/bin/sh: nm-applet: コマンドが見つかりません
+2015年06月25日 18時55分12秒 - auto-starting ibus-daemon -drx &
+2015年06月25日 18時55分12秒 - executing: ibus-daemon -drx &
+/bin/sh: mate-volume-control-applet: コマンドが見つかりません
+2015年06月25日 18時55分12秒 - auto-starting think.sh
+2015年06月25日 18時55分12秒 - executing: think.sh
+2015年06月25日 18時55分12秒 - auto-starting xmodmap ~/.xmodmaprc
+2015年06月25日 18時55分12秒 - startup id = i3/xmodmap/31148-0-HTPX220Arch_TIME0
+2015年06月25日 18時55分12秒 - executing: xmodmap ~/.xmodmaprc
+2015年06月25日 18時55分12秒 - Starting bar process: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.31148"
+2015年06月25日 18時55分12秒 - executing: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.31148"
+2015年06月25日 18時55分12秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分12秒 - IPC: looking for config for bar ID "bar-0"
+2015年06月25日 18時55分12秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分12秒 - WM_CLASS changed to i3bar (instance), i3bar (class)
+2015年06月25日 18時55分12秒 - WM_NAME changed to "i3bar for output xinerama-0"
+2015年06月25日 18時55分12秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時55分12秒 - This window is of type dock
+2015年06月25日 18時55分12秒 - Checking window 0x01000007 (class i3bar)
+2015年06月25日 18時55分12秒 - dock status does not match
+2015年06月25日 18時55分12秒 - Checking window 0x01000007 (class i3bar)
+2015年06月25日 18時55分12秒 - dock status matches
+2015年06月25日 18時55分12秒 - Urgency flag changed to 0
+2015年06月25日 18時55分12秒 - ClientMessage for window 0x000000c1
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2015年06月25日 18時55分12秒 - Not a managed window, ignoring UnmapNotify event
+WARNING: gnome-web-photo is missing --> screenshots of websites will be disabled!
+
+WARNING: Gtk2::AppIndicator is missing --> there will be no icon showing up in the status bar when running Unity!
+
+2015年06月25日 18時55分13秒 - ClientMessage for window 0x01800024
+2015年06月25日 18時55分13秒 - WM_CLASS changed to shutter (instance), Shutter (class)
+2015年06月25日 18時55分13秒 - WM_NAME changed to "shutter"
+2015年06月25日 18時55分13秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時55分13秒 - _NET_WM_NAME changed to "shutter"
+2015年06月25日 18時55分13秒 - WM_HINTS.input changed to "1"
+2015年06月25日 18時55分13秒 - Checking window 0x01800024 (class Shutter)
+2015年06月25日 18時55分13秒 - dock status does not match
+2015年06月25日 18時55分13秒 - Checking window 0x01800024 (class Shutter)
+2015年06月25日 18時55分13秒 - dock status does not match
+2015年06月25日 18時55分13秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分13秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分13秒 - ClientMessage for window 0x01800024
+2015年06月25日 18時55分13秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分13秒 - ClientMessage for window 0x01800024
+2015年06月25日 18時55分13秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分13秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月25日 18時55分14秒 - Sending WM_DELETE to the client
+2015年06月25日 18時55分14秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分14秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分14秒 - expose event for unknown window, ignoring
+2015年06月25日 18時55分14秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分14秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分14秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分17秒 - startup id = i3/i3-nagbar/31148-1-HTPX220Arch_TIME94326584
+2015年06月25日 18時55分17秒 - executing: i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+2015年06月25日 18時55分17秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月25日 18時55分17秒 - This window is of type dock
+2015年06月25日 18時55分17秒 - Checking window 0x01c00001 (class (null))
+2015年06月25日 18時55分17秒 - dock status matches
+2015年06月25日 18時55分17秒 - Urgency flag changed to 0
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1269, y = 6
+button released on x = 1269, y = 6
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31234.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31234.nagbar_cmd
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月25日 18時55分19秒 - ClientMessage for window 0x01e00003
+2015年06月25日 18時55分19秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月25日 18時55分19秒 - WM_NAME changed to "None"
+2015年06月25日 18時55分19秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月25日 18時55分19秒 - _NET_WM_NAME changed to "None"
+2015年06月25日 18時55分19秒 - WM_HINTS.input changed to "1"
+2015年06月25日 18時55分19秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月25日 18時55分19秒 - dock status does not match
+2015年06月25日 18時55分19秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月25日 18時55分19秒 - dock status does not match
+2015年06月25日 18時55分19秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分19秒 - workspace visible? fs = 0xe951b0, ws = 0xe951b0
+2015年06月25日 18時55分19秒 - _NET_WM_NAME changed to "None"
+2015年06月25日 18時55分19秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月25日 18時55分19秒 - IPC: received: *exit*
+2015年06月25日 18時55分19秒 - Exiting due to user command.
+Exiting due to signal.
+[libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+Pidgin: Fatal IO error 11 (リソースが一時的に利用できません) on X server :1.
+terminator: Fatal IO error 11 (リソースが一時的に利用できません) on X server :1.
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1269, y = 6
+button released on x = 1269, y = 6
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31234.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.31234.nagbar_cmd
+shutter: Fatal IO error 11 (リソースが一時的に利用できません) on X server :1.
+2015年06月26日 20時31分07秒 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2015年06月26日 20時31分07秒 - i3 4.10.2 (2015-04-16, branch "4.10.2") starting
+2015年06月26日 20時31分07秒 - Parsing configfile /home/hnron/.i3/config
+2015年06月26日 20時31分07秒 - deciding for version 4 due to this line: # i3 config file (v4)
+2015年06月26日 20時31分07秒 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+2015年06月26日 20時31分07秒 - [libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+2015年06月26日 20時31分07秒 - Used number 1 for workspace with name 1:term
+2015年06月26日 20時31分07秒 - This is not an in-place restart, copying root window contents to a pixmap
+2015年06月26日 20時31分07秒 - auto-starting feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月26日 20時31分07秒 - executing: feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月26日 20時31分07秒 - auto-starting nm-applet
+2015年06月26日 20時31分07秒 - executing: nm-applet
+2015年06月26日 20時31分07秒 - auto-starting mate-volume-control-applet
+2015年06月26日 20時31分07秒 - executing: mate-volume-control-applet
+2015年06月26日 20時31分07秒 - auto-starting shutter &
+2015年06月26日 20時31分07秒 - executing: shutter &
+/bin/sh: nm-applet: コマンドが見つかりません
+/bin/sh: mate-volume-control-applet: コマンドが見つかりません
+2015年06月26日 20時31分07秒 - auto-starting pidgin &
+2015年06月26日 20時31分07秒 - executing: pidgin &
+2015年06月26日 20時31分07秒 - auto-starting ibus-daemon -drx &
+2015年06月26日 20時31分07秒 - executing: ibus-daemon -drx &
+2015年06月26日 20時31分07秒 - auto-starting think.sh
+2015年06月26日 20時31分07秒 - executing: think.sh
+2015年06月26日 20時31分07秒 - auto-starting xmodmap ~/.xmodmaprc
+2015年06月26日 20時31分07秒 - startup id = i3/xmodmap/515-0-HTPX220Arch_TIME0
+2015年06月26日 20時31分07秒 - executing: xmodmap ~/.xmodmaprc
+2015年06月26日 20時31分07秒 - Starting bar process: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.515"
+2015年06月26日 20時31分07秒 - executing: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.515"
+2015年06月26日 20時31分07秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時31分07秒 - IPC: looking for config for bar ID "bar-0"
+2015年06月26日 20時31分07秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分07秒 - WM_CLASS changed to i3bar (instance), i3bar (class)
+2015年06月26日 20時31分07秒 - WM_NAME changed to "i3bar for output xinerama-0"
+2015年06月26日 20時31分07秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時31分07秒 - This window is of type dock
+2015年06月26日 20時31分07秒 - Checking window 0x00c00007 (class i3bar)
+2015年06月26日 20時31分07秒 - dock status does not match
+2015年06月26日 20時31分07秒 - Checking window 0x00c00007 (class i3bar)
+2015年06月26日 20時31分07秒 - dock status matches
+2015年06月26日 20時31分07秒 - Urgency flag changed to 0
+2015年06月26日 20時31分07秒 - ClientMessage for window 0x000000c1
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2015年06月26日 20時31分08秒 - Not a managed window, ignoring UnmapNotify event
+WARNING: gnome-web-photo is missing --> screenshots of websites will be disabled!
+
+WARNING: Gtk2::AppIndicator is missing --> there will be no icon showing up in the status bar when running Unity!
+
+2015年06月26日 20時31分09秒 - ClientMessage for window 0x01800024
+2015年06月26日 20時31分09秒 - WM_CLASS changed to shutter (instance), Shutter (class)
+2015年06月26日 20時31分09秒 - WM_NAME changed to "shutter"
+2015年06月26日 20時31分09秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時31分09秒 - _NET_WM_NAME changed to "shutter"
+2015年06月26日 20時31分09秒 - WM_HINTS.input changed to "1"
+2015年06月26日 20時31分09秒 - Checking window 0x01800024 (class Shutter)
+2015年06月26日 20時31分09秒 - dock status does not match
+2015年06月26日 20時31分09秒 - Checking window 0x01800024 (class Shutter)
+2015年06月26日 20時31分09秒 - dock status does not match
+2015年06月26日 20時31分09秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分09秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分09秒 - ClientMessage for window 0x01800024
+2015年06月26日 20時31分09秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分09秒 - ClientMessage for window 0x01800024
+2015年06月26日 20時31分09秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分09秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月26日 20時31分11秒 - startup id = i3/dmenu_run/515-1-HTPX220Arch_TIME16795
+2015年06月26日 20時31分11秒 - executing: dmenu_run
+2015年06月26日 20時31分11秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時31分11秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月26日 20時31分19秒 - startup id = i3/i3-nagbar/515-2-HTPX220Arch_TIME25220
+2015年06月26日 20時31分19秒 - executing: i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+2015年06月26日 20時31分19秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時31分19秒 - This window is of type dock
+2015年06月26日 20時31分19秒 - Checking window 0x01c00001 (class (null))
+2015年06月26日 20時31分19秒 - dock status matches
+2015年06月26日 20時31分19秒 - Urgency flag changed to 0
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1246, y = 9
+button released on x = 1246, y = 9
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.645.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.645.nagbar_cmd
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月26日 20時31分22秒 - ClientMessage for window 0x01e00003
+2015年06月26日 20時31分22秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月26日 20時31分22秒 - WM_NAME changed to "None"
+2015年06月26日 20時31分22秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時31分22秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時31分22秒 - WM_HINTS.input changed to "1"
+2015年06月26日 20時31分22秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月26日 20時31分22秒 - dock status does not match
+2015年06月26日 20時31分22秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月26日 20時31分22秒 - dock status does not match
+2015年06月26日 20時31分22秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分22秒 - workspace visible? fs = 0x22981b0, ws = 0x22981b0
+2015年06月26日 20時31分22秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時31分22秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月26日 20時31分22秒 - IPC: received: *exit*
+2015年06月26日 20時31分22秒 - Exiting due to user command.
+[libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+Exiting due to signal.
+Pidgin: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+shutter: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1246, y = 9
+button released on x = 1246, y = 9
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.645.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.645.nagbar_cmd
+2015年06月26日 20時32分58秒 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2015年06月26日 20時32分58秒 - i3 4.10.2 (2015-04-16, branch "4.10.2") starting
+2015年06月26日 20時32分58秒 - Parsing configfile /home/hnron/.i3/config
+2015年06月26日 20時32分58秒 - deciding for version 4 due to this line: # i3 config file (v4)
+2015年06月26日 20時32分58秒 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+2015年06月26日 20時32分58秒 - [libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+2015年06月26日 20時32分58秒 - Used number 1 for workspace with name 1:term
+2015年06月26日 20時32分58秒 - This is not an in-place restart, copying root window contents to a pixmap
+2015年06月26日 20時32分58秒 - auto-starting feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月26日 20時32分58秒 - executing: feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月26日 20時32分58秒 - auto-starting nm-applet
+2015年06月26日 20時32分58秒 - executing: nm-applet
+2015年06月26日 20時32分58秒 - auto-starting mate-volume-control-applet
+2015年06月26日 20時32分58秒 - executing: mate-volume-control-applet
+2015年06月26日 20時32分58秒 - auto-starting shutter &
+2015年06月26日 20時32分58秒 - executing: shutter &
+2015年06月26日 20時32分58秒 - auto-starting pidgin &
+2015年06月26日 20時32分58秒 - executing: pidgin &
+/bin/sh: nm-applet: コマンドが見つかりません
+2015年06月26日 20時32分58秒 - auto-starting ibus-daemon -drx &
+2015年06月26日 20時32分58秒 - executing: ibus-daemon -drx &
+/bin/sh: mate-volume-control-applet: コマンドが見つかりません
+2015年06月26日 20時32分58秒 - auto-starting think.sh
+2015年06月26日 20時32分58秒 - executing: think.sh
+2015年06月26日 20時32分58秒 - auto-starting xmodmap ~/.xmodmaprc
+2015年06月26日 20時32分58秒 - startup id = i3/xmodmap/756-0-HTPX220Arch_TIME0
+2015年06月26日 20時32分58秒 - executing: xmodmap ~/.xmodmaprc
+2015年06月26日 20時32分58秒 - Starting bar process: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.756"
+2015年06月26日 20時32分58秒 - executing: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.756"
+2015年06月26日 20時32分58秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時32分58秒 - IPC: looking for config for bar ID "bar-0"
+2015年06月26日 20時32分58秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2015年06月26日 20時32分58秒 - WM_CLASS changed to i3bar (instance), i3bar (class)
+2015年06月26日 20時32分58秒 - WM_NAME changed to "i3bar for output xinerama-0"
+2015年06月26日 20時32分58秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時32分58秒 - This window is of type dock
+2015年06月26日 20時32分58秒 - Checking window 0x01000007 (class i3bar)
+2015年06月26日 20時32分58秒 - dock status does not match
+2015年06月26日 20時32分58秒 - Checking window 0x01000007 (class i3bar)
+2015年06月26日 20時32分58秒 - dock status matches
+2015年06月26日 20時32分58秒 - Urgency flag changed to 0
+2015年06月26日 20時32分58秒 - ClientMessage for window 0x000000c1
+2015年06月26日 20時32分58秒 - Not a managed window, ignoring UnmapNotify event
+WARNING: gnome-web-photo is missing --> screenshots of websites will be disabled!
+
+WARNING: Gtk2::AppIndicator is missing --> there will be no icon showing up in the status bar when running Unity!
+
+2015年06月26日 20時32分59秒 - ClientMessage for window 0x01200024
+2015年06月26日 20時32分59秒 - WM_CLASS changed to shutter (instance), Shutter (class)
+2015年06月26日 20時32分59秒 - WM_NAME changed to "shutter"
+2015年06月26日 20時32分59秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時32分59秒 - _NET_WM_NAME changed to "shutter"
+2015年06月26日 20時32分59秒 - WM_HINTS.input changed to "1"
+2015年06月26日 20時32分59秒 - Checking window 0x01200024 (class Shutter)
+2015年06月26日 20時32分59秒 - dock status does not match
+2015年06月26日 20時32分59秒 - Checking window 0x01200024 (class Shutter)
+2015年06月26日 20時32分59秒 - dock status does not match
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時32分59秒 - ClientMessage for window 0x01200024
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時32分59秒 - ClientMessage for window 0x01200024
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時32分59秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月26日 20時32分59秒 - Creating new workspace "2:www"
+2015年06月26日 20時32分59秒 - got output 0x201c9e0 with content 0x201fe40
+2015年06月26日 20時32分59秒 - num = 2
+2015年06月26日 20時32分59秒 - focused now = 0x20ab830 / 2:www
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x20ab830, ws = 0x2020330
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x20ab830, ws = 0x20ab830
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x20ab830, ws = 0x2020330
+2015年06月26日 20時32分59秒 - workspace visible? fs = 0x20ab830, ws = 0x20ab830
+2015年06月26日 20時33分01秒 - workspace visible? fs = 0x2020330, ws = 0x20ab830
+2015年06月26日 20時33分01秒 - Closing old workspace (0x20ab830 / 2:www), it is empty
+2015年06月26日 20時33分01秒 - focused now = 0x20208c0 / (null)
+2015年06月26日 20時33分01秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分01秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分01秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分02秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月26日 20時33分02秒 - Sending WM_DELETE to the client
+2015年06月26日 20時33分02秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分02秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分02秒 - expose event for unknown window, ignoring
+2015年06月26日 20時33分02秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分02秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分02秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分02秒 - startup id = i3/terminator/756-1-HTPX220Arch_TIME128321
+2015年06月26日 20時33分02秒 - executing: terminator
+2015年06月26日 20時33分02秒 - Not a managed window, ignoring UnmapNotify event
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月26日 20時33分03秒 - ClientMessage for window 0x01c00003
+2015年06月26日 20時33分03秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月26日 20時33分03秒 - WM_NAME changed to "None"
+2015年06月26日 20時33分03秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時33分03秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時33分03秒 - WM_HINTS.input changed to "1"
+2015年06月26日 20時33分03秒 - Checking window 0x01c00003 (class Terminator)
+2015年06月26日 20時33分03秒 - dock status does not match
+2015年06月26日 20時33分03秒 - Checking window 0x01c00003 (class Terminator)
+2015年06月26日 20時33分03秒 - dock status does not match
+2015年06月26日 20時33分03秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分03秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分03秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時33分03秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月26日 20時33分03秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月26日 20時33分03秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月26日 20時33分46秒 - _NET_WM_NAME changed to "hnron@HTPX220Arch: ~"
+2015年06月26日 20時33分48秒 - _NET_WM_NAME changed to "hnron@HTPX220Arch: exit"
+2015年06月26日 20時33分48秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - expose event for unknown window, ignoring
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分48秒 - startup id = i3/dmenu_run/756-2-HTPX220Arch_TIME173784
+2015年06月26日 20時33分48秒 - executing: dmenu_run
+2015年06月26日 20時33分48秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分52秒 - startup id = i3/i3-nagbar/756-3-HTPX220Arch_TIME178289
+2015年06月26日 20時33分52秒 - executing: i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
+2015年06月26日 20時33分52秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月26日 20時33分52秒 - This window is of type dock
+2015年06月26日 20時33分52秒 - Checking window 0x01c00001 (class (null))
+2015年06月26日 20時33分52秒 - dock status matches
+2015年06月26日 20時33分52秒 - Urgency flag changed to 0
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1238, y = 1
+button released on x = 1248, y = 9
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.996.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.996.nagbar_cmd
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月26日 20時33分54秒 - ClientMessage for window 0x01e00003
+2015年06月26日 20時33分54秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月26日 20時33分54秒 - WM_NAME changed to "None"
+2015年06月26日 20時33分54秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月26日 20時33分54秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時33分54秒 - WM_HINTS.input changed to "1"
+2015年06月26日 20時33分54秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月26日 20時33分54秒 - dock status does not match
+2015年06月26日 20時33分54秒 - Checking window 0x01e00003 (class Terminator)
+2015年06月26日 20時33分54秒 - dock status does not match
+2015年06月26日 20時33分54秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分54秒 - workspace visible? fs = 0x2020330, ws = 0x2020330
+2015年06月26日 20時33分54秒 - _NET_WM_NAME changed to "None"
+2015年06月26日 20時33分54秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月26日 20時33分54秒 - IPC: received: *exit*
+2015年06月26日 20時33分54秒 - Exiting due to user command.
+Exiting due to signal.
+[libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+shutter: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+Pidgin: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+button with label *Yes, exit i3* and action *i3-msg exit*
+now 1 buttons
+[libi3] libi3/font.c Using Pango font monospace, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+button pressed on x = 1238, y = 1
+button released on x = 1248, y = 9
+argv0 = i3-nagbar
+terminal_cmd = i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.996.nagbar_cmd
+executing: i3-sensible-terminal -e /run/user/1000/i3/nagbar-cmd.996.nagbar_cmd
+terminator: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+2015年06月28日 22時02分46秒 - ERROR: Using Xinerama instead of RandR. This option should be avoided at all cost because it does not refresh the list of screens, so you cannot configure displays at runtime. Please check if your driver really does not support RandR and disable this option as soon as you can.
+2015年06月28日 22時02分46秒 - i3 4.10.2 (2015-04-16, branch "4.10.2") starting
+2015年06月28日 22時02分46秒 - Parsing configfile /home/hnron/.i3/config
+2015年06月28日 22時02分46秒 - deciding for version 4 due to this line: # i3 config file (v4)
+2015年06月28日 22時02分46秒 - [libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+2015年06月28日 22時02分46秒 - [libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+2015年06月28日 22時02分46秒 - Used number 1 for workspace with name 1:term
+2015年06月28日 22時02分46秒 - This is not an in-place restart, copying root window contents to a pixmap
+2015年06月28日 22時02分46秒 - auto-starting feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月28日 22時02分46秒 - executing: feh --bg-scale $HOME/Pictures/background_3.png
+2015年06月28日 22時02分46秒 - auto-starting nm-applet
+2015年06月28日 22時02分46秒 - executing: nm-applet
+2015年06月28日 22時02分46秒 - auto-starting mate-volume-control-applet
+2015年06月28日 22時02分46秒 - executing: mate-volume-control-applet
+2015年06月28日 22時02分46秒 - auto-starting shutter &
+2015年06月28日 22時02分46秒 - executing: shutter &
+2015年06月28日 22時02分46秒 - auto-starting pidgin &
+2015年06月28日 22時02分46秒 - executing: pidgin &
+2015年06月28日 22時02分46秒 - auto-starting ibus-daemon -drx &
+2015年06月28日 22時02分46秒 - executing: ibus-daemon -drx &
+/bin/sh: mate-volume-control-applet: コマンドが見つかりません
+/bin/sh: nm-applet: コマンドが見つかりません
+2015年06月28日 22時02分46秒 - auto-starting think.sh
+2015年06月28日 22時02分46秒 - executing: think.sh
+2015年06月28日 22時02分46秒 - auto-starting xmodmap ~/.xmodmaprc
+2015年06月28日 22時02分46秒 - startup id = i3/xmodmap/519-0-HTPX220Arch_TIME0
+2015年06月28日 22時02分46秒 - executing: xmodmap ~/.xmodmaprc
+2015年06月28日 22時02分46秒 - Starting bar process: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.519"
+2015年06月28日 22時02分46秒 - executing: i3bar --bar_id=bar-0 --socket="/run/user/1000/i3/ipc-socket.519"
+2015年06月28日 22時02分46秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月28日 22時02分46秒 - IPC: looking for config for bar ID "bar-0"
+2015年06月28日 22時02分46秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分46秒 - WM_CLASS changed to i3bar (instance), i3bar (class)
+2015年06月28日 22時02分46秒 - WM_NAME changed to "i3bar for output xinerama-0"
+2015年06月28日 22時02分46秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月28日 22時02分46秒 - This window is of type dock
+2015年06月28日 22時02分46秒 - Checking window 0x00e00007 (class i3bar)
+2015年06月28日 22時02分46秒 - dock status does not match
+2015年06月28日 22時02分46秒 - Checking window 0x00e00007 (class i3bar)
+2015年06月28日 22時02分46秒 - dock status matches
+2015年06月28日 22時02分46秒 - Urgency flag changed to 0
+2015年06月28日 22時02分46秒 - ClientMessage for window 0x000000c1
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2015年06月28日 22時02分47秒 - Not a managed window, ignoring UnmapNotify event
+WARNING: gnome-web-photo is missing --> screenshots of websites will be disabled!
+
+WARNING: Gtk2::AppIndicator is missing --> there will be no icon showing up in the status bar when running Unity!
+
+2015年06月28日 22時02分48秒 - ClientMessage for window 0x01800024
+2015年06月28日 22時02分48秒 - WM_CLASS changed to shutter (instance), Shutter (class)
+2015年06月28日 22時02分48秒 - WM_NAME changed to "shutter"
+2015年06月28日 22時02分48秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月28日 22時02分48秒 - _NET_WM_NAME changed to "shutter"
+2015年06月28日 22時02分48秒 - WM_HINTS.input changed to "1"
+2015年06月28日 22時02分48秒 - Checking window 0x01800024 (class Shutter)
+2015年06月28日 22時02分48秒 - dock status does not match
+2015年06月28日 22時02分48秒 - Checking window 0x01800024 (class Shutter)
+2015年06月28日 22時02分48秒 - dock status does not match
+2015年06月28日 22時02分48秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分48秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分48秒 - ClientMessage for window 0x01800024
+2015年06月28日 22時02分48秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分48秒 - ClientMessage for window 0x01800024
+2015年06月28日 22時02分48秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分48秒 - _NET_WM_NAME changed to "セッション - Shutter"
+2015年06月28日 22時02分49秒 - Sending WM_DELETE to the client
+2015年06月28日 22時02分49秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分49秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月28日 22時02分49秒 - expose event for unknown window, ignoring
+2015年06月28日 22時02分49秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月28日 22時02分49秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月28日 22時02分49秒 - Not a managed window, ignoring UnmapNotify event
+2015年06月28日 22時02分51秒 - startup id = i3/terminator/519-1-HTPX220Arch_TIME53841
+2015年06月28日 22時02分51秒 - executing: terminator
+2015年06月28日 22時02分51秒 - Not a managed window, ignoring UnmapNotify event
+/usr/lib/python2.7/site-packages/terminatorlib/window.py:63: Warning: The property GtkWindow:allow-shrink is deprecated and shouldn't be used anymore. It will be removed in a future version.
+  self.set_property('allow-shrink', True)
+2015年06月28日 22時02分52秒 - ClientMessage for window 0x01c00003
+2015年06月28日 22時02分52秒 - WM_CLASS changed to terminator (instance), Terminator (class)
+2015年06月28日 22時02分52秒 - WM_NAME changed to "None"
+2015年06月28日 22時02分52秒 - Using legacy window title. Note that in order to get Unicode window titles in i3, the application has to set _NET_WM_NAME (UTF-8)
+2015年06月28日 22時02分52秒 - _NET_WM_NAME changed to "None"
+2015年06月28日 22時02分52秒 - WM_HINTS.input changed to "1"
+2015年06月28日 22時02分52秒 - Checking window 0x01c00003 (class Terminator)
+2015年06月28日 22時02分52秒 - dock status does not match
+2015年06月28日 22時02分52秒 - Checking window 0x01c00003 (class Terminator)
+2015年06月28日 22時02分52秒 - dock status does not match
+2015年06月28日 22時02分52秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分52秒 - workspace visible? fs = 0x18e11b0, ws = 0x18e11b0
+2015年06月28日 22時02分52秒 - _NET_WM_NAME changed to "None"
+2015年06月28日 22時02分52秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月28日 22時02分52秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月28日 22時02分52秒 - _NET_WM_NAME changed to "/bin/zsh"
+2015年06月28日 22時02分54秒 - IPC: received: *exit*
+2015年06月28日 22時02分54秒 - Exiting due to user command.
+[libi3] libi3/font.c Using Pango font DejaVu Sans Mono, size 8
+[libi3] libi3/font.c X11 root window dictates 96.094581 DPI
+Exiting due to signal.
+Pidgin: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.
+terminator: Fatal IO error 104 (接続が相手からリセットされました) on X server :0.
+shutter: Fatal IO error 11 (リソースが一時的に利用できません) on X server :0.

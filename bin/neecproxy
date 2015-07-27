@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+echo "export http_proxy=http://172.16.2.22:8080/"
+echo "export https_proxy=http://172.16.2.22:8080/"
