@@ -13,9 +13,6 @@ promptinit
 autoload -U colors && colors
 
 prompt grml-large
-if [ $? -eq 1 ]; then
-    prompt walters
-fi
 
 # zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
