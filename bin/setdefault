@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ]; then
+    echo "There are no arguments" >&2
+    exit 1
+fi
+
+default=$1
+
+sudo ip route replace default via $default
+ip route
+

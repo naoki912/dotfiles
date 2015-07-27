@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cat /etc/resolv.conf
+

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+sudo ip link set address aa:aa:aa:bb:bb:bb dev enp0s25
+sudo ip a a 172.16.38.230/24 dev enp0s25
+sudo ip link set up dev enp0s25
+
+echo "Please set"
+neecproxy
+
+setresolv 172.16.2.4
+setdefault 172.16.38.254

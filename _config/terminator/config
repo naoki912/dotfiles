@@ -4,15 +4,28 @@
   focus = mouse
   title_transmit_fg_color = "#dd454c"
 [keybindings]
+  close_window = None
+  next_tab = None
+  split_horiz = None
+  new_window = None
+  prev_tab = None
+  move_tab_right = None
+  close_term = None
+  move_tab_left = None
+  new_tab = None
+  split_vert = None
+  copy = None
+  paste = None
 [profiles]
   [[default]]
     scrollbar_position = hidden
     palette = "#000000:#ff4949:#40ff40:#ffa448:#5a5aff:#ff5eff:#44ffff:#aaaaaa:#555555:#ff9999:#a3ffa3:#ffff58:#a1a1ff:#ffa8ff:#bfffff:#ffffff"
-    background_image = None
+    use_system_font = False
     background_darkness = 0.0
     background_type = transparent
-    use_system_font = False
+    active_encodings = SHIFT-JIS, UTF-8, ISO-8859-1
     foreground_color = "#ffffff"
+    background_image = None
     use_custom_command = True
     icon_bell = False
     custom_command = env TERM=xterm-256color zsh
