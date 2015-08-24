@@ -1,0 +1,9 @@
+#compdef resolv
+
+_resolv() {
+    _values \
+        'ip adderss'\
+        '192.168.1.254' \
+        '192.168.100.1' \
+        '8.8.8.8'
+}

@@ -6,13 +6,16 @@
 
 # Arch Wiki Imput{
 autoload -U compinit promptinit
-compinit
+compinit -u
 promptinit
-
-
 autoload -U colors && colors
-
 prompt grml-large
+
+# 補完メッセージを読みやすくする
+zstyle ':completion:*' verbose yes
+# zstyle ':completion:*' format '%B%d%b'
+# zstyle ':completion:*:warnings' format 'No matches for: %d'
+# zstyle ':completion:*' group-name ''
 
 # zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -20,8 +23,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #source /etc/profile.d/android-ndk.sh
 
 # 補完PATH読み込み
-if [ -f $HOME/.zsh/_mycompdef ]; then
-    export FPATH="${FPATH}:$HOME/.zsh/_mycompdef"
+# なんか上手く行かない
+if [ -d $HOME/.zsh/ ]; then
+    export FPATH="${FPATH}:$HOME/.zsh"
 fi
 
 # その他PATHとか
