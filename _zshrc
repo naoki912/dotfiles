@@ -19,7 +19,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # android-ndk
 #source /etc/profile.d/android-ndk.sh
 
+# 補完PATH読み込み
+if [ -f $HOME/.zsh/_mycompdef ]; then
+    export FPATH="${FPATH}:$HOME/.zsh/_mycompdef"
+fi
 
+# その他PATHとか
 export PATH=${PATH}:$HOME/dotfiles/bin
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PYENV_ROOT/bin:$PATH
