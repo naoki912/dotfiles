@@ -273,6 +273,6 @@ NO=`expr $RANDOM % $NUM`
 echo ${AA[$NO]}
 #http://d.hatena.ne.jp/kiyotune/20120329/1333029068
 
-
+archey3
 
 
