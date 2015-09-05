@@ -1,0 +1,43 @@
+#compdef testcmd
+
+_testcmd() {
+    _arguments \
+        --add-service='[サービスを追加'] \
+        --add-port='[ポートを追加 ex)80/tcp]' \
+        --add-interface='[ゾーンにインターフェースを追加]' \
+        --add-masquerade'[ゾーンでマスカレーディングを有効化]' \
+        --add-icmp-block='[ゾーンのICMPブロックを有効化]' \
+        --complete-reload'[最終兵器状態消去再起動]' \
+        --change-interface='[インターフェースの属するゾーンを変更]' \
+        --disable-panic'[パニックモードを無効化]' \
+        --enable-panic'[緊急時に全ネットワークトラフィックをブロック、パニックモードを有効化]' \
+        --get-zones'[サポートされる全てのゾーンのリストを取得]' \
+        --get-services'[サポートされる全てのサービスのリストを取得]' \
+        --get-icmptypes'[サポートされる全てのICMPタイプのリストを取得]' \
+        --get-zones'[ゾーンを表示]' \
+        --get-default-zone'[ネットワーク接続用のデフォルトゾーンを取得]' \
+        --get-active-zones'[既存のゾーンを取得]' \
+        --get-zone-of-interface='[インターフェースに関連するゾーンを取得]' \
+        --list-all-zones'[全ての有効な機能とゾーンを一覧表示]' \
+        --list-all'[デフォルトゾーンの表示]' \
+        --list-services'[ゾーンで有効なサービスを一覧表示]' \
+        --permanent'[永続的に設定]' \
+        --query-interface='[ゾーンにインターフェースがあるか問合せ]' \
+        --query-panic'[パニックモードか否かを確認 出力無し 0,1を返す]' \
+        --query-service='[ゾーンに有効なサービスがあるか問合せ]' \
+        --query-port='[ゾーンに有効なポートとプロトコルの組み合わせがあるか問合せ ex)80/tcp]' \
+        --query-masquerade'[ゾーンのマスカレーディングを問合せ]' \
+        --query-icmp-block='[ゾーンのICMPブロックを問合せ 0,1を返す]' \
+        --reload'[firewalldを状態の情報を失わずにリロード]' \
+        --remove-port='[ポートを削除する ex)80/tcp]' \
+        --remove-interface='[ゾーンからインターフェースを取り除く]' \
+        --remove-service='[ゾーンのサービスを無効にする]' \
+        --remove-masquerade'[ゾーンのマスカレーディングを無効化]' \
+        --remove-icmp-block='[ゾーンのICMPブロックを無効化]' \
+        --state'[firewalldのステータスを取得する 出力なし 0,1を返す]' \
+        --set-default-zone='[デフォルトゾーンを設定する]' \
+        --timeout='[指定秒間だけサービスを有効化 組み合わせて使用]' \
+        --zone='[ゾーンを選択する]' \
+        {-h,--help}'[show help]'
+}
+

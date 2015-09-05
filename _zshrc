@@ -119,12 +119,13 @@ alias clear='clear;def_clear'
 alias vi='vim'
 alias v='vim'
 alias tmux='tmux -2'
+alias ip='sudo ip'
 alias ipa='sudo ip addr'
 alias ipaa='sudo ip addr add'
 alias ipr='sudo ip route'
-#上手く表示出来ない
 alias iprd="ip route | grep '^d' | sed -e s/\^\[0-9]://"
 alias iprrd='sudo ip route replace default via'
+alias iprdd='sudo ip route delete default ; ip route'
 
 # ssh
 alias sshage='echo "start ssh-agent zsh ! \nplease sshad" ; ssh-agent zsh ; echo "exit ssh-agent"'
