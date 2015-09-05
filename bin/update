@@ -4,5 +4,9 @@ if [ ! -d $HOME/.pacman ]; then
     mkdir $HOME/.pacman
 fi
 
-sudo pacman -Syu 2>&1 | tee -a ~/.pacman/`date --iso-8601`
+save_dir=$HOME/.pacman/`date --iso-8601`
+
+echo "" >> $save_dir
+echo `env LANG=C date +'Time %X'` >> $save_dir
+sudo pacman -Syu 2>&1 | tee -a $save_dir
 
