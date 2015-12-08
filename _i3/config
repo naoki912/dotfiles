@@ -220,6 +220,7 @@ exec --no-startup-id ibus-daemon -drx &
 exec --no-startup-id think.sh
 exec --no-startup-id google-musicmanager &
 exec --no-startup-id owncloud &
+exec --no-startup-id slack &
 
 
 # ctrl caps change

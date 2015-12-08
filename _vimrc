@@ -284,6 +284,7 @@ set smartindent
 filetype plugin on
 syntax on
 set cursorline
+set noundofile
 
 "背景の透過
 highlight Normal  ctermbg=NONE
