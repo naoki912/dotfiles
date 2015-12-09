@@ -7,6 +7,7 @@
   close_term = None
   close_window = None
   copy = None
+  layout_launcher = None
   move_tab_left = None
   move_tab_right = None
   new_tab = None
