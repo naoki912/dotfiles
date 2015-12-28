@@ -101,6 +101,9 @@ layouts = [
     layout.Max(),
     layout.Stack(num_stacks=2),
     layout.MonadTall(),
+    layout.Floating(
+        border_focus='#00ff00',
+        ),
 ]
 
 screens = [
