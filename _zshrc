@@ -124,6 +124,7 @@ alias iprdd='sudo ip route delete default ; ip route'
 alias ls='ls -F --color=auto'
 alias lsa='ls -laiF --color=auto'
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+alias mkdir="mkdir -p"
 alias ps='ps aux'
 alias tmux='tmux -2'
 alias vi='vim'
