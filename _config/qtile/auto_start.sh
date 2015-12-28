@@ -8,5 +8,5 @@ ibus-daemon -drx &
 google-musicmanager &
 owncloud &
 slack &
-twmnd &
+# twmnd &
 xmodmap ~/.xmodmaprc
