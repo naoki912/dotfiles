@@ -1,0 +1,51 @@
+# commands
+# オプション省略
+alias clear='clear;def_clear'
+alias grep='grep -n --color=auto'
+alias egrep='grep -n --color=auto'
+alias ip='sudo ip'
+alias ipa='sudo ip addr'
+alias ipaa='sudo ip addr add'
+alias ipr='sudo ip route'
+alias iprd="ip route | grep '^d' | sed -e s/\^\[0-9]://"
+alias iprrd='sudo ip route replace default via'
+alias iprdd='sudo ip route delete default ; ip route'
+alias ls='ls -F --color=auto'
+alias lsa='ls -laiF --color=auto'
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+alias mkdir="mkdir -p"
+alias ps='ps aux'
+alias tmux='tmux -2'
+alias vi='vim'
+alias v='vim'
+
+# コマンド省略
+alias c='clear'
+alias cdc='cd;clear'
+
+# 追加コマンド
+alias :q='exit'
+alias eng='LANG=C'
+alias jng='LANG=ja_JP.UTF-8'
+alias py='ipython'
+alias picture='eog'
+alias pdf='evince'
+alias noipv6='sudo sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1 && echo "exec sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1"'
+alias えぃｔ='exit'
+alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
+alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
+alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
+
+# エイリアス
+alias Xterm='terminator'
+alias xterm='terminator'
+
+# 情報を表示させる
+alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
+alias showmount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
+alias showmount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
+alias showmount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
+alias showpacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+
+# ファイルを開くソフトウェアの選択
+alias -s asta=astah
