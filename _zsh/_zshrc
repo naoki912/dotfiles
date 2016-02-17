@@ -135,17 +135,6 @@ export PATH=$PATH:~/.local/bin
 #powerline-daemon -q
 #. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# function
-function def_clear() {
-    echo "${fg_bold[yellow]}
- ██████╗██╗     ███████╗ █████╗ ██████╗ 
-██╔════╝██║     ██╔════╝██╔══██╗██╔══██╗
-██║     ██║     █████╗  ███████║██████╔╝
-██║     ██║     ██╔══╝  ██╔══██║██╔══██╗
-╚██████╗███████╗███████╗██║  ██║██║  ██║
- ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ${reset_color}"
-}
-
 ##########
 # TMUX
 ##########
