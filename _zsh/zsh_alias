@@ -18,6 +18,7 @@ alias ps='ps aux'
 alias tmux='tmux -2'
 alias vi='vim'
 alias v='vim'
+alias machinectl-pull-dkr='machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io'
 
 # コマンド省略
 alias c='clear'
@@ -35,6 +36,7 @@ alias えぃｔ='exit'
 alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
 alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
 alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
+alias natwlan0='sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE'
 
 # エイリアス
 alias Xterm='terminator'
@@ -42,10 +44,19 @@ alias xterm='terminator'
 
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
-alias showmount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
-alias showmount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
-alias showmount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
-alias showpacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+
+alias show-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
+alias show-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
+alias show-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
+
+alias show-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+alias show-grep-comment='echo grep -v -e "^\s*#" -e "^\s*$" unbound.conf'
+
+alias show-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
+alias show-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
+alias show-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
+alias show-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias show-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
 
 # ファイルを開くソフトウェアの選択
 alias -s asta=astah
