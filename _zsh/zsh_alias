@@ -1,8 +1,15 @@
 # commands
+
+# コマンド省略
+alias ca='cat'
+alias g='grep'
+alias i='ip'
+alias p='ping'
+
 # オプション省略
 alias clear='clear;def_clear'
-alias grep='grep -n --color=auto'
 alias egrep='grep -n --color=auto'
+alias grep='grep -n --color=auto'
 alias ip='sudo ip'
 alias ipa='sudo ip addr'
 alias ipaa='sudo ip addr add'
@@ -10,15 +17,25 @@ alias ipr='sudo ip route'
 alias iprd="ip route | grep '^d' | sed -e s/\^\[0-9]://"
 alias iprrd='sudo ip route replace default via'
 alias iprdd='sudo ip route delete default ; ip route'
+alias ipr6='ip -6 route'
 alias ls='ls -F --color=auto'
 alias lsa='ls -laiF --color=auto'
+alias machinectl-pull-dkr='machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io'
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias mkdir="mkdir -p"
 alias ps='ps aux'
 alias tmux='tmux -2'
+alias top='top -c'
 alias vi='vim'
 alias v='vim'
-alias machinectl-pull-dkr='machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io'
+
+alias nmap-dns-recursion='sudo nmap -sU -p 53 -Pn --script=dns-recursion'
+alias nmap-ntp-monlist='sudo nmap -sU -p 123 -Pn --script=ntp-monlist'
+alias nmap-brute='sudo nmap -sU -p 161 -Pn --script=snmp-brute'
+
+# 引数省略
+alias pingg='ping google.co.jp'
+alias ping8='ping 8.8.8.8'
 
 # コマンド省略
 alias c='clear'
