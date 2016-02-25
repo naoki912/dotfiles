@@ -129,12 +129,6 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
-
-# powerlineの設定
-export PATH=$PATH:~/.local/bin
-#powerline-daemon -q
-#. ~/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
-
 ##########
 # TMUX
 ##########
