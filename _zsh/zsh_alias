@@ -24,6 +24,9 @@ alias machinectl-pull-dkr='machinectl pull-dkr --verify=no --dkr-index-url=https
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 alias mkdir="mkdir -p"
 alias ps='ps aux'
+alias ssa='ss -natu'
+alias sst='ss -nat'
+alias ssu='ss -nau'
 alias tmux='tmux -2'
 alias top='top -c'
 alias vi='vim'
