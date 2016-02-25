@@ -14,7 +14,7 @@ function load_config() {
 config_dir="${HOME}/.zsh"
 
 
-load_config ${config_dir}/_zshrc
+load_config ${config_dir}/zshrc
 
 load_config ${config_dir}/zsh_alias
 
