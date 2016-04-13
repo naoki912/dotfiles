@@ -2,5 +2,5 @@
 
 
 if [ -n "$1" ]; then
-    feh --bg-scale $1
+    feh --bg-fill $1
 fi
