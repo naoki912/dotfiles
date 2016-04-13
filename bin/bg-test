@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+if [ -d ~/Pictures/Wallpapers/ ]; then
+    cd $HOME/Pictures/Wallpapers/
+else
+    echo "$HOME/Pictures/Wallpapers/: not found"
+    exit 1
+fi
+
+for i in `ls`
+do
+    echo $i
+    feh --bg-scale $i
+    read INPUT
+done
