@@ -2,7 +2,7 @@ function load_config() {
 
     config_file=${1:?"Please arguments"}
 
-    if [ -f $config_file ];then
+    if [ -f $config_file ]; then
 
         . $config_file
 
@@ -11,15 +11,19 @@ function load_config() {
 }
 
 
-config_dir="${HOME}/.zsh"
+if [ -d $HOME/.zsh/ ]; then
+
+    config_dir="${HOME}/.zsh"
 
 
-load_config ${config_dir}/zshrc
+    load_config ${config_dir}/zshrc
 
-load_config ${config_dir}/zsh_alias
+    load_config ${config_dir}/zsh_alias
 
-load_config ${config_dir}/zsh_func
+    load_config ${config_dir}/zsh_func
 
-load_config ${config_dir}/zsh_autoload
+    load_config ${config_dir}/zsh_autoload
 
-load_config ${config_dir}/zsh_var
+    load_config ${config_dir}/zsh_var
+
+fi
