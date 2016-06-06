@@ -4,6 +4,11 @@ import os.path
 import argparse
 
 
+'''
+cowsay
+'''
+
+
 memo_file_path = os.path.expanduser('~/.memo')
 
 args = None
@@ -17,7 +22,7 @@ def main():
         add_memo()
     if args.rm is not None:
         rm_memo()
-    if args.init is not None:
+    if args.init:
         init_memo()
 
     list_memo()
