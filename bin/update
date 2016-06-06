@@ -8,5 +8,5 @@ save_file=$HOME/.pacman/`date --iso-8601`
 
 echo "" >> $save_file
 echo `env LANG=C date +'Time %X'` >> $save_file
-sudo pacman -Syu 2>&1 | tee -a $save_file
+sudo -E pacman -Syu 2>&1 | tee -a $save_file
 
