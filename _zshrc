@@ -26,6 +26,8 @@ if [ -d $HOME/.zsh/ ]; then
 
     load_config ${config_dir}/zsh_var
 
+    load_config ${config_dir}/zsh_startup
+
 else
 
     echo "$HOME/.zsh/ : Directory not found"
