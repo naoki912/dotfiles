@@ -18,6 +18,8 @@ alias iprd="ip route | grep '^d' | sed -e s/\^\[0-9]://"
 alias iprrd='sudo ip route replace default via'
 alias iprdd='sudo ip route delete default ; ip route'
 alias ipr6='ip -6 route'
+alias ipup='ip link set up dev'
+alias ipdown='ip link set down dev'
 alias ls='ls -F --color=auto'
 alias lsa='ls -laiF --color=auto'
 alias machinectl-pull-dkr='machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io'
@@ -58,6 +60,7 @@ alias javapath='CLASSPATH=$CLASSPATH:`pwd` ; echo $CLASSPATH'
 alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
 alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
 alias natwlan0='sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE'
+alias zyanken="shuf -e e29c8{a,b,c}0a | xxd -r -p | head -n 1"
 
 # エイリアス
 alias Xterm='terminator'
