@@ -220,7 +220,3 @@ NUM=${#AA[*]}
 NO=`expr $RANDOM % $NUM`
 echo ${AA[$NO]}
 #http://d.hatena.ne.jp/kiyotune/20120329/1333029068
-
-if type archey3 > /dev/null 2>&1; then
-    archey3
-fi
