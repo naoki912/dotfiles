@@ -27,3 +27,13 @@ echo '
 '
 }
 
+
+function save-home() {
+    cd $HOME \
+        && echo "git add ." \
+        && git add . \
+        && echo "git commit -m 'save-home'" \
+        && git commit -m 'save-home' \
+        && echo "git push origin master" \
+        && git push origin master
+}
