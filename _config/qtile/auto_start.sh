@@ -3,10 +3,10 @@
 feh --bg-scale $HOME/Pictures/background_3.png &
 pa-applet &
 shutter &
-pidgin &
+# pidgin &
 ibus-daemon -drx &
-google-musicmanager &
-owncloud &
+# google-musicmanager &
+# owncloud &
 slack &
 # twmnd &
 xmodmap ~/.xmodmaprc
