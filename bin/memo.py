@@ -58,9 +58,13 @@ def list_memo():
     if not is_memo_file_exists():
         return
 
+    print(' === めもいちらん ===')
+
     with open(memo_file_path, 'r') as f:
         for i, line in enumerate(f):
             print(str(i) + ': ' + line, end='')
+
+    print(' ======')
 
     return None
 
