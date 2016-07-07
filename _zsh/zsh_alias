@@ -5,6 +5,7 @@ alias ca='cat'
 alias g='grep'
 alias i='ip'
 alias p='ping'
+alias nspawn='sudo systemd-nspawn'
 
 # オプション省略
 alias clear='clear;def_clear'
@@ -62,6 +63,7 @@ alias addpath='PATH=$PATH:`pwd` ; echo $PATH'
 alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
 alias natwlan0='sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE'
 alias zyanken="shuf -e e29c8{a,b,c}0a | xxd -r -p | head -n 1"
+alias clean-known-hosts="sed -i -e '/^localhost/d' -e '/^192.168.122/d' ~/.ssh/known_hosts; echo 'known_host -> remove localhost & 192.168.122'"
 
 # エイリアス
 alias Xterm='terminator'
