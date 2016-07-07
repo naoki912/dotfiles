@@ -18,6 +18,8 @@ if [ -d $HOME/.zsh/ ]; then
 
     load_config ${config_dir}/zshrc
 
+    load_config ${config_dir}/zsh_env
+
     load_config ${config_dir}/zsh_alias
 
     load_config ${config_dir}/zsh_func
