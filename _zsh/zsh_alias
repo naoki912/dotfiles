@@ -11,6 +11,7 @@ alias nspawn='sudo systemd-nspawn'
 alias clear='clear;def_clear'
 alias egrep='grep -n --color=auto'
 alias grep='grep -n --color=auto'
+alias ip6='ip -6'
 alias ip='sudo ip'
 alias ipa='sudo ip addr'
 alias ipaa='sudo ip addr add'
@@ -41,7 +42,8 @@ alias nmap-ntp-monlist='sudo nmap -sU -p 123 -Pn --script=ntp-monlist'
 alias nmap-brute='sudo nmap -sU -p 161 -Pn --script=snmp-brute'
 
 # 引数省略
-alias pingg='ping google.co.jp'
+alias pingg='ping -4 google.co.jp'
+alias pingg6='ping -6 google.co.jp'
 alias ping8='ping 8.8.8.8'
 alias curlg='curl google.co.jp'
 
@@ -64,6 +66,16 @@ alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
 alias natwlan0='sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE'
 alias zyanken="shuf -e e29c8{a,b,c}0a | xxd -r -p | head -n 1"
 alias clean-known-hosts="sed -i -e '/^localhost/d' -e '/^192.168.122/d' ~/.ssh/known_hosts; echo 'known_host -> remove localhost & 192.168.122'"
+alias battery="acpi -b | grep -oE \[0-9\]+%"
+
+alias ips="echo '=== br0 addr ===' \
+    ; \ip addr show br0 | sed -e 's/^[0-9]: //' -e /link/d -e /valid_lft/d -e 's/brd.*//' \
+    ; if [ -f /run/dhcpcd-br0.pid ];then echo 'enable dhcpcd'; else echo 'disable dhcpcd'; fi \
+    ; echo '\n=== Default Routes ===' \
+    ; \ip route | \grep default \
+    ; echo '\n=== resolv ===' \
+    ; cat /etc/resolv.conf | sed -e '/^#.*/d'"
+alias redhcpcd-br0="sudo dhcpcd br0 -k ; sudo dhcpcd br0"
 
 # エイリアス
 alias Xterm='terminator'
@@ -84,6 +96,10 @@ alias show-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j RE
 alias show-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
 alias show-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
 alias show-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
+
+alias show-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
+
+alias show-vim-root='echo ":w \!sudo tee % > /dev/null"'
 
 # ファイルを開くソフトウェアの選択
 alias -s asta=astah
