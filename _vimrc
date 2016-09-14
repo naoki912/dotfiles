@@ -176,6 +176,8 @@ set wrap                " 長いテキストの折り返し
 set textwidth=0         " 自動的に改行が入るのを無効化
 set colorcolumn=80      " その代わり80文字目にラインを入れる
 
+set breakindent         " 8.0で追加された、インデントがある長い行の折り返しが綺麗になるやつ
+
 " 前時代的スクリーンベルを無効化
 set t_vb=
 set novisualbell
