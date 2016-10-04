@@ -60,6 +60,7 @@ def list_memo():
 
     print(' === めもいちらん ===')
 
+    # ToDo 空行があった場合に表示しない
     with open(memo_file_path, 'r') as f:
         for i, line in enumerate(f):
             print(str(i) + ': ' + line, end='')
@@ -98,6 +99,13 @@ def rm_memo():
                 f.writelines(i)
 
     return None
+
+
+def editor_memo():
+    '''
+    ToDo 環境変数EDITORを確認して、エディタが設定されていたらそのエディタで.memoファイルを開く
+    '''
+    pass
 
 
 def init_memo():
