@@ -66,7 +66,7 @@ groups = [
     Group('1:term'),
     Group(
         '2:www',
-        matches=[Match(wm_class=['firefox', 'chromium', 'vivaldi-snapshot'])]
+        matches=[Match(wm_class=['firefox', 'Firefox', 'chromium', 'vivaldi-snapshot', 'chrome'])]
     ),
     Group(
         '3:work',
@@ -99,7 +99,6 @@ for i in groups:
 
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2),
     layout.MonadTall(),
     layout.Floating(
         border_focus='#00ff00',
@@ -124,6 +123,7 @@ screens = [
             25,
         ),
     ),
+    Screen(),
 ]
 
 mouse = [
@@ -146,7 +146,6 @@ auto_fullscreen = True
 
 # サンプルに書かれていたので
 wmname = "LG3D"
-
 
 @hook.subscribe.startup_once
 def auto_start():
