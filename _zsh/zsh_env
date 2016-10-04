@@ -1,1 +1,5 @@
 export PATH=${HOME}/.gem/ruby/2.3.0/bin:${PATH}
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
