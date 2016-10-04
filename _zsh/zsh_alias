@@ -6,6 +6,7 @@ alias g='grep'
 alias i='ip'
 alias p='ping'
 alias nspawn='sudo systemd-nspawn'
+alias lock='xscreensaver-command --lock'
 
 # オプション省略
 alias clear='clear;def_clear'
