@@ -7,11 +7,13 @@ import argparse
 import markdown
 
 
-CSS = '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>'
+#CSS = '<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>'
+CSS = '<link href="http://markdowncss.github.io/retro/css/retro.css" rel="stylesheet"></link>'
+#CSS = ''
 
 
 def html_parse(text):
-    return '<html><body>' + text + '</body></html>'
+    return '<html><meta charset="utf-8"><body>' + text + '</body></html>'
 
 
 def main():
