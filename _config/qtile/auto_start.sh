@@ -7,7 +7,7 @@ shutter &
 ibus-daemon -drx &
 # google-musicmanager &
 # owncloud &
-slack &
+# slack &
 # twmnd &
 xmodmap ~/.xmodmaprc
 
