@@ -3,50 +3,49 @@ from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 
-widget_defaults = dict(
-    font='RictyDiscord',
-    fontsize=16,
-    padding=1,
-)
-
 
 class Commands(object):
     dmenu = 'dmenu_run'
     terminator = 'terminator'
 
 
-mod = "mod1"
+wmname = 'qtile'
+mod = 'mod1'
 
 keys = [
-    # General functions
-    Key([mod], "r", lazy.spawncmd()),
-    Key([mod, "control"], "r", lazy.restart()),
-    Key([mod, "control", "shift"], "q", lazy.shutdown()),
+    # Window manager controls
+    Key([mod, 'control', 'shift'], 'r', lazy.restart()),
+    Key([mod, 'control', 'shift'], 'q', lazy.shutdown()),
+    Key([mod], 'r', lazy.spawncmd()),
+    Key([mod], 'Return', lazy.spawn(Commands.terminator)),
+    Key([mod, 'shift'], 'q', lazy.window.kill()),
 
-    # Group functions
-    # ウィンドウレイアウト変更
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod, "shift"], "Tab", lazy.prev_layout()),
-
-    # Window functions
-    # フォーカスウィンドウを閉じる
-    Key([mod, "shift"], "q", lazy.window.kill()),
-    # フォーカス切り替え
     Key([mod], "o", lazy.layout.next()),
-    Key([mod, "shift"], "o", lazy.layout.previous()),
+    Key([mod, "shift"], "space", lazy.layout.flip()),
+    # qtileのトップページに載ってるけどドキュメントに無い
+    #Key([mod], 'Left', lazy.screen.prevgroup()),
+    #Key([mod], 'Right', lazy.screen.nextgroup()),
 
-    # ウィンドウ移動
+    # Layout modification
+    Key([mod, 'control'], 'space', lazy.window.toggle_floating()),
+
+    # Switch between windows in current stack pane
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "j", lazy.layout.up()),
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "l", lazy.layout.right()),
 
-    # ウィンドウ位置変更
+    # Move windows up or down in current stack
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
+
+    # Switch window focus to other pane(s) of stack
+    Key([mod], 'space', lazy.layout.next()),
+
+    # Toggle between different layouts as defined below
+    Key([mod], "Tab", lazy.next_layout()),
 
     # ウィンドウサイズ
     Key([mod], "i", lazy.layout.grow()),
@@ -55,13 +54,22 @@ keys = [
     Key([mod], "u", lazy.layout.maximize()),
 
     # アプリケーション起動
-    Key([mod], "Return", lazy.spawn(Commands.terminator)),
     Key([mod], "d", lazy.spawn(Commands.dmenu)),
-
-    # ???
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
 ]
 
+# Mouse bindings and options
+mouse = (
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+)
+
+bring_front_click = False
+cursor_warp = False
+follow_mouse_focus = True
+
+# Groups
 groups = [
     Group('1:term'),
     Group(
@@ -77,7 +85,7 @@ groups = [
     Group('6:stat'),
     Group(
         '7:IM',
-        matches=[Match(wm_class=['pidgin', 'slack'])]
+        matches=[Match(wm_class=['pidgin', 'slack', 'slack-desktop'])]
     ),
     Group(
         '8:mail',
@@ -94,16 +102,22 @@ groups = [
 ]
 
 for i in groups:
+    # mod + letter of group = switch to group
     keys.append(Key([mod], i.name[:1], lazy.group[i.name].toscreen()))
+
+    # mod + shift + letter of group = switch to & move focused window to group
     keys.append(Key([mod, "shift"], i.name[:1], lazy.window.togroup(i.name)))
+
+# 詳細がドキュメントに乗ってないやつ
+dgroups_key_binder = None
+dgroups_app_rules = []
 
 layouts = [
     layout.Max(),
     layout.MonadTall(),
-    layout.Floating(
-        border_focus='#00ff00',
-        ),
 ]
+
+floating_layout = layout.Floating()
 
 screens = [
     Screen(
@@ -126,26 +140,18 @@ screens = [
     Screen(),
 ]
 
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
-]
+widget_defaults = dict(
+    font='RictyDiscord',
+    fontsize=16,
+    padding=1,
+)
 
-# サンプルそのまま
-dgroups_key_binder = None
-dgroups_app_rules = []
-main = None
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
-floating_layout = layout.Floating()
 auto_fullscreen = True
 
-# サンプルに書かれていたので
-wmname = "LG3D"
+
+def main(qtile):
+    ''' This function is called when Qtile starts. '''
+    pass
 
 @hook.subscribe.startup_once
 def auto_start():
