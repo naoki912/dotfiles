@@ -9,7 +9,7 @@ alias nspawn='sudo systemd-nspawn'
 alias lock='xscreensaver-command --lock'
 
 # オプション省略
-alias clear='clear;def_clear'
+#alias clear='clear;def_clear'
 alias egrep='grep -n --color=auto'
 alias grep='grep -n --color=auto'
 alias ip6='ip -6'
@@ -49,8 +49,8 @@ alias ping8='ping 8.8.8.8'
 alias curlg='curl google.co.jp'
 
 # コマンド省略
-alias c='clear'
-alias cdc='cd;clear'
+alias c='clear;ls'
+alias cdc='cd;clear;ls'
 
 # 追加コマンド
 alias :q='exit'
