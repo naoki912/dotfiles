@@ -51,6 +51,7 @@ alias curlg='curl google.co.jp'
 # コマンド省略
 alias c='clear;ls'
 alias cdc='cd;clear;ls'
+alias psgrep='ps aux | grep'
 
 # 追加コマンド
 alias :q='exit'
@@ -101,6 +102,14 @@ alias show-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-inde
 alias show-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
 
 alias show-vim-root='echo ":w \!sudo tee % > /dev/null"'
+alias show-ubuntu-network-example='
+echo "/etc/network/interfaces
+auto eth0
+iface eth0 inet static
+address 192.168.1.10
+netmask 255.255.255.0
+gateway 192.168.1.254
+dns-nameservers 8.8.8.8 8.8.4.4"'
 
 # ファイルを開くソフトウェアの選択
 alias -s asta=astah
