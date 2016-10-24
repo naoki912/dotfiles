@@ -9,7 +9,7 @@ class Commands(object):
     terminator = 'terminator'
 
 
-wmname = 'qtile'
+wmname = 'LG3D'
 mod = 'mod1'
 
 keys = [
@@ -137,7 +137,22 @@ screens = [
             25,
         ),
     ),
-    Screen(),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.CurrentLayout(),
+                widget.Spacer(),
+                widget.TextBox(text='Screen2'),
+                widget.Systray(),
+                widget.CPUGraph(),
+                widget.MemoryGraph(),
+                widget.Battery(),
+                widget.Clock(format=' %Y-%m-%d %a %H:%M'),
+            ],
+            25,
+        ),
+    ),
 ]
 
 widget_defaults = dict(
