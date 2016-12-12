@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+declare -a array=(
+    "/tmp/packerbuild-*"
+    "/tmp/packertmp-*"
+    "/tmp/yaourt-tmp-admin"
+)
+
+
+function remove_aurtmpfiles() {
+    i=0
+    for j in ${array[@]}; do
+        if [[ -e $j ]]; then
+            rm -rf $j
+            echo "remove $j"
+        fi
+        let i++
+    done
+}
+
+remove_aurtmpfiles array
