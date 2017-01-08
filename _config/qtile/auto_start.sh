@@ -1,13 +1,17 @@
 #!/usr/bin/env sh
 
 feh --bg-scale $HOME/Pictures/background_3.png &
+#nitrogen --restore
+
+compton -b
+
 pa-applet &
 shutter &
 # pidgin &
 ibus-daemon -drx &
 # google-musicmanager &
 # owncloud &
-# slack &
+slack &
 # twmnd &
 xmodmap ~/.xmodmaprc
 
