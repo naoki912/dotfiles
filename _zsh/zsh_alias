@@ -130,5 +130,15 @@ netmask 255.255.255.0
 gateway 192.168.1.254
 dns-nameservers 8.8.8.8 8.8.4.4"'
 
-# ファイルを開くソフトウェアの選択
-alias -s asta=astah
+alias show-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
+
+alias show-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
+alias show-docker-build="echo 'docker build --tag=image-name --no-cache .'"
+
+alias show-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
+
+if type colordiff > /dev/null 2>&1; then
+    alias diff='colordiff'
+fi
+
+alias termite="termite --title=tmux -e tmux"
