@@ -59,7 +59,7 @@ alias psgrep='ps aux | \grep'
 alias psg='ps aux | \grep'
 alias lsg='ls | \grep'
 alias lag='ls -a | \grep'
-alias llag='ls -la | \grep'
+alias lsag='ls -la | \grep'
 
 # 追加コマンド
 alias :q='exit'
