@@ -1,0 +1,15 @@
+#window class_not: ['termite', 'Termite', 'tmux'] do
+
+#remap 'C-b', to: 'Left'
+#remap 'C-f', to: 'Right'
+#remap 'C-p', to: 'Up'
+#remap 'C-n', to: 'Down'
+
+#remap 'C-a', to: 'Home'
+#remap 'C-e', to: 'End'
+
+#remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+
+#remap 'C-v', to: ['Ctrl-a']
+
+#end
