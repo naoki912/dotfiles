@@ -7,6 +7,10 @@ alias i='ip'
 alias p='ping'
 alias nspawn='sudo systemd-nspawn'
 alias lock='xscreensaver-command --lock'
+alias dhcp='sudo dhcpcd'
+alias dhcp-br0="sudo dhcpcd br0 -k ; sudo dhcpcd br0"
+alias redhcp='sudo dhcpcd -k'
+alias redhcp-br0='sudo dhcpcd -k br0'
 
 # オプション省略
 #alias clear='clear;def_clear'
