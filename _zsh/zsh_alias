@@ -85,7 +85,8 @@ alias ips="echo '=== br0 addr ===' \
     ; \ip route | \grep default \
     ; echo '\n=== resolv ===' \
     ; cat /etc/resolv.conf | sed -e '/^#.*/d'"
-alias redhcpcd-br0="sudo dhcpcd br0 -k ; sudo dhcpcd br0"
+alias swapre='sudo swapoff -a ; sudo swapon -a'
+alias swapreset='sudo swapoff -a ; sudo swapon -a'
 
 # エイリアス
 alias Xterm='terminator'
