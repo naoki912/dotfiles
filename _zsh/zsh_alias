@@ -111,6 +111,16 @@ alias show-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-inde
 alias show-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
 
 alias show-vim-root='echo ":w \!sudo tee % > /dev/null"'
+alias show-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
+alias show-vim-ip-range-insert="echo \":for i in range(1,10) | put ='192.168.0.'.i | endfor'\""
+alias show-vim-insert-filename="echo '<C-R>%'"
+alias show-vim-del-comment="echo '一致行削除
+:%g/^$/d
+不一致行削除
+:%v/^$/d
+空行削除
+:g/^$/d'"
+
 alias show-ubuntu-network-example='
 echo "/etc/network/interfaces
 auto eth0
