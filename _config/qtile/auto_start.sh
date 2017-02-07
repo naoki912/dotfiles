@@ -14,6 +14,7 @@ ibus-daemon -drx &
 slack &
 # twmnd &
 xmodmap ~/.xmodmaprc
+xremap .xremaprc &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
