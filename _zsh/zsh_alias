@@ -55,7 +55,11 @@ alias curlg='curl google.co.jp'
 # コマンド省略
 alias c='clear;ls'
 alias cdc='cd;clear;ls'
-alias psgrep='ps aux | grep'
+alias psgrep='ps aux | \grep'
+alias psg='ps aux | \grep'
+alias lsg='ls | \grep'
+alias lag='ls -a | \grep'
+alias llag='ls -la | \grep'
 
 # 追加コマンド
 alias :q='exit'
