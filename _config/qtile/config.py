@@ -25,8 +25,8 @@ keys = [
     Key([mod], "o", lazy.layout.next()),
     Key([mod, "shift"], "space", lazy.layout.flip()),
     # qtileのトップページに載ってるけどドキュメントに無い
-    #Key([mod], 'Left', lazy.screen.prevgroup()),
-    #Key([mod], 'Right', lazy.screen.nextgroup()),
+    # Key([mod], 'Left', lazy.screen.prevgroup()),
+    # Key([mod], 'Right', lazy.screen.nextgroup()),
 
     # Layout modification
     Key([mod, 'control'], 'space', lazy.window.toggle_floating()),
