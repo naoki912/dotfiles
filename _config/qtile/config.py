@@ -121,41 +121,76 @@ layouts = [
 
 floating_layout = layout.Floating()
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.CurrentLayout(),
-                widget.Prompt(),
-                widget.Spacer(),
-                widget.Systray(),
-                widget.Pacman(),
-                widget.CPUGraph(),
-                widget.MemoryGraph(),
-                widget.Battery(),
-                widget.Clock(format=' %Y-%m-%d %a %H:%M'),
-            ],
-            25,
-        ),
-    ),
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.CurrentLayout(),
-                widget.Spacer(),
-                widget.TextBox(text='Screen2'),
-                widget.Systray(),
-                widget.CPUGraph(),
-                widget.MemoryGraph(),
-                widget.Battery(),
-                widget.Clock(format=' %Y-%m-%d %a %H:%M'),
-            ],
-            25,
-        ),
-    ),
-]
+# Bar and Screen
+
+bars = {
+    'screen1': {
+        'top': None,
+        'bottom': None,
+        'screen_name': 'S1'
+    },
+    'screen2': {
+        'top': None,
+        'bottom': None,
+        'screen_name': 'S2',
+    }
+}
+
+_GRAPH_WIDTH = 70
+
+for k, _ in bars.items():
+    bars[k]['top'] = bar.Bar(
+        [
+            widget.GroupBox(),
+            widget.CurrentLayout(),
+            widget.Prompt(),
+            widget.Spacer(),
+            widget.Systray(),
+            widget.TextBox(text=' | Update '),
+            widget.Pacman(),
+            widget.TextBox(text=' | Screen:' + bars[k]['screen_name'] + ' |'),
+            widget.Clock(format=' %Y-%m-%d %a %H:%M'),
+        ],
+        25,
+    )
+
+    bars[k]['bottom'] = bar.Bar(
+        [
+            widget.WindowTabs(),
+            widget.TextBox(text=' | Battery '),
+            widget.Battery(),
+            widget.TextBox(text=' | Backlight '),
+            widget.Backlight(),
+            widget.TextBox(text=' | Sensor '),
+            widget.ThermalSensor(),
+            widget.TextBox(text=' | Vol '),
+            widget.Volume(),
+            widget.TextBox(text=' | '),
+            widget.TextBox(text='CPU'),
+            widget.CPUGraph(width=_GRAPH_WIDTH),
+            widget.TextBox(text='Mem'),
+            widget.MemoryGraph(width=_GRAPH_WIDTH),
+            widget.TextBox(text='Swap'),
+            widget.SwapGraph(width=_GRAPH_WIDTH),
+            widget.TextBox(text='HDDBusy'),
+            widget.HDDBusyGraph(width=_GRAPH_WIDTH),
+            widget.TextBox(text='HDD'),
+            widget.HDDGraph(width=_GRAPH_WIDTH),
+            widget.TextBox(text='Net'),
+            widget.NetGraph(width=_GRAPH_WIDTH),
+        ],
+        20,
+    )
+
+screens = []
+
+for key, _ in bars.items():
+    screens.append(
+        Screen(
+            top=bars[key]['top'],
+            bottom=bars[key]['bottom']
+        )
+    )
 
 widget_defaults = dict(
     font='RictyDiscord',
