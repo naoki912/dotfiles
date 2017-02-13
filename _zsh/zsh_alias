@@ -137,6 +137,8 @@ alias show-docker-build="echo 'docker build --tag=image-name --no-cache .'"
 
 alias show-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
 
+alias show-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
+
 if type colordiff > /dev/null 2>&1; then
     alias diff='colordiff'
 fi
