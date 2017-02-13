@@ -7,7 +7,8 @@ from libqtile import layout, bar, widget, hook
 class Commands(object):
     dmenu = 'dmenu_run'
     # terminal = 'terminator'
-    terminal = 'termite'
+    # terminal = 'termite'
+    terminal = 'termite --title=tmux -e tmux'
 
 
 wmname = 'LG3D'
