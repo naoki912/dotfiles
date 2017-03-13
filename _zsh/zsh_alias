@@ -140,6 +140,8 @@ alias show-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group
 
 alias show-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
 
+alias show-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"
+
 if type colordiff > /dev/null 2>&1; then
     alias diff='colordiff'
 fi
