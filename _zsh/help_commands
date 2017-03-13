@@ -1,0 +1,49 @@
+#!/bin//zsh
+
+# h-* commands
+
+alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
+alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
+alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
+
+alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+alias h-grep-comment='echo grep -v -e "^\s*#" -e "^\s*$" unbound.conf'
+
+alias h-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
+alias h-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
+alias h-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
+alias h-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
+
+alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
+
+alias h-vim-root='echo ":w \!sudo tee % > /dev/null"'
+alias h-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
+alias h-vim-ip-range-insert="echo \":for i in range(1,10) | put ='192.168.0.'.i | endfor'\""
+alias h-vim-insert-filename="echo '<C-R>%'"
+alias h-vim-del-comment="echo '一致行削除
+:%g/^$/d
+不一致行削除
+:%v/^$/d
+空行削除
+:g/^$/d'"
+
+alias h-ubuntu-network-example='
+echo "/etc/network/interfaces
+auto eth0
+iface eth0 inet static
+address 192.168.1.10
+netmask 255.255.255.0
+gateway 192.168.1.254
+dns-nameservers 8.8.8.8 8.8.4.4"'
+
+alias h-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
+
+alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
+alias h-docker-build="echo 'docker build --tag=image-name --no-cache .'"
+
+alias h-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
+
+alias h-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
+
+alias h-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"

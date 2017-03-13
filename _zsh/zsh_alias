@@ -96,52 +96,6 @@ alias xterm='terminator'
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
 
-alias show-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
-alias show-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
-alias show-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
-
-alias show-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
-alias show-grep-comment='echo grep -v -e "^\s*#" -e "^\s*$" unbound.conf'
-
-alias show-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
-alias show-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
-alias show-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
-alias show-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
-alias show-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
-
-alias show-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
-
-alias show-vim-root='echo ":w \!sudo tee % > /dev/null"'
-alias show-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
-alias show-vim-ip-range-insert="echo \":for i in range(1,10) | put ='192.168.0.'.i | endfor'\""
-alias show-vim-insert-filename="echo '<C-R>%'"
-alias show-vim-del-comment="echo '一致行削除
-:%g/^$/d
-不一致行削除
-:%v/^$/d
-空行削除
-:g/^$/d'"
-
-alias show-ubuntu-network-example='
-echo "/etc/network/interfaces
-auto eth0
-iface eth0 inet static
-address 192.168.1.10
-netmask 255.255.255.0
-gateway 192.168.1.254
-dns-nameservers 8.8.8.8 8.8.4.4"'
-
-alias show-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
-
-alias show-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
-alias show-docker-build="echo 'docker build --tag=image-name --no-cache .'"
-
-alias show-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
-
-alias show-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
-
-alias show-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"
-
 if type colordiff > /dev/null 2>&1; then
     alias diff='colordiff'
 fi
