@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 function load_config() {
 
     config_file=${1:?"Please arguments"}
@@ -29,6 +31,10 @@ if [ -d $HOME/.zsh/ ]; then
     load_config ${config_dir}/zsh_var
 
     load_config ${config_dir}/zsh_startup
+
+    load_config ${config_dir}/zsh_local
+
+    load_config ${config_dir}/help_commands
 
 else
 
