@@ -6,6 +6,7 @@ feh --bg-scale $HOME/Pictures/background_3.png &
 compton -b
 
 pa-applet &
+nm-applet &
 shutter &
 # pidgin &
 ibus-daemon -drx &
@@ -15,6 +16,7 @@ slack &
 # twmnd &
 xmodmap ~/.xmodmaprc
 xremap .xremaprc &
+redshift-gtk &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
