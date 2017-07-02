@@ -5,16 +5,13 @@
     <keyboard-shortcut first-keystroke="escape" second-keystroke="w" />
     <keyboard-shortcut first-keystroke="ctrl c" />
   </action>
- <action id="CommentByLineComment">
-    <keyboard-shortcut first-keystroke="alt semicolon" />
-    <keyboard-shortcut first-keystroke="ctrl comma" />
-    <keyboard-shortcut first-keystroke="ctrl divide" />
-    <keyboard-shortcut first-keystroke="ctrl slash" />
-  </action>
   <action id="CommentByBlockComment">
-      <keyboard-shortcut first-keystroke="shift ctrl slash" />
-      <keyboard-shortcut first-keystroke="shift ctrl divide" />
-      <keyboard-shortcut first-keystroke="shift ctrl comma" />
+    <keyboard-shortcut first-keystroke="shift ctrl slash" />
+    <keyboard-shortcut first-keystroke="shift ctrl comma" />
+  </action>
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+    <keyboard-shortcut first-keystroke="ctrl slash" />
   </action>
   <action id="Editor Copy">
     <keyboard-shortcut first-keystroke="ctrl c" />
@@ -60,5 +57,4 @@
   <action id="TypeHierarchy" />
   <action id="TypeHierarchyBase.BaseOnThisType" />
   <action id="Vcs.Log.FocusTextFilter" />
-  <action id="EditorScrollToCenter" />
 </keymap>
