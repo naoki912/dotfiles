@@ -1,13 +1,20 @@
-<keymap version="1" name="Emacs copy" parent="Emacs">
+<keymap version="1" name="my keymap" parent="Emacs">
   <action id="$Copy">
     <keyboard-shortcut first-keystroke="ctrl insert" />
     <keyboard-shortcut first-keystroke="alt c" />
     <keyboard-shortcut first-keystroke="escape" second-keystroke="w" />
     <keyboard-shortcut first-keystroke="ctrl c" />
   </action>
-  <action id="CommentByLineComment">
+ <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="alt semicolon" />
     <keyboard-shortcut first-keystroke="ctrl comma" />
+    <keyboard-shortcut first-keystroke="ctrl divide" />
+    <keyboard-shortcut first-keystroke="ctrl slash" />
+  </action>
+  <action id="CommentByBlockComment">
+      <keyboard-shortcut first-keystroke="shift ctrl slash" />
+      <keyboard-shortcut first-keystroke="shift ctrl divide" />
+      <keyboard-shortcut first-keystroke="shift ctrl comma" />
   </action>
   <action id="Editor Copy">
     <keyboard-shortcut first-keystroke="ctrl c" />
@@ -19,7 +26,9 @@
     <keyboard-shortcut first-keystroke="ctrl o" />
   </action>
   <action id="NextTab">
+    <keyboard-shortcut first-keystroke="alt right" />
     <keyboard-shortcut first-keystroke="ctrl l" />
+    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="n" />
   </action>
   <action id="PasteMultiple">
     <keyboard-shortcut first-keystroke="alt y" />
@@ -29,7 +38,9 @@
     <keyboard-shortcut first-keystroke="shift ctrl o" />
   </action>
   <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="alt left" />
     <keyboard-shortcut first-keystroke="ctrl h" />
+    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="p" />
   </action>
   <action id="SwitchApply">
     <keyboard-shortcut first-keystroke="shift alt enter" />
@@ -49,4 +60,5 @@
   <action id="TypeHierarchy" />
   <action id="TypeHierarchyBase.BaseOnThisType" />
   <action id="Vcs.Log.FocusTextFilter" />
+  <action id="EditorScrollToCenter" />
 </keymap>
