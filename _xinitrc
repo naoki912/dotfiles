@@ -14,11 +14,12 @@ fi
 xss-lock -- xscreensaver-command -lock &
 
 #export LANG="ja_JP.UTF-8"
-Virtual 2048 2048
+#Virtual 2048 2048
 
 # Here i3 is kept as default
 #session=${1:-i3}
 session=${1:-qtile}
+#session=${1:-wingo}
 
 case $session in
     awesome           ) exec awesome;;
@@ -43,6 +44,7 @@ case $session in
     unity             ) exec unity;;
     xfce|xfce4        ) exec startxfce4;;
     xmonad            ) exec xmonad;;
+    wingo             ) exec wingo;;
     # No known session, try to run it as command
     *) exec $1;;
 esac
