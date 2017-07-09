@@ -9,6 +9,7 @@ class Commands(object):
     # terminal = 'terminator'
     # terminal = 'termite'
     terminal = 'termite --title=tmux -e tmux'
+    nm_dmenu = 'networkmanager_dmenu'
 
 
 wmname = 'LG3D'
@@ -57,6 +58,7 @@ keys = [
 
     # アプリケーション起動
     Key([mod], "d", lazy.spawn(Commands.dmenu)),
+    Key([mod], "f", lazy.spawn(Commands.nm_dmenu)),
 ]
 
 # Mouse bindings and options
