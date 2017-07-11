@@ -10,6 +10,7 @@ nm-applet &
 shutter &
 # pidgin &
 ibus-daemon -drx &
+fcitx-autostart &
 # google-musicmanager &
 # owncloud &
 slack &
