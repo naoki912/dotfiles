@@ -47,3 +47,198 @@ alias h-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-s
 alias h-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
 
 alias h-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"
+
+### OpenStack
+
+# network
+alias h-opst-network-create='echo "\
+openstack network create \\
+  --provider-physical-network provider \\
+  --provider-network-type vlan \\
+  --provider-segment 145 \\
+  vlan145\
+
+# native vlanを使用する場合
+openstack network create \\
+  --external \\
+  --provider-physical-network provider \\
+  --provider-network-type flat \\
+  provider_network
+
+openstack network create vlan145
+
+NOTE: --external オプションはprovider networkの場合は必要ない？\
+"'
+
+
+# subnet
+alias h-opst-subnet-create='echo "\
+openstack subnet create \\
+  --network provider_network \\
+  --subnet-range 192.168.1.0/24 \\
+  --gateway 192.168.1.254 \\
+  --dns-nameserver=8.8.8.8 \\
+  --dns-nameserver=8.8.4.4 \\
+  --dhcp \\
+  --allocation-pool start=192.168.1.150,end=192.168.1.199 \\
+  provider_subnet\
+"'
+
+# port
+alias h-opst-port-create='echo "\
+openstack port create \\
+  --network=provider_network \\
+  --fixed-ip ip-address=192.168.1.151 \\
+  #--fixed-ip subnet=provider_subnet,ip-address=192.168.1.151 \\
+  192-168-1-151
+
+openstack port create \\
+  --allowed-address ip-address=0.0.0.0/0 \\
+  --network=provider_network \\
+  --fixed-ip ip-address=192.168.1.152 \\
+  192-168-1-152
+
+openstack port create \\
+  --disable-port-security \\
+  --network=provider_network \\
+  --fixed-ip ip-address=192.168.1.153 \\
+  192-168-1-152\
+"'
+
+alias h-opst-port-attach='echo "\
+nova interface-attach --port-id={UUID} myserver\
+
+openstack server add port SERVER PORT
+"'
+
+# image
+alias h-opst-image-create='echo "openstack image create --file cirros-0.3.5-x86_64-disk.img --disk-format qcow2 --container-format bare --public cirros"'
+
+# flavor
+alias h-opst-flavor-create='echo "\
+openstack flavor create --public --vcpus 1 --disk 8 --ram 8096 1-8-8096
+"'
+
+# keypair
+alias h-opst-keypair-create='echo "\
+openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey\
+"'
+
+# security group
+alias h-opst-security-group='echo "\
+openstack security group rule create default --protocol icmp
+# openstack security group rule create --proto tcp --dst-port 22 default
+openstack security group rule create default --protocol tcp --ingress --prefix 0.0.0.0/0 --dst-port 1:65535
+openstack security group rule create default --protocol tcp --egress --prefix 0.0.0.0/0 --dst-port 1:65535
+openstack security group rule create default --protocol udp --ingress --prefix 0.0.0.0/0 --dst-port 1:65535
+openstack security group rule create default --protocol udp --egress --prefix 0.0.0.0/0 --dst-port 1:65535
+openstack security group rule list default
+"'
+
+# server
+alias h-opst-server-create='echo "\
+openstack server create \\
+  --image archlinux-cloud \\
+  --flavor mini \\
+  --security-group default \\
+  --nic port-id={UUID} \\
+  --nic port-id={UUID} \\
+  --nic net-id=public_network,v4-fixed-ip=192.168.1.10 \\
+  --config-drive true \\
+  --key-name KEY_NAME \\
+  arch-server\
+"'
+
+alias h-opst-server-suspend-resume='echo "openstack server suspend | openstack server resume"'
+
+alias h-opst-server-delete-multi='echo "openstack server list | \\grep 1-192-168 | awk \"{ print \$2 }\" | xargs openstack server delete"'
+
+alias h-opst-server-delete-all='echo "openstack server list -f value | awk \"{ print $1 }\" | xargs openstack server delete"'
+
+alias h-opst-id-save='echo "\
+openstack networ list | tee openstack_network_list
+openstack server list | tee openstack_server_list
+openstack subnet list | tee openstack_subnet_list
+openstack port list | tee openstack_port_list
+openstack flavor list | tee openstack_flavor_list
+openstack host list | tee openstack_host_list\
+"'
+
+# console
+alias h-opst-console-url-show='echo "\
+openstack console url show SERVER\
+"'
+
+# quota
+alias h-opst-quota-set='echo "\
+openstack quota set --cores 50 admin\
+"'
+
+# tips
+
+alias h-opst-list='echo "\
+openstack hypervisor list
+
+openstack compute service list\
+"'
+
+alias h-opst-show='echo "\
+openstack host show compute1\
+"'
+
+# selfservice
+alias h-opst-selfservice='echo "\
+openstack network create  --share \\
+  --provider-physical-network provider \\
+  --provider-network-type flat provider
+
+openstack subnet create --network provider \\
+  --allocation-pool start=START_IP_ADDRESS,end=END_IP_ADDRESS \\
+  --dns-nameserver DNS_RESOLVER --gateway PROVIDER_NETWORK_GATEWAY \\
+  --subnet-range PROVIDER_NETWORK_CIDR provider
+
+openstack network create selfservice
+
+openstack subnet create --network selfservice \\
+  --dns-nameserver DNS_RESOLVER --gateway SELFSERVICE_NETWORK_GATEWAY \\
+  --subnet-range SELFSERVICE_NETWORK_CIDR selfservice
+
+neutron net-update provider --router:external
+
+openstack router create router
+
+neutron router-interface-add router selfservice
+
+neutron router-gateway-set router provider
+
+# Verify operation
+ip netns
+neutron router-port-list router
+
+###
+openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
+
+ssh-keygen -q -N ""
+openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
+
+openstack security group rule create --proto icmp default
+openstack security group rule create --proto tcp --dst-port 22 default
+"'
+
+# nested kvm
+alias h-nested-kvm='echo "\
+$ vi /etc/modprobe.d/kvm-nested.conf
+options kvm_intel nested=1
+
+$ modprobe -r kvm_intel
+
+$ modprobe kvm_intel
+
+$ cat /sys/module/kvm_intel/parameters/nested
+> Y
+
+$ virsh edit centos7
+<cpu mode=\"host-passthrough=\">\
+"'
+
+### End OpenStack
