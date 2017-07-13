@@ -7,7 +7,8 @@ alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
 alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
 
 alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
-alias h-grep-comment='echo grep -v -e "^\s*#" -e "^\s*$" unbound.conf'
+alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
+alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
 alias h-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
 alias h-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
@@ -27,6 +28,8 @@ alias h-vim-del-comment="echo '一致行削除
 :%v/^$/d
 空行削除
 :g/^$/d'"
+alias h-vim-space-1="echo ':%s/ \\+/ /g'"
+alias h-vim-clipboard=" echo 'copy -> \"+yy'"
 
 alias h-ubuntu-network-example='
 echo "/etc/network/interfaces
@@ -41,12 +44,64 @@ alias h-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.1
 
 alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
 alias h-docker-build="echo 'docker build --tag=image-name --no-cache .'"
+alias h-docker-none-delete="echo 'docker image ls --filter=dangling=true --quiet | xargs docker rmi'"
 
 alias h-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
 
 alias h-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
 
 alias h-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"
+
+alias h-zsh-grml-zsh-config="echo '\
+wget -O ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+curl -L -o ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc\
+'"
+
+alias h-netcat="echo '\
+tar c * | nc -l -p 8000
+nc 192.168.1.1 8000 | tar -x
+
+nc -l -p 12345 | tar
+tar c * | nc 192.168.103.125 12345\
+'"
+
+### 設定周り
+alias h-journald='echo "\
+### tty
+
+1.
+\`\`\`/etc/systemd/journald.conf.d/fw-tty12.conf
+[Journal]
+ForwardToConsole=yes
+TTYPath=/dev/tty12
+MaxLevelConsole=info
+\`\`\`
+
+2.
+\`\`\`shell
+systemctl restart systemd-journald
+\`\`\`
+
+### log
+mkdir /var/log/journal
+"'
+
+alias h-battery='echo "\
+/etc/udev/rules.d/99-lowbat.rules
+
+# Suspend the system when battery level drops to 2% or lower
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"10\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"9\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"8\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"7\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"6\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"5\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"4\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"3\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"2\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"1\", RUN+=\"/usr/bin/systemctl suspend\"
+SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"0\", RUN+=\"/usr/bin/systemctl suspend\"\
+"'
 
 ### OpenStack
 
