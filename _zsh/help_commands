@@ -65,6 +65,8 @@ nc -l -p 12345 | tar
 tar c * | nc 192.168.103.125 12345\
 '"
 
+alias h-deb-unar="echo 'ar vx foo.deb'"
+
 ### 設定周り
 alias h-journald='echo "\
 ### tty
