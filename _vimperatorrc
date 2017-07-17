@@ -37,3 +37,11 @@ nnoremap s :tabopen<Space>google<Space>
 " 選択文字列でぐぐる(マウスとVISUALモードの選択時に対応)
 nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
 vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
+
+" Ctrl-q でWindowが閉じてしまうのでとりあえず<Esc>に割当て
+noremap <C-q> <Esc>
+noremap! <C-q> <Esc>
+nnoremap <C-q> <Esc>
+vnoremap <C-q> <Esc>
+cnoremap <C-q> <Esc>
+inoremap <C-q> <Esc>
