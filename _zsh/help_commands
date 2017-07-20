@@ -105,6 +105,24 @@ SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"1\
 SUBSYSTEM==\"power_supply\", ATTR{status}==\"Discharging\", ATTR{capacity}==\"0\", RUN+=\"/usr/bin/systemctl suspend\"\
 "'
 
+### Tmux
+h-tmux-plugin='echo "\
+- prefix + I
+  - Installs new plugins from GitHub or any other git repository
+  - Refreshes TMUX environment
+- prefix + U
+  - updates plugin(s)
+- prefix + alt + u
+  - remove/uninstall plugins not on the plugin list
+
+https://github.com/tmux-plugins/tpm#key-bindings
+"'
+
+h-tmux-session-save='echo "\
+prefix + Ctrl-s - save
+prefix + Ctrl-r - restore
+"'
+
 ### OpenStack
 
 # network
