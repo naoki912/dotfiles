@@ -420,6 +420,9 @@ else
                 \    },
                 \ }
 
+    "##### セッション関連 #####
+    NeoBundle 'tpope/vim-obsession'
+
     "##### ファイル管理関係 #####
 
     "### vim-templateによるテンプレートファイルの使用 ###
