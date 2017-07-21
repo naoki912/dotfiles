@@ -201,12 +201,3 @@ case ${UID} in
         ░         ░ ░      ░ ░  ${reset_color}"
 esac
 
-
-# startup script
-COMMENT="【`date "+%Y-%m-%d (%a)"`】"
-IFS=">"
-AA=(`sed -e "s/__DATE__/$COMMENT/g" ~/dotfiles/aa.txt`)
-NUM=${#AA[*]}
-NO=`expr $RANDOM % $NUM`
-echo ${AA[$NO]}
-#http://d.hatena.ne.jp/kiyotune/20120329/1333029068
