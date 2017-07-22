@@ -123,6 +123,41 @@ prefix + Ctrl-s - save
 prefix + Ctrl-r - restore
 "'
 
+### ShellScript
+
+alias h-shell-command-exists-check='echo "\
+if type COMMAND > /dev/null 2>&1; then
+    true
+fi
+
+if ! type COMMAND > /dev/null 2>&1; then
+    false
+fi"'
+
+alias h-shell-is-check='echo "\
+if COMMAND > /dev/null 2>&1; then
+    true
+fi
+
+if ! COMMAND > /dev/null 2>&1; then
+    true
+fi
+
+Example:
+if ! pyenv virtualenvs | \grep openstack > /dev/null 2>&1; then
+    echo \"pyenv openstack virtualenv not found\"
+fi"'
+
+alias h-shell-test-options='echo "\
+あ
+と
+で
+書
+く
+"'
+
+### End ShellScript
+
 ### OpenStack
 
 # network
