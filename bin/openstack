@@ -40,11 +40,13 @@ cd ${PYENV_LOCAL_DIRECTORY}
 if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
 
     # openstack virtualenvが存在するなら切り替える
-    # 存在しない場合はopenstack virtualenvを作成
+    # 存在しない場合はopenstack virtualenvを作成し、
+    # openstack virtualenvへの切り替えとopenstackclientのインストール
     if pyenv virtualenvs | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
         pyenv local openstack
     else
         pyenv virtualenv ${PYTHON_VERSION} ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+        pyenv local openstack
         pyenv exec pip install python-openstackclient
     fi
 fi
