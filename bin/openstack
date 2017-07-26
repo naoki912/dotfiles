@@ -1,0 +1,48 @@
+#!/usr/bin/env zsh
+
+# このコマンドがなぜか無限にループする場合は ~/.pyenv/shims/openstack が存在していないかチェック
+# $ type openstack
+# > openstack is /home/$USER/.pyenv/shims/openstack
+
+#set -xv
+
+PYENV_LOCAL_DIRECTORY='/tmp/openstack'
+PYENV_OPENSTACK_VIRTUALENV_NAME='openstack'
+PYTHON_VERSION='3.5.2'
+
+# pyenvがインストールされているか確認
+if ! type pyenv > /dev/null 2>&1; then
+    echo 'pyenv not found'
+    exit 1
+fi
+
+# ${PYENV_LOCAL_DIRECTORY} がDirectoryか確認
+if [[ ! -d ${PYENV_LOCAL_DIRECTORY} ]]; then
+
+    # Directoryの作成を試みる
+    # 失敗したらexit(1)する
+    mkdir -p ${PYENV_LOCAL_DIRECTORY}
+    if [[ $? -ne 0 ]]; then
+        echo "Failed: mkdir ${PYENV_LOCAL_DIRECTORY}"
+        exit 1
+    fi
+fi
+
+cd ${PYENV_LOCAL_DIRECTORY}
+
+# 現在のpyenv localの環境を確認(not)
+# _result=`pyenv local`
+if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
+
+    # openstack virtualenvが存在するなら切り替える
+    # 存在しない場合はopenstack virtualenvを作成
+    if pyenv virtualenvs | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
+        pyenv local openstack
+    else
+        pyenv virtualenv ${PYTHON_VERSION} ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+        pyenv exec pip install python-openstackclient
+    fi
+fi
+
+pyenv exec openstack $@
+
