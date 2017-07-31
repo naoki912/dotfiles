@@ -81,11 +81,11 @@ groups = [
         matches=[Match(wm_class=['firefox', 'Firefox', 'chromium', 'vivaldi-snapshot', 'chrome'])]
     ),
     Group(
-        '3:work',
+        '3:dev',
         matches=[Match(wm_class=['pycharm', 'android-studio', 'idea.sh'])]
     ),
-    Group('4:None'),
-    Group('5:None'),
+    Group('4:editor'),
+    Group('5:work'),
     Group('6:stat'),
     Group(
         '7:IM',
