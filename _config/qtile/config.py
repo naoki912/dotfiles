@@ -23,8 +23,8 @@ keys = [
     Key([mod], 'Return', lazy.spawn(Commands.terminal)),
     Key([mod, 'shift'], 'q', lazy.window.kill()),
 
-    Key([mod], "o", lazy.layout.next()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
+    Key([mod], 'o', lazy.layout.next()),
+    Key([mod, 'shift'], 'space', lazy.layout.flip()),
     # qtileのトップページに載ってるけどドキュメントに無い
     # Key([mod], 'Left', lazy.screen.prevgroup()),
     # Key([mod], 'Right', lazy.screen.nextgroup()),
@@ -33,39 +33,39 @@ keys = [
     Key([mod, 'control'], 'space', lazy.window.toggle_floating()),
 
     # Switch between windows in current stack pane
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "j", lazy.layout.up()),
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "l", lazy.layout.right()),
+    Key([mod], 'h', lazy.layout.left()),
+    Key([mod], 'j', lazy.layout.up()),
+    Key([mod], 'k', lazy.layout.down()),
+    Key([mod], 'l', lazy.layout.right()),
 
     # Move windows up or down in current stack
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, 'shift'], 'h', lazy.layout.swap_left()),
+    Key([mod, 'shift'], 'l', lazy.layout.swap_right()),
+    Key([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
+    Key([mod, 'shift'], 'k', lazy.layout.shuffle_up()),
 
     # Switch window focus to other pane(s) of stack
     Key([mod], 'space', lazy.layout.next()),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], 'Tab', lazy.next_layout()),
 
     # ウィンドウサイズ
-    Key([mod], "i", lazy.layout.grow()),
-    Key([mod], "m", lazy.layout.shrink()),
-    Key([mod], "n", lazy.layout.normalize()),
-    Key([mod], "u", lazy.layout.maximize()),
+    Key([mod], 'i', lazy.layout.grow()),
+    Key([mod], 'm', lazy.layout.shrink()),
+    Key([mod], 'n', lazy.layout.normalize()),
+    Key([mod], 'u', lazy.layout.maximize()),
 
     # アプリケーション起動
-    Key([mod], "d", lazy.spawn(Commands.dmenu)),
-    Key([mod], "f", lazy.spawn(Commands.nm_dmenu)),
+    Key([mod], 'd', lazy.spawn(Commands.dmenu)),
+    Key([mod], 'f', lazy.spawn(Commands.nm_dmenu)),
 ]
 
 # Mouse bindings and options
 mouse = (
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([mod], 'Button1', lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([mod], 'Button3', lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
 )
 
@@ -110,7 +110,7 @@ for i in groups:
     keys.append(Key([mod], i.name[:1], lazy.group[i.name].toscreen()))
 
     # mod + shift + letter of group = switch to & move focused window to group
-    keys.append(Key([mod, "shift"], i.name[:1], lazy.window.togroup(i.name)))
+    keys.append(Key([mod, 'shift'], i.name[:1], lazy.window.togroup(i.name)))
 
 # 詳細がドキュメントに乗ってないやつ
 dgroups_key_binder = None
