@@ -12,3 +12,8 @@ cd ~/.vim/bundle && git clone https://github.com/Shougo/neobundle.vim
 # tmux
 sudo -E pacman -S --noconfirm xsel
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# zsh
+if type packer > /dev/null 2>&1; then
+    packer -S --noconfirm zplug
+fi
