@@ -77,7 +77,7 @@ alias temp='echo "exec hddtemp /dev/sd[a-z]"; sudo hddtemp /dev/sd[a-z]'
 alias natwlan0='sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE'
 alias zyanken="shuf -e e29c8{a,b,c}0a | xxd -r -p | head -n 1"
 alias clean-known-hosts="sed -i -e '/^localhost/d' -e '/^192.168.122/d' ~/.ssh/known_hosts; echo 'known_host -> remove localhost & 192.168.122'"
-alias battery="acpi -b | grep -oE \[0-9\]+%"
+alias battery="acpi -b | \grep -oE \[0-9\]+%"
 
 alias ips="echo '=== br0 addr ===' \
     ; \ip addr show br0 | sed -e 's/^[0-9]: //' -e /link/d -e /valid_lft/d -e 's/brd.*//' \
