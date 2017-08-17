@@ -1,6 +1,6 @@
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
-export XMODIFIERS=" @im=ibus"
+export XMODIFIERS="@im=ibus"
 export DefaultIMModule=ibus
 
 # xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
