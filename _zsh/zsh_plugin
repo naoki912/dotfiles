@@ -1,0 +1,28 @@
+source /usr/share/zsh/scripts/zplug/init.zsh
+
+if type zplug > /dev/null 2>&1; then
+    zplug "zsh-users/zsh-completions"
+    zplug "zsh-users/zsh-syntax-highlighting"
+
+    # fishみたいな補完
+    zplug "zsh-users/zsh-autosuggestions"
+
+    # git rootへcdするやつ
+    zplug "mollifier/cd-gitroot"
+
+    #zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, of:"*linux*amd64*"
+    #zplug "junegunn/fzf", from:gh-r, as:command, use:bin/fzf-tmux
+    #zplug "peco/peco", as:command, from:gh-r, of:"*linux*amd64*"
+
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    # Then, source plugins and add commands to $PATH
+    zplug load --verbose
+fi
+
