@@ -3,3 +3,7 @@
 *~
 __pycache__
 .idea
+
+# tmux
+_tmux/plugins/
+_tmux/resurrect/
