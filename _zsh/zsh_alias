@@ -1,6 +1,7 @@
 # commands
 # コマンド省略
-alias ca='cat'
+alias ca='ccat'
+alias cat='ccat'
 alias g='grep'
 alias i='ip'
 alias p='ping'
@@ -21,6 +22,7 @@ alias ip6='ip -6'
 alias ip='sudo ip'
 alias ipa='sudo ip addr'
 alias ipaa='sudo ip addr add'
+alias ipas='\ip a show'
 alias ipr='sudo ip route'
 alias iprd="ip route | grep '^d' | sed -e s/\^\[0-9]://"
 alias iprrd='sudo ip route replace default via'
@@ -88,6 +90,7 @@ alias ips="echo '=== br0 addr ===' \
     ; cat /etc/resolv.conf | sed -e '/^#.*/d'"
 alias swapre='sudo swapoff -a ; sudo swapon -a'
 alias swapreset='sudo swapoff -a ; sudo swapon -a'
+alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
 
 # エイリアス
 alias Xterm='terminator'
@@ -100,4 +103,4 @@ if type colordiff > /dev/null 2>&1; then
     alias diff='colordiff'
 fi
 
-alias termite="termite --title=tmux -e tmux"
+#alias termite="termite --title=tmux -e tmux"
