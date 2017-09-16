@@ -18,6 +18,7 @@ slack &
 xmodmap ~/.xmodmaprc
 xremap .xremaprc &
 redshift-gtk &
+parcellite &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
