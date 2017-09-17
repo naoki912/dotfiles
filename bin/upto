@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# https://stackoverflow.com/questions/35374305/how-can-you-convert-this-bash-completion-function-to-a-zsh-completion-function
+
+function upto {
+    if [[ -z $1 ]]; then
+        return
+    fi
+    local upto=$1
+    cd "${PWD/\/$upto\/*//$upto}"
+}

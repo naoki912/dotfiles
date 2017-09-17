@@ -1,0 +1,10 @@
+#compdef upto
+
+# https://stackoverflow.com/questions/35374305/how-can-you-convert-this-bash-completion-function-to-a-zsh-completion-function
+
+_upto() {
+    local parents;
+    parents=(${(s:/:)PWD});
+    compadd -V 'Parent Dirs' -- "${(Oa)parents[@]}";
+}
+
