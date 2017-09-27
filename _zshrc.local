@@ -32,6 +32,8 @@ if [ -d $HOME/.zsh/ ]; then
 
     load_config ${config_dir}/zsh_startup
 
+    load_config ${config_dir}/zsh_plugin
+
     load_config ${config_dir}/zsh_local
 
     load_config ${config_dir}/help_commands
