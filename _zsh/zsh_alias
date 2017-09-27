@@ -58,6 +58,8 @@ alias curlg='curl google.co.jp'
 # コマンド省略
 alias c='clear;ls'
 alias cdc='cd;clear;ls'
+alias re='reset'
+alias clr='clear'
 alias psgrep='ps aux | \grep'
 alias psg='ps aux | \grep'
 alias lsg='ls | \grep'
