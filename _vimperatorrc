@@ -13,23 +13,17 @@ map k 5<C-y>
 no dd :tabclose<CR>
 map d <NOP>
 
-" Ctrl+h/Ctrl+lに戻る/進むを割り当てる
-map <C-h> <A-Left>
-map <C-l> <A-Right>
+" Shift+h/Shift+lに戻る/進むを割り当てる
+map H <A-Left>
+map L <A-Right>
 
-" H/Lに左右を割り当てる
-map H <Left>
-map L <Right>
+" C-h,C-lに前のタブ,次のタブを割り当てる
+map <C-h> <C-PageUp>
+map <C-l> <C-PageDown>
 
-" h,lに前のタブ,次のタブを割り当てる
-map h <C-PageUp>
-map l <C-PageDown>
-" H/Lでタブ移動
-"map h gT
-"map l gt
-" Shift + ←/→ で現在のタブの位置変更
-map <S-Right> :tabmove! +1<CR>
-map <S-Left> :tabmove! -1<CR>
+" {/} で現在のタブの位置変更
+map { :tabmove! -1<CR>
+map } :tabmove! +1<CR>
 
 " sでぐぐる
 nnoremap s :tabopen<Space>google<Space>
@@ -45,3 +39,11 @@ nnoremap <C-q> <Esc>
 vnoremap <C-q> <Esc>
 cnoremap <C-q> <Esc>
 inoremap <C-q> <Esc>
+
+""""""""""
+" http://qiita.com/highdrac/items/4f48fda72520ac3546f5
+
+" スクロールの端などの際に出るbeepをoff
+beep off
+" エラー時にベルを鳴らさない
+set noerrorbells
