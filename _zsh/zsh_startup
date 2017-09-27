@@ -12,16 +12,12 @@ fi
 
 if type fortune > /dev/null 2>&1; then
     if type cowsay > /dev/null 2>&1; then
-        fortune | cowsay -n
+        fortune wcdi | cowsay -n
     else
         fortune
     fi
 fi
 
 if type memo > /dev/null 2>&1; then
-    if type cowsay > /dev/null 2>&1; then
-        memo | cowsay -n
-    else
-        memo
-    fi
+    memo
 fi
