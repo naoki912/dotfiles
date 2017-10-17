@@ -124,6 +124,9 @@ endif
 autocmd FileType c :set dictionary=/usr/share/vim/vim74/syntax/c.vim
 autocmd FileType java :set dictionary=/usr/share/vim/vim74/syntax/java.vim
 
+"path
+let $PATH = "~/.pyenv/shims:".$PATH
+
 
 "########## Tab ##########
 "http://qiita.com/wadako111/items/755e753677dd72d8036d
@@ -577,6 +580,7 @@ else
                 \ "autoload": {
                 \   "insert": 1,
                 \ }}
+    NeoBundle 'Shougo/neosnippet-snippets'
     let s:hooks = neobundle#get_hooks("neosnippet.vim")
     function! s:hooks.on_source(bundle)
         " Plugin key-mappings.
@@ -701,6 +705,8 @@ else
                 \   "filetypes": ["python", "python3", "djangohtml"]
                 \ }}
 
+    NeoBundle 'davidhalter/jedi-vim'
+
     "### コメントを操作するプラギン ###
     NeoBundle 'scrooloose/nerdcommenter'
     let NERDSpaceDelims = 1
@@ -718,6 +724,12 @@ else
     "### 行末の不要な半角スペースを可視化 ###
     NeoBundle 'bronson/vim-trailing-whitespace'
     nmap d<TAB> :FixWhitespace<CR>
+
+    "##### golang #####
+    NeoBundle 'fatih/vim-go'
+    " let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+    " autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+    " autocmd FileType go :match goErr /\<err\>/
 
     "##### ドキュメント関連 #####
 
@@ -912,3 +924,20 @@ filetype plugin indent on
 syntax on
 
 
+" 自分のvimrcが読めない
+
+" vim-go
+"" mapping
+""" go runのキーマッピング
+au FileType go nmap gr (go-run)
+""" go testのキーマッピング
+au FileType go nmap gt (go-test)
+"" highlight
+let g:go_hightlight_functions = 1
+let g:go_hightlight_methods = 1
+let g:go_hightlight_structs = 1
+let g:go_hightlight_interfaces = 1
+let g:go_hightlight_operators = 1
+let g:go_hightlight_build_constraints = 1
+"" GoFmt時にインポートするパッケージを整理(GoFmtはファイル書き込み時に自動的に実行される)
+let g:go_fmt_command = "goimports"
