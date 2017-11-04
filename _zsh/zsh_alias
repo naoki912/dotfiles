@@ -14,6 +14,12 @@ alias redhcp-br0='sudo dhcpcd -k br0'
 alias opst='openstack'
 alias q='exit'
 
+alias packer-syu='packer -Syu --aur'
+alias packer-syu-noedit='packer -Syu --aur --noedit'
+alias packer-syu-noconfirm='packer -Syu --aur --noconfirm'
+alias packer-noedit='packer -S --noedit'
+alias packer-noconfirm='packer -S --noconfirm'
+
 # オプション省略
 #alias clear='clear;def_clear'
 alias egrep='grep -n --color=auto'
