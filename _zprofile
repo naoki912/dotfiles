@@ -3,11 +3,8 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS="@im=ibus"
 export DefaultIMModule=ibus
 
-# xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
-# xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
-# xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
-# xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# qtileのauto_start.shに移した
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+#xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
