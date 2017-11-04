@@ -7,14 +7,20 @@ eval "$(pyenv init -)"
 export PATH=${HOME}/.gem/ruby/2.3.0/bin:${PATH}
 
 # go
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=${HOME}/.go
+export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
 
 # 補完PATH読み込み
-if [ -d $HOME/.zsh/completions ]; then
-    export FPATH="${FPATH}:$HOME/.zsh/completions"
+if [ -d ${HOME}/.zsh/completions ]; then
+    export FPATH="${FPATH}:${HOME}/.zsh/completions"
 fi
 
 # local bin
 # PATHの先頭に持ってこないと bin/openstack が .pyenv/shims/openstack を参照して無限ループするので注意
 export PATH=${HOME}/dotfiles/bin:${PATH}
+
+# ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
+export DefaultIMModule=ibus
