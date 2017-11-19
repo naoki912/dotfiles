@@ -1,5 +1,7 @@
-import subprocess, os
-from libqtile.config import Key, Screen, Group, Drag, Click, Match
+import subprocess
+import os
+
+from libqtile.config import Key, Screen, Group, Drag, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 
@@ -78,7 +80,8 @@ groups = [
     Group('1:term'),
     Group(
         '2:www',
-        matches=[Match(wm_class=['firefox', 'Firefox', 'chromium', 'vivaldi-snapshot', 'chrome'])]
+        matches=[Match(wm_class=['firefox', 'Firefox',
+                                 'chromium', 'vivaldi-snapshot', 'chrome'])]
     ),
     Group(
         '3:dev',
@@ -207,10 +210,11 @@ def main(qtile):
     ''' This function is called when Qtile starts. '''
     pass
 
+
 @hook.subscribe.startup_once
 def auto_start():
     home = os.path.expanduser('~')
     try:
         subprocess.call([home + '/.config/qtile/auto_start.sh'])
-    except:
+    except Exception:
         pass
