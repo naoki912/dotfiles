@@ -19,6 +19,7 @@ xmodmap ~/.xmodmaprc
 xremap .xremaprc &
 redshift-gtk &
 parcellite &
+blueman-applet &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
