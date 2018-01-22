@@ -5,6 +5,10 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
 # http://postd.cc/how-to-boost-your-vim-productivity/#gfm-7
 # > 3. 範囲拡大を使う
 # > vを押して、1文字を選択する

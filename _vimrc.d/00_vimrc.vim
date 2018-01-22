@@ -410,19 +410,6 @@ else
     " NeoBundle自身をNeoBundleで管理させる
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    "### 非同期通信を可能にする ###
-    " 'build'が指定されているのでインストール時に自動的に
-    " 指定されたコマンドが実行され vimproc がコンパイルされる
-    NeoBundle 'Shougo/vimproc.vim', {
-                \ 'build' : {
-                \     'windows' : 'tools\\update-dll-mingw',
-                \     'cygwin' : 'make -f make_cygwin.mak',
-                \     'mac' : 'make -f make_mac.mak',
-                \     'linux' : 'make',
-                \     'unix' : 'gmake',
-                \    },
-                \ }
-
     "##### セッション関連 #####
     NeoBundle 'tpope/vim-obsession'
 
