@@ -1,4 +1,10 @@
 [[plugins]]
+# deinのinstallerで生成したvimrcで `Required` となっていたので追加
+# 元々は以下
+# "call dein#add('/home/USER/dotfiles/_vim/bundles/./repos/github.com/Shougo/dein.vim')
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
 # http://postd.cc/how-to-boost-your-vim-productivity/#gfm-7
 # > 3. 範囲拡大を使う
 # > vを押して、1文字を選択する
