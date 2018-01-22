@@ -663,6 +663,18 @@ else
 
     "##### Python関係 #####
 
+    "### vimでpythonのコーディングスタイルを自動でチェック&自動修正する
+    " http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
+
+    NeoBundle 'scrooloose/syntastic'
+    "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+    let g:syntastic_python_checkers = ['flake8']
+
+    NeoBundle 'tell-k/vim-autopep8'
+    autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+    " 79文字制限をとりあえず200にして解除, -1が使えるかどうかは未検証
+    let g:autopep8_max_line_length=200
+
     "### virtualenvとdjango問題の解決 ###
     " Djangoを正しくVimで読み込めるようにする
     NeoBundleLazy "lambdalisue/vim-django-support", {
@@ -724,6 +736,9 @@ else
     "### 行末の不要な半角スペースを可視化 ###
     NeoBundle 'bronson/vim-trailing-whitespace'
     nmap d<TAB> :FixWhitespace<CR>
+
+    " https://github.com/ujihisa/repl.vim
+    NeoBundle 'ujihisa/repl.vim'
 
     "##### golang #####
     NeoBundle 'fatih/vim-go'
@@ -878,9 +893,9 @@ else
     let g:vimfiler_force_overwrite_statusline = 0
     let g:vimshell_force_overwrite_statusline = 0
 
-
     " ToDo Git関連の設定
     NeoBundleCheck
+
 endif
 
 call neobundle#end()
@@ -918,7 +933,6 @@ function! s:GetHighlight(hi)
     return hl
 endfunction
 """"""""""""""""""""""""""""""
-
 
 filetype plugin indent on
 syntax on
