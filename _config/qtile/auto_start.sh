@@ -14,6 +14,7 @@ fcitx-autostart &
 # google-musicmanager &
 # owncloud &
 slack &
+franz &
 # twmnd &
 xmodmap ~/.xmodmaprc
 xremap .xremaprc &
