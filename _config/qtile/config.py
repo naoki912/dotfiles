@@ -89,7 +89,7 @@ groups = [
     ),
     Group('4:editor'),
     Group('5:work'),
-    Group('6:stat'),
+    Group('6:tools'),
     Group(
         '7:IM',
         matches=[Match(wm_class=['pidgin', 'slack', 'slack-desktop'])]
@@ -102,10 +102,7 @@ groups = [
         '9:SNS',
         matches=[Match(wm_class=['mikutter'])]
     ),
-    Group(
-        '0:tools',
-        matches=[Match(wm_class=['shutter', 'owncloud'])]
-    ),
+    Group('0:stat'),
 ]
 
 for i in groups:
@@ -185,6 +182,7 @@ for k, _ in bars.items():
             widget.NetGraph(width=_GRAPH_WIDTH),
         ],
         20,
+        # background=(0, 0, 0, 0),
     )
 
 screens = []
