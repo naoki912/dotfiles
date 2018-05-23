@@ -942,3 +942,30 @@ let g:go_hightlight_operators = 1
 let g:go_hightlight_build_constraints = 1
 "" GoFmt時にインポートするパッケージを整理(GoFmtはファイル書き込み時に自動的に実行される)
 let g:go_fmt_command = "goimports"
+
+"""""
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+    let @" = s:restore_reg
+    return ''
+endfunction
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+"""
+" うまく動かない
+" 12G じゃなくて、12Enterを叩くと12行目に移動できる
+"nnoremap <CR> G
+"nnoremap <BS> gg
+nnoremap <CR> G
+" 間違った時用に元の位置に戻るやつを入れたいんだけど、 <C-BS> が動かない
+"nnoremap <C-CR> <C-o>
+"nnoremap <C-BS> <C-i>
+nnoremap <BS> <C-o>
+nnoremap <C-BS> <C-i>
+
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
