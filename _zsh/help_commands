@@ -459,17 +459,17 @@ openstack subnet create --network selfservice \\
   --dns-nameserver DNS_RESOLVER --gateway SELFSERVICE_NETWORK_GATEWAY \\
   --subnet-range SELFSERVICE_NETWORK_CIDR selfservice
 
-neutron net-update provider --router:external
+openstack router create router1
 
-openstack router create router
+openstack router set router1 --external-gateway provider
+openstack router add subnet router1 selfservice
 
-neutron router-interface-add router selfservice
-
-neutron router-gateway-set router provider
+#neutron router-interface-add router1 selfservice
+#neutron router-gateway-set router1 provider
 
 # Verify operation
 ip netns
-neutron router-port-list router
+neutron router-port-list router1
 
 ###
 openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
