@@ -15,10 +15,17 @@ alias opst='openstack'
 alias q='exit'
 
 alias packer-syu='packer -Syu --aur'
+alias packer-Syu='packer -Syu --aur'
 alias packer-syu-noedit='packer -Syu --aur --noedit'
+alias packer-Syu-noedit='packer -Syu --aur --noedit'
 alias packer-syu-noconfirm='packer -Syu --aur --noconfirm'
+alias packer-Syu-noconfirm='packer -Syu --aur --noconfirm'
 alias packer-noedit='packer -S --noedit'
+alias packer-s-noedit='packer -S --noedit'
+alias packer-S-noedit='packer -S --noedit'
 alias packer-noconfirm='packer -S --noconfirm'
+alias packer-s-noconfirm='packer -S --noconfirm'
+alias packer-S-noconfirm='packer -S --noconfirm'
 
 # オプション省略
 #alias clear='clear;def_clear'
@@ -76,7 +83,7 @@ alias lsag='ls -la | \grep'
 alias :q='exit'
 alias eng='LANG=C'
 alias jng='LANG=ja_JP.UTF-8'
-alias py='ipython'
+alias py='ptipython'
 alias picture='eog'
 alias pdf='evince'
 alias noipv6='sudo sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1 && echo "exec sysctl net/ipv6/conf/wlp3s0/disable_ipv6=1"'
@@ -97,7 +104,7 @@ alias ips="echo '=== br0 addr ===' \
     ; echo '\n=== resolv ===' \
     ; cat /etc/resolv.conf | sed -e '/^#.*/d'"
 alias swapre='sudo swapoff -a ; sudo swapon -a'
-alias swapreset='sudo swapoff -a ; sudo swapon -a'
+alias swapreset='sudo sh -c "swapoff -a ; swapon -a"'
 alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
 
 # エイリアス
