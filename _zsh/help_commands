@@ -141,6 +141,28 @@ prefix + Ctrl-s - save
 prefix + Ctrl-r - restore
 "'
 
+alias h-bash='echo "\
+あとでかく
+set -xveu
+"'
+
+alias h-qemu-disk-size-change='echo "\
+qemu-img resize guest.qcow2 +5G
+
+modprobe -av nbd
+qemu-nbd -c /dev/nbd0 ~/img.qcow2
+
+fdisk /dev/nbd0
+> d 1
+> n
+> Enter...
+
+qemu-nbd --disconnect /dev/nbd0
+modprobe -rv nbd
+
+resize2fs /dev/vda1
+"'
+
 ### ShellScript
 
 alias h-shell-command-exists-check='echo "\
