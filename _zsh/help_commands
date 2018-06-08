@@ -142,6 +142,42 @@ sed -n 100,200p FILE.txt"'
 
 alias h-deb-unar="echo 'ar vx foo.deb'"
 
+### RFC周り
+
+alias h-rfc-keyword='echo "\
+[RFC2119]
+MUST       | しなければならない
+MUST NOT   | してはならない
+REQUIRED   | 必須である, 要求されている
+SHALL      | するものとする, することになる
+SHALL NOT  | しないものとする, することはない
+SHOULD     | すべきである, する必要がある
+SHOULD NOT | すべきではない, しないほうがよい
+RECOMMENDED| 推奨される
+MAY        | してもよい
+OPTIONAL   | 任意である, 選択できる
+
+用語周りはここ
+[RFC4949]
+https://tools.ietf.org/html/rfc4949
+"'
+
+### systemd-nspawn
+alias h-systemd-nspawn-service='echo "\
+systemctl edit systemd-nspawn@NAME.service
+
+Example:
+[Service]
+ExecStart=
+ExecStart=/usr/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth --bind=/srv/nspawn/share:/share -U --settings=override --machine=%i
+
+Default:
+ExecStart=/usr/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth -U --settings=override --machine=%i
+
+Tips:
+--bind で ~/ は使用不可なので、$HOMEを使用する。
+\"'
+
 ### 設定周り
 alias h-journald='echo "\
 ### tty
