@@ -20,10 +20,13 @@ alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh
 alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
 alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
-alias h-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
-alias h-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
-alias h-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
-alias h-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
+alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
+alias h-iptables-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
+alias h-iptables-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+
+alias h-mtu='echo "ping -c5 -M do -s 1500 example.com"'
+
 alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
 
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
