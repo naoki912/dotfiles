@@ -291,6 +291,34 @@ alias h-shell-test-options='echo "\
 
 ### End ShellScript
 
+### Ansible
+
+alias h-ansible-one-liner='echo "\
+\`\`\`hosts
+10.0.0.1
+10.0.0.2
+10.0.0.3
+
+[all:vars]
+ansible_sudo_pass=PASSWORD
+\`\`\`
+
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
+"'
+
+alias h-ansible-apt-upgrade='echo "\
+# aptitudeが入ってる場合
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=yes" --become
+# aptitudeが入っていない場合
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
+"'
+
+alias h-ansible-ping='echo "\
+ansible all -i hosts -m ping\
+"'
+
+### End Ansible
+
 ### OpenStack
 
 # network
