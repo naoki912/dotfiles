@@ -32,6 +32,7 @@ alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-u
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
 alias h-eth='echo "sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules"'
 
+# vim系
 alias h-vim-root='echo ":w \!sudo tee % > /dev/null"'
 alias h-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
 alias h-vim-ip-range-insert="echo \":for i in range(1,10) | put ='192.168.0.'.i | endfor'\""
