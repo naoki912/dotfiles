@@ -30,6 +30,7 @@ alias h-mtu='echo "ping -c5 -M do -s 1500 example.com"'
 alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
 
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
+alias h-eth='echo "sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules"'
 
 alias h-vim-root='echo ":w \!sudo tee % > /dev/null"'
 alias h-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
