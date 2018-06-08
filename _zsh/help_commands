@@ -261,6 +261,19 @@ nova interface-attach --port-id={UUID} myserver\
 openstack server add port SERVER PORT
 "'
 
+alias h-opst-port-list-ip-only='echo "\
+openstack port list --network=NETWORK --column=\"Fixed IP Addresses\" --format value | sed \"s/'\'', .*//g\" | sed \"s/ip_address='\''//g\" | sort -V\
+"'
+
+alias h-opst-floating-ip='echo "\
+# provider_networkというexternalネットワークにfloating ipを作成したい場合
+openstack floating ip create --floating-ip-address 192.168.1.100 provider_network
+
+# floating ip をインスタンスに割り当てる
+openstack server add floating ip instance-01 192.168.1.100
+"'
+
+
 # image
 alias h-opst-image-create='echo "openstack image create --file cirros-0.3.5-x86_64-disk.img --disk-format qcow2 --container-format bare --public cirros"'
 
