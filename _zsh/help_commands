@@ -16,7 +16,7 @@ alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
 alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
 alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
 
-alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config vim git openssh tmux"'
 alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
 alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
