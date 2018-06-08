@@ -2,6 +2,16 @@
 
 # h-* commands
 
+alias h-awk='echo "\
+awk '\''{print \$1 \" \" \$1 }'\'' a.sh
+"'
+
+alias h-lsof='echo "\
+# ポートを使用しているプロセスを特定
+lsof -i:80
+"'
+
+alias h-display-backlight='echo "xrandr --output HDMI1 --brightness 0.5"'
 alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
 alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
 alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
