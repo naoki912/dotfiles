@@ -6,6 +6,9 @@ sudo -E pacman -S --noconfirm ctags python-pip npm archey3
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 
+# Vim: Python関連のプラグイン
+sudo pacman -S autopep8 flake8
+
 # goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 
