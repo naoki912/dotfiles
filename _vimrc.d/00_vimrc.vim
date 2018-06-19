@@ -410,19 +410,6 @@ else
     " NeoBundle自身をNeoBundleで管理させる
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    "### 非同期通信を可能にする ###
-    " 'build'が指定されているのでインストール時に自動的に
-    " 指定されたコマンドが実行され vimproc がコンパイルされる
-    NeoBundle 'Shougo/vimproc.vim', {
-                \ 'build' : {
-                \     'windows' : 'tools\\update-dll-mingw',
-                \     'cygwin' : 'make -f make_cygwin.mak',
-                \     'mac' : 'make -f make_mac.mak',
-                \     'linux' : 'make',
-                \     'unix' : 'gmake',
-                \    },
-                \ }
-
     "##### セッション関連 #####
     NeoBundle 'tpope/vim-obsession'
 
@@ -663,6 +650,18 @@ else
 
     "##### Python関係 #####
 
+    "### vimでpythonのコーディングスタイルを自動でチェック&自動修正する
+    " http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
+
+    NeoBundle 'scrooloose/syntastic'
+    "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+    let g:syntastic_python_checkers = ['flake8']
+
+    NeoBundle 'tell-k/vim-autopep8'
+    autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+    " 79文字制限をとりあえず200にして解除, -1が使えるかどうかは未検証
+    let g:autopep8_max_line_length=200
+
     "### virtualenvとdjango問題の解決 ###
     " Djangoを正しくVimで読み込めるようにする
     NeoBundleLazy "lambdalisue/vim-django-support", {
@@ -724,6 +723,9 @@ else
     "### 行末の不要な半角スペースを可視化 ###
     NeoBundle 'bronson/vim-trailing-whitespace'
     nmap d<TAB> :FixWhitespace<CR>
+
+    " https://github.com/ujihisa/repl.vim
+    NeoBundle 'ujihisa/repl.vim'
 
     "##### golang #####
     NeoBundle 'fatih/vim-go'
@@ -878,9 +880,9 @@ else
     let g:vimfiler_force_overwrite_statusline = 0
     let g:vimshell_force_overwrite_statusline = 0
 
-
     " ToDo Git関連の設定
     NeoBundleCheck
+
 endif
 
 call neobundle#end()
@@ -919,7 +921,6 @@ function! s:GetHighlight(hi)
 endfunction
 """"""""""""""""""""""""""""""
 
-
 filetype plugin indent on
 syntax on
 
@@ -941,3 +942,30 @@ let g:go_hightlight_operators = 1
 let g:go_hightlight_build_constraints = 1
 "" GoFmt時にインポートするパッケージを整理(GoFmtはファイル書き込み時に自動的に実行される)
 let g:go_fmt_command = "goimports"
+
+"""""
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+    let @" = s:restore_reg
+    return ''
+endfunction
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+"""
+" うまく動かない
+" 12G じゃなくて、12Enterを叩くと12行目に移動できる
+"nnoremap <CR> G
+"nnoremap <BS> gg
+nnoremap <CR> G
+" 間違った時用に元の位置に戻るやつを入れたいんだけど、 <C-BS> が動かない
+"nnoremap <C-CR> <C-o>
+"nnoremap <C-BS> <C-i>
+nnoremap <BS> <C-o>
+nnoremap <C-BS> <C-i>
+
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j

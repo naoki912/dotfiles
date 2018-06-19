@@ -2,22 +2,37 @@
 
 # h-* commands
 
+alias h-awk='echo "\
+awk '\''{print \$1 \" \" \$1 }'\'' a.sh
+"'
+
+alias h-lsof='echo "\
+# ポートを使用しているプロセスを特定
+lsof -i:80
+"'
+
+alias h-display-backlight='echo "xrandr --output HDMI1 --brightness 0.5"'
 alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
 alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
 alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt/"'
 
-alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config zsh-syntax-highlighting vim git openssh tmux"'
+alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config vim git openssh tmux"'
 alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
 alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
-alias h-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
-alias h-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
-alias h-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
-alias h-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
+alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
+alias h-iptables-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
+alias h-iptables-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+
+alias h-mtu='echo "ping -c5 -M do -s 1500 example.com"'
+
 alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
 
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
+alias h-eth='echo "sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules"'
 
+# vim系
 alias h-vim-root='echo ":w \!sudo tee % > /dev/null"'
 alias h-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
 alias h-vim-ip-range-insert="echo \":for i in range(1,10) | put ='192.168.0.'.i | endfor'\""
@@ -29,7 +44,60 @@ alias h-vim-del-comment="echo '一致行削除
 空行削除
 :g/^$/d'"
 alias h-vim-space-1="echo ':%s/ \\+/ /g'"
-alias h-vim-clipboard=" echo 'copy -> \"+yy'"
+alias h-vim-clipboard="echo 'copy -> \"+yy'"
+alias h-vim-syntax="echo ':set syntax=sshconfig'"
+alias h-vim-sort="echo '\
+内部のソート
+
+ask
+:sort
+
+desk
+:sort!
+
+uniq (重複削除)
+:sort u
+
+最初にマッチした数字でソート
+:sort n
+
+正規表現でマッチした部分でのみ
+:sort /\\\a\\\a\\\a/ r
+
+範囲指定
+:1,5sort
+
+大文字小文字を区別しない
+:sort i
+
+10、16、8進数
+:sort n
+:sort x
+:sort o
+
+20列目の値を基準にソートする。＋10進数でソートの場合
+:sort /\\%20c/
+:sort n /\\%20c/
+
+---
+
+外部のsort
+
+区切りを「,」として2番目のフィールドでソートする
+:%!sort -t, -k 2,2
+
+3番目のフィールドの値を数値として解釈し、かつ、降順でソートする
+:%!sort -t, -k 3,3nr
+
+データを空白文字で区切って、2番目のフィールドの値でソートする
+:%!sort -b -k 2,2
+
+区切りを「,」として、3番目のフィールドでソートし、同じであれば、4番目のフィールドでソートする
+:%!sort -k 3,3n -k 4,4n
+
+https://qiita.com/rohinomiya/items/f6c175e1f7d529cb15f0
+https://qiita.com/jofrnpnp42/items/13187d77f3237bc6dcc3
+'"
 
 alias h-ubuntu-network-example='
 echo "/etc/network/interfaces
@@ -47,6 +115,9 @@ alias h-docker-build="echo 'docker build --tag=image-name --no-cache .'"
 alias h-docker-none-delete="echo 'docker image ls --filter=dangling=true --quiet | xargs docker image rm'"
 
 alias h-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
+alias h-cisco-config-reset="echo 'erase startup-config
+reload
+delete flash:vlan.dat'"
 
 alias h-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.gif'"
 
@@ -65,7 +136,47 @@ nc -l -p 12345 | tar
 tar c * | nc 192.168.103.125 12345\
 '"
 
+alias h-text-行数指定='echo "\
+行数指定でcat的な
+sed -n 100,200p FILE.txt"'
+
 alias h-deb-unar="echo 'ar vx foo.deb'"
+
+### RFC周り
+
+alias h-rfc-keyword='echo "\
+[RFC2119]
+MUST       | しなければならない
+MUST NOT   | してはならない
+REQUIRED   | 必須である, 要求されている
+SHALL      | するものとする, することになる
+SHALL NOT  | しないものとする, することはない
+SHOULD     | すべきである, する必要がある
+SHOULD NOT | すべきではない, しないほうがよい
+RECOMMENDED| 推奨される
+MAY        | してもよい
+OPTIONAL   | 任意である, 選択できる
+
+用語周りはここ
+[RFC4949]
+https://tools.ietf.org/html/rfc4949
+"'
+
+### systemd-nspawn
+alias h-systemd-nspawn-service='echo "\
+systemctl edit systemd-nspawn@NAME.service
+
+Example:
+[Service]
+ExecStart=
+ExecStart=/usr/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth --bind=/srv/nspawn/share:/share -U --settings=override --machine=%i
+
+Default:
+ExecStart=/usr/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth -U --settings=override --machine=%i
+
+Tips:
+--bind で ~/ は使用不可なので、$HOMEを使用する。
+\"'
 
 ### 設定周り
 alias h-journald='echo "\
@@ -123,6 +234,28 @@ prefix + Ctrl-s - save
 prefix + Ctrl-r - restore
 "'
 
+alias h-bash='echo "\
+あとでかく
+set -xveu
+"'
+
+alias h-qemu-disk-size-change='echo "\
+qemu-img resize guest.qcow2 +5G
+
+modprobe -av nbd
+qemu-nbd -c /dev/nbd0 ~/img.qcow2
+
+fdisk /dev/nbd0
+> d 1
+> n
+> Enter...
+
+qemu-nbd --disconnect /dev/nbd0
+modprobe -rv nbd
+
+resize2fs /dev/vda1
+"'
+
 ### ShellScript
 
 alias h-shell-command-exists-check='echo "\
@@ -157,6 +290,34 @@ alias h-shell-test-options='echo "\
 "'
 
 ### End ShellScript
+
+### Ansible
+
+alias h-ansible-one-liner='echo "\
+\`\`\`hosts
+10.0.0.1
+10.0.0.2
+10.0.0.3
+
+[all:vars]
+ansible_sudo_pass=PASSWORD
+\`\`\`
+
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
+"'
+
+alias h-ansible-apt-upgrade='echo "\
+# aptitudeが入ってる場合
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=yes" --become
+# aptitudeが入っていない場合
+ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
+"'
+
+alias h-ansible-ping='echo "\
+ansible all -i hosts -m ping\
+"'
+
+### End Ansible
 
 ### OpenStack
 
@@ -220,6 +381,19 @@ nova interface-attach --port-id={UUID} myserver\
 
 openstack server add port SERVER PORT
 "'
+
+alias h-opst-port-list-ip-only='echo "\
+openstack port list --network=NETWORK --column=\"Fixed IP Addresses\" --format value | sed \"s/'\'', .*//g\" | sed \"s/ip_address='\''//g\" | sort -V\
+"'
+
+alias h-opst-floating-ip='echo "\
+# provider_networkというexternalネットワークにfloating ipを作成したい場合
+openstack floating ip create --floating-ip-address 192.168.1.100 provider_network
+
+# floating ip をインスタンスに割り当てる
+openstack server add floating ip instance-01 192.168.1.100
+"'
+
 
 # image
 alias h-opst-image-create='echo "openstack image create --file cirros-0.3.5-x86_64-disk.img --disk-format qcow2 --container-format bare --public cirros"'
@@ -313,17 +487,17 @@ openstack subnet create --network selfservice \\
   --dns-nameserver DNS_RESOLVER --gateway SELFSERVICE_NETWORK_GATEWAY \\
   --subnet-range SELFSERVICE_NETWORK_CIDR selfservice
 
-neutron net-update provider --router:external
+openstack router create router1
 
-openstack router create router
+openstack router set router1 --external-gateway provider
+openstack router add subnet router1 selfservice
 
-neutron router-interface-add router selfservice
-
-neutron router-gateway-set router provider
+#neutron router-interface-add router1 selfservice
+#neutron router-gateway-set router1 provider
 
 # Verify operation
 ip netns
-neutron router-port-list router
+neutron router-port-list router1
 
 ###
 openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano

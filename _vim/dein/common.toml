@@ -1,0 +1,23 @@
+[[plugins]]
+# deinのinstallerで生成したvimrcで `Required` となっていたので追加
+# 元々は以下
+# "call dein#add('/home/USER/dotfiles/_vim/bundles/./repos/github.com/Shougo/dein.vim')
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+# http://postd.cc/how-to-boost-your-vim-productivity/#gfm-7
+# > 3. 範囲拡大を使う
+# > vを押して、1文字を選択する
+# > もう1回vを押して、選択範囲を単語に拡大する
+# > さらに1回vを押して、選択範囲を段落に拡大する
+# > （以下省略）
+# > 範囲を拡大しすぎた場合は、<C-v>を押して前回の選択範囲に戻す
+repo     = 'terryma/vim-expand-region'
+hook_add = '''
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
+'''
