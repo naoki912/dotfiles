@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-feh --bg-scale $HOME/Pictures/background_3.png &
+feh --bg-scale $HOME/.wallpeper.png &
 #nitrogen --restore
 
 compton -b
@@ -31,3 +31,7 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 
 # ThinkPad X280 Natural Scrolling
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "Synaptics TM3381-002" "libinput Natural Scrolling Enabled" 1
+
+# タッチでクリック
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
