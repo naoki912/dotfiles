@@ -968,4 +968,4 @@ nnoremap <CR> G
 nnoremap <BS> <C-o>
 nnoremap <C-BS> <C-i>
 
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+"nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
