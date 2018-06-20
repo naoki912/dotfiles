@@ -968,4 +968,5 @@ nnoremap <CR> G
 nnoremap <BS> <C-o>
 nnoremap <C-BS> <C-i>
 
+" shift+o キーで改行を挿入する
 "nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
