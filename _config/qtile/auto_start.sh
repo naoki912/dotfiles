@@ -21,6 +21,7 @@ xremap .xremaprc &
 redshift-gtk &
 parcellite &
 blueman-applet &
+openWMail &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
@@ -35,3 +36,5 @@ xinput set-prop "Synaptics TM3381-002" "libinput Natural Scrolling Enabled" 1
 
 # タッチでクリック
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+
+source ./auto_start.local.sh
