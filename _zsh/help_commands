@@ -58,14 +58,32 @@ curl -L -o ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc\
 '"
 
 alias h-netcat="echo '\
-tar c * | nc -l -p 8000
-nc 192.168.1.1 8000 | tar -x
+# File Sender & Port Listen
+tar c * | nc -l -p 12345
+# File Receiver
+nc 192.168.1.1 12345 | tar -x
 
+# File Sender
+tar c * | nc 192.168.103.125 12345
+# File Receiver & Port Listen
 nc -l -p 12345 | tar
-tar c * | nc 192.168.103.125 12345\
+
+# File Sender
+cat target.tar.gz | nc 192.168.14.101 12345
+# File Receiver & Port Listen
+nc -l -p 12345 > target.tar.gz\
 '"
 
 alias h-deb-unar="echo 'ar vx foo.deb'"
+alias h-aur-url='echo "\
+https://aur.archlinux.org/packages/PACKAGE
+https://aur.archlinux.org/cgit/aur.git/snapshot/PACKAGE.tar.gz
+"'
+
+alias h-pyenv-ssl='echo "\
+CFLAGS=-I/usr/include/openssl-1.0 \\
+LDFLAGS=-L/usr/lib64/openssl-1.0 \\
+pyenv install -v 3.6.5"'
 
 ### 設定周り
 alias h-journald='echo "\
