@@ -12,4 +12,3 @@ vnoremap v $h
 imap <C-a> <Home>
 imap <C-e> <End>
 
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
