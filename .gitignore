@@ -7,3 +7,6 @@ __pycache__
 # tmux
 _tmux/plugins/
 _tmux/resurrect/
+
+# vim
+_vim/bundle/
