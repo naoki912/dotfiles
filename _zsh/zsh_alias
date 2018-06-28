@@ -110,6 +110,9 @@ alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
 # エイリアス
 alias Xterm='terminator'
 alias xterm='terminator'
+if type pacapt > /dev/null 2>&1; then
+    alias pacman='pacapt'
+fi
 
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
