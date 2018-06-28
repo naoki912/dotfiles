@@ -1,4 +1,8 @@
 # commands
+
+# sudoで環境変数とaliasを引き継ぐ
+alias sudo='sudo -E '
+
 # コマンド省略
 alias ca='ccat'
 alias cat='ccat'
