@@ -46,6 +46,10 @@ alias h-vim-del-comment="echo '一致行削除
 alias h-vim-space-1="echo ':%s/ \\+/ /g'"
 alias h-vim-clipboard="echo 'copy -> \"+yy'"
 alias h-vim-syntax="echo ':set syntax=sshconfig'"
+alias h-vim-json="echo '\
+:%!python -m json.tool
+:Jq
+:Jq .obj.list'"
 alias h-vim-sort="echo '\
 内部のソート
 
