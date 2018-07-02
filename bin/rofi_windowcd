@@ -7,5 +7,6 @@
 
 rofi -show windowcd -modi windowcd \
     -font "Ricty Discord 14" \
+    -show-icons \
     -hide-scrollbar -theme Monokai;
 
