@@ -24,7 +24,6 @@ keys = [
     # Window manager controls
     Key([mod, 'control', 'shift'], 'r', lazy.restart()),
     # Key([mod, 'control', 'shift'], 'q', lazy.shutdown()),
-    Key([mod], 'r', lazy.spawncmd()),
     Key([mod], 'Return', lazy.spawn(Commands.terminal)),
     Key([mod, 'shift'], 'q', lazy.window.kill()),
 
