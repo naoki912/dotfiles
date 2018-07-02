@@ -2,7 +2,11 @@
 
 rofi_wrapper()
 {
-    rofi -show run -theme Monokai
+    #rofi -show run -theme Monokai
+
+    rofi -show run -modi run \
+        -font "Ricty Discord 14" -columns 4 \
+        -hide-scrollbar -kb-row-select "Tab" -kb-row-tab "" -theme glue_pro_blue;
 
     # rofi -show run -modi run -location 1 -width 100 \
     # -lines 2 -line-margin 0 -line-padding 1 \

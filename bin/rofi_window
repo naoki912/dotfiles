@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+# rofi -show window -modi window -theme glue_pro_blue
+# rofi -show window -modi window -theme lb
+# rofi -show window -modi window -theme Monokai
+
+rofi -show window -modi window \
+    -font "Ricty Discord 14" \
+    -hide-scrollbar -theme Monokai;
+
