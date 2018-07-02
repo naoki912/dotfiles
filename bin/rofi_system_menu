@@ -1,0 +1,12 @@
+#!/bin/bash
+# rofi_system_menu.sh / JennyM 2017 malkalech.com
+# http://malkalech.com/rofi_window_switcher
+
+# bin/rofi_system_menu_text
+
+# rofi -modi system:~/dotfiles/bin/rofi_system_menu_text -show system -theme lb
+
+rofi -modi system:~/dotfiles/bin/rofi_system_menu_text -show system \
+    -font "Ricty Discord 14" \
+    -hide-scrollbar -theme lb;
+

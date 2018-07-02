@@ -1,0 +1,43 @@
+#!/bin/bash
+# rofi_system_menu.sh / JennyM 2017 malkalech.com
+# http://malkalech.com/rofi_window_switcher
+
+list=(
+  ##  Lock  ##
+  "Lock Screen" "xscreensaver-command --lock"
+  "Logout"      "echo not impl"
+  ##  Power ##
+  "Suspend"     "systemctl suspend"
+  "Reboot"      "systemctl reboot"
+  "Shutdown"    "systemctl poweroff"
+)
+
+for (( i=1; i<=$((${#list[@]}/2)); i++ )); do
+    [[ -z "$@" ]] && echo "${i}. ${list[$i*2-2]}" && continue
+    [[ "$@" == "${i}. ${list[$i*2-2]}" ]] && command="${list[$i*2-1]}" && break
+done
+eval "${command:-:}"
+
+# rofi -modi system:_system -show system -theme Monokai
+
+
+# https://qiita.com/aaaat/items/3f44673c1493ae352fc0
+#declare -A list=(
+#    ['Lock_Screen']='xscreensaver-command --lock'
+#    ['Logout']='echo not impl'
+#    ['Suspend']='systemctl suspend'
+#    ['Poweroff']='systemctl poweroff'
+#    ['Reboot']='systemctl reboot'
+#)
+#
+#if [[ ${1##* } == 'yes' ]]; then
+#    eval ${list[${1%% *}]}
+#elif [[ ${1##* } == 'no' ]]; then
+#    echo ${!list[@]} | sed 's/ /\n/g'
+#elif [[ -n $1 ]]; then
+#    echo "$1 / no"
+#    echo "$1 / yes"
+#else
+#    echo ${!list[@]} | sed 's/ /\n/g'
+#fi
+
