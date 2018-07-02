@@ -39,8 +39,8 @@ keys = [
 
     # Switch between windows in current stack pane
     Key([mod], 'h', lazy.layout.left()),
-    Key([mod], 'j', lazy.layout.up()),
-    Key([mod], 'k', lazy.layout.down()),
+    Key([mod], 'j', lazy.layout.down()),
+    Key([mod], 'k', lazy.layout.up()),
     Key([mod], 'l', lazy.layout.right()),
 
     # Move windows up or down in current stack
