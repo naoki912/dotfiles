@@ -12,6 +12,9 @@ class Commands(object):
     # terminal = 'termite'
     terminal = 'termite --title=tmux -e tmux'
     nm_dmenu = 'networkmanager_dmenu'
+    rofi_window = 'rofi_window'
+    rofi_windowcd = 'rofi_windowcd'
+    rofi_system_menu = 'rofi_system_menu'
 
 
 wmname = 'LG3D'
@@ -59,6 +62,9 @@ keys = [
     Key([mod], 'u', lazy.layout.maximize()),
 
     # アプリケーション起動
+    Key([mod], 'w', lazy.spawn(Commands.rofi_window)),
+    Key([mod], 'a', lazy.spawn(Commands.rofi_system_menu)),
+    Key([mod], 's', lazy.spawn(Commands.rofi_windowcd)),
     Key([mod], 'd', lazy.spawn(Commands.dmenu)),
     Key([mod], 'f', lazy.spawn(Commands.nm_dmenu)),
 ]
