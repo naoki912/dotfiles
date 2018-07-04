@@ -1,0 +1,5 @@
+# lightdm + qtile + dotfiles/bin を組み合わせる場合、
+# lightdmが ~/.zsh/zsh_env を読み込まずにqtileを起動してしまうため、
+# dotfiles/bin のPATHが通っておらず rofi_* 系のコマンドが起動しない。
+# そのため、ここで dotfiles/bin のPATHを通しておく必要がある。
+export PATH=${HOME}/dotfiles/bin:${PATH}
