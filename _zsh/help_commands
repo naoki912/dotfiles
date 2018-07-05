@@ -24,6 +24,9 @@ rename txt md *.txt
 echo *.html(:r) | xargs -I% -n1 mv %.html %.htm
 # 2 (zshのみ)
 zmv -W \"*.html\" \"*.htm\"
+
+# プレフィックスをつけることも可能
+zmv -W "*" "prefix_*"
 "'
 
 alias h-display-backlight='echo "xrandr --output HDMI1 --brightness 0.5"'
