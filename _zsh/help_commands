@@ -11,6 +11,13 @@ alias h-lsof='echo "\
 lsof -i:80
 "'
 
+alias h-rename='echo "\
+# 拡張子を一括で変更する
+# !! *以下の方法だと、ファイル名にtxtが含まれている場合、そっちもmdに変更されてしまうので注意*
+# 例) footxt.txt -> foomd.md
+# *.txt -> *.md
+rename txt md *.txt"'
+
 alias h-display-backlight='echo "xrandr --output HDMI1 --brightness 0.5"'
 alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
 alias h-mount1='echo "mount -orw,uid=user,utf8 /target /mountPoint"'
