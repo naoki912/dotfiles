@@ -68,6 +68,7 @@ alias nmap-brute='sudo nmap -sU -p 161 -Pn --script=snmp-brute'
 
 # 引数省略
 alias pingg='ping -c 1 -4 google.co.jp'
+alias pinggg='ping -4 google.co.jp'
 alias pingg6='ping -c 1 -6 google.co.jp'
 alias ping8='ping -c 1 8.8.8.8'
 alias curlg='curl google.co.jp'
