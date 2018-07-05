@@ -328,6 +328,8 @@ ansible_sudo_pass=PASSWORD
 ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
 "'
 
+alias h-ansible-local='echo "ansible all -i localhost, -c local -m pacman -a update_cache=yes --become --ask-become-pass"'
+
 alias h-ansible-apt-upgrade='echo "\
 # aptitudeが入ってる場合
 ansible all -i hosts -m apt -a "update_cache=yes upgrade=yes" --become
