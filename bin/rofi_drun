@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rofi -show drun -modi drun \
+    -font "Ricty Discord 14" -columns 2 \
+    -show-icons \
+    -hide-scrollbar -kb-row-select "Tab" -kb-row-tab "" -theme glue_pro_blue;
+
