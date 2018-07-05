@@ -16,7 +16,15 @@ alias h-rename='echo "\
 # !! *以下の方法だと、ファイル名にtxtが含まれている場合、そっちもmdに変更されてしまうので注意*
 # 例) footxt.txt -> foomd.md
 # *.txt -> *.md
-rename txt md *.txt"'
+rename txt md *.txt
+
+# 以下の2種類の方法を使用すれば拡張子のみを変更できる
+# http://d.hatena.ne.jp/lurker/20061120/1163981280
+# 1
+echo *.html(:r) | xargs -I% -n1 mv %.html %.htm
+# 2 (zshのみ)
+zmv -W \"*.html\" \"*.htm\"
+"'
 
 alias h-display-backlight='echo "xrandr --output HDMI1 --brightness 0.5"'
 alias h-mount='echo "mount -w -o uid=user,iocharset=utf8 /target /mountPoint"'
