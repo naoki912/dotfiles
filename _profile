@@ -3,3 +3,11 @@
 # dotfiles/bin のPATHが通っておらず rofi_* 系のコマンドが起動しない。
 # そのため、ここで dotfiles/bin のPATHを通しておく必要がある。
 export PATH=${HOME}/dotfiles/bin:${PATH}
+
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
+export DefaultIMModule=ibus
+
+light-locker &
+
