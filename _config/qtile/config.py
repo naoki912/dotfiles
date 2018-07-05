@@ -15,6 +15,7 @@ class Commands(object):
     rofi_window = 'rofi_window'
     rofi_windowcd = 'rofi_windowcd'
     rofi_system_menu = 'rofi_system_menu'
+    rofi_drun = 'rofi_drun'
 
 
 wmname = 'LG3D'
@@ -83,8 +84,9 @@ keys = [
     Key([mod], 'w', lazy.spawn(Commands.rofi_window)),
     Key([mod], 'a', lazy.spawn(Commands.rofi_system_menu)),
     Key([mod], 's', lazy.spawn(Commands.rofi_windowcd)),
+    Key([mod], 'f', lazy.spawn(Commands.rofi_drun)),
     Key([mod], 'd', lazy.spawn(Commands.dmenu)),
-    Key([mod], 'f', lazy.spawn(Commands.nm_dmenu)),
+    Key([mod], 'r', lazy.spawn(Commands.nm_dmenu)),
     Key([mod], 'Return', lazy.spawn(Commands.terminal)),
 
     # Window kill
