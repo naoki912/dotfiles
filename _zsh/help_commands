@@ -42,6 +42,19 @@ alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
 alias h-iptables-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
 alias h-iptables-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias h-iptables-nspawn='echo "\
+# ホストマシンでdockerが動いている状態でsystemd-nspawnコンテナをnatする場合
+# かつ、 --network-veth オプションを使用する場合
+# dockerがFORWARD PolicyをDropにするため、コンテナのinterfaceを明示的に許可する必要がある。
+
+# ホスト側: natの設定
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+# ホスト側: -i -o 両方で許可する設定を入れる
+sudo iptables -A FORWARD -i ve-INTERFACE -j ACCEPT
+sudo iptables -A FORWARD -o ve-INTERFACE -j ACCEPT
+
+# ip_forwardの設定も忘れずに
+sudo sysctl net/ipv4/ip_forward=1"'
 
 alias h-mtu='echo "ping -c5 -M do -s 1500 example.com"'
 
