@@ -37,3 +37,9 @@ function save-home() {
         && echo "git push origin master" \
         && git push origin master
 }
+
+function ls-path() {
+    echo -n "`pwd`/"
+    echo $1
+}
+
