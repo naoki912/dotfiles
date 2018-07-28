@@ -28,12 +28,15 @@ echo '
 }
 
 
-function save-home() {
-    cd $HOME \
-        && echo "git add ." \
-        && git add . \
-        && echo "git commit -m 'save-home'" \
-        && git commit -m 'save-home' \
-        && echo "git push origin master" \
-        && git push origin master
+# 指定した行から行までを出力する
+# このコマンドはパイプで文字列を渡す必要がある
+# ex) spam.txtの10行から20行目までを出力する
+# cat spam.txt | headtail 10 20
+function headtail() {
+    if [ -z ${2} ]; then
+        sed -n "${1}p"
+    else
+        sed -n "${1},${2}p"
+    fi
 }
+
