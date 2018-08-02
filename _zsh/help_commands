@@ -56,6 +56,8 @@ sudo iptables -A FORWARD -o ve-INTERFACE -j ACCEPT
 # ip_forwardの設定も忘れずに
 sudo sysctl net/ipv4/ip_forward=1"'
 
+alias h-gpg='echo "gpg --recv-keys XXXXXXXXXXXXXXXX"'
+
 alias h-mtu='echo "ping -c5 -M do -s 1500 example.com"'
 
 alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-url=https://index.docker.io library/os:tag"'
