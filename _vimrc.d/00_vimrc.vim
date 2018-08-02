@@ -970,3 +970,19 @@ nnoremap <C-BS> <C-i>
 
 " shift+o キーで改行を挿入する
 "nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+
+
+" Jqコマンド
+" jqでjsonをいい感じに整形する
+" :Jq
+" :Jq .obj.list
+" https://qiita.com/tekkoc/items/324d736f68b0f27680b8
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
