@@ -237,8 +237,7 @@ Default:
 ExecStart=/usr/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth -U --settings=override --machine=%i
 
 Tips:
---bind で ~/ は使用不可なので、$HOMEを使用する。
-\"'
+--bind で ~/ は使用不可なので、\$HOMEを使用する。"'
 
 ### 設定周り
 alias h-journald='echo "\
