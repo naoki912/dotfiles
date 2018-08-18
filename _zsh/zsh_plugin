@@ -14,6 +14,9 @@ if type zplug > /dev/null 2>&1; then
     #zplug "junegunn/fzf", from:gh-r, as:command, use:bin/fzf-tmux
     #zplug "peco/peco", as:command, from:gh-r, of:"*linux*amd64*"
 
+    # tmux-xpanesのssh補完
+    zplug "greymd/tmux-xpanes"
+
     # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
