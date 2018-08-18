@@ -167,12 +167,15 @@ endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
+"map <silent> [Tag]n :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
 map <silent> [Tag]x :tabclose<CR>
 " tx タブを閉じる
 map <silent> [Tag]n :tabnext<CR>
+map <silent> [Tag]l :tabnext<CR>
 " tn 次のタブ
 map <silent> [Tag]p :tabprevious<CR>
+map <silent> [Tag]h :tabprevious<CR>
 " tp 前のタブ
 
 
@@ -340,6 +343,8 @@ filetype plugin on
 syntax on
 set cursorline
 set noundofile
+
+colorscheme molokai
 
 "背景の透過
 highlight Normal  ctermbg=NONE
