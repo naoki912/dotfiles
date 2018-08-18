@@ -21,3 +21,34 @@ hook_add = '''
     vmap v <Plug>(expand_region_expand)
     vmap <C-v> <Plug>(expand_region_shrink)
 '''
+
+[[plugins]]
+# jsonのsyntax highlighting
+# https://qiita.com/tomoemon/items/cc29b414a63e08cd4f89
+repo = 'elzr/vim-json'
+
+[[plugins]]
+# markdownのテーブルや、インデントの開始位置を揃えてくれるやつ
+# - markdownのテーブルの整形
+#   :'<,'>Alignta |
+# http://hamuhamu.hatenablog.jp/entry/2015/04/25/000246
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+
+[[plugins]]
+# [vim-precious-の導入でtoml管理が快適に](https://qiita.com/kawaz/items/ee725f6214f91337b42b#vim-precious-%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A7toml%E7%AE%A1%E7%90%86%E3%81%8C%E5%BF%AB%E9%81%A9%E3%81%AB)
+# これの依存パッケージ
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+# [vim-precious-の導入でtoml管理が快適に](https://qiita.com/kawaz/items/ee725f6214f91337b42b#vim-precious-%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A7toml%E7%AE%A1%E7%90%86%E3%81%8C%E5%BF%AB%E9%81%A9%E3%81%AB)
+# > toml の hook_* オプション内にカーソルがあるときだけ、set filetype=vim させることが出来る
+repo = 'osyo-manga/vim-precious'
+depends = ['/context_filetype.vim']
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
