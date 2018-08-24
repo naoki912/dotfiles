@@ -81,9 +81,9 @@ keys = [
     Key([mod], 'Tab', lazy.next_layout()),
 
     # アプリケーション起動
-    Key([mod], 'w', lazy.spawn(Commands.rofi_window)),
+    Key([mod], 's', lazy.spawn(Commands.rofi_window)),
+    Key([mod], 'w', lazy.spawn(Commands.rofi_windowcd)),
     Key([mod], 'a', lazy.spawn(Commands.rofi_system_menu)),
-    Key([mod], 's', lazy.spawn(Commands.rofi_windowcd)),
     Key([mod], 'f', lazy.spawn(Commands.rofi_drun)),
     Key([mod], 'd', lazy.spawn(Commands.dmenu)),
     Key([mod], 'r', lazy.spawn(Commands.nm_dmenu)),
