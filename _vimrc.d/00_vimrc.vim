@@ -344,8 +344,6 @@ syntax on
 set cursorline
 set noundofile
 
-colorscheme molokai
-
 "背景の透過
 highlight Normal  ctermbg=NONE
 highlight NonText ctermbg=NONE
