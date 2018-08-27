@@ -51,4 +51,58 @@ depends = ['/context_filetype.vim']
 
 [[plugins]]
 repo = 'tomasr/molokai'
+hook_add = '''
+    "colorscheme molokai
+    "highlight Normal ctermbg=none
+'''
 
+[[plugins]]
+# Fキーの移動を楽にするやつ
+# f で検索した後に、ffff で次の文字に移動する
+# ! このプラギンがtキーを使っている
+repo = 'rhysd/clever-f.vim'
+hook_add = '''
+    " 大文字と小文字を区別しない
+    let g:clever_f_ignore_case = 1
+
+    " 大文字を入力したときのみ大文字と小文字を区別する
+    let g:clever_f_smart_case = 1
+
+    " ローマ字読みで日本語を検索する
+    let g:clever_f_use_migemo = 1
+
+    " 常にfで前に移動、Fで後ろに移動する
+    let g:clever_f_fix_key_direction = 1
+
+    " プロンプトを表示させる(fを押した時に下に `clever-f:` と表示されるやつ)
+    let g:clever_f_show_prompt = 1
+
+    " ; キーを全ての記号キーとマッチさせる
+    let g:clever_f_chars_match_any_signs = 1
+'''
+
+
+[[plugins]]
+# :VimShell
+# iexe python
+# :VimShellInteractive python
+# :VimShellSendString
+repo = 'Shougo/vimshell.vim'
+hook_add = '''
+    " http://nauthiz.hatenablog.com/entry/20101107/1289140518
+
+    " ,is: シェルを起動
+    nnoremap <silent> ,is :VimShell<CR>
+
+    " ,ipy: pythonを非同期で起動
+    nnoremap <silent> ,ipy :VimShellInteractive python<CR>
+
+    " ,irb: irbを非同期で起動
+    nnoremap <silent> ,irb :VimShellInteractive irb<CR>
+
+    " ,ss: 非同期で開いたインタプリタに現在の行を評価させる
+    vmap <silent> ,ss :VimShellSendString<CR>
+
+    " 選択中に,ss: 非同期で開いたインタプリタに選択行を評価させる
+    nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
+'''
