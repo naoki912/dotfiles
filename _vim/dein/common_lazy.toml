@@ -1,16 +1,4 @@
 [[plugins]]
-# Terraformのsyntax highlightとfmt
-repo = 'hashivim/vim-terraform'
-on_ft = ['tf']
-hook_add = '''
-  let g:terraform_fmt_on_save=1
-  " 折りたたみ関連
-  " うまく動作してくれない
-  "let g:terraform_fold_sections=1
-  "let g:terraform_remap_spacebar=1
-'''
-
-[[plugins]]
 # tree表示にするプラグイン
 # :List2tree
 #
