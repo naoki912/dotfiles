@@ -989,3 +989,9 @@ function! s:Jq(...)
     endif
     execute "%! jq \"" . l:arg . "\""
 endfunction
+
+
+" `:` 入力時の補完で補完候補を複数行表示にする
+set wildmenu
+set wildmode=list:longest
+
