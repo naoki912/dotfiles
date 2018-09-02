@@ -16,3 +16,9 @@
 repo = 'shinespark/vim-list2tree'
 on_cmd = ['List2Tree']
 
+
+[[plugins]]
+# toml の syntax highlighting
+repo  = 'cespare/vim-toml'
+on_ft = ['toml']
+
