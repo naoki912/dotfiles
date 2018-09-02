@@ -36,16 +36,16 @@ if dein#load_state(s:dein_dir)
     "call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
 
     " ---
-    let g:rc_dir    = expand('~/.vim/dein')
-    let s:common_toml      = g:rc_dir . '/common.toml'
-    let s:git_toml = g:rc_dir . '/git.toml'
-    let s:common_lazy_toml = g:rc_dir . '/common_lazy.toml'
+    let g:rc_dir              = expand('~/.vim/dein')
+    let s:common_toml         = g:rc_dir . '/common.toml'
+    let s:git_toml            = g:rc_dir . '/git.toml'
+    let s:common_lazy_toml    = g:rc_dir . '/common_lazy.toml'
     let s:terraform_lazy_toml = g:rc_dir . '/terraform_lazy.toml'
 
     " tomlファイルをキャッシュ
-    call dein#load_toml(s:common_toml,      {'lazy': 0})
-    call dein#load_toml(s:git_toml,         {'lazy': 0})
-    call dein#load_toml(s:common_lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:common_toml,         {'lazy': 0})
+    call dein#load_toml(s:git_toml,            {'lazy': 0})
+    call dein#load_toml(s:common_lazy_toml,    {'lazy': 1})
     call dein#load_toml(s:terraform_lazy_toml, {'lazy': 1})
 
     " Required:
