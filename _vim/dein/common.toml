@@ -78,6 +78,7 @@ hook_add = '''
     let g:clever_f_show_prompt = 1
 
     " ; キーを全ての記号キーとマッチさせる
+    " なんかちゃんと動いてなさそう
     let g:clever_f_chars_match_any_signs = 1
 '''
 
