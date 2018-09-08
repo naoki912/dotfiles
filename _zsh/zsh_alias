@@ -30,6 +30,7 @@ alias packer-S-noedit='packer -S --noedit'
 alias packer-noconfirm='packer -S --noconfirm'
 alias packer-s-noconfirm='packer -S --noconfirm'
 alias packer-S-noconfirm='packer -S --noconfirm'
+alias tenki='curl wttr.in/Tokyo'
 
 # オプション省略
 #alias clear='clear;def_clear'
@@ -118,6 +119,11 @@ alias xterm='terminator'
 if type pacapt > /dev/null 2>&1; then
     alias pacman='pacapt'
 fi
+
+# これを有効にするとzplugがエラーになる
+#if type hub > /dev/null 2>&1; then
+#    alias git='hub'
+#fi
 
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'
