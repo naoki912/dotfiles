@@ -995,8 +995,3 @@ endfunction
 " `:` 入力時の補完で補完候補を複数行表示にする
 set wildmenu
 set wildmode=list:longest
-
-
-" buffer関連
-"" :w 指定無くても別bufferを開けるようにする
-set hidden
