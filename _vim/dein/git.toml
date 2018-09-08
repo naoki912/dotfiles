@@ -1,0 +1,107 @@
+[[plugins]]
+# Git plugin
+#
+# :Gstatus
+#   -           - add, reset切り替え
+#   Enter       - ファイルを表示
+#   D           - Gdiff
+#   p           - git patch
+#   cc, C       - commit画面が表示される。そのままcommitメッセージを書いて保存するとcommitされる。
+# :Gdiff        - 開いているファイルをgit diff (:Gdiff master 可)
+# :Gwrite       - 開いているファイルをgit add (引数にファイル名を渡せる)
+# :Gwq          - :Gwrite + :wq
+# :Gread        - 開いているファイルをgit checkout (上書きではなくbufferに展開される？(されない気が), :Gread HEAD^ 可)
+# :Gremove      - 開いているファイルをgit remove (引数にファイル名を渡せる)
+# :Gblame       - 開いているファイルをgit blame
+#    Enter      - カーソル行のソースコードを表示する
+# :Gcommit      - git commit
+# :Glog         - git log
+# :Gmove        - git move
+#               - 相対パスか、/ or repo名からの絶対パス
+#               - 移動後のファイルを自動で開く
+# :Gbrowse      - GitHubページを開く
+#               - ビジュアルモードで選択した状態だとコードをハイライトした状態でGitHubページを表示してくれる
+# :Gedit        - :Gedit BRANCH_NAME:% で別ブランチのファイルを開ける
+# :Ggrep        - .gitignoreに記述したファイルを除外しつつgrep
+#               - 第2引数に BRANCH_NAME, TAG_NAME, SHA を渡せる
+# :Git push ... - git push
+#
+# http://cohama.hateblo.jp/entry/20120317/1331978764
+# git add -p をグラフィカルに行う
+# 1. :Gdiff を起動
+# 2. add -pしたい部分で dp
+# 3. 左のwindowに移動して :wq
+# 4. :Gcommit -v
+#
+# Gblame で歴史をたどる
+# :Gblameのwindowで ~, P
+# ~ -> HEAD~
+# P -> HEAD^
+# 終了は q, gq
+#
+# statuslineに以下を追加すると今のブランチ名が表示されるっぽい
+# %{fugitive#statusline()}
+#
+#
+# http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/
+# conflictした時のGdiff周りの動作はこれを見る
+#
+repo    = 'tpope/vim-fugitive'
+depends = ['/vim-rhubarb']
+
+
+[[plugins]]
+# ::: # Warning!!!
+# syntasticが使えなくなるっぽい
+# :::
+#
+#
+# Git plugin
+#
+# :GitGutterToggle                  - gitgutter自体のon/off
+# :GitGutterSignsToggle             - +-サインのon/off (デフォルトでon)
+# :GitGutterLineHighlightsToggle    - 変更行のハイライトをオン/オフ
+# :GitGutterAll                     - 全bufferの+-サインを更新(多分)
+#
+# これらのkeymapはgitgutter_map_keysで無効化されている
+# hunk(変更点のかたまり)
+# [c, ]c            - 前後のハンクへカーソルを移動, 次のhunkに進む,戻る
+# <Leader>hs        - カーソルがあるhunkをstageする(hunk-add, hunk-revert)
+# <Leader>hu        - stageしたやつを戻す
+# <Leader>hp        - 変更点を別窓でプレビュー
+#
+# gitgutterのkeymapは `gitgutter_map_keys` で無効化してある
+repo     = 'airblade/vim-gitgutter'
+hook_add = '''
+" Example keymaps
+
+" ([c, ]c)
+"nmap ]h <Plug>GitGutterNextHunk
+"nmap [h <Plug>GitGutterPrevHunk
+
+" (<Leader>hs, <Leader>hu)
+"nmap <Leader>ha <Plug>GitGutterStageHunk
+"nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+" (<Leader>hp)
+"nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+" 変更行が指定数を超えると無効化される
+"let g:gitgutter_max_signs = 500  " default value
+
+" vim-gitgutter にkeymapを設定させない
+let  g:gitgutter_map_keys = 0
+
+" マーカー更新までの遅延
+set updatetime=100
+'''
+
+
+[[plugins]]
+# :Gbrowseでgithubページを開けるようにするプラグイン
+repo     = 'tpope/vim-rhubarb'
+hook_add = '''
+" GitHub Enterpriseを使う場合は下を編集する
+"let g:github_enterprise_urls = ['https://example.com']
+'''
+
