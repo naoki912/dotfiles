@@ -40,12 +40,14 @@ if dein#load_state(s:dein_dir)
     let s:common_toml         = g:rc_dir . '/common.toml'
     let s:git_toml            = g:rc_dir . '/git.toml'
     let s:common_lazy_toml    = g:rc_dir . '/common_lazy.toml'
+    let s:ansible_lazy_toml   = g:rc_dir . '/ansible_lazy.toml'
     let s:terraform_lazy_toml = g:rc_dir . '/terraform_lazy.toml'
 
     " tomlファイルをキャッシュ
     call dein#load_toml(s:common_toml,         {'lazy': 0})
     call dein#load_toml(s:git_toml,            {'lazy': 0})
     call dein#load_toml(s:common_lazy_toml,    {'lazy': 1})
+    call dein#load_toml(s:ansible_lazy_toml,   {'lazy': 1})
     call dein#load_toml(s:terraform_lazy_toml, {'lazy': 1})
 
     " Required:
