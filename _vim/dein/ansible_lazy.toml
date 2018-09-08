@@ -1,0 +1,44 @@
+[[plugins]]
+repo = 'pearofducks/ansible-vim'
+on_ft = ['yaml', 'yml', 'j2', 'jinja2']
+hook_add = '''
+  " 改行2回でインデントをリセットする
+  let g:ansible_unindent_after_newline = 1
+
+  " ハイライト
+  " a   - すべての key= を強調表示する
+  " o   - 改行されている key= のみを強調表示する
+  " d   - key= を薄暗くする (自分の環境だと青色)
+  " b   - key= を明るくする (自分の環境だと緑色)
+  " n   - ハイライトをoff
+  " 下の設定は全ての key= をハイライトしつつ key= を明るく表示する
+  let g:ansible_attribute_highlight = 'ab'
+
+  " name: のハイライト (name: のみのハイライト設定)
+  " d   - name: を薄暗くする
+  " b   - name: を明るくする
+  "let g:ansible_name_highlight = 'd'
+
+  " 追加で以下の構文を強調表示する
+  " `register always_run changed_when failed_when no_log args vars delegate_to ignore_errors`
+  " この設定を行わなくても以下の構文は強調表示される
+  " `include until retries delay when only_if become become_user block rescue always notify`
+  let g:ansible_extra_keywords_highlight = 1
+
+  " 以下のキーワードのハイライトの色を変更する (`:help E669`)
+  " `include until retries delay when only_if become become_user block rescue always notify`
+  " デフォルトは `Statement(茶色)`               ↓ は赤
+  "let g:ansible_normal_keywords_highlight = 'Constant'
+
+  " `with_.+` のキーワードのハイライトの色を変更する (`:help E669`)
+  "let g:ansible_with_keywords_highlight = 'Constant'
+
+  " `{ 'regex-for-file': 'filetype' }` の辞書形式を渡せる
+  " regex-for-file  - ファイルPATHを受け取るのでディレクトリのマッチングを行うことが出来る。
+  " filetype        - ここで指定したfiletypeにjinja2のシンタックスが自動で追加される。
+  "                 - 例えば `{'*.py.j2': 'python'}` にしたら *.py.j2 が python + jinja2 のシンタックスになる。
+  " `*.j2` がついていない拡張子が指定された場合、自動的に拡張子の末尾に .j2 が追加される。
+  "let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+  let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.py.j2': 'python', '.*cfg.j2': 'cfg' }
+'''
+
