@@ -10,3 +10,4 @@ _tmux/resurrect/
 
 # vim
 _vim/bundle/
+_vim/undo/*
