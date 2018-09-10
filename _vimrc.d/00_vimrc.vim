@@ -941,3 +941,12 @@ endfunction
 " `:` 入力時の補完で補完候補を複数行表示にする
 set wildmenu
 set wildmode=list:longest
+
+
+" undoの永続化
+" https://qiita.com/tamanobi/items/8f013cce36881af8cee3
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
