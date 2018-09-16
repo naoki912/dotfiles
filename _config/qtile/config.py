@@ -5,6 +5,9 @@ from libqtile.config import Key, Screen, Group, Drag, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 
+from plasma import Plasma
+from plasma import layout as plasma_layout
+
 
 class Commands(object):
     dmenu = 'dmenu_wrapper'
@@ -26,10 +29,15 @@ keys = [
     Key([mod, 'control', 'shift'], 'r', lazy.restart()),
     # Key([mod, 'control', 'shift'], 'q', lazy.shutdown()),
 
-    # Switch window focus to other pane(s) of stack
-    # 以下のkeymapはBspだと動作しない
-    Key([mod], 'space', lazy.layout.next()),
+    # Focus切り替え
+    # next(), previous() はbspだと動作しない
+    # Focus next window.
     Key([mod], 'o', lazy.layout.next()),
+    # Focus previous window.
+    Key([mod, 'shift'], 'o', lazy.layout.previous()),
+    # Focus most recently focused window. (Toggles between the two latest active windows.)
+    Key([mod], 'space', lazy.layout.recent()),
+    Key([mod], 'p', lazy.layout.recent()),
 
     # Active window を Floating layout に変更
     Key([mod, 'control'], 'space', lazy.window.toggle_floating()),
@@ -40,45 +48,97 @@ keys = [
     Key([mod], 'k', lazy.layout.up()),
     Key([mod], 'l', lazy.layout.right()),
 
-    # Windowを *入れ替える*
-    #     全体のレイアウト/配置を変更せずにWindowの中身を入れ替える
-    # Monadtailを使用する/共存させる
-    #     layout切替時のhookで、現在のレイアウトを読んで都度keyをupdateしたほうが良さそう
-    #     monadtailを使用する場合は以下に書き換えること
-    #         shuffle_left() -> swap_left()
-    #         shuffle_right() -> swap_right()
-    #     monadtailの場合 shuffle_left() では操作を受け付けてくれない(何も起きない)
-    #     bspの場合 shuffle_left() でないと操作を受け付けてくれない
-    #Key([mod, 'shift'], 'h', lazy.layout.swap_left()),
-    #Key([mod, 'shift'], 'l', lazy.layout.swap_right()),
-    Key([mod, 'shift'], 'h', lazy.layout.shuffle_left()),
-    Key([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
-    Key([mod, 'shift'], 'k', lazy.layout.shuffle_up()),
-    Key([mod, 'shift'], 'l', lazy.layout.shuffle_right()),
+    #"""
+    #BSPの設定
+    ## Windowを *入れ替える*
+    ##     全体のレイアウト/配置を変更せずにWindowの中身を入れ替える
+    ## Monadtailを使用する/共存させる
+    ##     layout切替時のhookで、現在のレイアウトを読んで都度keyをupdateしたほうが良さそう
+    ##     monadtailを使用する場合は以下に書き換えること
+    ##         shuffle_left() -> swap_left()
+    ##         shuffle_right() -> swap_right()
+    ##     monadtailの場合 shuffle_left() では操作を受け付けてくれない(何も起きない)
+    ##     bspの場合 shuffle_left() でないと操作を受け付けてくれない
+    ##Key([mod, 'shift'], 'h', lazy.layout.swap_left()),
+    ##Key([mod, 'shift'], 'l', lazy.layout.swap_right()),
+    #Key([mod, 'shift'], 'h', lazy.layout.shuffle_left()),
+    #Key([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
+    #Key([mod, 'shift'], 'k', lazy.layout.shuffle_up()),
+    #Key([mod, 'shift'], 'l', lazy.layout.shuffle_right()),
+    #
+    ## Windowの *位置を交換*
+    ## サイズはそのままで、交換先が複数のWindowで構成されている場合はサイズを変更せずにまるごと位置を入れ替える
+    ## ex) 以下のWindowの配置で、4をActiveにした状態でflip_up()したときの挙動
+    ## | 1 |2|  3  |     ->      |    4      |
+    ## |    4      |   flip_up   | 1 |2|  3  |
+    #Key([mod, 'control', 'shift'], 'j', lazy.layout.flip_down()),
+    #Key([mod, 'control', 'shift'], 'k', lazy.layout.flip_up()),
+    #Key([mod, 'control', 'shift'], 'h', lazy.layout.flip_left()),
+    #Key([mod, 'control', 'shift'], 'l', lazy.layout.flip_right()),
+    #
+    ## Window size
+    ## Bsp Layoutでは使用しない
+    ##Key([mod], 'i', lazy.layout.grow()),
+    ##Key([mod], 'm', lazy.layout.shrink()),
+    ##Key([mod], 'n', lazy.layout.normalize()),
+    ##Key([mod], 'u', lazy.layout.maximize()),
+    #Key([mod, 'control'], 'j', lazy.layout.grow_down()),
+    #Key([mod, 'control'], 'k', lazy.layout.grow_up()),
+    #Key([mod, 'control'], 'h', lazy.layout.grow_left()),
+    #Key([mod, 'control'], 'l', lazy.layout.grow_right()),
+    #"""
 
-    # Windowの *位置を交換*
-    # サイズはそのままで、交換先が複数のWindowで構成されている場合はサイズを変更せずにまるごと位置を入れ替える
-    # ex) 以下のWindowの配置で、4をActiveにした状態でflip_up()したときの挙動
-    # | 1 |2|  3  |     ->      |    4      |
-    # |    4      |   flip_up   | 1 |2|  3  |
-    Key([mod, 'control', 'shift'], 'j', lazy.layout.flip_down()),
-    Key([mod, 'control', 'shift'], 'k', lazy.layout.flip_up()),
-    Key([mod, 'control', 'shift'], 'h', lazy.layout.flip_left()),
-    Key([mod, 'control', 'shift'], 'l', lazy.layout.flip_right()),
+    # windowを入れ替える(plasmaの場合、BSPの flip_* と同じ挙動)
+    # (plasmaの場合shuffleが使えない)
+    Key([mod, 'shift'], 'h', lazy.layout.move_left()),
+    Key([mod, 'shift'], 'j', lazy.layout.move_down()),
+    Key([mod, 'shift'], 'k', lazy.layout.move_up()),
+    Key([mod, 'shift'], 'l', lazy.layout.move_right()),
 
-    # Window size
-    # Bsp Layoutでは使用しない
-    #Key([mod], 'i', lazy.layout.grow()),
-    #Key([mod], 'm', lazy.layout.shrink()),
-    #Key([mod], 'n', lazy.layout.normalize()),
-    #Key([mod], 'u', lazy.layout.maximize()),
-    Key([mod, 'control'], 'j', lazy.layout.grow_down()),
-    Key([mod, 'control'], 'k', lazy.layout.grow_up()),
-    Key([mod, 'control'], 'h', lazy.layout.grow_left()),
-    Key([mod, 'control'], 'l', lazy.layout.grow_right()),
+    # current window を、指定した方向のwindowと統合する
+    # """
+    # ex) 以下のWindow配置で、4をActiveにした状態でintegrate_left()した時の挙動
+    # | 1 | 2 | 4 |     ->             | 1 |   2   |
+    # | 3 |   |   |   integrate_left   | 3 |   4   |
+    # """
+    Key([mod, 'control'], 'h', lazy.layout.integrate_left()),
+    Key([mod, 'control'], 'j', lazy.layout.integrate_down()),
+    Key([mod, 'control'], 'k', lazy.layout.integrate_up()),
+    Key([mod, 'control'], 'l', lazy.layout.integrate_right()),
+
+    # Window Size
+    # Grow width of current window.
+    Key([mod], 'i', lazy.layout.grow_width(30)),
+    Key([mod], 'm', lazy.layout.grow_width(-30)),
+    # Grow height of current window.
+    Key([mod], 'u', lazy.layout.grow_height(30)),
+    Key([mod], 'n', lazy.layout.grow_height(-30)),
+    # Reset size of current window to automatic (relative) sizing.
+    Key([mod], 'b', lazy.layout.reset_size()),
 
     # 次のLayoutに変更
     Key([mod], 'Tab', lazy.next_layout()),
+
+    # plasmaのWindow追加のmode
+    # Next window will be added horizontally.
+    Key([mod], 'c', lazy.layout.mode_horizontal()),
+    # Next window will be added vertically.
+    Key([mod], 'v', lazy.layout.mode_vertical()),
+    #"""
+    #次に追加されるWindowは、current Windowの範囲内で分割され追加される
+    #ex) 1:1 で横に2つのWindowが並べられている時、右側にWindowを追加するとサイズが 2:1:1 となる
+    #_________________        _________________
+    #|       |       |   ->   |       |   |   |
+    #|   1   |   2   |   ->   |   1   | 2 | 3 |
+    #|_______|_______|        |_______|___|___|
+    #"""
+    # Next window will be added horizontally, splitting space of current window.
+    Key([mod, 'shift'], 'c', lazy.layout.mode_horizontal_split()),
+    # Next window will be added vertically, splitting space of current window.
+    Key([mod, 'shift'], 'v', lazy.layout.mode_vertical_split()),
+
+    # Window kill
+    Key([mod, 'shift'], 'q', lazy.window.kill()),
 
     # アプリケーション起動
     Key([mod], 's', lazy.spawn(Commands.rofi_window)),
@@ -88,9 +148,6 @@ keys = [
     Key([mod], 'd', lazy.spawn(Commands.dmenu)),
     Key([mod], 'r', lazy.spawn(Commands.nm_dmenu)),
     Key([mod], 'Return', lazy.spawn(Commands.terminal)),
-
-    # Window kill
-    Key([mod, 'shift'], 'q', lazy.window.kill()),
 ]
 
 # Mouse bindings and options
@@ -148,17 +205,29 @@ dgroups_app_rules = []
 
 layouts = [
     layout.Max(),
-    # layout.MonadTall(),
-    layout.Bsp(
-        border_focus='#0000ff', # Border colour for the focused window.
-        border_normal='#000000', # Border colour for un-focused windows.
-        border_width=3, # Border width.
-        fair=True, # New clients are inserted in the shortest branch.
-        grow_amount=10, # Amount by which to grow a window/column.
-        lower_right=True, # New client occupies lower or right subspace.
-        margin=3, # Margin of the layout
-        name='bsp', # Name of this layout.
-        ratio=1.6, # Width/height ratio that defines the partition direction.
+    #layout.Bsp(
+    #    border_focus='#0000ff', # Border colour for the focused window.
+    #    border_normal='#000000', # Border colour for un-focused windows.
+    #    border_width=3, # Border width.
+    #    fair=True, # New clients are inserted in the shortest branch.
+    #    grow_amount=10, # Amount by which to grow a window/column.
+    #    lower_right=True, # New client occupies lower or right subspace.
+    #    margin=3, # Margin of the layout
+    #    name='bsp', # Name of this layout.
+    #    ratio=1.6, # Width/height ratio that defines the partition direction.
+    #),
+    Plasma(
+        # focus window 以外の枠線
+        border_normal='#000000',
+        # focus window の枠線
+        border_focus='#0000ff',
+        # 一度resizeしたことのあるfocus window以外の枠線
+        border_normal_fixed='#006863',
+        # 一度resizeしたことのあるfocus windowの枠線
+        border_focus_fixed='#00e8dc',
+        border_width=3,
+        border_width_single=0,
+        margin=3
     ),
 ]
 
