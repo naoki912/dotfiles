@@ -688,8 +688,9 @@ else
     "### vim-pandoc markdownとかのシンタックス・インデント用
     NeoBundleLazy "vim-pandoc/vim-pandoc", {
                 \ "autoload": {
-                \   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
+                \   "filetypes": ["text", "pandoc", "rst", "textile"],
                 \ }}
+                "\   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
 
     "##### 見た目 #####
     NeoBundle 'itchyny/lightline.vim'
