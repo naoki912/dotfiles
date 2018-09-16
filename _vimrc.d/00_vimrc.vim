@@ -951,3 +951,5 @@ if has('persistent_undo')
     set undofile
 endif
 
+" 米印が半角になるので全角表示する
+set ambiwidth=double
