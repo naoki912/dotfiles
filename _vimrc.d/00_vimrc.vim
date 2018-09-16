@@ -914,10 +914,10 @@ vmap <silent> <expr> p <sid>Repl()
 "nnoremap <BS> gg
 nnoremap <CR> G
 " 間違った時用に元の位置に戻るやつを入れたいんだけど、 <C-BS> が動かない
+" https://vi.stackexchange.com/questions/16139/s-bs-and-c-bs-mappings-not-working
 "nnoremap <C-CR> <C-o>
 "nnoremap <C-BS> <C-i>
 nnoremap <BS> <C-o>
-nnoremap <C-BS> <C-i>
 
 " shift+o キーで改行を挿入する
 "nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
