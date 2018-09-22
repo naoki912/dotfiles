@@ -5,23 +5,23 @@ feh --bg-scale $HOME/.wallpaper.png &
 
 compton -b
 
-pa-applet &
-nm-applet &
-shutter &
-# pidgin &
-ibus-daemon -drx &
+#franz &
+#google-musicmanager &
+#openWMail &
+#owncloud &
+#pidgin &
+#redshift-gtk &
+#twmnd &
+blueman-applet &
 fcitx-autostart &
-# google-musicmanager &
-# owncloud &
+ibus-daemon -drx &
+nm-applet &
+pa-applet &
+parcellite &
+shutter &
 slack &
-franz &
-# twmnd &
 xmodmap ~/.xmodmaprc
 xremap .xremaprc &
-redshift-gtk &
-parcellite &
-blueman-applet &
-openWMail &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
