@@ -61,8 +61,7 @@ endif
 
 " hnron.add
 set number
-"set guifont=RictyDiscord\ Regular\ 12
-set guifont=RictyDiscord\ Regular\ 16
+set guifont=RictyDiscord\ Regular\ 12
 colorscheme molokai
 filetype plugin on
 syntax on
