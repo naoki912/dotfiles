@@ -163,6 +163,7 @@ cursor_warp = False
 follow_mouse_focus = True
 
 # Groups
+# wm_classを調べるコマンド:  `xprop WM_CLASS`
 groups = [
     Group('1:term'),
     Group(
