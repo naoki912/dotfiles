@@ -167,27 +167,42 @@ groups = [
     Group('1:term'),
     Group(
         '2:www',
-        matches=[Match(wm_class=['firefox', 'Firefox',
-                                 'chromium', 'vivaldi-snapshot', 'chrome'])]
+        matches=[Match(wm_class=[
+            'Firefox',
+            'Google-chrome',
+            'Vivaldi-snapshot',
+            'Chromium',
+        ])]
     ),
     Group(
         '3:dev',
-        matches=[Match(wm_class=['pycharm', 'android-studio', 'idea.sh'])]
+        matches=[Match(wm_class=[
+            'jetbrains-pycharm',
+            'jetbrains-goland',
+            'jetbrains-idea',
+            'jetbrains-studio',
+        ])]
     ),
-    Group('4:editor'),
+    Group(
+        '4:editor',
+        matches=[Match(wm_class=[
+            'Gvim',
+            'Code',
+        ])]
+    ),
     Group('5:work'),
     Group('6:tools'),
     Group(
         '7:IM',
-        matches=[Match(wm_class=['pidgin', 'slack', 'slack-desktop'])]
+        matches=[Match(wm_class=['Slack'])]
     ),
     Group(
         '8:mail',
-        matches=[Match(wm_class=['thunderbird'])]
+        matches=[Match(wm_class=['Thunderbird', 'openwmail'])]
     ),
     Group(
         '9:SNS',
-        matches=[Match(wm_class=['mikutter'])]
+        matches=[Match(wm_class=['mikutter', 'Franz'])]
     ),
     Group('0:stat'),
 ]
