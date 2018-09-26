@@ -214,6 +214,49 @@ yy: ファイルのフルパスをyank(コピー)
 ?:  vimfilerのキーマップ一覧を開く 
 "'
 
+alias h-vim-grep='echo "\
+https://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
+
+# ファイル指定
+:vim[grep] {pattern} {file}
+
+# カレントバッファ
+:vim[grep] {pattern} %
+
+# ワイルドカード
+:vim[grep] {pattern} foo/bar/**/*.sh
+
+# 繰り返し
+# \`##\`がargsで指定したPATHに置き換わる
+:ar[gs] path/to/search/dir/**
+:vim foo ##
+:vim bar ##
+:vim baz ##
+
+# Gitリポジトリで使う
+
+# インデックスされている全てのファイルを対象にする
+:vim {pattern} \`git ls-files\`
+# appディレクトリ内でインデックスされているファイルを対象にする
+:vim {pattern} \`git ls-files app\`
+# appディレクトリ内でインデックスされている.htmlファイルを対象にする
+:vim {pattern} \`git ls-files app/**/*.html\`
+
+# 全bufferを対象にする
+:bufdo vimgrep[add] {pattern} %
+# 全windowを対象にする
+:windo vimgrep[add] {pattern} %
+# Quickfixをリセット
+:cex[pr] \"\"
+
+# quickfix-window
+:cwindow
+:vim {pattern} {file} | cw
+# quickfix-windowを自動で表示するオプション(tagbarプラギンで設定されている模様)
+autocmd QuickFixCmdPost *grep* cwindow"'
+
+# vim END
+
 alias h-ubuntu-network-example='
 echo "/etc/network/interfaces
 auto eth0
