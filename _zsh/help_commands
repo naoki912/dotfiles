@@ -267,6 +267,7 @@ gateway 192.168.1.254
 dns-nameservers 8.8.8.8 8.8.4.4"'
 
 alias h-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
+alias h-scp-by-remote-host-to-remote-host="echo 'ssh -3 remote:/path/to/file remote:/path/tp/file'"
 
 alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
 alias h-docker-build="echo 'docker build --tag=image-name --no-cache .'"
