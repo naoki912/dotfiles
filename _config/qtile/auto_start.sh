@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-feh --bg-scale $HOME/.wallpaper.png &
+feh --bg-scale $HOME/.wallpaper.*
 #nitrogen --restore
 
 compton -b
