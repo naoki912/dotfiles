@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "chrome"
+ps aux | grep -i chrome | tail -n +2 | awk -F' ' '{sum += $6} END {print sum/1000 " MB"}'
+
+echo "vivaldi"
+ps aux | grep -i vivaldi | tail -n +2 | awk -F' ' '{sum += $6} END {print sum/1000 " MB"}'
+
+echo "chromium"
+ps aux | grep -i chromium | tail -n +2 | awk -F' ' '{sum += $6} END {print sum/1000 " MB"}'
+
+# http://qiita.com/kurochan/items/d8234aeb65d1d47e498b
