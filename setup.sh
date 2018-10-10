@@ -2,6 +2,9 @@
 
 sudo -E pacman -S --noconfirm ctags python-pip npm archey3
 
+# vim
+sudo -E pacman -S neovim python-neovim
+
 # pyenv
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
