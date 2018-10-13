@@ -203,7 +203,7 @@ groups = [
     ),
     Group(
         '9:SNS',
-        matches=[Match(wm_class=['mikutter', 'Franz'])]
+        matches=[Match(wm_class=['mikutter', 'Franz', 'Station'])]
     ),
     Group('0:stat'),
 ]
