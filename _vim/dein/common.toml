@@ -47,12 +47,6 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'osyo-manga/vim-precious'
 depends = ['/context_filetype.vim']
 
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
-    "colorscheme molokai
-    "highlight Normal ctermbg=none
-'''
 
 [[plugins]]
 # Fキーの移動を楽にするやつ
