@@ -1,8 +1,12 @@
 [[plugins]]
-repo     = 'fatih/vim-go'
-on_ft    = ['go']
-hook_add = '''
-    " とりあえず別ファイルにかかれていたものをコピーしてきただけ
+repo             = 'fatih/vim-go'
+on_ft            = ['go']
+hook_post_update = '''
+    " vim-goのinstall/update時に依存するgoのpackageをインストール
+    GoUpdateBinaries
+'''
+hook_add         = '''
+    " https://github.com/hnakamur/vim-go-tutorial-ja
 
     " let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
     " autocmd FileType go :highlight goErr cterm=bold ctermfg=214
@@ -14,13 +18,36 @@ hook_add = '''
     """ go testのキーマッピング
     au FileType go nmap gt (go-test)
     "" highlight
-    let g:go_hightlight_functions = 1
-    let g:go_hightlight_methods = 1
-    let g:go_hightlight_structs = 1
-    let g:go_hightlight_interfaces = 1
-    let g:go_hightlight_operators = 1
-    let g:go_hightlight_build_constraints = 1
-    "" GoFmt時にインポートするパッケージを整理(GoFmtはファイル書き込み時に自動的に実行される)
+    let g:go_highlight_array_whitespace_error = 1
+    let g:go_highlight_build_constraints = 1
+    let g:go_highlight_chan_whitespace_error = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_format_strings = 1
+    let g:go_highlight_function_arguments = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_generate_tags = 1
+    let g:go_highlight_interfaces = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_space_tab_error = 1
+    let g:go_highlight_string_spellcheck = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_trailing_whitespace_error = 1
+    let g:go_highlight_types = 1
+    let g:go_highlight_variable_assignments = 1
+    let g:go_highlight_variable_declarations = 1
+
+    " GoFmt時にgoimportsを実行する
     let g:go_fmt_command = "goimports"
+    " ファイル保存時に GoMetaLinter を実行する
+    let g:go_metalinter_autosave = 1
+
+    " 大文字小文字変換でcamenCaseをデフォルトにする
+    let g:go_addtags_transform = "camelcase"
+
+    " tab幅を4に変更
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 '''
 
