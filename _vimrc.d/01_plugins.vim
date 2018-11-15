@@ -42,6 +42,7 @@ if dein#load_state(s:dein_dir)
     let s:common_lazy_toml    = g:rc_dir . '/common_lazy.toml'
     let s:ansible_lazy_toml   = g:rc_dir . '/ansible_lazy.toml'
     let s:terraform_lazy_toml = g:rc_dir . '/terraform_lazy.toml'
+    let s:golang_lazy_toml    = g:rc_dir . '/golang_lazy.toml'
 
     " tomlファイルをキャッシュ
     call dein#load_toml(s:common_toml,         {'lazy': 0})
@@ -49,6 +50,7 @@ if dein#load_state(s:dein_dir)
     call dein#load_toml(s:common_lazy_toml,    {'lazy': 1})
     call dein#load_toml(s:ansible_lazy_toml,   {'lazy': 1})
     call dein#load_toml(s:terraform_lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:golang_lazy_toml,    {'lazy': 1})
 
     " Required:
     call dein#end()
