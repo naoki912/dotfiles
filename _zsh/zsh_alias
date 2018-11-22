@@ -4,8 +4,6 @@
 alias sudo='sudo -E '
 
 # コマンド省略
-alias ca='ccat'
-alias cat='ccat'
 alias g='grep'
 alias i='ip'
 alias p='ping'
@@ -33,6 +31,8 @@ alias packer-S-noconfirm='packer -S --noconfirm'
 alias tenki='curl wttr.in/Tokyo'
 
 # オプション省略
+alias cdp='cd -P'
+alias nl='nl -ba' # 空白行も行数にカウントする
 #alias clear='clear;def_clear'
 alias egrep='grep -n --color=auto'
 alias grep='grep -n --color=auto'
@@ -60,8 +60,6 @@ alias sst='ss -nat'
 alias ssu='ss -nau'
 alias tmux='tmux -2'
 alias top='top -c'
-alias vi='vim'
-alias v='vim'
 
 alias nmap-dns-recursion='sudo nmap -sU -p 53 -Pn --script=dns-recursion'
 alias nmap-ntp-monlist='sudo nmap -sU -p 123 -Pn --script=ntp-monlist'
@@ -114,10 +112,20 @@ alias swapreset='sudo sh -c "swapoff -a ; swapon -a"'
 alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
 
 # エイリアス
-alias Xterm='terminator'
-alias xterm='terminator'
+alias Xterm='termite'
+alias xterm='termite'
 if type pacapt > /dev/null 2>&1; then
     alias pacman='pacapt'
+fi
+
+if type nvim > /dev/null 2>&1; then
+    alias vim='nvim'
+fi
+alias vi='vim'
+alias v='vim'
+
+if type ccat > /dev/null 2>&1; then
+    alias cat='ccat'
 fi
 
 # これを有効にするとzplugがエラーになる
