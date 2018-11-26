@@ -1,9 +1,23 @@
 alias h-qemu-mount='echo "\
-# ホストにディスクイメージをマウント
+# 方法1: qemu-nbdを使う
+modprobe -av nbd
+qemu-nbd -c /dev/nbd0 ~/img.qcow2
+# umount
+qemu-nbd --disconnect /dev/nbd0
+modprobe -rv nbd
+
+# 方法2: ホストにディスクイメージをマウント
 losetup -f -P DISK_IMAGE
+# or
+losetup /dev/loop0 DISK_IMAGE
+
 mount /dev/loop0p1 MOUNT_POINT
 
-# mountコマンドを直接叩く方法
+# umount
+losetup --detach /dev/loop0
+
+
+# 方法3: mountコマンドを直接叩く
 # fdiskでマウントしたいパーティションのoffsetを確認する
 # Startとなっている部分に512を掛ける
 fdisk -l DISK_IMAGE
