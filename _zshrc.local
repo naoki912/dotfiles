@@ -4,11 +4,17 @@ function load_config() {
 
     config_file=${1:?"Please arguments"}
 
-    if [ -f $config_file ]; then
+    for config_file in $*; do
 
-        . $config_file
+        #echo "[Config] ${config_file}"
 
-    fi
+        if [ -f $config_file ]; then
+
+            . $config_file
+
+        fi
+
+    done
 
 }
 
@@ -37,6 +43,8 @@ if [ -d $HOME/.zsh/ ]; then
     load_config ${config_dir}/zsh_local
 
     load_config ${config_dir}/help_commands
+
+    load_config ${config_dir}/help_commands.d/*.zsh
 
 else
 
