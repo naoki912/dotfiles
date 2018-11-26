@@ -77,6 +77,26 @@ alias h-machinectl-shell='echo "sudo machinectl shell user@container /bin/zsh"'
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
 alias h-eth='echo "sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules"'
 
+alias h-tar-rename='echo "\
+ls
+> hoge-01.txt  huga-02.txt  piyo-03.txt
+
+tar fvcz tar.tar.gz --transform=\"s/-[0-9]\{1,2\}//g\" *
+
+tar tvf tar.tar.gz
+> -rw-r--r-- ***/*** 0 2018-10-16 15:36 hoge.txt
+> -rw-r--r-- ***/*** 0 2018-10-16 15:36 huga.txt
+> -rw-r--r-- ***/*** 0 2018-10-16 15:36 piyo.txt"'
+
+alias h-github-keyword='echo "\
+ghkw --in=file --language=python --size=\">1000\" spam ham
+<<COMMENT
+| RANK | KEYWORD |  TOTAL  |
+|------|---------|---------|
+|    1 | spam    | 996,100 |
+|    2 | ham     | 184,301 |
+COMMENT"'
+
 # vim系
 alias h-vim-root='echo ":w \!sudo tee % > /dev/null"'
 alias h-vim-regexp-br='echo "s/keyword/^M/g | ^M -> ctrl+v ctrl+m"'
@@ -213,6 +233,10 @@ gf: findコマンドを実行
 yy: ファイルのフルパスをyank(コピー)
 ?:  vimfilerのキーマップ一覧を開く 
 "'
+alias h-vim-plugin-markdown-table='echo "\
+# markdownのテーブルや、インデントの開始位置を揃えてくれるやつ
+# - markdownのテーブルの整形
+:Alignta |"'
 
 alias h-vim-grep='echo "\
 https://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
@@ -267,6 +291,7 @@ gateway 192.168.1.254
 dns-nameservers 8.8.8.8 8.8.4.4"'
 
 alias h-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
+alias h-ssh-vpn='echo "sshuttle -r step 192.168.0.0/24"'
 alias h-scp-by-remote-host-to-remote-host="echo 'ssh -3 remote:/path/to/file remote:/path/tp/file'"
 
 alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
@@ -422,23 +447,6 @@ alias h-bash='echo "\
 set -xveu
 "'
 
-alias h-qemu-disk-size-change='echo "\
-qemu-img resize guest.qcow2 +5G
-
-modprobe -av nbd
-qemu-nbd -c /dev/nbd0 ~/img.qcow2
-
-fdisk /dev/nbd0
-> d 1
-> n
-> Enter...
-
-qemu-nbd --disconnect /dev/nbd0
-modprobe -rv nbd
-
-resize2fs /dev/vda1
-"'
-
 ### ShellScript
 
 alias h-shell-command-exists-check='echo "\
@@ -505,6 +513,16 @@ ansible all -i hosts -m ping\
 "'
 
 ### End Ansible
+
+### openssl
+alias h-openssl-show-crt='echo "\
+openssl x509 -text -noout -in example.crt
+openssl x509 -text -noout -in ca.crt"'
+
+alias h-openssl-verify='echo "\
+openssl verify -CAfile ca.crt target.crt"'
+
+### END openssl
 
 ### OpenStack
 
