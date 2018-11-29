@@ -8,7 +8,7 @@
 # PYTHON_VERSION を変更したい場合は、 PYTHON_VERSION 変数を書き換えた後に `pyenv virtualenv-delete PYENV_OPENSTACK_VIRTUALENV_NAME` をしてください。
 
 #set -xvue
-set -xvu
+#set -xvu
 
 PYENV_LOCAL_DIRECTORY='/tmp/openstack'
 PYENV_OPENSTACK_VIRTUALENV_NAME='openstack'
