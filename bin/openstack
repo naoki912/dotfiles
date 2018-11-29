@@ -8,7 +8,7 @@
 # PYTHON_VERSION を変更したい場合は、 PYTHON_VERSION 変数を書き換えた後に `pyenv virtualenv-delete PYENV_OPENSTACK_VIRTUALENV_NAME` をしてください。
 
 #set -xvue
-#set -xvu
+set -xvu
 
 PYENV_LOCAL_DIRECTORY='/tmp/openstack'
 PYENV_OPENSTACK_VIRTUALENV_NAME='openstack'
@@ -25,6 +25,11 @@ if ! pyenv virtualenvs > /dev/null 2>&1; then
     exit 1
 fi
 
+# PYTHON_VERSION が存在しない場合はインストールする
+if ! $(pyenv versions | \grep ${PYTHON_VERSION} > /dev/null 2>&1); then
+    CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v ${PYTHON_VERSION}
+fi
+
 # ${PYENV_OPENSTACK_VIRTUALENV_NAME} のPythonバージョンが
 # ${PYTHON_VERSION} と一致しない場合は、
 # ${PYENV_OPENSTACK_VIRTUALENV_NAME} を削除する。
@@ -32,12 +37,12 @@ fi
 # PYTHON_VERSION を変更した時のための処理
 #
 # 現在の ${PYENV_OPENSTACK_VIRTUALENV_NAME}の Pythonのバージョンを取得
-_current_opst_version=$(pyenv versions \
+_current_openstack_virtualenv_version=$(pyenv versions \
     | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} \
     | \grep '/' \
     | awk -F"/" '{ print $1 }' \
     | tr -d ' ')
-if [[ ! _current_opst_version = ${PYTHON_VERSION} ]]; then
+if [[ ! ${_current_openstack_virtualenv_version} = ${PYTHON_VERSION} ]]; then
     pyenv virtualenv-delete -f ${PYENV_OPENSTACK_VIRTUALENV_NAME}
 fi
 
@@ -55,25 +60,18 @@ fi
 
 cd ${PYENV_LOCAL_DIRECTORY}
 
-# 現在のpyenv localの環境を確認(not)
-# _result=`pyenv local`
+# openstack virtualenvが存在しない場合はopenstack virtualenvを作成し、
+# openstack virtualenvへの切り替えとopenstackclientのインストール
+if ! pyenv virtualenvs | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
+    pyenv virtualenv ${PYTHON_VERSION} ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+    pyenv local ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+    pyenv exec pip install python-openstackclient
+fi
+
+# 現在のpyenv localの環境を確認し、${PYENV_OPENSTACK_VIRTUALENV_NAME} ではない場合は切り替える
+# TODO: 上のvirtualenvが存在しているかのチェック時にelse側で毎回 `pyenv local openstack`やっちゃっても良いかも
 if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
-
-    # PYTHON_VERSION が存在しない場合はインストールする
-    if ! $(pyenv versions | \grep ${PYTHON_VERSION} > /dev/null 2>&1); then
-        CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v ${PYTHON_VERSION}
-    fi
-
-    # openstack virtualenvが存在するなら切り替える
-    # 存在しない場合はopenstack virtualenvを作成し、
-    # openstack virtualenvへの切り替えとopenstackclientのインストール
-    if pyenv virtualenvs | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
-        pyenv local openstack
-    else
-        pyenv virtualenv ${PYTHON_VERSION} ${PYENV_OPENSTACK_VIRTUALENV_NAME}
-        pyenv local openstack
-        pyenv exec pip install python-openstackclient
-    fi
+    pyenv local ${PYENV_OPENSTACK_VIRTUALENV_NAME}
 fi
 
 pyenv exec openstack $@
