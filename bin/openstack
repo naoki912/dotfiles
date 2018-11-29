@@ -4,8 +4,9 @@
 # $ type openstack
 # > openstack is /home/$USER/.pyenv/shims/openstack
 
-# このスクリプトは、 PYTHON_VERSION を変更した時に自動でそのバージョンにopenstackコマンドをアップデートしない。
-# PYTHON_VERSION を変更したい場合は、 PYTHON_VERSION 変数を書き換えた後に `pyenv virtualenv-delete PYENV_OPENSTACK_VIRTUALENV_NAME` をしてください。
+# PYTHON_VERSION と、OPENSTACK_COMMAND_VERSION は、値を変えることで再インストールされる
+
+# TODO これパイプで渡しているところで、パイプの前にも 2>&1 入れないとエラーがもれる
 
 #set -xvue
 #set -xvu
@@ -13,6 +14,7 @@
 PYENV_LOCAL_DIRECTORY='/tmp/openstack'
 PYENV_OPENSTACK_VIRTUALENV_NAME='openstack'
 PYTHON_VERSION='3.7.1'
+OPENSTACK_COMMAND_VERSION='3.16.1'
 
 # pyenvがインストールされているか確認
 if ! type pyenv > /dev/null 2>&1; then
@@ -36,14 +38,20 @@ fi
 #
 # PYTHON_VERSION を変更した時のための処理
 #
+# grepで弾いている '*' は、pyenv localのcurrentのversionにひっついてくるやつを削除している
+# これがないと pyenv local が PYENV_OPENSTACK_VIRTUALENV_NAME の時に余計な文字列が引っかかってしまう
+#
 # 現在の ${PYENV_OPENSTACK_VIRTUALENV_NAME}の Pythonのバージョンを取得
-_current_openstack_virtualenv_version=$(pyenv versions \
-    | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} \
-    | \grep '/' \
-    | awk -F"/" '{ print $1 }' \
-    | tr -d ' ')
-if [[ ! ${_current_openstack_virtualenv_version} = ${PYTHON_VERSION} ]]; then
-    pyenv virtualenv-delete -f ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+if pyenv versions | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} 2>&1; then
+    _current_openstack_virtualenv_version=$(pyenv versions \
+        | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} \
+        | \grep '/' \
+        | \grep -v '*' \
+        | awk -F"/" '{ print $1 }' \
+        | tr -d ' ')
+    if [[ ! ${_current_openstack_virtualenv_version} = ${PYTHON_VERSION} ]]; then
+        pyenv virtualenv-delete -f ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+    fi
 fi
 
 # ${PYENV_LOCAL_DIRECTORY} がDirectoryか確認
@@ -65,13 +73,18 @@ cd ${PYENV_LOCAL_DIRECTORY}
 if ! pyenv virtualenvs | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
     pyenv virtualenv ${PYTHON_VERSION} ${PYENV_OPENSTACK_VIRTUALENV_NAME}
     pyenv local ${PYENV_OPENSTACK_VIRTUALENV_NAME}
-    pyenv exec pip install python-openstackclient
+    pyenv exec pip install python-openstackclient==${OPENSTACK_COMMAND_VERSION}
 fi
 
 # 現在のpyenv localの環境を確認し、${PYENV_OPENSTACK_VIRTUALENV_NAME} ではない場合は切り替える
 # TODO: 上のvirtualenvが存在しているかのチェック時にelse側で毎回 `pyenv local openstack`やっちゃっても良いかも
 if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
     pyenv local ${PYENV_OPENSTACK_VIRTUALENV_NAME}
+fi
+
+# openstack コマンドのバージョンが一致しない場合はバージョン変更を行う
+if [[ ! "`pyenv exec openstack --version | awk '{ print $2 }'`" = ${OPENSTACK_COMMAND_VERSION} ]]; then
+    pyenv exec pip install python-openstackclient==${OPENSTACK_COMMAND_VERSION}
 fi
 
 pyenv exec openstack $@
