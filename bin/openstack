@@ -4,7 +4,11 @@
 # $ type openstack
 # > openstack is /home/$USER/.pyenv/shims/openstack
 
-#set -xv
+# このスクリプトは、 PYTHON_VERSION を変更した時に自動でそのバージョンにopenstackコマンドをアップデートしない。
+# PYTHON_VERSION を変更したい場合は、 PYTHON_VERSION 変数を書き換えた後に `pyenv virtualenv-delete PYENV_OPENSTACK_VIRTUALENV_NAME` をしてください。
+
+#set -xvue
+#set -xvu
 
 PYENV_LOCAL_DIRECTORY='/tmp/openstack'
 PYENV_OPENSTACK_VIRTUALENV_NAME='openstack'
@@ -38,6 +42,11 @@ cd ${PYENV_LOCAL_DIRECTORY}
 # 現在のpyenv localの環境を確認(not)
 # _result=`pyenv local`
 if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
+
+    # PYTHON_VERSION が存在しない場合はインストールする
+    if ! $(pyenv versions | \grep ${PYTHON_VERSION} > /dev/null 2>&1); then
+        CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v ${PYTHON_VERSION}
+    fi
 
     # openstack virtualenvが存在するなら切り替える
     # 存在しない場合はopenstack virtualenvを作成し、
