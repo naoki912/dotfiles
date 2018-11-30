@@ -39,5 +39,9 @@ xinput set-prop "Synaptics TM3381-002"       "libinput Natural Scrolling Enabled
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 xinput set-prop "Synaptics TM3381-002"       "libinput Tapping Enabled" 1
 
+# wacom
+# memo: xf86-input-synaptics を入れていない状態で正常に動作している
+#xinput set-prop "Wacom Intuos Pro S Finger" "libinput Natural Scrolling Enabled" 1
 
-source ./auto_start.local.sh
+source ~/.config/qtile/auto_start.local.sh
+
