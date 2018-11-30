@@ -25,7 +25,7 @@ on_ft = ['toml']
 
 [[plugins]]
 repo     = 'tomasr/molokai'
-on_cmd   = 'colorscheme molokai'
+on_cmd   = ['colorscheme molokai', 'molokai']
 hook_add = '''
     "highlight Normal ctermbg=none
     let g:rehash256 = 1
