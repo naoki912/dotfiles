@@ -39,6 +39,6 @@ hook_add = '''
   "                 - 例えば `{'*.py.j2': 'python'}` にしたら *.py.j2 が python + jinja2 のシンタックスになる。
   " `*.j2` がついていない拡張子が指定された場合、自動的に拡張子の末尾に .j2 が追加される。
   "let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
-  let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.py.j2': 'python', '.*cfg.j2': 'cfg' }
+  let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.py.j2': 'python', '*.cfg.j2': 'cfg', '*.yaml.j2': 'yaml', '*.yml.j2': 'yaml', '*.tf.j2': 'terraform' }
 '''
 
