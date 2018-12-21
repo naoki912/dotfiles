@@ -41,7 +41,16 @@ alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
 alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
 alias h-iptables-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
-alias h-iptables-portforward='echo "iptables -t nat -A PREROUTING -d OUT_IP -i eth0(OUT_IF) -p tcp --dport 80 -j DNAT --to DIST_IP"'
+alias h-iptables-portforward='echo "\
+iptables -t nat -A PREROUTING -d {OUT_IP} -i {OUT_IF} -p tcp --dport 80 -j DNAT --to DIST_IP
+iptables -t nat -A PREROUTING -d {OUT_IP} -i {OUT_IF} -p tcp --dport 5000 -j DNAT --to {DIST_IP}:{DIST_PORT} -m comment --comment \"{COMMENT}\"
+iptables -t nat -A PREROUTING -d 10.0.0.1 -i eth1 -p tcp --dport 20080 -j DNAT --to 192.168.0.1:80 -m comment --comment \"spamham comment\"
+
+{OUT_IP}              ; port-forwardするホストのlisten ip
+{OUT_IF}              ; port-forwardするホストのinterface
+--dport               ; port-forwardするホストが受けるポート
+{DIST_IP}:{DIST_PORT} ; port-forward先のIPとポート
+"'
 alias h-iptables-nspawn='echo "\
 # ホストマシンでdockerが動いている状態でsystemd-nspawnコンテナをnatする場合
 # かつ、 --network-veth オプションを使用する場合
@@ -292,6 +301,7 @@ dns-nameservers 8.8.8.8 8.8.4.4"'
 
 alias h-ssh-update-known_hosts="echo \"ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.1\""
 alias h-ssh-vpn='echo "sshuttle -r step 192.168.0.0/24"'
+alias h-ssh-proxy-command='echo "ProxyCommand ssh -W %h:%p step"'
 alias h-scp-by-remote-host-to-remote-host="echo 'ssh -3 remote:/path/to/file remote:/path/tp/file'"
 
 alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
