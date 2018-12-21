@@ -24,6 +24,9 @@ on_ft = ['toml']
 
 
 [[plugins]]
+# もし colorscheme molokai が not found になる場合は以下を試すこと
+# :call dein#add('tomasr/molokai')
+# :call dein#recache_runtimepath()
 repo     = 'tomasr/molokai'
 on_cmd   = ['colorscheme molokai', 'molokai']
 hook_add = '''
@@ -34,9 +37,17 @@ hook_add = '''
 
 
 [[plugins]]
-# Goの構造体とかを行分割したり結合したりしてくれるやつ
+# Goの構造体とかを行分割したり結合したりしてくれるやつ, struct
 # gS    -> 分割
 # gJ    -> 結合
 repo   = 'AndrewRadev/splitjoin.vim'
 on_map = ['gS', 'gJ']
+
+
+[[plugins]]
+# :UpdPkgSums or :UPS     -> updpkgsums
+# :MkAurBall or :MAB      -> mkaurball
+# :MkAurBallForce or :MAF -> mkaurball -f
+repo  = 'Firef0x/PKGBUILD.vim'
+on_ft = ['PKGBUILD']
 
