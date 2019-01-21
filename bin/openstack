@@ -42,7 +42,7 @@ fi
 # これがないと pyenv local が PYENV_OPENSTACK_VIRTUALENV_NAME の時に余計な文字列が引っかかってしまう
 #
 # 現在の ${PYENV_OPENSTACK_VIRTUALENV_NAME}の Pythonのバージョンを取得
-if pyenv versions | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} 2>&1; then
+if pyenv versions | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} > /dev/null 2>&1; then
     _current_openstack_virtualenv_version=$(pyenv versions \
         | \grep ${PYENV_OPENSTACK_VIRTUALENV_NAME} \
         | \grep '/' \
