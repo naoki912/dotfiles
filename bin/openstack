@@ -78,7 +78,7 @@ fi
 
 # 現在のpyenv localの環境を確認し、${PYENV_OPENSTACK_VIRTUALENV_NAME} ではない場合は切り替える
 # TODO: 上のvirtualenvが存在しているかのチェック時にelse側で毎回 `pyenv local openstack`やっちゃっても良いかも
-if [[ ! "`pyenv local`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
+if [[ ! "`pyenv local > /dev/null 2>&1`" = ${PYENV_OPENSTACK_VIRTUALENV_NAME} ]]; then
     pyenv local ${PYENV_OPENSTACK_VIRTUALENV_NAME}
 fi
 
