@@ -606,6 +606,7 @@ else
     NeoBundle 'scrooloose/syntastic'
     "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
     let g:syntastic_python_checkers = ['flake8']
+    let g:syntastic_python_flake8_args="--max-line-length=120"
 
     NeoBundle 'tell-k/vim-autopep8'
     autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
