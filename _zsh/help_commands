@@ -124,6 +124,13 @@ alias h-vim-json="echo '\
 :%!python -m json.tool
 :Jq
 :Jq .obj.list'"
+
+alias h-vim-buffer-completion="echo '\
+<C-a> で一致しているものを全部展開してくれる
+
+*.md と入力して<C-a>で以下のように展開される
+:bd spam.md ham.md egg.md'"
+
 alias h-vim-sort="echo '\
 内部のソート
 
