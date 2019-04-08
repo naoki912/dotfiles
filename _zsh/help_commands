@@ -39,6 +39,7 @@ alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
 alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
 alias h-wake-on-lan='echo "wol --ipaddr=192.168.0.1 aa:aa:aa:aa:aa:aa"'
+alias h-proxy='echo "export {all,htt{p,ps}}_proxy=http://proxy:8080"'
 
 alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
 alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
