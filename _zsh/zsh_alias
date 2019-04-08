@@ -109,7 +109,12 @@ alias ips="echo '=== br0 addr ===' \
     ; cat /etc/resolv.conf | sed -e '/^#.*/d'"
 alias swapre='sudo swapoff -a ; sudo swapon -a'
 alias swapreset='sudo sh -c "swapoff -a ; swapon -a"'
-alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
+#alias ssh-config-update='cat ~/.ssh/config.d/* > ~/.ssh/config'
+alias ssh-config-update='echo "\
+# cat ~/.ssh/config.d/* > ~/.ssh/config
+
+# ~/.ssh/config
+Include ~/.ssh/config.d/*"'
 
 # エイリアス
 alias Xterm='termite'
