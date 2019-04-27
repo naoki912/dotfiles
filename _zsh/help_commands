@@ -40,6 +40,8 @@ alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
 alias h-wake-on-lan='echo "wol --ipaddr=192.168.0.1 aa:aa:aa:aa:aa:aa"'
 
+alias h-nwm-wifi-reconnect='echo "nmcli connection down access-point ; nmcli connection up access-point"'
+
 alias h-iptables-nat='echo "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"'
 alias h-iptables-redirect='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000"'
 alias h-iptables-redirectip='echo "iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination (IP_ADDR):8000"'
@@ -384,6 +386,11 @@ OPTIONAL   | 任意である, 選択できる
 https://tools.ietf.org/html/rfc4949
 "'
 
+## systemd
+
+###  journalctl
+alias h-journalctl-boot='echo "journalctl --list-boots"'
+
 ### systemd-nspawn
 alias h-systemd-nspawn-service='echo "\
 systemctl edit systemd-nspawn@NAME.service
@@ -529,6 +536,10 @@ ansible all -i hosts -m apt -a "update_cache=yes upgrade=dist" --become\
 
 alias h-ansible-ping='echo "\
 ansible all -i hosts -m ping\
+"'
+
+alias h-ansible-host='echo "\
+ansible-playbook -i hosts.ini -l host1,host2 common.yml
 "'
 
 ### End Ansible
