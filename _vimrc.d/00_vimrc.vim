@@ -598,65 +598,6 @@ else
                \   "unix": ["pip install flake8", "npm -g install coffeelint"],
                \ }}
 
-    "##### Python関係 #####
-
-    "### vimでpythonのコーディングスタイルを自動でチェック&自動修正する
-    " http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/
-
-    NeoBundle 'scrooloose/syntastic'
-    "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-    let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_flake8_args="--max-line-length=120"
-
-    NeoBundle 'tell-k/vim-autopep8'
-    autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
-    " 79文字制限をとりあえず200にして解除, -1が使えるかどうかは未検証
-    let g:autopep8_max_line_length=200
-
-    "### virtualenvとdjango問題の解決 ###
-    " Djangoを正しくVimで読み込めるようにする
-    NeoBundleLazy "lambdalisue/vim-django-support", {
-                \ "autoload": {
-                \   "filetypes": ["python", "python3", "djangohtml"]
-                \ }}
-    " Vimで正しくvirtualenvを処理できるようにする
-    NeoBundleLazy "jmcantrell/vim-virtualenv", {
-                \ "autoload": {
-                \   "filetypes": ["python", "python3", "djangohtml"]
-                \ }}
-
-    "### jedi-vim python補完・リファクタリング・リファレンス環境 ###
-    NeoBundleLazy "davidhalter/jedi-vim", {
-                \ "autoload": {
-                \   "filetypes": ["python", "python3", "djangohtml"],
-                \ },
-                \ "build": {
-                \   "mac": "pip install jedi",
-                \   "unix": "pip install jedi",
-                \ }}
-    let s:hooks = neobundle#get_hooks("jedi-vim")
-    function! s:hooks.on_source(bundle)
-        " jediにvimの設定を任せると'completeopt+=preview'するので
-        " 自動設定機能をOFFにし手動で設定を行う
-        let g:jedi#auto_vim_configuration = 0
-        " 補完の最初の項目が選択された状態だと使いにくいためオフにする
-        let g:jedi#popup_select_first = 0
-        " quickrunと被るため大文字に変更
-        let g:jedi#rename_command = '<Leader>R'
-        " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
-        let g:jedi#goto_command = '<Leader>G'
-        " docstringは表示しない
-        autocmd FileType python setlocal completeopt-=preview
-    endfunction
-    " 補完用設定
-    NeoBundleLazy "lambdalisue/vim-pyenv", {
-                \ "depends": ['davidhalter/jedi-vim'],
-                \ "autoload": {
-                \   "filetypes": ["python", "python3", "djangohtml"]
-                \ }}
-
-    NeoBundle 'davidhalter/jedi-vim'
-
     "### コメントを操作するプラギン ###
     NeoBundle 'scrooloose/nerdcommenter'
     let NERDSpaceDelims = 1
@@ -688,6 +629,9 @@ else
                 "\   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
 
     "##### 見た目 #####
+    "lightline の pyenv の項目で必要
+    NeoBundle 'lambdalisue/vim-pyenv'
+
     NeoBundle 'itchyny/lightline.vim'
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
@@ -718,6 +662,7 @@ else
                 " \   'pyenv' : 'pyenv#statusline#component',
     function! MyPyenv()
         " return pyenv#info#format('%ss %iv %ev')
+        " lambdalisue/vim-pyenvが必要
         return pyenv#info#preset('long')
     endfunction
 
