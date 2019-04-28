@@ -184,15 +184,9 @@ groups = [
             'jetbrains-studio',
         ])]
     ),
-    Group(
-        '4:editor',
-        matches=[Match(wm_class=[
-            'Gvim',
-            'Code',
-        ])]
-    ),
-    Group('5:work'),
-    Group('6:tools'),
+    Group('4:none'),
+    Group('5:none'),
+    Group('6:none'),
     Group(
         '7:IM',
         matches=[Match(wm_class=['Slack'])]
@@ -274,8 +268,8 @@ for k, _ in bars.items():
             widget.Prompt(),
             widget.Spacer(),
             widget.Systray(),
-            widget.TextBox(text=' | Update '),
-            widget.Pacman(),
+            # widget.TextBox(text=' | Update '),
+            # widget.Pacman(),
             widget.TextBox(text=' | Screen:' + bars[k]['screen_name'] + ' |'),
             widget.TextBox(text=' Pomodoro '),
             widget.Pomodoro(),
