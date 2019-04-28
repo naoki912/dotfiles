@@ -360,9 +360,6 @@ else
     " NeoBundle自身をNeoBundleで管理させる
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    "##### セッション関連 #####
-    NeoBundle 'tpope/vim-obsession'
-
     "##### ファイル管理関係 #####
 
     "### vim-templateによるテンプレートファイルの使用 ###
