@@ -122,6 +122,15 @@ repo = 'vim-scripts/Align'
 repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
+# 'p'によるペースト後Ctrl-p,Ctrl-nで履歴と置き換え
+repo = 'vim-scripts/YankRing.vim'
+
+[[plugins]]
+# 囲まれているものに対していろいろする
+# 使ってない
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 # [vim-precious-の導入でtoml管理が快適に](https://qiita.com/kawaz/items/ee725f6214f91337b42b#vim-precious-%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A7toml%E7%AE%A1%E7%90%86%E3%81%8C%E5%BF%AB%E9%81%A9%E3%81%AB)
 # これの依存パッケージ
 repo = 'Shougo/context_filetype.vim'
