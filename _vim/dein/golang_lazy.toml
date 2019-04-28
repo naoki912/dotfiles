@@ -49,5 +49,10 @@ hook_add         = '''
 
     " tab幅を4に変更
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+    " C-t のkeymapがコンフリクトするので無効化
+    " - Go to symbol/declaration with :GoDef.
+    " - `nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>`
+    let g:go_def_mapping_enabled = 0
 '''
 
