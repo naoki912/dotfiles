@@ -364,8 +364,6 @@ else
 
     "### 囲まれているものに対していろいろする ###
     NeoBundle 'tpope/vim-surround'
-    "### テキスト整形用プラギン ###
-    NeoBundle 'vim-scripts/Align'
     "### 'p'によるペースト後Ctrl-p,Ctrl-nで履歴と置き換え
     NeoBundle 'vim-scripts/YankRing.vim'
 
