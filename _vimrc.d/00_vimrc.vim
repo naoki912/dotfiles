@@ -362,11 +362,6 @@ else
 
     "##### テキスト編集関係 #####
 
-    "### 囲まれているものに対していろいろする ###
-    NeoBundle 'tpope/vim-surround'
-    "### 'p'によるペースト後Ctrl-p,Ctrl-nで履歴と置き換え
-    NeoBundle 'vim-scripts/YankRing.vim'
-
     "### neocomplete補完 ###
     " if has('lua') && v:version > 703 && has('patch825') 2013-07-03 14:30 > から >= に修正
     " if has('lua') && v:version >= 703 && has('patch825') 2013-07-08 10:00 必要バージョンが885にアップデートされていました
