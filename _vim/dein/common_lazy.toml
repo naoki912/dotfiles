@@ -24,19 +24,6 @@ on_ft = ['toml']
 
 
 [[plugins]]
-# もし colorscheme molokai が not found になる場合は以下を試すこと
-# :call dein#add('tomasr/molokai')
-# :call dein#recache_runtimepath()
-repo     = 'tomasr/molokai'
-on_cmd   = ['colorscheme molokai', 'molokai']
-hook_add = '''
-    "highlight Normal ctermbg=none
-    let g:rehash256 = 1
-    let g:molokai_original = 1
-'''
-
-
-[[plugins]]
 # Goの構造体とかを行分割したり結合したりしてくれるやつ, struct
 # gS    -> 分割
 # gJ    -> 結合
