@@ -109,10 +109,10 @@ hook_add = '''
 # https://qiita.com/tomoemon/items/cc29b414a63e08cd4f89
 repo = 'elzr/vim-json'
 
-#[[plugins]]
+[[plugins]]
 # テキスト整形用プラギン
 # Aligntaに乗り換え済み
-#repo = 'vim-scripts/Align'
+repo = 'vim-scripts/Align'
 
 [[plugins]]
 # markdownのテーブルや、インデントの開始位置を揃えてくれるやつ
