@@ -99,3 +99,49 @@ hook_add = '''
     " 選択中に,ss: 非同期で開いたインタプリタに選択行を評価させる
     nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 '''
+
+
+[[plugins]]
+# もし colorscheme molokai が not found になる場合は以下を試すこと
+# :call dein#add('tomasr/molokai')
+# :call dein#recache_runtimepath()
+# そもそもplugin/ ディレクトリがないのでlazy出来ない？
+# :help lazy に書いてある
+repo     = 'tomasr/molokai'
+#on_cmd   = ['colorscheme molokai', 'molokai']
+hook_add = '''
+    "highlight Normal ctermbg=none
+    let g:rehash256 = 1
+    let g:molokai_original = 1
+'''
+
+
+[[plugins]]
+# `:w sudo:%` でrootとして保存
+# (`:w ! sudo tee %` が使えなくなったので代替手段)
+# https://github.com/neovim/neovim/issues/8527
+#
+# ```
+# " Open a current file with sudo
+# :e suda:%
+# " Save a current file with sudo
+# :w suda:%
+# " Edit /etc/sudoers
+# :e suda:/etc/sudoers
+# " Read /etc/sudoers (insert content under the cursor)
+# :r suda:/etc/sudoers
+# " Read /etc/sudoers at the end
+# :$r suda:/etc/sudoers
+# " Write contents to /etc/profile
+# :w suda:/etc/profile
+# " Save contents to /etc/profile
+# :saveas suda:/etc/profile
+# ```
+repo     = 'lambdalisue/suda.vim'
+hook_add = '''
+    let g:suda#prefix = 'sudo:'
+'''
+# on_* を使用していないので呼ばれない気がした
+hook_post_source = '''
+    call suda#init('sudo:*,sudo:*/*')
+'''
