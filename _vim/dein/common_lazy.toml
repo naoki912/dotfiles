@@ -41,8 +41,8 @@ on_ft = ['PKGBUILD']
 
 [[plugins]]
 # Gundo.vimによる高機能アンドゥ実装
-repo = 'sjl/gundo.vim'
-on_cmd = 'GundoToggle'
+repo             = 'sjl/gundo.vim'
+on_cmd           = 'GundoToggle'
 hook_post_source = '''
     nnoremap <Leader>g :GundoToggle<CR>
 '''
@@ -57,3 +57,26 @@ on_map           = ['<Plug>TaskList']
 hook_post_source = '''
     nmap <Leader>T <plug>TaskList
 '''
+
+
+[[plugins]]
+# quickrunによる即時実行
+repo             = 'thinca/vim-quickrun'
+# これ順番逆で読み込まれ無さそう
+on_map           = ['nxo', '<Plug>(quickrun)']
+hook_post_source = '''
+    nmap <Leader>r <Plug>(quickrun)
+    let g:quickrun_config = {"*": {"runner": "vimproc"}}
+'''
+
+
+[[plugins]]
+# Tarbarによるクラスアウトライン
+repo = 'majutsushi/tagbar'
+build = ['pacman -S ctags']
+on_cmd = ['TagbarToggle']
+hook_post_source = '''
+    nmap <Leader>t :TagbarToggle<CR>
+    " Exuberant ctags必須
+'''
+
