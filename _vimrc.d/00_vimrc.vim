@@ -444,29 +444,6 @@ else
         let g:neosnippet#snippets_directory=s:bundle_root . '/vim-snippets/snippets'
     endfunction
 
-    "### インデントに色を付けて見やすくする ###
-    NeoBundle "nathanaelkane/vim-indent-guides"
-    let s:hooks = neobundle#get_hooks("vim-indent-guides")
-    function! s:hooks.on_source(bundle)
-        let g:indent_guides_guide_size = 1
-        let g:indent_guides_enable_on_vim_startup = 1
-        "IndentGuidesEnable
-    endfunction
-
-    "### Gundo.vimによる高機能アンドゥ実装 ###
-    NeoBundleLazy "sjl/gundo.vim", {
-                \ "autoload": {
-                \   "commands": ['GundoToggle'],
-                \}}
-    nnoremap <Leader>g :GundoToggle<CR>
-
-    "### TaskList.vim ToDo管理
-    NeoBundleLazy "vim-scripts/TaskList.vim", {
-                \ "autoload": {
-                \   "mappings": ['<Plug>TaskList'],
-                \}}
-    nmap <Leader>T <plug>TaskList
-
     "##### プログラミング関係 #####
 
     "### quickrunによる即時実行 ###
