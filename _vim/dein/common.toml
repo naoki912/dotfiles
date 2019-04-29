@@ -278,3 +278,10 @@ repo             = 'bronson/vim-trailing-whitespace'
 hook_post_source = '''
     nmap d<TAB> :FixWhitespace<CR>
 '''
+
+
+[[plugins]]
+# 別 lazy ファイルでも定義してある
+#   - python_lazy
+repo     = 'vim-syntastic/syntastic'
+

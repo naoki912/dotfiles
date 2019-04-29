@@ -445,13 +445,6 @@ else
     endfunction
 
 
-   "### syntastic 構文エラー表示
-   NeoBundle "scrooloose/syntastic", {
-               \ "build": {
-               \   "mac": ["pip install flake8", "npm -g install coffeelint"],
-               \   "unix": ["pip install flake8", "npm -g install coffeelint"],
-               \ }}
-
     " https://github.com/ujihisa/repl.vim
     NeoBundle 'ujihisa/repl.vim'
 
