@@ -452,24 +452,6 @@ else
                \   "unix": ["pip install flake8", "npm -g install coffeelint"],
                \ }}
 
-    "### コメントを操作するプラギン ###
-    NeoBundle 'scrooloose/nerdcommenter'
-    let NERDSpaceDelims = 1
-    nmap ,, <Plug>NERDCommenterToggle
-    vmap ,, <Plug>NERDCommenterToggle
-    " 行の最後にコメントを追加
-    nmap ,a <Plug>NERDCommenterAppend
-    " カーソルの位置から行の最後までをコメントに変更
-    nmap ,9 <Plug>NERDCommenterToEOL
-    nmap ,s <Plug>NERDCommenterSexy
-    vmap ,s <Plug>NERDCommenterSexy
-    nmap ,b <Plug>NERDCommenterMinima
-    vmap ,b <Plug>NERDCommenterMinima
-
-    "### 行末の不要な半角スペースを可視化 ###
-    NeoBundle 'bronson/vim-trailing-whitespace'
-    nmap d<TAB> :FixWhitespace<CR>
-
     " https://github.com/ujihisa/repl.vim
     NeoBundle 'ujihisa/repl.vim'
 

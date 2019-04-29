@@ -62,6 +62,7 @@ on_map           = ['<Plug>(vimfiler_switch)']
 on_path          = ['.*']
 hook_post_source = '''
     nnoremap <silent><C-e> :VimFilerExplorer<CR>
+    " なんか動かない
     nnoremap <Leader>e :VimFilerExplorer<CR>
 
     " close vimfiler automatically when there are only vimfiler open
@@ -250,4 +251,30 @@ hook_post_source = '''
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
     "IndentGuidesEnable
+'''
+
+
+[[plugins]]
+# コメントを操作するプラギン
+repo             = 'scrooloose/nerdcommenter'
+hook_post_source = '''
+    let NERDSpaceDelims = 1
+    nmap ,, <Plug>NERDCommenterToggle
+    vmap ,, <Plug>NERDCommenterToggle
+    " 行の最後にコメントを追加
+    nmap ,a <Plug>NERDCommenterAppend
+    " カーソルの位置から行の最後までをコメントに変更
+    nmap ,9 <Plug>NERDCommenterToEOL
+    nmap ,s <Plug>NERDCommenterSexy
+    vmap ,s <Plug>NERDCommenterSexy
+    nmap ,b <Plug>NERDCommenterMinima
+    vmap ,b <Plug>NERDCommenterMinima
+'''
+
+
+[[plugins]]
+# 行末の不要な半角スペースを可視化
+repo             = 'bronson/vim-trailing-whitespace'
+hook_post_source = '''
+    nmap d<TAB> :FixWhitespace<CR>
 '''
