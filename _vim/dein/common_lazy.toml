@@ -38,3 +38,22 @@ on_map = ['gS', 'gJ']
 repo  = 'Firef0x/PKGBUILD.vim'
 on_ft = ['PKGBUILD']
 
+
+[[plugins]]
+# Gundo.vimによる高機能アンドゥ実装
+repo = 'sjl/gundo.vim'
+on_cmd = 'GundoToggle'
+hook_post_source = '''
+    nnoremap <Leader>g :GundoToggle<CR>
+'''
+
+
+[[plugins]]
+# TaskList.vim ToDo管理
+# 使ってない
+repo             = 'vim-scripts/TaskList.vim'
+# これ指定方法合ってるか分からん
+on_map           = ['<Plug>TaskList']
+hook_post_source = '''
+    nmap <Leader>T <plug>TaskList
+'''
