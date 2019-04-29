@@ -444,32 +444,6 @@ else
         let g:neosnippet#snippets_directory=s:bundle_root . '/vim-snippets/snippets'
     endfunction
 
-    "##### プログラミング関係 #####
-
-    "### quickrunによる即時実行 ###
-    NeoBundleLazy "thinca/vim-quickrun", {
-                \ "autoload": {
-                \   "mappings": [['nxo', '<Plug>(quickrun)']]
-                \ }}
-    nmap <Leader>r <Plug>(quickrun)
-    let s:hooks = neobundle#get_hooks("vim-quickrun")
-    function! s:hooks.on_source(bundle)
-        let g:quickrun_config = {
-                    \ "*": {"runner": "vimproc"},
-                    \ }
-   endfunction
-
-   "### Tarbarによるクラスアウトライン
-   NeoBundleLazy 'majutsushi/tagbar', {
-               \ "autload": {
-               \   "commands": ["TagbarToggle"],
-               \ },
-               \ "build": {
-               \   "mac": "brew install ctags",
-               \   "unix": "pacman -S ctags",
-               \ }}
-   nmap <Leader>t :TagbarToggle<CR>
-   " Exuberant ctags必須
 
    "### syntastic 構文エラー表示
    NeoBundle "scrooloose/syntastic", {
