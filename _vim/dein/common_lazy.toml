@@ -71,6 +71,12 @@ hook_post_source = '''
 
 
 [[plugins]]
+# 使ってない
+# vimshellが必要っぽいけどnvimだとどうなんだ？
+repo = 'ujihisa/repl.vim'
+
+
+[[plugins]]
 # Tarbarによるクラスアウトライン
 repo = 'majutsushi/tagbar'
 build = ['pacman -S ctags']
