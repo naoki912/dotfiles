@@ -15,9 +15,6 @@ sudo pacman -S autopep8 flake8
 # goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 
-# vim
-cd ~/.vim/bundle && git clone https://github.com/Shougo/neobundle.vim
-
 # tmux
 sudo -E pacman -S --noconfirm xsel
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -342,29 +342,6 @@ endfunction
 " これを行わないとpythonが正しく検索されない
 call IncludePath(expand("~/.pyenv/shims"))
 
-
-let s:noplugin = 0
-let s:bundle_root = expand('~/.vim/bundle')
-let s:neobundle_root = s:bundle_root . '/neobundle.vim'
-if !isdirectory(s:neobundle_root) || v:version < 702
-    " NeoBundleが存在しない、もしくはVimのバージョンが古い場合はプラグインを一切
-    " 読み込まない
-    let s:noplugin = 1
-else
-    " NeoBundleを'runtimepath'に追加し初期化を行う
-    if has('vim_starting')
-        execute "set runtimepath+=" . s:neobundle_root
-    endif
-    call neobundle#begin(s:bundle_root)
-
-    " NeoBundle自身をNeoBundleで管理させる
-    NeoBundleFetch 'Shougo/neobundle.vim'
-
-    NeoBundleCheck
-endif
-
-call neobundle#end()
-
 """"""""""""""""""""""""""""""
 
 filetype plugin indent on
