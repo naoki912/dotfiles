@@ -445,18 +445,6 @@ else
     endfunction
 
 
-    " https://github.com/ujihisa/repl.vim
-    NeoBundle 'ujihisa/repl.vim'
-
-    "##### ドキュメント関連 #####
-
-    "### vim-pandoc markdownとかのシンタックス・インデント用
-    NeoBundleLazy "vim-pandoc/vim-pandoc", {
-                \ "autoload": {
-                \   "filetypes": ["text", "pandoc", "rst", "textile"],
-                \ }}
-                "\   "filetypes": ["text", "pandoc", "markdown", "rst", "textile"],
-
     "##### 見た目 #####
     "lightline の pyenv の項目で必要
     NeoBundle 'lambdalisue/vim-pyenv'
