@@ -39,7 +39,7 @@ if dein#load_state(s:dein_dir)
     let g:rc_dir              = expand('~/.vim/dein')
     let s:common_toml         = g:rc_dir . '/common.toml'
     let s:git_toml            = g:rc_dir . '/git.toml'
-    let s:appearance_toml     = g:rc_dir . '/appearance_toml'
+    let s:appearance_toml     = g:rc_dir . '/appearance.toml'
     let s:common_lazy_toml    = g:rc_dir . '/common_lazy.toml'
     let s:ansible_lazy_toml   = g:rc_dir . '/ansible_lazy.toml'
     let s:terraform_lazy_toml = g:rc_dir . '/terraform_lazy.toml'
