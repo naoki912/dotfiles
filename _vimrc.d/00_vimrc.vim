@@ -360,62 +360,6 @@ else
     " NeoBundle自身をNeoBundleで管理させる
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    "##### テキスト編集関係 #####
-
-    "### neocomplete補完 ###
-    " if has('lua') && v:version > 703 && has('patch825') 2013-07-03 14:30 > から >= に修正
-    " if has('lua') && v:version >= 703 && has('patch825') 2013-07-08 10:00 必要バージョンが885にアップデートされていました
-    if has('lua') && v:version >= 703 && has('patch885')
-        NeoBundleLazy "Shougo/neocomplete.vim", {
-                    \ "autoload": {
-                    \   "insert": 1,
-                    \ }}
-        " 2013-07-03 14:30 NeoComplCacheに合わせた
-        let g:neocomplete#enable_at_startup = 1
-        let s:hooks = neobundle#get_hooks("neocomplete.vim")
-        function! s:hooks.on_source(bundle)
-            let g:acp_enableAtStartup = 0
-            let g:neocomplet#enable_smart_case = 1
-            " NeoCompleteを有効化
-            " NeoCompleteEnable
-
-            "let g:neocomplete#sources#syntax#min_keyword_length = 3
-            "let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-            " Plugin key-mappings.
-            inoremap <expr><C-g>     neocomplete#undo_completion()
-            inoremap <expr><C-l>     neocomplete#complete_common_string()
-            inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-            function! s:my_cr_function()
-                return neocomplete#close_popup() . "\<CR>"
-                return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-            endfunction
-            inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-            inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-            inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-            inoremap <expr><C-y>  neocomplete#close_popup()
-            inoremap <expr><C-e>  neocomplete#cancel_popup()
-            " ポップアップを<Space>で消す
-            "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-        endfunction
-    else
-        NeoBundleLazy "Shougo/neocomplcache.vim", {
-                    \ "autoload": {
-                    \   "insert": 1,
-                    \ }}
-        " 2013-07-03 14:30 原因不明だがNeoComplCacheEnableコマンドが見つからないので変更
-        let g:neocomplcache_enable_at_startup = 1
-        let s:hooks = neobundle#get_hooks("neocomplcache.vim")
-        function! s:hooks.on_source(bundle)
-            let g:acp_enableAtStartup = 0
-            let g:neocomplcache_enable_smart_case = 1
-            " NeoComplCacheを有効化
-            " NeoComplCacheEnable
-        endfunction
-    endif
-
-
-
     NeoBundleCheck
 endif
 
