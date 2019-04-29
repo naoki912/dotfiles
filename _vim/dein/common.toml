@@ -285,3 +285,33 @@ hook_post_source = '''
 #   - python_lazy
 repo     = 'vim-syntastic/syntastic'
 
+
+#--
+# deoplete.nvim
+#
+# 補完
+# - vimの場合は deoplete が nvim-yarp, vim-hug-neovim-rpc に依存する
+# - nvim の場合は python-neovim に依存する
+#   - build = 'pacman -S python-neovim'
+#--
+
+
+[[plugins]]
+# if !nvim
+repo             = 'Shougo/deoplete.nvim'
+depends          = ['nvim-yarp', 'vim-hug-neovim-rpc']
+hook_post_source = '''
+    let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+# Depends: pacman/python-neovim
+repo = 'roxma/vim-hug-neovim-rpc'
+
+#--
+# End deoplete.nvim
+#--
+
