@@ -13,17 +13,10 @@ hook_add = '''
 '''
 
 
-# [[plugins]]
-# # terraformだけに依存しているわけではないのでcommon.toml側で定義
-# repo = 'vim-syntastic/syntastic'
-
-
 [[plugins]]
 # Terraformの補完
 # オムニ補完を使うので C-X C-O を使う必要がある
 repo = 'juliosueiras/vim-terraform-completion'
 on_ft = ['tf']
-# syntasticをdeinで管理するようになるまでコメントアウト
-#depends = ['vim-terraform', 'syntastic']
-depends = ['vim-terraform']
+depends = ['vim-terraform', 'syntastic']
 
