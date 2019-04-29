@@ -12,6 +12,9 @@ repo = 'lambdalisue/vim-pyenv'
 repo             = 'itchyny/lightline.vim'
 depends          = ['/vim-pyenv']
 hook_post_source = '''
+    set laststatus=2
+    set noshowmode
+
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
                 \ 'active': {
@@ -152,7 +155,5 @@ hook_post_source = '''
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_force_overwrite_statusline = 0
     let g:vimshell_force_overwrite_statusline = 0
-
-    " ToDo Git関連の設定
 '''
 
