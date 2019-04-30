@@ -11,9 +11,7 @@
 #'''
 
 [[plugins]]
-# TODO: 非lazy化
-# Python限定じゃないので別の場所に移しても良さそう
-# 他のPluginが依存している
+# common.toml でも定義してある
 repo     = 'vim-syntastic/syntastic'
 #build    = 'sudo pacman -S flake8'
 hook_add = '''
@@ -42,7 +40,7 @@ repo     = 'davidhalter/jedi-vim'
 build    = 'pip install jedi'
 #build    = 'sudo pacman -S python-jedi'
 on_ft    = ['python', 'python3', 'djangohtml']
-hook_post_source = '''
+hook_add = '''
     " jediにvimの設定を任せると'completeopt+=preview'するので
     " 自動設定機能をOFFにし手動で設定を行う
     let g:jedi#auto_vim_configuration = 0
@@ -57,9 +55,25 @@ hook_post_source = '''
 '''
 
 
+# appearance.toml で定義してる
+#[[plugins]]
+## 補完用設定
+#repo    = 'lambdalisue/vim-pyenv'
+#depends = ['/jedi-vim']
+#on_ft   = ['python', 'python3', 'djangohtml']
+
+
 [[plugins]]
-# 補完用設定
-repo    = 'lambdalisue/vim-pyenv'
-depends = ['/jedi-vim']
-on_ft   = ['python', 'python3', 'djangohtml']
+repo      = 'deoplete-plugins/deoplete-jedi'
+on_source = ['jedi-vim']
+hook_add  = '''
+    " jediの補完を無効化 (deoplete-jedi が非同期で補完処理を行ってくれるため)
+    let g:jedi#completions_enabled = 0
+
+    " 説明の最大文字数。この値を超えると代わりに簡易説明が使用される
+    let g:deoplete#sources#jedi#statement_length = 100
+
+    " preview window に docstring を表示する
+    let g:deoplete#sources#jedi#show_docstring = 1
+'''
 
