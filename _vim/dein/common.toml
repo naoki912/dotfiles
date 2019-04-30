@@ -278,9 +278,21 @@ hook_post_source = '''
 
 
 [[plugins]]
-# 別 lazy ファイルでも定義してある
-#   - python_lazy
-repo     = 'vim-syntastic/syntastic'
+# syntax checker
+# syntastic から変えた, 非同期でやってくれる
+repo     = 'w0rp/ale'
+#build    = 'sudo pacman -S flake8'
+hook_add = '''
+    " ファイル保存時のみ実行
+    let g:ale_lint_on_save = 1
+    let g:ale_lint_on_text_changed = 0
+    " ファイルオープン時にチェックしない
+    let g:ale_lint_on_enter = 0
+
+    let g:ale_linters = {
+    \   'python': ['flake8'],
+    \ }
+'''
 
 
 #--
@@ -295,6 +307,7 @@ repo     = 'vim-syntastic/syntastic'
 [[plugins]]
 repo             = 'Shougo/deoplete.nvim'
 #depends          = ['nvim-yarp', 'vim-hug-neovim-rpc']
+#on_event         = 'InsertEnter'
 hook_post_source = '''
     let g:deoplete#enable_at_startup = 1
 '''
