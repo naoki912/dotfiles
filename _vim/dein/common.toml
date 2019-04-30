@@ -129,6 +129,10 @@ repo = 'vim-scripts/YankRing.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+# " を入力で "" を自動で入力する
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
 # [vim-precious-の導入でtoml管理が快適に](https://qiita.com/kawaz/items/ee725f6214f91337b42b#vim-precious-%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A7toml%E7%AE%A1%E7%90%86%E3%81%8C%E5%BF%AB%E9%81%A9%E3%81%AB)
 # これの依存パッケージ
 repo = 'Shougo/context_filetype.vim'
