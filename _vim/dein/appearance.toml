@@ -11,7 +11,7 @@ repo = 'lambdalisue/vim-pyenv'
 # TODO: なんか2回目移行の起動でぶっ壊れる
 repo             = 'itchyny/lightline.vim'
 depends          = ['/vim-pyenv']
-hook_post_source = '''
+hook_add = '''
     set laststatus=2
     set noshowmode
 
