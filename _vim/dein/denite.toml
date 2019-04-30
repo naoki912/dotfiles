@@ -51,6 +51,8 @@ hook_add = '''
     call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
     call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
     call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('insert', '<Tab>', '<denite:move_to_next_line>')
+    call denite#custom#map('insert', '<S-Tab>', '<denite:move_to_previous_line>')
 
     " 上の階層へ移動
     call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
@@ -61,6 +63,10 @@ hook_add = '''
     "call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
     "call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
     "call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
+    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
+    "call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
+    call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>')
+    call denite#custom#map('normal', 'V', '<denite:do_action:split>')
 
     " / で INSERT mode に移動
     call denite#custom#map('normal', '/', '<denite:enter_mode:insert>', 'noremap')
