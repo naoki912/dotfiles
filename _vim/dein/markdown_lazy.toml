@@ -1,0 +1,53 @@
+#--
+# markdown系
+#--
+
+# https://rcmdnk.com/blog/2013/11/17/computer-vim/
+# https://rcmdnk.com/blog/2014/10/30/computer-vim-markdown/
+
+[[plugins]]
+# markdownのsyntax highlight
+repo     = 'rcmdnk/vim-markdown'
+on_ft    = ['md', 'markdown']
+hook_add = '''
+    " 折りたたみを無効化
+    let g:vim_markdown_folding_disabled = 1
+
+    " [text](url://) とかで折りたたみを無効化する
+    let g:vim_markdown_conceal = 0
+
+    " 複数行の文字列強調を許可する
+    "let g:vim_markdown_emphasis_multiline = 1
+
+    " わかんにゃい
+    let g:vim_markdown_frontmatter = 1
+    " 'cespare/vim-toml' に依存
+    let g:vim_markdown_toml_frontmatter = 1
+    " 'elzr/vim-json' に依存
+    let g:vim_markdown_json_frontmatter = 1
+'''
+
+[[plugins]]
+# markdown内の ``` で囲まれたものを syntax highlight する
+#
+# これをハイライトしてくれる
+# ```py
+# print('hello')
+# ```
+repo      = 'joker1007/vim-markdown-quote-syntax'
+on_source = ['vim-markdown']
+
+[[plugins]]
+# :TableFormat でフィアル内のテーブルを整形
+# Alignta | を使ってるのであまり使わない
+repo      = 'godlygeek/tabular'
+on_source = ['vim-markdown']
+
+[[plugins]]
+repo      = 'cespare/vim-toml'
+on_source = ['vim-markdown']
+
+[[plugins]]
+repo      = 'elzr/vim-json'
+on_source = ['vim-markdown']
+
