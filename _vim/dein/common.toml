@@ -15,12 +15,15 @@ build = 'make'
 
 [[plugins]]
 repo = 'Shougo/unite-outline'
+on_source = ['denite.nvim']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
+on_source = ['denite.nvim']
 
-#[[plugins]]
-#repo             = 'Shougo/unite.vim'
+[[plugins]]
+# vimfilerのために残している
+repo             = 'Shougo/unite.vim'
 #hook_post_source = '''
 #    nnoremap [unite] <Nop>
 #    nmap U [unite]
@@ -51,8 +54,8 @@ repo = 'Shougo/neoyank.vim'
 #'''
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_post_source = '''
+repo             = 'Shougo/denite.nvim'
+hook_add         = '''
     nnoremap [denite] <Nop>
     nmap <Leader>u [denite]
     nnoremap <silent> [denite]b :Denite buffer<CR>
@@ -64,7 +67,8 @@ hook_post_source = '''
     nnoremap <silent> [denite]t :Denite tag<CR>
     nnoremap <silent> [denite]u :Denite menu<CR>
     nnoremap <silent> [denite]y :Denite neoyank<CR>
-
+'''
+hook_source = '''
     " 動いてない気がする
     call denite#custom#map(
         \ 'insert',
@@ -122,14 +126,9 @@ hook_post_source = '''
 # https://twitter.com/ShougoMatsu/status/814072124742606848
 # > 後継プラグインがないので正式発表はしてませんが、vimfiler の開発を続ける気はないです。
 # > denite.nvimベースのファイラープラグインを作る気ではいます
-repo             = 'Shougo/vimfiler'
-depends          = ['denite.vim']
-on_cmd           = ['VimFilerTab', 'VimFiler', 'VimFilerExplorer']
-# 合ってるか分からん # 元は "autoload": {"mappings": ['<Plug>(vimfiler_switch)']}
-on_map           = ['<Plug>(vimfiler_switch)']
-# 合ってるか分からん # 元は "autoload": {"explorer": 1}
-on_path          = ['.*']
-hook_post_source = '''
+repo     = 'Shougo/vimfiler'
+depends  = ['unite.vim']
+hook_add = '''
     nnoremap <silent><C-e> :VimFilerExplorer<CR>
     " なんか動かない
     nnoremap <Leader>e :VimFilerExplorer<CR>
