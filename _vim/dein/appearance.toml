@@ -19,7 +19,7 @@ hook_add = '''
                 \ 'colorscheme': 'wombat',
                 \ 'active': {
                 \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-                \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+                \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
                 \ },
                 \ 'component_function': {
                 \   'fugitive': 'MyFugitive',
@@ -32,12 +32,10 @@ hook_add = '''
                 \   'pyenv' : 'MyPyenv',
                 \ },
                 \ 'component_expand': {
-                \   'syntastic': 'SyntasticStatuslineFlag',
                 \ },
                 \ 'component': {
                 \ },
                 \ 'component_type': {
-                \   'syntastic': 'error',
                 \ },
                 \ 'subseparator': { 'left': '|', 'right': '|' }
                 \ }
@@ -61,6 +59,7 @@ hook_add = '''
 
     function! MyFilename()
         let fname = expand('%:t')
+        " TODO: Denite を追加する
         return fname == 'ControlP' ? g:lightline.ctrlp_item :
                     \ fname == '__Tagbar__' ? g:lightline.fname :
                     \ fname =~ '__Gundo\|NERD_tree' ? '' :
@@ -98,6 +97,7 @@ hook_add = '''
 
     function! MyMode()
         let fname = expand('%:t')
+        " TODO: Denite を追加する
         return fname == '__Tagbar__' ? 'Tagbar' :
                     \ fname == 'ControlP' ? 'CtrlP' :
                     \ fname == '__Gundo__' ? 'Gundo' :
@@ -141,15 +141,6 @@ hook_add = '''
     function! TagbarStatusFunc(current, sort, fname, ...) abort
         let g:lightline.fname = a:fname
         return lightline#statusline(0)
-    endfunction
-
-    augroup AutoSyntastic
-        autocmd!
-        autocmd BufWritePost *.c,*.cpp call s:syntastic()
-    augroup END
-    function! s:syntastic()
-        SyntasticCheck
-        call lightline#update()
     endfunction
 
     let g:unite_force_overwrite_statusline = 0

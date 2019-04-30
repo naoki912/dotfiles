@@ -1,7 +1,7 @@
 [[plugins]]
 # Terraformのsyntax highlightとfmt
-repo = 'hashivim/vim-terraform'
-on_ft = ['tf']
+repo     = 'hashivim/vim-terraform'
+on_ft    = ['tf']
 hook_add = '''
   " terraform fmtがしんどいので使わない
   "let g:terraform_fmt_on_save=1
@@ -14,9 +14,30 @@ hook_add = '''
 
 
 [[plugins]]
+# vim-terraform-completion が依存しているので tf の時だけ有効化
+# もしかしたら 'w0rp/ale' と衝突するかも？
+repo      = 'vim-syntastic/syntastic'
+on_source = 'vim-terraform-completion'
+
+
+[[plugins]]
 # Terraformの補完
 # オムニ補完を使うので C-X C-O を使う必要がある
-repo = 'juliosueiras/vim-terraform-completion'
-on_ft = ['tf']
-depends = ['vim-terraform', 'syntastic']
+repo        = 'juliosueiras/vim-terraform-completion'
+on_ft       = ['tf']
+#depends     = ['vim-terraform']
+depends     = ['vim-terraform', 'syntastic']
+hook_source = '''
+    " 多分ここのコンフィグ動いて無さそう
+
+    " deoplete config
+    let g:deoplete#omni_patterns = {}
+
+    call deoplete#custom#option('omni_patterns', {
+    \ 'complete_method': 'omnifunc',
+    \ 'terraform': '[^ *\t"{=$]\w*',
+    \})
+
+    call deoplete#initialize()
+'''
 

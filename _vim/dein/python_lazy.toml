@@ -1,26 +1,3 @@
-# syntastic について
-# [vimでpythonのコーディングスタイルを自動でチェック&自動修正する](http://ton-up.net/technote/2013/11/26/vim-python-style-check-and-fix/)
-
-# flake8に移行したので使用しない
-#[[plugins]]
-#repo     = 'tell-k/vim-autopep8'
-#hook_add = '''
-#autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
-#" 79文字制限をとりあえず200にして解除, -1が使えるかどうかは未検証
-#let g:autopep8_max_line_length=200
-#'''
-
-[[plugins]]
-# common.toml でも定義してある
-repo     = 'vim-syntastic/syntastic'
-#build    = 'sudo pacman -S flake8'
-hook_add = '''
-    "let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-    let g:syntastic_python_checkers = ['flake8']
-    let g:syntastic_python_flake8_args="--max-line-length=120"
-'''
-
-
 [[plugins]]
 # Djangoを正しくVimで読み込めるようにする
 repo  = 'lambdalisue/vim-django-support'
