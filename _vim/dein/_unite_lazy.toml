@@ -1,3 +1,0 @@
-# [[plugins]]
-# repo      = 'Shougo/neomru.vim'
-# on_source = ['unite.vim']
