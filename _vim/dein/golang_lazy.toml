@@ -8,6 +8,7 @@ hook_post_update = '''
 hook_add         = '''
     " https://github.com/hnakamur/vim-go-tutorial-ja
 
+    " neocomplete は消すので
     " let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
     " autocmd FileType go :highlight goErr cterm=bold ctermfg=214
     " autocmd FileType go :match goErr /\<err\>/
