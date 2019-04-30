@@ -3,21 +3,17 @@
 #--
 
 [[plugins]]
-repo      = 'Shougo/neomru.vim'
-on_source = ['denite.nvim']
+repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/unite-outline'
-on_source = ['denite.nvim']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
-on_source = ['denite.nvim']
 
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-on_cmd = ['Denite']
+repo     = 'Shougo/denite.nvim'
 hook_add = '''
     nnoremap [denite] <Nop>
     nmap <Leader>u [denite]
@@ -30,8 +26,7 @@ hook_add = '''
     nnoremap <silent> [denite]t :Denite tag<CR>
     nnoremap <silent> [denite]u :Denite menu<CR>
     nnoremap <silent> [denite]y :Denite neoyank<CR>
-'''
-hook_post_source = '''
+
     call denite#custom#option('default', {'mode': 'normal'})
     call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 
@@ -84,8 +79,4 @@ hook_post_source = '''
         \ 'noremap'
         \)
 '''
-hook_done_update = '''
-    UpdateRemotePlugins
-'''
-
 
