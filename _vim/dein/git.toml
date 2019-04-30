@@ -71,13 +71,14 @@ depends = ['/vim-rhubarb']
 # <Leader>hp        - 変更点を別窓でプレビュー
 #
 # gitgutterのkeymapは `gitgutter_map_keys` で無効化してある
+# 2018/09/23 [c, ]c が使いたかったので有効化
 repo     = 'airblade/vim-gitgutter'
 hook_add = '''
 " Example keymaps
 
 " ([c, ]c)
-"nmap ]h <Plug>GitGutterNextHunk
-"nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
 " (<Leader>hs, <Leader>hu)
 "nmap <Leader>ha <Plug>GitGutterStageHunk
@@ -90,7 +91,7 @@ hook_add = '''
 "let g:gitgutter_max_signs = 500  " default value
 
 " vim-gitgutter にkeymapを設定させない
-let  g:gitgutter_map_keys = 0
+"let  g:gitgutter_map_keys = 0
 
 " マーカー更新までの遅延
 set updatetime=100
@@ -104,4 +105,27 @@ hook_add = '''
 " GitHub Enterpriseを使う場合は下を編集する
 "let g:github_enterprise_urls = ['https://example.com']
 '''
+
+
+###
+# gist
+###
+
+[[plugins]]
+# git config --global github.user USERNAME
+# TODO lazy化
+repo     = 'mattn/gist-vim'
+depends  = ['/webapi-vim']
+hook_add = '''
+let g:gist_clip_command            = 'xclip -selection clipboard'
+let g:gist_detect_filetype         = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command         = 'w3m %URL%'
+let g:gist_show_privates           = 1
+
+"let g:gist_api_url          = 'https://github.enterprise/api/v3'
+'''
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
 
