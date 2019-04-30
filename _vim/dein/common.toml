@@ -122,6 +122,10 @@ repo = 'vim-scripts/YankRing.vim'
 [[plugins]]
 # 囲まれているものに対していろいろする
 # 使ってない
+#
+# cs"'      - "foo" -> 'foo'
+# ds"       - "foo" -> foo
+# cs[{      - [foo] -> {foo}
 repo = 'tpope/vim-surround'
 
 [[plugins]]
