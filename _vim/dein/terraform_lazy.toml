@@ -2,7 +2,7 @@
 # Terraformのsyntax highlightとfmt
 repo     = 'hashivim/vim-terraform'
 on_ft    = ['tf']
-hook_add = '''
+hook_source = '''
   " terraform fmtがしんどいので使わない
   "let g:terraform_fmt_on_save=1
 
