@@ -217,6 +217,10 @@ vnoremap v $h
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+" 誤操作防止用に無効化
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
 " Shift + 矢印でウィンドウサイズを変更
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
