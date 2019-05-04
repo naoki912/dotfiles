@@ -46,3 +46,12 @@ function ls-path() {
     echo $1
 }
 
+
+function ping88() {
+    while :
+    do
+        ping 8.8.8.8
+        sleep 1
+    done
+}
+
