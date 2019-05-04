@@ -52,4 +52,5 @@ nmap [wLeader]v V
 nnoremap <Leader>h  ^
 nnoremap <Leader>l  $
 nnoremap <Leader>/  *
+nnoremap <Leader>m  %
 
