@@ -26,6 +26,7 @@ hook_add = '''
     nnoremap <silent> [denite]g     :Denite grep<CR>
     nnoremap <silent> [denite]h     :Denite help<CR>
     nnoremap <silent> [denite]l     :Denite line<CR>
+    nnoremap <silent> [denite]m     :Denite mark<CR>
     nnoremap <silent> [denite]t     :Denite tag<CR>
     nnoremap <silent> [denite]u     :Denite menu<CR>
     nnoremap <silent> [denite]y     :Denite neoyank<CR>
@@ -36,6 +37,7 @@ hook_add = '''
     nnoremap <silent> [denite]<C-g> :Denite grep<CR>
     nnoremap <silent> [denite]<C-h> :Denite help<CR>
     nnoremap <silent> [denite]<C-l> :Denite line<CR>
+    nnoremap <silent> [denite]<C-m> :Denite mark<CR>
     nnoremap <silent> [denite]<C-t> :Denite tag<CR>
     nnoremap <silent> [denite]<C-u> :Denite menu<CR>
     nnoremap <silent> [denite]<C-y> :Denite neoyank<CR>
