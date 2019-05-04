@@ -1,15 +1,19 @@
 let mapleader = "\<Space>"
 
-" [wLeader] に<Leader><Leader>を割り当て
-" `<Leader><Leader>と2回入力 == [wLeader]`
-nnoremap [wLeader] <Nop>
-nmap <Leader><Leader> [wLeader]
-
-
 " http://postd.cc/how-to-boost-your-vim-productivity/
 
 " <Space>wを押してファイルを保存する（:w<Enter>よりずっと速い）
 nnoremap <Leader>w :w<CR>
+
+
+"--
+" コピー系
+"--
+
+" [wLeader] に<Leader><Leader>を割り当て
+" `<Leader><Leader>と2回入力 == [wLeader]`
+nnoremap [wLeader] <Nop>
+nmap <Leader><Leader> [wLeader]
 
 " <Space>pと<Space>yでシステムのクリップボードにコピー＆ペーストする
 " CLIPBOARD, PRIMARYの違い https://oplern.hatenablog.com/entry/2017/04/10/070433
@@ -39,4 +43,13 @@ vmap [wLeader]gP "*gP
 
 " <Space><Space>vでビジュアルラインモードに切り替える
 nmap [wLeader]v V
+
+
+"--
+" 移動系
+"--
+
+nnoremap <Leader>h  ^
+nnoremap <Leader>l  $
+nnoremap <Leader>/  *
 
