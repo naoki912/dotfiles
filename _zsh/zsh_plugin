@@ -17,6 +17,14 @@ if type zplug > /dev/null 2>&1; then
     # tmux-xpanesのssh補完
     zplug "greymd/tmux-xpanes"
 
+    #zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, use:"*linux*amd64*", at:0.17.5 # 依存
+    #zplug "junegunn/fzf-bin", \
+    #    from:gh-r, \
+    #    as:command, \
+    #    rename-to:fzf, \
+    #    use:"*linux*amd64*"
+    #zplug "junegunn/fzf", as:command, use:bin/fzf-tmux # 依存
+
     # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
