@@ -430,18 +430,29 @@ alias h-k8s-preset-useradd-sa='cat --bg=dark << EOF
 # ServiceAccount を作成する
 kubectl create serviceaccount kero -n default
 
-SECRET_NAME=\$(kubectl get serviceaccount kero -n default -o json | jq -r .secrets\[\].name)
+SECRET_NAME=\$(kubectl get serviceaccount kero -n default -o jsonpath="{.secrets[0].name}")
 # Secretからca.crtを取得する場合はこのコマンドを叩く(おそらく既にClusterは登録されているのでやらなくていい)
-CA_CRT=\$(kubectl get secret "\${SECRET_NAME}" -n default -o json | jq -r ".data["ca.crt"]")
+# ca.crtファイルには base64 -d したものを入れること(set-clusterした時にbase64されるのでオニオン状態になる)
+CA_CRT=\$(kubectl -n default get secret "\${SECRET_NAME}" -o go-template="{{index .data \"ca.crt\"}}" | base64 -d)
+echo $CA_CRT > ca.crt
 # SecretからTokenを取得する
-USER_TOKEN=\$(kubectl get secret "\${SECRET_NAME}" -n default -o json | jq -r ".data["token"]" | base64 -d)
+USER_TOKEN=\$(kubectl get secret "\${SECRET_NAME}" -n default -o jsonpath="{.data.token}" | base64 -d)
 
 # kubeconfig を作成する
 kubectl config set-credentials kero --token \${USER_TOKEN}
-kubectl config set-context kero-context \
-  --cluster kubernetes \
-  --namespace default \
+kubectl config set-context kero-context \\
+  --cluster kubernetes \\
+  --namespace default \\
   --user=kero
+
+# Clusterの登録がまだの場合は以下を実行
+echo \${CA_CRT} > ca.crt
+kubectl config set-cluster kubernetes \\
+    --server=x.x.x.x \\
+    --certificate-authority=ca.crt \\
+    --embed-certs=true
+
+kubectl config use-context n-kanazawa@mycluster
 
 cat role-and-rolebind.yaml
 <<OUTPUT
