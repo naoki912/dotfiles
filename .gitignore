@@ -11,3 +11,6 @@ _tmux/resurrect/
 # vim
 _vim/bundle/
 _vim/undo/*
+
+# i3
+_i3/i3log
