@@ -7,6 +7,7 @@
 
 [[plugins]]
 # markdownのsyntax highlight
+#repo     = 'plasticboy/vim-markdown'
 repo     = 'rcmdnk/vim-markdown'
 on_ft    = ['md', 'markdown']
 hook_add = '''
@@ -18,13 +19,6 @@ hook_add = '''
 
     " 複数行の文字列強調を許可する
     "let g:vim_markdown_emphasis_multiline = 1
-
-    " わかんにゃい
-    let g:vim_markdown_frontmatter = 1
-    " 'cespare/vim-toml' に依存
-    let g:vim_markdown_toml_frontmatter = 1
-    " 'elzr/vim-json' に依存
-    let g:vim_markdown_json_frontmatter = 1
 '''
 
 [[plugins]]
@@ -41,13 +35,5 @@ on_source = ['vim-markdown']
 # :TableFormat でフィアル内のテーブルを整形
 # Alignta | を使ってるのであまり使わない
 repo      = 'godlygeek/tabular'
-on_source = ['vim-markdown']
-
-[[plugins]]
-repo      = 'cespare/vim-toml'
-on_source = ['vim-markdown']
-
-[[plugins]]
-repo      = 'elzr/vim-json'
 on_source = ['vim-markdown']
 
