@@ -8,32 +8,8 @@ repo = 'lambdalisue/vim-pyenv'
 
 
 [[plugins]]
-# search時にWebブラウザみたいに何番目を表示してくれる
-repo     = 'osyo-manga/vim-anzu'
-hook_add = '''
-" mapping
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-
-" statusline
-"set statusline=%{anzu#search_status()}
-
-" if start anzu-mode key mapping
-" anzu-mode is anzu(12/51) in screen
-" nmap n <Plug>(anzu-mode-n)
-" nmap N <Plug>(anzu-mode-N)
-'''
-
-
-[[plugins]]
-# TODO: なんか2回目移行の起動でぶっ壊れる
 repo             = 'itchyny/lightline.vim'
-depends          = ['vim-pyenv', 'vim-anzu']
+depends          = ['vim-pyenv']
 hook_add         = '''
     set laststatus=2
     set noshowmode
@@ -41,7 +17,7 @@ hook_add         = '''
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
                 \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], [ 'search_status', 'ctrlpmark' ] ],
+                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ] ],
                 \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
                 \ },
                 \ 'component_function': {
@@ -53,7 +29,6 @@ hook_add         = '''
                 \   'mode': 'MyMode',
                 \   'ctrlpmark': 'CtrlPMark',
                 \   'pyenv' : 'MyPyenv',
-                \   'search_status':'SearchStatus',
                 \ },
                 \ 'component_expand': {
                 \ },
@@ -165,10 +140,6 @@ hook_add         = '''
     function! TagbarStatusFunc(current, sort, fname, ...) abort
         let g:lightline.fname = a:fname
         return lightline#statusline(0)
-    endfunction
-
-    function! SearchStatus()
-        return anzu#search_status()
     endfunction
 
     let g:unite_force_overwrite_statusline = 0
