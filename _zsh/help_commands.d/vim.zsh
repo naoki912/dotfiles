@@ -41,3 +41,13 @@ alias h-vim-split='\cat << EOF
 |<C-W>x|    exchange current window with window N (default: next window)
 EOF
 '
+
+
+alias h-vim-remote='\cat << EOF
+vim scp://user@host//filename
+
+ex)
+vim scp://admin@example.org//home/admin/test.txt
+EOF
+'
+
