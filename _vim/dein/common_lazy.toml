@@ -79,7 +79,12 @@ hook_source = '''
 [[plugins]]
 # 使ってない
 # vimshellが必要っぽいけどnvimだとどうなんだ？
-repo = 'ujihisa/repl.vim'
+repo        = 'ujihisa/repl.vim'
+on_map      = ['[wLeader]r']
+on_event    = ['InsertEnter']
+hook_source = '''
+    nmap <silent> [wLeader]r :Repl<CR>
+'''
 
 
 [[plugins]]
