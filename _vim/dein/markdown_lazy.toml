@@ -7,8 +7,9 @@
 
 [[plugins]]
 # markdownのsyntax highlight
-#repo     = 'plasticboy/vim-markdown'
 repo     = 'rcmdnk/vim-markdown'
+# こっちだと `#` がハイライトされなかったり ``` が消えたりしてよくわかんにゃい
+#repo     = 'plasticboy/vim-markdown'
 on_ft    = ['md', 'markdown']
 hook_add = '''
     " 折りたたみを無効化
