@@ -41,6 +41,9 @@ keys = [
 
     # Active window を Floating layout に変更
     Key([mod, 'control'], 'space', lazy.window.toggle_floating()),
+    # Active window を fullscreen mode に変更 # TODO: 別のキーを考える
+    Key([mod, 'control'], 'f', lazy.window.toggle_fullscreen()),
+
 
     # Active window を移動
     Key([mod], 'h', lazy.layout.left()),
@@ -278,7 +281,7 @@ for k, _ in bars.items():
 
     bars[k]['bottom'] = bar.Bar(
         [
-            widget.WindowTabs(),
+            widget.WindowName(),
             widget.TextBox(text=' | Battery '),
             widget.Battery(),
             #widget.TextBox(text=' | Backlight '),
