@@ -247,8 +247,8 @@ hook_post_source = '''
 
 [[plugins]]
 # インデントに色を付けて見やすくする
-repo = 'nathanaelkane/vim-indent-guides'
-hook_post_source = '''
+repo     = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
     "IndentGuidesEnable
@@ -257,8 +257,8 @@ hook_post_source = '''
 
 [[plugins]]
 # コメントを操作するプラギン
-repo             = 'scrooloose/nerdcommenter'
-hook_post_source = '''
+repo     = 'scrooloose/nerdcommenter'
+hook_add = '''
     let NERDSpaceDelims = 1
     nmap ,, <Plug>NERDCommenterToggle
     vmap ,, <Plug>NERDCommenterToggle
@@ -275,8 +275,8 @@ hook_post_source = '''
 
 [[plugins]]
 # 行末の不要な半角スペースを可視化
-repo             = 'bronson/vim-trailing-whitespace'
-hook_post_source = '''
+repo     = 'bronson/vim-trailing-whitespace'
+hook_add = '''
     nmap d<TAB> :FixWhitespace<CR>
 '''
 
