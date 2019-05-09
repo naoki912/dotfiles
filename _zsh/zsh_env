@@ -6,6 +6,8 @@ eval "$(pyenv virtualenv-init -)"
 
 # ruby
 export PATH=${HOME}/.gem/ruby/2.3.0/bin:${PATH}
+export PATH=${HOME}/.rbenv/bin:${PATH}
+eval "$(rbenv init -)"
 
 # go
 export GOPATH=${HOME}/.go
