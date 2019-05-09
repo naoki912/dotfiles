@@ -27,8 +27,8 @@ case $session in
     catwm             ) exec catwm;;
     cinnamon          ) exec cinnamon-session;;
     dwm               ) exec dwm;;
-    enlightenment     ) exec enlightenment_start;;
     ede               ) exec startede;;
+    enlightenment     ) exec enlightenment_start;;
     fluxbox           ) exec startfluxbox;;
     gnome             ) exec gnome-session;;
     gnome-classic     ) exec gnome-session --session=gnome-classic;;
@@ -41,10 +41,11 @@ case $session in
     notion            ) exec notion;;
     openbox           ) exec openbox-session;;
     qtile             ) exec qtile;;
+    subtle            ) exec subtle;;
     unity             ) exec unity;;
+    wingo             ) exec wingo;;
     xfce|xfce4        ) exec startxfce4;;
     xmonad            ) exec xmonad;;
-    wingo             ) exec wingo;;
     # No known session, try to run it as command
     *) exec $1;;
 esac
