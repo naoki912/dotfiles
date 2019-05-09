@@ -14,22 +14,14 @@ hook_source = '''
 
 
 [[plugins]]
-# vim-terraform-completion が依存しているので tf の時だけ有効化
-# もしかしたら 'w0rp/ale' と衝突するかも？
-repo      = 'vim-syntastic/syntastic'
-on_source = 'vim-terraform-completion'
-
-
-[[plugins]]
 # Terraformの補完
-# オムニ補完を使うので C-X C-O を使う必要がある
+# neovim ruby provider が必要
+#   https://github.com/juliosueiras/vim-terraform-completion/issues/50
 repo        = 'juliosueiras/vim-terraform-completion'
 on_ft       = ['tf']
-#depends     = ['vim-terraform']
-depends     = ['vim-terraform', 'syntastic']
+# 'w0rp/ale' ではなく syntastic が必要 (書くだけ書いてるだけ)
+depends     = ['vim-terraform', 'deoplete.nvim', 'w0rp/ale']
 hook_source = '''
-    " 多分ここのコンフィグ動いて無さそう
-
     " deoplete config
     let g:deoplete#omni_patterns = {}
 
