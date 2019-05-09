@@ -45,6 +45,18 @@ pip install pynvim
 #pyenv which python
 
 
+# rbenv用
+export PATH=~/.rbenv/bin:${PATH}
+eval "$(rbenv init -)"
+
+rbenv install 2.6.3
+
+mkdir /tmp/rbenv_nvim
+cd /tmp/rbenv_nvim
+
+rbenv local 2.6.3
+rbenv exec gem install neovim
+
 #--
 # Vim: Python関連のプラグイン
 #--
