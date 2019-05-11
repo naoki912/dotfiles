@@ -68,7 +68,7 @@ hook_source = '''
 [[plugins]]
 # quickrunによる即時実行
 repo        = 'thinca/vim-quickrun'
-on_map      = ['nxo', '<Leader>r']
+on_map      = ['<Leader>r']
 on_cmd      = ['QuickRun']
 hook_source = '''
     nmap <Leader>r <Plug>(quickrun)
