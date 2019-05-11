@@ -268,7 +268,6 @@ for k, _ in bars.items():
         [
             widget.GroupBox(),
             widget.CurrentLayout(),
-            widget.Prompt(),
             widget.Spacer(),
             widget.Systray(),
             # widget.TextBox(text=' | Update '),
