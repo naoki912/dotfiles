@@ -10,7 +10,10 @@ compton -b
 #openWMail &
 #owncloud &
 #pidgin &
-#redshift-gtk &
+
+# https://github.com/jonls/redshift/issues/445
+redshift-gtk &
+
 #twmnd &
 blueman-applet &
 fcitx-autostart &
