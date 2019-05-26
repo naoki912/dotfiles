@@ -29,6 +29,9 @@ hook_add = '''
     let g:jedi#goto_command = '<Leader>G'
     " docstringは表示しない
     autocmd FileType python setlocal completeopt-=preview
+
+    " jediの補完を無効化 (deoplete-jedi が非同期で補完処理を行ってくれるため)
+    let g:jedi#completions_enabled = 0
 '''
 
 
@@ -44,13 +47,22 @@ hook_add = '''
 repo      = 'deoplete-plugins/deoplete-jedi'
 on_source = ['jedi-vim']
 hook_add  = '''
-    " jediの補完を無効化 (deoplete-jedi が非同期で補完処理を行ってくれるため)
-    let g:jedi#completions_enabled = 0
-
     " 説明の最大文字数。この値を超えると代わりに簡易説明が使用される
     let g:deoplete#sources#jedi#statement_length = 100
 
     " preview window に docstring を表示する
     let g:deoplete#sources#jedi#show_docstring = 1
 '''
+
+
+[[plugins]]
+# python formatter
+#
+# flake8 と一部defaultのconfigが違うのでエラーが2重に出る
+# https://github.com/python/black/blob/master/.flake8
+# TODO: flake8にこの設定を入れる
+#
+# :Black        - フォーマット実行
+repo  = 'python/black'
+on_ft = ['python', 'python3', 'djangohtml']
 
