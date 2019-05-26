@@ -18,3 +18,8 @@ nnoremap <C-w>x     :close<CR>
 " wc を無効化
 nnoremap <C-w>c     <Nop>
 
+" wo, wO 移動
+nnoremap <C-w>o     <C-w>w
+nnoremap <C-w>O     <C-w>W
+nnoremap <C-w><BS>  <C-w>p
+
