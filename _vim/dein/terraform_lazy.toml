@@ -22,6 +22,9 @@ on_ft       = ['tf']
 # 'w0rp/ale' ではなく syntastic が必要 (書くだけ書いてるだけ)
 depends     = ['vim-terraform', 'deoplete.nvim', 'w0rp/ale']
 hook_source = '''
+    " module で `source = ` 入力中に http://registry.terraform.io/ を見に行かないようにする
+    let g:terraform_registry_module_completion = 0
+
     " deoplete config
     let g:deoplete#omni_patterns = {}
 
