@@ -54,6 +54,8 @@ nmap [wLeader]v V
 " Cursor
 "--
 
+nnoremap <silent> <Leader><BS> <C-i>
+
 "nnoremap <Leader>h  ^
 "nnoremap <Leader>l  $
 nnoremap <Leader>/  *
@@ -77,7 +79,8 @@ nnoremap <silent> <Leader>o <C-w>w
 " 前のwindowに移動
 nnoremap <silent> [wLeader]o <C-w>W
 " 1つ前のActive windowに移動
-nnoremap <silent> <Leader><BS> <C-w>p
+" コンフリクト
+"nnoremap <silent> <Leader><BS> <C-w>p
 
 nnoremap <silent> <Leader>h <C-w>h
 nnoremap <silent> <Leader>j <C-w>j
