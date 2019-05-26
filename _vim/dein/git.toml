@@ -48,6 +48,19 @@
 #
 repo    = 'tpope/vim-fugitive'
 depends = ['/vim-rhubarb']
+hook_add = '''
+  nnoremap [gLeader] <Nop>
+  nmap <Leader>g [gLeader]
+
+  nmap [gLeader]s :Gstatus<CR>
+  nmap [gLeader]d :Gdiff<CR>
+  nmap [gLeader]w :Gwrite<CR>
+  nmap [gLeader]r :Gremove<CR>
+  nmap [gLeader]c :Gcommit<CR>
+  nmap [gLeader]l :Glog<CR>
+  nmap [gLeader]g :Ggrep 
+  nmap [gLeader]p :Gpush<CR>
+'''
 
 
 [[plugins]]
