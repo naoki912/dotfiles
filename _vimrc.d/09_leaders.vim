@@ -42,6 +42,10 @@ vmap [wLeader]P "*P
 "vmap [wLeader]gp "*gp
 "vmap [wLeader]gP "*gP
 
+"範囲選択した状態で連続で同じ文字列を貼り付ける(0番レジスタからの貼り付け)
+nmap <silent> <Leader>0p "0p
+vmap <silent> <Leader>0p "0p
+
 " <Space><Space>vでビジュアルラインモードに切り替える
 nmap [wLeader]v V
 
