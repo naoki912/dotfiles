@@ -55,6 +55,9 @@ hook_add         = '''
     " - Go to symbol/declaration with :GoDef.
     " - `nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>`
     let g:go_def_mapping_enabled = 0
+
+    " errorへの自動jumpを無効化
+    let g:go_jump_to_error = 0
 '''
 
 [[plugins]]
