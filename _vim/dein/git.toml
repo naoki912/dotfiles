@@ -104,7 +104,8 @@ nmap [h <Plug>GitGutterPrevHunk
 "let g:gitgutter_max_signs = 500  " default value
 
 " vim-gitgutter にkeymapを設定させない
-"let  g:gitgutter_map_keys = 0
+" <Leader>h* 系がコンフリクトする
+let  g:gitgutter_map_keys = 0
 
 " マーカー更新までの遅延
 set updatetime=100
