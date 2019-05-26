@@ -36,12 +36,13 @@ CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install
 pyenv virtualenv 2.7.16 neovim2
 pyenv virtualenv 3.7.2 neovim3
 
+# flake8 と black はaleが使用する
 pyenv activate neovim2
-pip install pynvim
+pip install pynvim flake8 black
 #pyenv which python
 
 pyenv activate neovim3
-pip install pynvim
+pip install pynvim flake8 black
 #pyenv which python
 
 
