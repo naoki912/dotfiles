@@ -10,7 +10,11 @@ compton -b
 #openWMail &
 #owncloud &
 #pidgin &
-#redshift-gtk &
+
+# https://github.com/jonls/redshift/issues/445
+# インストールし直しても直る
+redshift-gtk &
+
 #twmnd &
 blueman-applet &
 fcitx-autostart &
