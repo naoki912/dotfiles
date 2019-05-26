@@ -43,12 +43,12 @@ on_ft = ['PKGBUILD']
 # Gundo.vimによる高機能アンドゥ実装
 repo        = 'sjl/gundo.vim'
 # 必須, こっち側で読み込む
-on_map      = ['<Leader>g']
+on_map      = ['<Leader>gu']
 # hook_source が呼ばれる前なのでこっちはあまり意味ない
 # `:GundoToggle` を直で叩いた時用
 on_cmd      = ['GundoToggle']
 hook_source = '''
-    nnoremap <Leader>g :GundoToggle<CR>
+    nnoremap <Leader>gu :GundoToggle<CR>
 '''
 
 
