@@ -126,8 +126,17 @@ hook_add = '''
 ###
 
 [[plugins]]
-# git config --global github.user USERNAME
 # TODO lazy化
+#
+# git config --global github.user USERNAME
+# これをやってから :Gist を叩くとパスワードを聞かれるので入力する
+# .gist-vim ファイルが作成されて、そこにTokenが保存される
+#
+# :Gist -p              - privateのgistを作成する
+# :Gist -P              - publicのgistを作成する
+# :Gist -e              - 更新
+# :Gist -e XXXX         - 名前をつけて更新
+# :Gist -c XXXX         - Gist bufferを開く
 repo     = 'mattn/gist-vim'
 depends  = ['/webapi-vim']
 hook_add = '''
