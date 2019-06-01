@@ -69,6 +69,20 @@ cd /tmp/rbenv_nvim
 rbenv local 2.6.3
 rbenv exec gem install neovim
 
+
+# nodenv用
+export PATH="~/.nodenv/bin:${PATH}"
+eval "$(nodenv init -)"
+
+nodenv install 12.3.1
+nodenv alias nvim 12.3.1
+
+mkdir /tmp/nodenv_nvim
+cd /tmp/nodenv_nvim
+
+nodenv local nvim
+nodenv exec npm -g install neovim
+
 #--
 # Vim: Python関連のプラグイン
 #--
