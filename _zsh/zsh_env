@@ -9,6 +9,10 @@ export PATH=${HOME}/.gem/ruby/2.3.0/bin:${PATH}
 export PATH=${HOME}/.rbenv/bin:${PATH}
 eval "$(rbenv init -)"
 
+# node
+export PATH="${HOME}/.nodenv/bin:${PATH}"
+eval "$(nodenv init -)"
+
 # go
 export GOPATH=${HOME}/.go
 export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin

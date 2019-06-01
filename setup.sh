@@ -20,6 +20,15 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 #--
+# nodenv
+#--
+
+git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+cd ~/.nodenv && src/configure && make -C src
+
+cd
+
+#--
 # vim
 #--
 sudo -E pacman -S --noconfirm neovim python-neovim
