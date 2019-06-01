@@ -1,0 +1,8 @@
+[[plugins]]
+repo     = 'leafgarland/typescript-vim'
+on_ft    = ['typescript']
+hook_source = '''
+  " インデントをこのプラグインにやらせない場合
+  "let g:typescript_indent_disable = 1
+'''
+
