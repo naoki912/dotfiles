@@ -1,8 +1,18 @@
+#[[plugins]]
+#repo     = 'leafgarland/typescript-vim'
+#on_ft    = ['typescript']
+#hook_source = '''
+#  " インデントをこのプラグインにやらせない場合
+#  "let g:typescript_indent_disable = 1
+#'''
+
 [[plugins]]
-repo     = 'leafgarland/typescript-vim'
-on_ft    = ['typescript']
-hook_source = '''
-  " インデントをこのプラグインにやらせない場合
-  "let g:typescript_indent_disable = 1
-'''
+repo      = 'HerringtonDarkholme/yats.vim'
+on_ft     = ['typescript']
+on_source = ['mhartington/nvim-typescript']
+
+[[plugins]]
+repo  = 'mhartington/nvim-typescript'
+on_ft = ['typescript']
+build = ['./install.sh']
 

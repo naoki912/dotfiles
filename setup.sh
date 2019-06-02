@@ -81,7 +81,7 @@ mkdir /tmp/nodenv_nvim
 cd /tmp/nodenv_nvim
 
 nodenv local nvim
-nodenv exec npm -g install neovim typescript
+nodenv exec npm -g install neovim typescript eslint tslint
 
 #--
 # Vim: Python関連のプラグイン

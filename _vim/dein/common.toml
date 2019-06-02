@@ -288,22 +288,27 @@ hook_add = '''
     " ファイルオープン時にチェックしない
     let g:ale_lint_on_enter = 0
     " ファイル保存時にFixerを実行
-    "let g:ale_fix_on_save = 1
-
-    "--
-    " python
-    "--
+    let g:ale_fix_on_save = 1
 
     let g:ale_linters = {
     \   'python': ['flake8'],
+    \   'javascript': ['eslint'],
+    \   'typescript': ['tslint'],
     \ }
     let g:ale_fixers = {
     \   'python': ['black'],
+    \   'javascript': ['eslint'],
+    \   'typescript': ['tslint'],
     \ }
     let g:ale_python_flake8_executable = g:python3_host_prog
     let g:ale_python_flake8_options    = '-m flake8 --ignore=E203,E266,E501,W503 --max-line-length=80 --max-complexity=18 --select=B,C,E,F,W,T4,B9'
     let g:ale_python_black_executable  = g:python3_host_prog
     let g:ale_python_black_options     = '-m black'
+
+    " TODO: 各環境のflake8とかeslintを使うようにする
+
+    let g:ale_typescript_tslint_use_global = 0
+    let g:ale_typescript_tslint_config_path = expand("$HOME/.tslint.json")
 '''
 
 
