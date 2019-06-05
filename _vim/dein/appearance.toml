@@ -8,8 +8,16 @@ repo = 'lambdalisue/vim-pyenv'
 
 
 [[plugins]]
+repo = 'nefo-mi/nyan-modoki.vim'
+hook_add = '''
+let g:nyan_modoki_select_cat_face_number = 4
+let g:nayn_modoki_animation_enabled= 1
+'''
+
+
+[[plugins]]
 repo             = 'itchyny/lightline.vim'
-depends          = ['vim-pyenv']
+depends          = ['vim-pyenv', 'nyan-modoki.vim']
 hook_add         = '''
     set laststatus=2
     set noshowmode
@@ -17,7 +25,7 @@ hook_add         = '''
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
                 \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ] ],
+                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ], [ 'nyanmodoki' ] ],
                 \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
                 \ },
                 \ 'component_function': {
@@ -29,6 +37,7 @@ hook_add         = '''
                 \   'mode': 'MyMode',
                 \   'ctrlpmark': 'CtrlPMark',
                 \   'pyenv' : 'MyPyenv',
+                \   'nyanmodoki': 'g:NyanModoki',
                 \ },
                 \ 'component_expand': {
                 \ },
