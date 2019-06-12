@@ -136,3 +136,9 @@ hook_source = '''
 repo      = 'Shougo/neosnippet-snippets'
 on_source = ['neosnippet.vim']
 
+
+[[plugins]]
+repo  = 'ekalinin/Dockerfile.vim'
+#build = ['make install']
+on_ft = ['Dockerfile', 'dockerfile']
+
