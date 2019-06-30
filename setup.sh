@@ -33,7 +33,7 @@ cd
 #--
 # vim
 #--
-sudo -E pacman -S --noconfirm neovim python-neovim
+sudo -E pacman -S --noconfirm neovim python-neovim openssl-1.0
 
 # pyenv activate 用 (これが無いとコケる)
 export PYENV_ROOT="${HOME}/.pyenv"
