@@ -87,7 +87,7 @@ nodenv exec npm -g install neovim typescript eslint tslint
 # Vim: Python関連のプラグイン
 #--
 
-sudo pacman -S autopep8 flake8
+sudo -E pacman -S --noconfirm autopep8 flake8
 
 
 #--
