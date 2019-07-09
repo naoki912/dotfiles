@@ -33,7 +33,7 @@ cd
 #--
 # vim
 #--
-sudo -E pacman -S --noconfirm neovim python-neovim
+sudo -E pacman -S --noconfirm neovim python-neovim openssl-1.0
 
 # pyenv activate 用 (これが無いとコケる)
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -48,8 +48,9 @@ pyenv virtualenv 2.7.16 neovim2
 pyenv virtualenv 3.7.2 neovim3
 
 # flake8 と black はaleが使用する
+# python2にはblackが無い
 pyenv activate neovim2
-pip install pynvim flake8 black
+pip install pynvim flake8
 #pyenv which python
 
 pyenv activate neovim3
@@ -87,7 +88,7 @@ nodenv exec npm -g install neovim typescript eslint tslint
 # Vim: Python関連のプラグイン
 #--
 
-sudo pacman -S autopep8 flake8
+sudo -E pacman -S --noconfirm autopep8 flake8
 
 
 #--
