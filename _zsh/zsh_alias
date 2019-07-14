@@ -16,18 +16,10 @@ alias redhcp-br0='sudo dhcpcd -k br0'
 alias opst='openstack'
 alias q='exit'
 
-alias packer-syu='packer-aur -Syu --aur'
-alias packer-Syu='packer-aur -Syu --aur'
-alias packer-syu-noedit='packer-aur -Syu --aur --noedit'
-alias packer-Syu-noedit='packer-aur -Syu --aur --noedit'
-alias packer-syu-noconfirm='packer-aur -Syu --aur --noconfirm'
-alias packer-Syu-noconfirm='packer-aur -Syu --aur --noconfirm'
-alias packer-noedit='packer-aur -S --noedit'
-alias packer-s-noedit='packer-aur -S --noedit'
-alias packer-S-noedit='packer-aur -S --noedit'
-alias packer-noconfirm='packer-aur -S --noconfirm'
-alias packer-s-noconfirm='packer-aur -S --noconfirm'
-alias packer-S-noconfirm='packer-aur -S --noconfirm'
+alias aur-syu='pakku -Syu'
+alias aur-syu-noconfirm='pakku -Syu --noconfirm'
+alias aur-noconfirm='pakku -S --noconfirm'
+
 alias tenki='curl wttr.in/Tokyo'
 
 # オプション省略
