@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 declare -a array=(
-    "/tmp/packerbuild-*"
-    "/tmp/packertmp-*"
-    "/tmp/yaourt-tmp-admin"
+    "/tmp/packerbuild-${USER}"
+    "/tmp/packertmp-${USER}"
+    "/tmp/yaourt-tmp-${USER}"
+    "/tmp/pakku-${USER}"
 )
 
 
