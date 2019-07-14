@@ -1,23 +1,23 @@
-if type archlinux-java > /dev/null 2>&1; then
-    archlinux-java status | \grep default | sed -e "s/ //g" | sed -e "s/(.*)//g"
-fi
+#if type archlinux-java > /dev/null 2>&1; then
+#    archlinux-java status | \grep default | sed -e "s/ //g" | sed -e "s/(.*)//g"
+#fi
 
-if type archey3 > /dev/null 2>&1; then
-    archey3
-fi
+#if type archey3 > /dev/null 2>&1; then
+#    archey3
+#fi
 
-if type zyanken > /dev/null 2>&1; then
-    zyanken
-fi
+#if type zyanken > /dev/null 2>&1; then
+#    zyanken
+#fi
 
-if type fortune > /dev/null 2>&1; then
-    if type cowsay > /dev/null 2>&1; then
-        fortune wcdi | cowsay -n
-    else
-        fortune
-    fi
-fi
+#if type fortune > /dev/null 2>&1; then
+#    if type cowsay > /dev/null 2>&1; then
+#        fortune wcdi | cowsay -n
+#    else
+#        fortune
+#    fi
+#fi
 
-if type memo > /dev/null 2>&1; then
-    memo
-fi
+#if type memo > /dev/null 2>&1; then
+#    memo
+#fi
