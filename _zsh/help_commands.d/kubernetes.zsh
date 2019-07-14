@@ -487,3 +487,7 @@ kubectl apply -f role-and-rolebind.yaml -n default
 EOF
 '
 
+alias h-k8s-calico-reset='cat --bg=dark << EOF
+kubectl get pods -n kube-system | \\grep calico-node | awk "{print \$1}" | xargs kubectl -n kube-system delete pods
+EOF
+'
