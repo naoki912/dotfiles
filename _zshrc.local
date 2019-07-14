@@ -23,27 +23,37 @@ if [ -d $HOME/.zsh/ ]; then
 
     config_dir="${HOME}/.zsh"
 
-
+    echo "load zshrc"
     load_config ${config_dir}/zshrc
 
+    echo "load env"
     load_config ${config_dir}/zsh_env
 
+    echo "load alias"
     load_config ${config_dir}/zsh_alias
 
+    echo "load func"
     load_config ${config_dir}/zsh_func
 
+    echo "load autoload"
     load_config ${config_dir}/zsh_autoload
 
+    echo "load var"
     load_config ${config_dir}/zsh_var
 
+    echo "load startup"
     load_config ${config_dir}/zsh_startup
 
+    echo "load plugin"
     load_config ${config_dir}/zsh_plugin
 
+    echo "load local"
     load_config ${config_dir}/zsh_local
 
+    echo "load help_commands"
     load_config ${config_dir}/help_commands
 
+    echo "load help_commands.d"
     load_config ${config_dir}/help_commands.d/*.zsh
 
 else
