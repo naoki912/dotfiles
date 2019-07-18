@@ -1,26 +1,47 @@
 #!/usr/bin/env bash
 
 
-function print-resolv() {
-    cat /etc/resolv.conf | sed -e "/^$/d" -e "/^#/d"
+RESOLV_CONF=/etc/resolv.conf
+
+
+function print_resolv() {
+    cat ${RESOLV_CONF} | sed -e "/^$/d" -e "/^#/d"
 }
 
 
-if [ ! -L /etc/resolv.conf ]; then
-    >&2 echo "/etc/resolv.conf is not symlink."
+function is_systemd() {
+    if ! type systemctl > /dev/null 2>&1; then
+        return 1
+    fi
+
+    systemctl status systemd-resolved.service | grep Active | grep running --silent
+    if [[ $? -ne 0 ]]; then
+        return 1
+    fi
+
+    systemctl status systemd-networkd.service | grep Active | grep running --silent
+    if [[ $? -ne 0 ]]; then
+        return 1
+    fi
+
+    return 0
+}
+
+
+if is_systemd && [ ! -L ${RESOLV_CONF} ]; then
+    >&2 echo "${RESOLV_CONF} is not symlink."
 fi
 
-
 if [ -z "$1" ]; then
-    print-resolv
+    print_resolv
     exit 0
 fi
 
 
 name_server=$1
 
-sudo sh -c "echo 'nameserver ${name_server}' > /etc/resolv.conf"
-print-resolv
+sudo sh -c "echo 'nameserver ${name_server}' > ${RESOLV_CONF}"
+print_resolv
 
 exit 0
 
