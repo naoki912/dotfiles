@@ -28,6 +28,21 @@ function is_systemd() {
 }
 
 
+# default routeが設定されていたらそのinterfaceにdnsを設定する。
+# もしそうでなければ直接 /etc/resolv.conf を書き換える
+function set_dns() {
+    \ip r | \grep default --silent
+
+    if [[ $? -eq 0 ]]; then
+        interface=`\ip r | \grep default | cut -d ' ' -f 5`
+        systemd-resolve --set-dns ${1} --interface ${interface}
+    else
+        sudo sh -c "echo 'nameserver ${1}' > ${RESOLV_CONF}"
+    fi
+}
+
+
+# systemd かつ systemd-networkd, systemd-resolved が動いているのに /etc/resolv.conf がsymlinkではない場合に警告する
 if is_systemd && [ ! -L ${RESOLV_CONF} ]; then
     >&2 echo "${RESOLV_CONF} is not symlink."
 fi
@@ -37,10 +52,8 @@ if [ -z "$1" ]; then
     exit 0
 fi
 
+set_dns $1
 
-name_server=$1
-
-sudo sh -c "echo 'nameserver ${name_server}' > ${RESOLV_CONF}"
 print_resolv
 
 exit 0
