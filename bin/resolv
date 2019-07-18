@@ -1,14 +1,26 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+
+function print-resolv() {
+    cat /etc/resolv.conf | sed -e "/^$/d" -e "/^#/d"
+}
+
+
+if [ ! -L /etc/resolv.conf ]; then
+    >&2 echo "/etc/resolv.conf is not symlink."
+fi
+
 
 if [ -z "$1" ]; then
-    cat /etc/resolv.conf
+    print-resolv
     exit 0
 fi
 
-server=$1
 
-sudo sh -c "echo 'nameserver $server' > /etc/resolv.conf"
-cat /etc/resolv.conf
+name_server=$1
+
+sudo sh -c "echo 'nameserver ${name_server}' > /etc/resolv.conf"
+print-resolv
 
 exit 0
 
