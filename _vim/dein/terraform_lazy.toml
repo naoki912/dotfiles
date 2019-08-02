@@ -1,7 +1,7 @@
 [[plugins]]
 # Terraformのsyntax highlightとfmt
 repo     = 'hashivim/vim-terraform'
-on_ft    = ['tf']
+on_ft    = ['tf', 'terraform']
 hook_source = '''
   " terraform fmtがしんどいので使わない
   "let g:terraform_fmt_on_save=1
@@ -18,7 +18,7 @@ hook_source = '''
 # neovim ruby provider が必要
 #   https://github.com/juliosueiras/vim-terraform-completion/issues/50
 repo        = 'juliosueiras/vim-terraform-completion'
-on_ft       = ['tf']
+on_ft       = ['tf', 'terraform']
 # 'w0rp/ale' ではなく syntastic が必要 (書くだけ書いてるだけ)
 depends     = ['vim-terraform', 'deoplete.nvim', 'w0rp/ale']
 hook_source = '''
