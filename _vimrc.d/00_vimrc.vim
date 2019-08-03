@@ -404,3 +404,7 @@ endif
 
 " 米印が半角になるので全角表示する
 set ambiwidth=double
+
+" 検索時に検索結果をsplitして表示する
+set inccommand=split
+
