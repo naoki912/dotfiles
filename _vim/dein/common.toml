@@ -206,6 +206,15 @@ hook_add = '''
     "highlight Normal ctermbg=none
     let g:rehash256 = 1
     let g:molokai_original = 1
+
+    " molokai設定用
+    command! Molokai call s:Molokai()
+    function! s:Molokai()
+        color molokai
+
+        highlight IndentGuidesOdd ctermbg=237
+        highlight IndentGuidesEven ctermbg=240
+    endfunction
 '''
 
 
@@ -247,6 +256,14 @@ hook_add = '''
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
     "IndentGuidesEnable
+
+    " https://github.com/nathanaelkane/vim-indent-guides/issues/33#issuecomment-285927535
+    let indent_guides_auto_colors = 0
+    let indent_guides_guide_size = 1
+    " colorschema が設定するのでその後に設定しなきゃならない
+    " (ここで設定しても意味がない)
+    highlight IndentGuidesOdd ctermbg=237
+    highlight IndentGuidesEven ctermbg=240
 '''
 
 
