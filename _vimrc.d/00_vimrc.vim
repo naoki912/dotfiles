@@ -287,6 +287,7 @@ set smartindent
 filetype plugin on
 syntax on
 set cursorline
+set cursorcolumn
 set noundofile
 
 "背景の透過
