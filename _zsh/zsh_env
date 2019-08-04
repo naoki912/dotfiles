@@ -33,4 +33,6 @@ export XMODIFIERS="@im=ibus"
 export DefaultIMModule=ibus
 
 # asdf
-. /opt/asdf-vm/asdf.sh
+. ${HOME}/.asdf/asdf.sh
+. ${HOME}/.asdf/completions/asdf.bash
+

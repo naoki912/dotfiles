@@ -1,0 +1,6 @@
+---
+- name: tools | install asdf
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: ~/.asdf
+

@@ -125,6 +125,11 @@
         - 24
         - goenv
 
+    - import_tasks: 30_tools.yml
+      tags:
+        - 30
+        - tools
+
     - import_tasks: 31_vim.yml
       tags:
         - 31
