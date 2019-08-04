@@ -1,4 +1,12 @@
 ---
+- name: create required directory
+  file:
+    dest: "{{ item }}"
+    state: directory
+  loop:
+    - ~/.config
+    - ~/.config/nvim
+
 - name: symlink
   file:
     src: "{{ path }}/{{ item.src }}"
