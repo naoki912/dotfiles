@@ -1,0 +1,6 @@
+---
+- name: vim | set permissions
+  file:
+    dest: ~/dotfiles/_vim/undo
+    mode: '0700'
+

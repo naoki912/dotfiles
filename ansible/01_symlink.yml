@@ -1,0 +1,9 @@
+---
+- name: symlink
+  file:
+    src: "{{ path }}/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    "{{ dotfiles }}"
+

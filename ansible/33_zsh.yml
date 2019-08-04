@@ -1,0 +1,5 @@
+---
+#- name: zsh | install zplug
+#  aur:
+#    name: zplug
+

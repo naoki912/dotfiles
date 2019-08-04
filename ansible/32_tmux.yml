@@ -1,0 +1,16 @@
+---
+- name: tmux | install required packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: yes
+  loop:
+    # tmuxのクリップボード周り
+    - xsel
+
+- name: tmux | install tpm
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: ~/.tmux/plugins/tpm
+

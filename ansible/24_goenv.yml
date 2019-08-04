@@ -1,0 +1,6 @@
+---
+#- name: goenv | install goenv
+#  git:
+#    repo: https://github.com/syndbg/goenv.git
+#    dest: ~/.goenv
+

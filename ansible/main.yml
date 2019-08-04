@@ -1,0 +1,142 @@
+---
+- hosts: localhost
+
+  vars:
+
+    path: ~/dotfiles
+
+    dotfiles:
+      - src: _archey3.cfg
+        dest: ~/.archey3.cfg
+      - src: _compton.conf
+        dest: ~/.compton.conf
+      - src: _gvimrc
+        dest: ~/.gvimrc
+      - src: _i3status.conf
+        dest: ~/.i3status.conf
+      - src: _ideavimrc
+        dest: ~/.ideavimrc
+      - src: _profile
+        dest: ~/.profile
+      - src: _tmux.conf
+        dest: ~/.tmux.conf
+      - src: _vimperatorrc
+        dest: ~/.vimperatorrc
+      - src: _vimrc
+        dest: ~/.vimrc
+      - src: _vimrc
+        dest: ~/.config/nvim/init.vim
+      - src: _xinitrc
+        dest: ~/.xinitrc
+      - src: _XMODMAPRC
+        dest: ~/.XMODMAPRC
+      - src: _xmodmaprc
+        dest: ~/.xmodmaprc
+      - src: _xremaprc
+        dest: ~/.xremaprc
+      - src: _zprofile
+        dest: ~/.zprofile
+      - src: _zshrc.local
+        dest: ~/.zshrc.local
+
+      - src: _i3
+        dest: ~/.i3
+      - src: _vim
+        dest: ~/.vim
+      - src: _vimrc.d
+        dest: ~/.vimrc.d
+      - src: _zsh
+        dest: ~/.zsh
+
+      - src: _config/qtile
+        dest: ~/.config/qtile
+      - src: _config/terminator
+        dest: ~/.config/terminator
+      - src: _config/termite
+        dest: ~/.config/termite
+
+    packages:
+      - git
+      - ctags
+      - python-pip
+      - npm
+      - archey3
+      - neovim
+      #- neovim-python
+      #- autopep8
+      #- flake8
+
+    pyenv:
+      - version: 3.7.2
+        virtualenv: neovim3
+        packages:
+          - pynvim
+          - flake8
+          - black
+      - version: 2.7.16
+        virtualenv: neovim2
+        packages:
+          - pynvim
+          - flake8
+
+    rbenv:
+      - version: 2.6.3
+        packages:
+          - neovim
+
+    nodenv:
+      - version: 12.3.1
+        virtualenv: nvim
+        packages:
+          - neovim
+          - typescript
+          - eslint
+          - tslint
+
+
+  tasks:
+    - import_tasks: 01_symlink.yml
+      tags:
+        - 01
+        - symlink
+
+    - import_tasks: 10_packages.yml
+      tags:
+        - 10
+        - packages
+
+    - import_tasks: 21_pyenv.yml
+      tags:
+        - 21
+        - pyenv
+
+    - import_tasks: 22_rbenv.yml
+      tags:
+        - 22
+        - rbenv
+
+    - import_tasks: 23_nodenv.yml
+      tags:
+        - 23
+        - nodenv
+
+    - import_tasks: 24_goenv.yml
+      tags:
+        - 24
+        - goenv
+
+    - import_tasks: 31_vim.yml
+      tags:
+        - 31
+        - vim
+
+    - import_tasks: 32_tmux.yml
+      tags:
+        - 32
+        - tmux
+
+    - import_tasks: 33_zsh.yml
+      tags:
+        - 33
+        - zsh
+

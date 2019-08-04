@@ -1,0 +1,51 @@
+---
+- name: pyenv | install required packages
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: yes
+  loop:
+    - openssl-1.0
+
+- name: pyenv | install pyenv
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: ~/.pyenv
+
+- name: pyenv | install pyenv-virtualenv
+  git:
+    repo: https://github.com/pyenv/pyenv-virtualenv.git
+    dest: ~/.pyenv/plugins/pyenv-virtualenv
+
+- name: pyenv | install python by pyenv
+  shell: "pyenv install -s {{ item.version }}"
+  environment:
+    CFLAGS: "-I/usr/include/openssl-1.0"
+    LDFLAGS: "-L/usr/lib64/openssl-1.0"
+  loop:
+    "{{ pyenv }}"
+
+# TODO: -f を使わずに先にversion判定を入れる
+- name: pyenv | create virtualenv
+  shell: "pyenv virtualenv -f {{ item.version }} {{ item.virtualenv }}"
+  loop:
+    "{{ pyenv }}"
+  ignore_errors: yes
+
+#- name: pyenv | pip install
+#  pip:
+#    name: "{{ item.packages }}"
+#    executable: ~/.pyenv/versions/neovim3/bin/pip
+#  loop:
+#    "{{ pyenv }}"
+
+- name: pyenv | pip install
+  pip:
+    name: "{{ item.packages }}"
+    executable: ~/.pyenv/shims/pip
+  environment:
+    PYENV_VERSION: "{{ item.virtualenv }}"
+  loop:
+    "{{ pyenv }}"
+

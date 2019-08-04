@@ -1,0 +1,46 @@
+---
+- name: nodenv | install nodenv
+  git:
+    repo: https://github.com/nodenv/nodenv.git
+    dest: ~/.nodenv
+
+- name: nodenv | install node-build
+  git:
+    repo: https://github.com/nodenv/node-build.git
+    dest: ~/.nodenv/plugins/node-build
+
+- name: nodenv | install nodenv-aliases
+  git:
+    repo: https://github.com/nodenv/nodenv-aliases.git
+    dest: ~/.nodenv/plugins/nodenv-aliases
+
+- name: nodenv | make
+  shell: cd ~/.nodenv && src/configure && make -C src
+  register: result
+  changed_when: "'is up to date.' not in result.stdout"
+
+- name: nodenv | install node by nodenv
+  shell: "nodenv install -s {{ item.version }}"
+  loop:
+    "{{ nodenv }}"
+
+- name: nodenv | create aliases
+  shell: "nodenv alias {{ item.virtualenv }} {{ item.version }}"
+  loop:
+    "{{ nodenv }}"
+
+# - nodenv local,global が設定されていない場合、executable に直接aliasのnpmを指定してもglobalのnpmを使用してしまう
+# - ansible実行時のPATHの頭に /usr/bin が追加されるのでglobalの npmが優先されてしまう
+#   `~/.nodenv/versions/nvim/bin/npm -g install neovim`
+# - loop
+#   nameに配列を渡すとコケるので1つずつ渡している
+- name: nodenv | npm install
+  npm:
+    name: "{{ item.1 }}"
+    executable: "~/.nodenv/shims/npm"
+    global: yes
+  environment:
+    NODENV_VERSION: "{{ item.0.virtualenv }}"
+  loop:
+    "{{ nodenv | subelements('packages') | list }}"
+
