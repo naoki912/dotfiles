@@ -1,4 +1,4 @@
-source /usr/share/zsh/scripts/zplug/init.zsh
+source ~/.zplug/init.zsh
 
 if type zplug > /dev/null 2>&1; then
     zplug "zsh-users/zsh-completions"
