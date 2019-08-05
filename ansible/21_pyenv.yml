@@ -59,6 +59,7 @@
   pip:
     name: "{{ item.packages }}"
     executable: ~/.pyenv/shims/pip
+    state: latest
   environment:
     PYENV_VERSION: "{{ item.virtualenv }}"
   loop:

@@ -38,6 +38,7 @@
   npm:
     name: "{{ item.1 }}"
     executable: "~/.nodenv/shims/npm"
+    state: latest
     global: yes
   environment:
     NODENV_VERSION: "{{ item.0.virtualenv }}"

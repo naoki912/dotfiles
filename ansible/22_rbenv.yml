@@ -18,6 +18,7 @@
   gem:
     name: "{{ item.1 }}"
     executable: ~/.rbenv/shims/gem
+    state: latest
   environment:
     RBENV_VERSION: "{{ item.0.version }}"
   loop:
