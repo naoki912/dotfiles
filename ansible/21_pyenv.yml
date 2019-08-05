@@ -43,6 +43,7 @@
 
 
 - block: # virtualenv
+  # nodenvのaliasの張り直しとは違い、-fでvirtualenvを作成するとぶっ壊れたので一度削除している
 
   # 現在はvirtualenvのpythonのバージョンと、指定したバージョンが違う時のみchangedにしている
   # そもそもインストールされていない場合はokにしている
