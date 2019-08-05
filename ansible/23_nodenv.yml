@@ -19,15 +19,35 @@
   register: result
   changed_when: "'is up to date.' not in result.stdout"
 
+# 指定したversionのうち、未インストールのものをリストにする
+- name: nodenv | check node version
+  # exit code操作のためにuniqに渡している
+  shell: "nodenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq"
+  register: result
+  changed_when: result.stdout == ''
+  check_mode: no
+  loop:
+    "{{ nodenv }}"
+
 - name: nodenv | install node by nodenv
-  shell: "nodenv install -s {{ item.version }}"
+  shell: "nodenv install {{ item.version }}"
+  when: item.stdout == ''
+  loop:
+    "{{ result.results }}"
+
+- name: nodenv | check nodenv alias version
+  shell: "nodenv alias --list | grep {{ item.virtualenv }} | cut -f3 -d' '"
+  register: result
+  changed_when: (item.version != result.stdout) and result.stdout != ''
+  check_mode: no
   loop:
     "{{ nodenv }}"
 
 - name: nodenv | create aliases
-  shell: "nodenv alias {{ item.virtualenv }} {{ item.version }}"
+  shell: "nodenv alias {{ item.item.virtualenv }} {{ item.item.version }}"
+  when: (item.item.version != item.stdout) or item.stdout == ''
   loop:
-    "{{ nodenv }}"
+    "{{ result.results }}"
 
 # - nodenv local,global が設定されていない場合、executable に直接aliasのnpmを指定してもglobalのnpmを使用してしまう
 # - ansible実行時のPATHの頭に /usr/bin が追加されるのでglobalの npmが優先されてしまう
