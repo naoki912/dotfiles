@@ -18,6 +18,21 @@
     repo: https://github.com/pyenv/pyenv-virtualenv.git
     dest: ~/.pyenv/plugins/pyenv-virtualenv
 
+# 現在はvirtualenvのpythonのバージョンと、指定したバージョンが違う時のみchangedにしている
+# そもそもインストールされていない場合はokになる
+- name: pyenv | check the python version used in the specified virtualenv
+  shell: "pyenv virtualenvs --bare --skip-aliases | grep {{ item.virtualenv }} | cut -f1 -d'/'"
+  register: result
+  changed_when: (item.version != result.stdout) and result.stdout != ''
+  loop:
+    "{{ pyenv }}"
+
+- name: pyenv | delete virtualenv different from the specified version
+  shell: "pyenv virtualenv-delete {{ item.item.virtualenv }}"
+  when: (item.item.version != item.stdout) and item.stdout != ''
+  loop:
+    "{{ result.results }}"
+
 - name: pyenv | install python by pyenv
   shell: "pyenv install -s {{ item.version }}"
   environment:
