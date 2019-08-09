@@ -85,7 +85,7 @@
           - neovim
 
     nodenv:
-      - version: 12.3.1
+      - version: 12.7.0
         virtualenv: nvim
         packages:
           - neovim

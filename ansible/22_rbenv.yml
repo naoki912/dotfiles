@@ -9,15 +9,27 @@
     repo: https://github.com/rbenv/ruby-build.git
     dest: ~/.rbenv/plugins/ruby-build
 
-- name: rbenv | install ruby by rbenv
-  shell: "rbenv install -s {{ item.version }}"
+# 指定したversionのうち、未インストールのものをリストにする
+- name: rbenv | check ruby version
+  # exit code操作のためにuniqに渡している
+  shell: "rbenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq"
+  register: result
+  changed_when: result.stdout == ''
+  check_mode: no
   loop:
     "{{ rbenv }}"
+
+- name: rbenv | install ruby by rbenv
+  shell: "rbenv install {{ item.version }}"
+  when: item.stdout == ''
+  loop:
+    "{{ result.results }}"
 
 - name: rbenv | gem install
   gem:
     name: "{{ item.1 }}"
     executable: ~/.rbenv/shims/gem
+    state: latest
   environment:
     RBENV_VERSION: "{{ item.0.version }}"
   loop:
