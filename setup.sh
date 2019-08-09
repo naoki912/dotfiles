@@ -41,8 +41,8 @@ export PATH=${PYENV_ROOT}/bin:${PATH}
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v 2.7.16
-CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v 3.7.2
+CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v 2.7.16 -s
+CFLAGS=-I/usr/include/openssl-1.0 LDFLAGS=-L/usr/lib64/openssl-1.0 pyenv install -v 3.7.2 -s
 
 pyenv virtualenv 2.7.16 neovim2
 pyenv virtualenv 3.7.2 neovim3
@@ -62,7 +62,7 @@ pip install pynvim flake8 black
 export PATH=~/.rbenv/bin:${PATH}
 eval "$(rbenv init -)"
 
-rbenv install 2.6.3
+rbenv install 2.6.3 -s
 
 mkdir /tmp/rbenv_nvim
 cd /tmp/rbenv_nvim
@@ -75,7 +75,7 @@ rbenv exec gem install neovim
 export PATH="~/.nodenv/bin:${PATH}"
 eval "$(nodenv init -)"
 
-nodenv install 12.3.1
+nodenv install 12.3.1 -s
 nodenv alias nvim 12.3.1
 
 mkdir /tmp/nodenv_nvim
