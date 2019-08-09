@@ -48,6 +48,7 @@ if dein#load_state(s:dein_dir)
     let s:golang_lazy_toml     = g:rc_dir . '/golang_lazy.toml'
     let s:python_lazy_toml     = g:rc_dir . '/python_lazy.toml'
     let s:typescript_lazy_toml = g:rc_dir . '/typescript_lazy.toml'
+    let s:database_lazy_toml   = g:rc_dir . '/database_lazy.toml'
 
     " tomlファイルをキャッシュ
     call dein#load_toml(s:common_toml,          {'lazy': 0})
@@ -61,6 +62,7 @@ if dein#load_state(s:dein_dir)
     call dein#load_toml(s:golang_lazy_toml,     {'lazy': 1})
     call dein#load_toml(s:python_lazy_toml,     {'lazy': 1})
     call dein#load_toml(s:typescript_lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:database_lazy_toml,   {'lazy': 1})
 
     " Required:
     call dein#end()
