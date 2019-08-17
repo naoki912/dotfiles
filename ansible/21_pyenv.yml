@@ -58,7 +58,7 @@
 
   # 前の結果からpythonのバージョン違いのものだけを削除する
   - name: pyenv | delete virtualenv different from the specified version
-    shell: "pyenv virtualenv-delete {{ item.item.virtualenv }}"
+    shell: "pyenv virtualenv-delete -f {{ item.item.virtualenv }}"
     when: (item.item.version != item.stdout) and item.stdout != ''
     loop:
       "{{ result.results }}"
