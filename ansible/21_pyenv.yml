@@ -33,7 +33,7 @@
 
   # pyenv install -s だと changed になるので回避
   - name: pyenv | install python by pyenv
-    shell: "python install {{ item.item.version }}"
+    shell: "pyenv install {{ item.item.version }}"
     environment:
       CFLAGS: "-I/usr/include/openssl-1.0"
       LDFLAGS: "-L/usr/lib64/openssl-1.0"
