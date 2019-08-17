@@ -20,7 +20,7 @@
     "{{ rbenv }}"
 
 - name: rbenv | install ruby by rbenv
-  shell: "rbenv install {{ item.version }}"
+  shell: "rbenv install {{ item.item.version }}"
   when: item.stdout == ''
   loop:
     "{{ result.results }}"
