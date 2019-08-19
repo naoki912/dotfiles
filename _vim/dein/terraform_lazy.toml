@@ -13,29 +13,29 @@ hook_source = '''
 '''
 
 
-[[plugins]]
-# Terraformの補完
-# neovim ruby provider が必要
-#   https://github.com/juliosueiras/vim-terraform-completion/issues/50
-repo        = 'juliosueiras/vim-terraform-completion'
-on_ft       = ['tf', 'terraform']
-# 'w0rp/ale' ではなく syntastic が必要 (書くだけ書いてるだけ)
-depends     = ['vim-terraform', 'deoplete.nvim', 'w0rp/ale']
-hook_source = '''
-    " module で `source = ` 入力中に http://registry.terraform.io/ を見に行かないようにする
-    let g:terraform_registry_module_completion = 0
-
-    " deoplete config
-    let g:deoplete#omni_patterns = {}
-    " let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
-    " let g:deoplete#enable_at_startup = 1
-
-    " NOTE: For newer version of deoplete if the above doesn't work
-    call deoplete#custom#option('omni_patterns', {
-    \ 'complete_method': 'omnifunc',
-    \ 'terraform': '[^ *\t"{=$]\w*',
-    \})
-
-    call deoplete#initialize()
-'''
+# [[plugins]]
+# # Terraformの補完
+# # neovim ruby provider が必要
+# #   https://github.com/juliosueiras/vim-terraform-completion/issues/50
+# repo        = 'juliosueiras/vim-terraform-completion'
+# on_ft       = ['tf', 'terraform']
+# # 'w0rp/ale' ではなく syntastic が必要 (書くだけ書いてるだけ)
+# depends     = ['vim-terraform', 'deoplete.nvim', 'w0rp/ale']
+# hook_source = '''
+#     " module で `source = ` 入力中に http://registry.terraform.io/ を見に行かないようにする
+#     let g:terraform_registry_module_completion = 0
+#
+#     " deoplete config
+#     let g:deoplete#omni_patterns = {}
+#     " let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+#     " let g:deoplete#enable_at_startup = 1
+#
+#     " NOTE: For newer version of deoplete if the above doesn't work
+#     call deoplete#custom#option('omni_patterns', {
+#     \ 'complete_method': 'omnifunc',
+#     \ 'terraform': '[^ *\t"{=$]\w*',
+#     \})
+#
+#     call deoplete#initialize()
+# '''
 
