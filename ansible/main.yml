@@ -83,6 +83,7 @@
       - version: 2.6.3
         packages:
           - neovim
+          - json # vim-terraform-completion
 
     nodenv:
       - version: 12.7.0
