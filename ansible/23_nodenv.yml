@@ -30,7 +30,7 @@
     "{{ nodenv }}"
 
 - name: nodenv | install node by nodenv
-  shell: "nodenv install {{ item.version }}"
+  shell: "nodenv install {{ item.item.version }}"
   when: item.stdout == ''
   loop:
     "{{ result.results }}"

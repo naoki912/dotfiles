@@ -67,7 +67,7 @@
       #- flake8
 
     pyenv:
-      - version: 3.7.2
+      - version: 3.7.4
         virtualenv: neovim3
         packages:
           - pynvim

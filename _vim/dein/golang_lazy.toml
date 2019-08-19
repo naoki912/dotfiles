@@ -1,6 +1,7 @@
 [[plugins]]
 repo             = 'fatih/vim-go'
 on_ft            = ['go']
+#build            = ['sudo pacman -S delve']
 hook_post_update = '''
     " vim-goのinstall/update時に依存するgoのpackageをインストール
     GoUpdateBinaries
