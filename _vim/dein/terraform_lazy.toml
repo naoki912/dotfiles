@@ -26,11 +26,6 @@ hook_source = '''
 #     let g:terraform_registry_module_completion = 0
 #
 #     " deoplete config
-#     let g:deoplete#omni_patterns = {}
-#     " let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
-#     " let g:deoplete#enable_at_startup = 1
-#
-#     " NOTE: For newer version of deoplete if the above doesn't work
 #     call deoplete#custom#option('omni_patterns', {
 #     \ 'complete_method': 'omnifunc',
 #     \ 'terraform': '[^ *\t"{=$]\w*',
