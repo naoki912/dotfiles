@@ -71,6 +71,11 @@ hook_add         = '''
 # K         -> docを表示
 # gd        -> 定義場所にジャンプ
 # <F2>      -> リネーム
+#
+# こっちでも良いかも
+# https://github.com/neovim/neovim/pull/10222
+# https://github.com/Shougo/deoplete-lsp
+#
 repo     = 'autozimu/LanguageClient-neovim'
 build    = ['./install.sh']
 rev      = 'next'
