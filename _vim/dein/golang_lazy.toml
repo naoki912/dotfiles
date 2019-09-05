@@ -52,21 +52,52 @@ hook_add         = '''
     " tab幅を4に変更
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
+    " errorへの自動jumpを無効化
+    let g:go_jump_to_error = 0
+
+    " LanguageClient-neovim で補間を行うので無効化
+    let g:go_code_completion_enabled = 0
+    let g:go_doc_keywordprg_enabled = 0
+    "let g:go_def_mode='gopls'
+    "let g:go_info_mode='gopls'
     " C-t のkeymapがコンフリクトするので無効化
     " - Go to symbol/declaration with :GoDef.
     " - `nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>`
     let g:go_def_mapping_enabled = 0
-
-    " errorへの自動jumpを無効化
-    let g:go_jump_to_error = 0
 '''
 
 [[plugins]]
-repo        = 'deoplete-plugins/deoplete-go'
-on_ft       = ['go']
-depends     = ['deoplete.nvim']
-build       = 'make'
-hook_source = '''
-    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+# <F5>      -> メニュー
+# K         -> docを表示
+# gd        -> 定義場所にジャンプ
+# <F2>      -> リネーム
+repo     = 'autozimu/LanguageClient-neovim'
+build    = ['./install.sh']
+rev      = 'next'
+hook_add = '''
+    " Required for operations modifying multiple buffers like rename.
+    set hidden
+
+    " Launch gopls when Go files are in use
+    let g:LanguageClient_serverCommands = {
+    \   'go': ['gopls']
+    \ }
+    " Run gofmt on save
+    autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting()
+
+    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    " Or map each action separately
+    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
+
+#[[plugins]]
+#repo        = 'deoplete-plugins/deoplete-go'
+#on_ft       = ['go']
+#depends     = ['deoplete.nvim']
+#build       = 'make'
+#hook_source = '''
+#    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+#'''
 

@@ -311,6 +311,7 @@ hook_add = '''
     \   'python': ['flake8'],
     \   'javascript': ['eslint'],
     \   'typescript': ['tslint'],
+    \   'go': ['gopls'],
     \ }
     let g:ale_fixers = {
     \   'python': ['black'],
@@ -365,4 +366,10 @@ hook_add = '''
 #--
 # End deoplete.nvim
 #--
+
+
+# JetBrains + nvim
+# Brings JetBrains/IntelliJ IDEs magic to Neovim with minimal setup.
+[[plugins]]
+repo = 'beeender/Comrade'
 
