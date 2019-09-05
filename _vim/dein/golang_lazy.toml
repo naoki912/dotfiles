@@ -87,8 +87,6 @@ hook_add = '''
     let g:LanguageClient_serverCommands = {
     \   'go': ['gopls']
     \ }
-    " Run gofmt on save
-    autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting()
 
     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
     " Or map each action separately
