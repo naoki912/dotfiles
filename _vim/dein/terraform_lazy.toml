@@ -13,6 +13,7 @@ hook_source = '''
 '''
 
 
+# 勝手にインクリメントしたりするので無効化
 # [[plugins]]
 # # Terraformの補完
 # # neovim ruby provider が必要
