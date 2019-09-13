@@ -5,6 +5,7 @@
 alias h-awk='echo "\
 awk '\''{print \$1 \" \" \$1 }'\'' a.sh
 "'
+alias h-vnc='echo "x0vncserver -display :0 -passwordfile ~/.vnc/passwd"'
 
 alias h-lsof='echo "\
 # ポートを使用しているプロセスを特定
