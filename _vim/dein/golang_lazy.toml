@@ -77,8 +77,9 @@ hook_add         = '''
 # https://github.com/Shougo/deoplete-lsp
 #
 repo     = 'autozimu/LanguageClient-neovim'
-build    = ['./install.sh']
+build    = ['bash install.sh']
 rev      = 'next'
+on_ft    = ['go']
 hook_add = '''
     " Required for operations modifying multiple buffers like rename.
     set hidden
