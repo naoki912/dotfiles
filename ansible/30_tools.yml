@@ -4,16 +4,26 @@
     repo: https://github.com/asdf-vm/asdf.git
     dest: ~/.asdf
 
-# TODO
-# - name: tools | asdf | install plugins
-#   asdf:
-#     name: "{{ item }}"
-#     state: latest
-#   loop:
-#     - helm
-#     - istioctl
-#     - kubectl
-#     - kubeseal
-#     - kustomize
-#     - terraform
+# TODO: ~/.tool-versions にまとめておいて `asdf install` でもいいかも
+- name: tools | asdf | add plugin
+  shell: "asdf plugin-add {{ item.name }}"
+  loop:
+    "{{ asdf_plugins }}"
+  ignore_errors: yes
+
+- name: tools | asdf | plugin-update
+  shell: "asdf plugin-update {{ item.name }}"
+  loop:
+    "{{ asdf_plugins }}"
+  ignore_errors: yes
+
+- name: tools | asdf | install
+  shell: "asdf install {{ item.0.name }} {{ item.1 }}"
+  loop:
+    "{{ asdf_plugins | subelements('versions') }}"
+
+- name: tools | asdf | global
+  shell: "asdf global {{ item.name }} {{ item.global }}"
+  loop:
+    "{{ asdf_plugins }}"
 
