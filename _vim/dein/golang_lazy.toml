@@ -4,6 +4,8 @@ on_ft            = ['go']
 #build            = ['sudo pacman -S delve']
 hook_post_update = '''
     " vim-goのinstall/update時に依存するgoのpackageをインストール
+    " FIXME: 自動実行されないので直す
+    "        補完が聞かなかったりgoplsが動かない時はだいたいこいつが実行されていない
     GoUpdateBinaries
 '''
 hook_add         = '''
