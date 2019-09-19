@@ -74,6 +74,7 @@ alias psg='ps aux | \grep'
 alias lsg='ls | \grep'
 alias lag='ls -a | \grep'
 alias lsag='ls -la | \grep'
+alias aur-updpkgsums='updpkgsums && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git diff --cached'
 
 # 追加コマンド
 alias :q='exit'
