@@ -1,8 +1,8 @@
 ---
 - name: packages | install packages
-  pacman:
-    name: "{{ packages }}"
+  package:
+    name: "{{ packages[ansible_distribution] }}"
     state: present
-    update_cache: yes
+    #update_cache: yes
   become: yes
 

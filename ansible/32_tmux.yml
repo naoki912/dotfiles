@@ -1,9 +1,9 @@
 ---
 - name: tmux | install required packages
-  pacman:
+  package:
     name: "{{ item }}"
     state: present
-    update_cache: yes
+    #update_cache: yes
   become: yes
   loop:
     # tmuxのクリップボード周り

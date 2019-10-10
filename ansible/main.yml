@@ -55,16 +55,22 @@
       - src: _config/termite
         dest: ~/.config/termite
 
+    # ansible_distribution
     packages:
-      - git
-      - ctags
-      - python-pip
-      - npm
-      - archey3
-      - neovim
-      #- neovim-python
-      #- autopep8
-      #- flake8
+      Archlinux:
+        - git
+        - ctags
+        - python-pip
+        - npm
+        - archey3
+        - neovim
+        #- neovim-python
+        #- autopep8
+        #- flake8
+      Debian:
+        - git
+        - neovim
+        - exuberant-ctags
 
 
     # https://github.com/cimon-io/ansible-role-asdf
