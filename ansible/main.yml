@@ -54,6 +54,9 @@
         dest: ~/.config/terminator
       - src: _config/termite
         dest: ~/.config/termite
+      # TODO: mkdir
+      - src: _config/oni/config.tsx
+        dest: ~/.config/oni/config.tsx
 
     # ansible_distribution
     packages:
