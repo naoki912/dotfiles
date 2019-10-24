@@ -6,7 +6,7 @@ list=(
   ##  Lock  ##
   #"Lock Screen" "xscreensaver-command --lock"
   #"Lock Screen" "light-locker-command -l"
-  "Lock Screen" "dm-tool lock"
+  "Lock Screen" "lock"
   "Logout"      "echo not impl"
   ##  Power ##
   "Suspend"     "systemctl suspend"
