@@ -320,6 +320,7 @@ alias h-scp-by-remote-host-to-remote-host="echo 'ssh -3 remote:/path/to/file rem
 alias h-docker-list-none="echo 'docker images --quiet --filter=dangling=true'"
 alias h-docker-build="echo 'docker build --tag=image-name --no-cache .'"
 alias h-docker-none-delete="echo 'docker image ls --filter=dangling=true --quiet | xargs docker image rm'"
+alias h-docker-all-delete="echo 'docker ps -a --format=\"{{.ID}}\" | xargs docker rm'"
 
 alias h-cisco-ssh-legacy-options="echo '-oKexAlgorithms=+diffie-hellman-group1-sha1'"
 alias h-cisco-config-reset="echo 'erase startup-config
