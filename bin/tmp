@@ -1,57 +1,40 @@
 #!/usr/bin/bash
 
-
 #---
 # このまま実行してもcd出来ないので alias でラップする
 # alias tmp='source tmp'
 #
 # 仕様
-# `tmp`          /tmp/trash に移動
-# `tmp cd`       /tmp/trash に移動
-# `tmp cd hoge`  /tmp/trash/*hoge* に移動
-# `tmp hoge`     /tmp/trash/hoge.XXX を作成して移動
 # `tmp ls`       /tmp/trash を ls
+# `tmp`          /tmp/trash に cd
+# `tmp hoge`     /tmp/trash/hoge.XXX が存在していたらcd
+#                                    存在していなかったら作成して cd
 #---
 
 _base_dir=/tmp/trash
 
 mkdir -p ${_base_dir}
 
-
 # `tmp list`
 # tmp dirのリストを表示する
-if [[ ${1} == "list" ]] || [[ ${1} == "ls" ]];then
+if [[ ${1} == "list" ]] || [[ ${1} == "ls" ]]; then
     ls ${_base_dir} | nl
     return 0
 fi
 
-# `tmp cd hoge`
-# 引数にマッチしたディレクトリに移動する
-if [[ ${1} == "cd" ]];then
-    if [[ ${2} != "" ]];then
-        # 指定あり
-        # 最初にマッチしたディレクトリにcd
-        _match_dir=$(ls ${_base_dir} | \grep ${2} | head -n 1)
-        cd ${_base_dir}/${_match_dir}
-        return 0
-    else
-        # # 指定なし
-        # # listして一番最初にマッチしたディレクトリにcd
-        # _match_dir=$(ls ${_base_dir} | head -n 1)
-        # cd ${_base_dir}/${_match_dir}
-        # return 0
-
-        cd ${_base_dir}
-        return 0
-    fi
-fi
-
-
+# `tmp`
+# /tmp/trash に移動
 if [[ ${1} == "" ]]; then
     #_temp_dir=$(mktemp --directory --tmpdir=${_base_dir})
     _temp_dir=${_base_dir}
 else
-    _temp_dir=$(mktemp --directory --tmpdir=${_base_dir} ${1}.XXX)
+    # `tmp hoge` /tmp/trash/*hoge* が存在していたら移動、無かったら作成して移動
+    if `ls ${_base_dir} | \grep --quiet ${1}`; then
+        _match_dir=$(ls ${_base_dir} | \grep ${1} | head -n 1)
+        _temp_dir=${_base_dir}/${_match_dir}
+    else
+        _temp_dir=$(mktemp --directory --tmpdir=${_base_dir} ${1}.XXX)
+    fi
 fi
 
 cd ${_temp_dir}
