@@ -75,6 +75,9 @@ alias lag='ls -a | \grep'
 alias lsag='ls -la | \grep'
 alias aur-updpkgsums='updpkgsums && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git diff --cached'
 
+# source wrapper
+alias tmp='source tmp'
+
 # 追加コマンド
 alias :q='exit'
 alias eng='LANG=C'
