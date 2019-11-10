@@ -8,7 +8,7 @@ if type zplug > /dev/null 2>&1; then
     zplug "zsh-users/zsh-autosuggestions"
 
     # git rootへcdするやつ
-    #zplug "mollifier/cd-gitroot"
+    zplug "mollifier/cd-gitroot"
 
     #zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, of:"*linux*amd64*"
     #zplug "junegunn/fzf", from:gh-r, as:command, use:bin/fzf-tmux
