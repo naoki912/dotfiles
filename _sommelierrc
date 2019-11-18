@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#/usr/bin/fcitx-autostart
+
+/usr/bin/ibus-daemon -drx
