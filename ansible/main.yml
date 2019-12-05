@@ -48,6 +48,11 @@
       - src: _zsh
         dest: ~/.zsh
 
+      - src: _gtkrc-2.0
+        dest: ~/.gtkrc-2.0
+      - src: _config/gtk-3.0/settings.ini
+        dest: ~/.config/gtk-3.0/settings.ini
+
       - src: _config/qtile
         dest: ~/.config/qtile
       - src: _config/terminator
