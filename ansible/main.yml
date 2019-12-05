@@ -38,6 +38,8 @@
         dest: ~/.zprofile
       - src: _zshrc.local
         dest: ~/.zshrc.local
+      - src: _sommelierrc
+        dest: ~/.sommelierrc
 
       - src: _i3
         dest: ~/.i3
