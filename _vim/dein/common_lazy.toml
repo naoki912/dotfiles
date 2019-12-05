@@ -71,8 +71,22 @@ repo        = 'thinca/vim-quickrun'
 on_map      = ['<Leader>r']
 on_cmd      = ['QuickRun']
 hook_source = '''
+    " previm(markdownのやつ)を実行できるようにしているがブラウザで立ち上がらない
     nmap <Leader>r <Plug>(quickrun)
-    let g:quickrun_config = {"*": {"runner": "vimproc"}}
+    let g:quickrun_config = {
+                \ 'markdown': {
+                \     'runner': 'shell',
+                \     'outputter': 'null',
+                \     'command': ':PrevimOpen',
+                \     'exec': '%c',
+                \ },
+                \ '*': {
+                \     'runner': 'vimproc'
+                \ },
+                \ }
+
+    let g:quickrun_config = {
+                \ }
 '''
 
 

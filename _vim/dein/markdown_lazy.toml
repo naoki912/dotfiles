@@ -38,3 +38,39 @@ on_source = ['vim-markdown']
 repo      = 'godlygeek/tabular'
 on_source = ['vim-markdown']
 
+[[plugins]]
+# TOCの生成
+# 一度 :GenToc した後はファイル保存時に自動でTOCを更新してくれる
+# :GenTocGFM , :GenTocRedcarpet , :GenTocGitLab , :GenTocMarked
+# :UpdateToc , :RemoveToc
+repo      = 'mzlogin/vim-markdown-toc'
+on_source = ['vim-markdown']
+hook_add  = '''
+    " TOCを自動で生成/更新を無効化する
+    "let g:vmt_auto_update_on_save = 0
+
+    " これのTOCの部分
+    " <!-- TOC GFM -->
+    " <!-- /TOC -->
+    let g:vmt_fence_text="TOC"
+    let g:vmt_fence_closing_text="/TOC"
+
+    " listの `*` を `-` に変更する
+    let g:vmt_list_item_char='-'
+
+    " :GenToc を実行した場所より前の見出しを表示する
+    let g:vmt_include_headings_before=1
+'''
+
+[[plugins]]
+# markdown preview
+# :PrevimOpen
+repo      = 'previm/previm'
+on_source = ['vim-markdown']
+
+[[plugins]]
+# 本来はカーソル位置の単語をブラウザで開いたりとか出来るプラグイン
+# previm用に入れている
+repo      = 'tyru/open-browser.vim'
+on_source = ['previm']
+
