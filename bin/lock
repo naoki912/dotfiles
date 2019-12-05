@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
 #xscreensaver-command --lock
-betterlockscreen -l dimblur
+
+#betterlockscreen -l dimblur
+betterlockscreen -l dim
 
