@@ -122,6 +122,13 @@ hook_add = '''
     " Add custom menus
     let s:menus = {}
 
+    let s:menus.shortcut = {
+                \ 'description': 'shortcut'
+                \ }
+    let s:menus.shortcut.file_candidates = [
+                \ ['memo', '~/memo.md'],
+                \ ]
+
     let s:menus.zsh = {
                 \ 'description': 'Edit your import zsh configuration'
                 \ }
