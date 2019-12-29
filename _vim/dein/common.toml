@@ -296,6 +296,12 @@ hook_add = '''
 [[plugins]]
 # syntax checker
 # syntastic から変えた, 非同期でやってくれる
+#
+# jsの場合はProjectで以下を実行する
+# ```
+# $ yarn add -D prettier-eslint-cli
+# ```
+#
 repo     = 'w0rp/ale'
 #build    = 'sudo pacman -S flake8'
 hook_add = '''
@@ -315,8 +321,9 @@ hook_add = '''
     \ }
     let g:ale_fixers = {
     \   'python': ['black'],
-    \   'javascript': ['eslint'],
-    \   'typescript': ['tslint'],
+    \   'javascript': ['eslint', 'prettier', 'prettier-eslint'],
+    \   'typescript': ['tslint', 'prettier', 'prettier-eslint'],
+    \   'css': ['prettier'],
     \ }
     let g:ale_python_flake8_executable = g:python3_host_prog
     let g:ale_python_flake8_options    = '-m flake8 --ignore=E203,E266,E501,W503 --max-line-length=80 --max-complexity=18 --select=B,C,E,F,W,T4,B9'
@@ -324,6 +331,9 @@ hook_add = '''
     let g:ale_python_black_options     = '-m black'
 
     " TODO: 各環境のflake8とかeslintを使うようにする
+
+    " ローカルの設定ファイルを考慮する
+    let g:ale_javascript_prettier_use_local_config = 1
 
     let g:ale_typescript_tslint_use_global = 0
     let g:ale_typescript_tslint_config_path = expand("$HOME/.tslint.json")
