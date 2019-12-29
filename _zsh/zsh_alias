@@ -142,3 +142,77 @@ if type colordiff > /dev/null 2>&1; then
 fi
 
 #alias termite="termite --title=tmux -e tmux"
+
+#--
+# git
+#--
+alias gadd='git add'
+alias gaddp='git add -p'
+alias gdiff='git diff'
+alias gdiffc='git diff --cached'
+alias gstat='git status'
+alias gstatus='git status'
+alias gpush='git push'
+
+#--
+# kubectl
+#--
+alias kget='kubectl get'
+alias kgetyaml='kubectl get -o yaml'
+alias klogs='kubectl logs'
+alias klogsf='kubectl logs -f'
+alias kapplyf='kubectl apply -f'
+
+
+# no option
+alias kgetclusterrole='kubectl get clusterrole'
+alias kgetclusterrolebinding='kubectl get clusterrolebinding'
+alias kgetconfigmaps='kubectl get configmaps'
+alias kgetdaemonsets='kubectl get daemonsets'
+alias kgetdeployments='kubectl get deployments'
+alias kgetnodes='kubectl get node'
+alias kgetpods='kubectl get pods'
+alias kgetreplicaset='kubectl get replicasets'
+alias kgetservices='kubectl get services'
+alias kgetstatefulsets='kubectl get statefulsets'
+alias kgetnamespaces='kubectl get namespaces'
+alias kgetrole='kubectl get role'
+alias kgetrolebinding='kubectl get rolebinding'
+alias kgetsecrets='kubectl get secrets'
+alias kgetserviceaccounts='kubectl get serviceaccounts'
+
+# -o json
+
+alias kgetjsonclusterrole='kubectl get clusterrole'
+alias kgetjsonclusterrolebinding='kubectl get clusterrolebinding'
+alias kgetjsonconfigmaps='kubectl get configmaps'
+alias kgetjsondaemonsets='kubectl get daemonsets'
+alias kgetjsondeployments='kubectl get deployments'
+alias kgetjsonnodes='kubectl get node'
+alias kgetjsonpods='kubectl get pods'
+alias kgetjsonreplicaset='kubectl get replicasets'
+alias kgetjsonservices='kubectl get services'
+alias kgetjsonstatefulsets='kubectl get statefulsets'
+alias kgetjsonnamespaces='kubectl get namespaces'
+alias kgetjsonrole='kubectl get role'
+alias kgetjsonrolebinding='kubectl get rolebinding'
+alias kgetjsonsecrets='kubectl get secrets'
+alias kgetjsonserviceaccounts='kubectl get serviceaccounts'
+
+# -o yaml
+alias kgetyamlclusterrole='kubectl get clusterrole'
+alias kgetyamlclusterrolebinding='kubectl get clusterrolebinding'
+alias kgetyamlconfigmaps='kubectl get configmaps'
+alias kgetyamldaemonsets='kubectl get daemonsets'
+alias kgetyamldeployments='kubectl get deployments'
+alias kgetyamlnodes='kubectl get node'
+alias kgetyamlpods='kubectl get pods'
+alias kgetyamlreplicaset='kubectl get replicasets'
+alias kgetyamlservices='kubectl get services'
+alias kgetyamlstatefulsets='kubectl get statefulsets'
+alias kgetyamlnamespaces='kubectl get namespaces'
+alias kgetyamlrole='kubectl get role'
+alias kgetyamlrolebinding='kubectl get rolebinding'
+alias kgetyamlsecrets='kubectl get secrets'
+alias kgetyamlserviceaccounts='kubectl get serviceaccounts'
+
