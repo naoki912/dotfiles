@@ -148,13 +148,15 @@ fi
 #--
 alias gadd='git add'
 alias gaddp='git add -p'
-alias gdiff='git diff'
-alias gdiffc='git diff --cached'
+alias gdif='git diff'
+alias gdiff='git diff --cached'
 alias gstat='git status'
 alias gstatus='git status'
 alias gcommit='git commit'
 alias gcom='git commit'
 alias gpush='git push'
+alias gpull='git pull'
+alias gcheckout='git checkout'
 
 #--
 # kubectl
