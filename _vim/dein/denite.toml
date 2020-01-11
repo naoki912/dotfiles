@@ -14,33 +14,50 @@ repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
 repo     = 'Shougo/denite.nvim'
+#build    = 'go get github.com/mattn/jvgrep'
 hook_add = '''
     nnoremap [denite] <Nop>
 
     nmap <Leader>u  [denite]
     nmap <C-u>      [denite]
 
-    nnoremap <silent> [denite]b     :Denite buffer<CR>
-    nnoremap <silent> [denite]c     :Denite changes<CR>
-    nnoremap <silent> [denite]f     :Denite file<CR>
-    nnoremap <silent> [denite]g     :Denite grep<CR>
-    nnoremap <silent> [denite]h     :Denite help<CR>
-    nnoremap <silent> [denite]l     :Denite line<CR>
-    nnoremap <silent> [denite]m     :Denite mark<CR>
-    nnoremap <silent> [denite]t     :Denite tag<CR>
-    nnoremap <silent> [denite]u     :Denite menu<CR>
-    nnoremap <silent> [denite]y     :Denite neoyank<CR>
+    nnoremap <silent> [denite]a     :Dejite -split=floating file buffer     file:new<CR>
+    nnoremap <silent> [denite]b     :Denite -split=floating buffer          file:new<CR>
+    nnoremap <silent> [denite]c     :Denite -split=floating changes         file:new<CR>
+    nnoremap <silent> [denite]f     :Denite -split=floating file            file:new<CR>
+    "nnoremap <silent> [denite]h     :Denite -split=floating help            file:new<CR>
+    nnoremap <silent> [denite]h     :Denite -split=floating command_history file:new<CR>
+    nnoremap <silent> [denite]l     :Denite -split=floating line            file:new<CR>
+    nnoremap <silent> [denite]m     :Denite -split=floating mark            file:new<CR>
+    nnoremap <silent> [denite]r     :Denite -split=floating file/rec        file:new<CR>
+    nnoremap <silent> [denite]t     :Denite -split=floating tag             file:new<CR>
+    nnoremap <silent> [denite]u     :Denite -split=floating menu            file:new<CR>
+    nnoremap <silent> [denite]y     :Denite -split=floating neoyank         file:new<CR>
 
-    nnoremap <silent> [denite]<C-b> :Denite buffer<CR>
-    nnoremap <silent> [denite]<C-c> :Denite changes<CR>
-    nnoremap <silent> [denite]<C-f> :Denite file<CR>
-    nnoremap <silent> [denite]<C-g> :Denite grep<CR>
-    nnoremap <silent> [denite]<C-h> :Denite help<CR>
-    nnoremap <silent> [denite]<C-l> :Denite line<CR>
-    nnoremap <silent> [denite]<C-m> :Denite mark<CR>
-    nnoremap <silent> [denite]<C-t> :Denite tag<CR>
-    nnoremap <silent> [denite]<C-u> :Denite menu<CR>
-    nnoremap <silent> [denite]<C-y> :Denite neoyank<CR>
+    nnoremap <silent> [denite]gg    :Denite           -split=floating grep    -buffer-name=search<CR>
+    "カーソル位置の単語でgrep
+    nnoremap <silent> [denite]g,    :DeniteCursorWord -split=floating grep    -buffer-name=search line<CR>
+    "grep結果を再表示
+    nnoremap <silent> [denite]gu    :Denite           -split=floating -resume -buffer-name=search<CR>
+
+    nnoremap <silent> [denite]<C-a> :Denite -split=floating file buffer     file:new<CR>
+    nnoremap <silent> [denite]<C-b> :Denite -split=floating buffer          file:new<CR>
+    nnoremap <silent> [denite]<C-c> :Denite -split=floating changes         file:new<CR>
+    nnoremap <silent> [denite]<C-f> :Denite -split=floating file            file:new<CR>
+    "nnoremap <silent> [denite]<C-h> :Denite -split=floating help            file:new<CR>
+    nnoremap <silent> [denite]<C-h> :Denite -split=floating command_history  file:new<CR>
+    nnoremap <silent> [denite]<C-l> :Denite -split=floating line            file:new<CR>
+    nnoremap <silent> [denite]<C-m> :Denite -split=floating mark            file:new<CR>
+    nnoremap <silent> [denite]<C-r> :Denite -split=floating file/rec        file:new<CR>
+    nnoremap <silent> [denite]<C-t> :Denite -split=floating tag             file:new<CR>
+    nnoremap <silent> [denite]<C-u> :Denite -split=floating menu            file:new<CR>
+    nnoremap <silent> [denite]<C-y> :Denite -split=floating neoyank         file:new<CR>
+
+    nnoremap <silent> [denite]<C-g><C-g> :Denite           -split=floating grep    -buffer-name=search<CR>
+    "カーソル位置の単語でgrep
+    nnoremap <silent> [denite]<C-g><C-,> :DeniteCursorWord -split=floating grep    -buffer-name=search line<CR>
+    "grep結果を再表示
+    nnoremap <silent> [denite]<C-g><C-u> :Denite           -split=floating -resume -buffer-name=search<CR>
 
 
     " floating
@@ -65,6 +82,8 @@ hook_add = '''
                     \ denite#do_map('do_action', 'delete')
         nnoremap <silent><buffer><expr> p
                     \ denite#do_map('do_action', 'preview')
+        nnoremap <silent><buffer><expr> <Esc>
+                    \ denite#do_map('quit')
         nnoremap <silent><buffer><expr> q
                     \ denite#do_map('quit')
         nnoremap <silent><buffer><expr> i
@@ -75,7 +94,11 @@ hook_add = '''
                     \ denite#do_map('move_up_path')
         nnoremap <silent><buffer><expr> -
                     \ denite#do_map('do_action', 'split')
+        nnoremap <silent><buffer><expr> s
+                    \ denite#do_map('do_action', 'split')
         nnoremap <silent><buffer><expr> \|
+                    \ denite#do_map('do_action', 'vsplit')
+        nnoremap <silent><buffer><expr> v
                     \ denite#do_map('do_action', 'vsplit')
         nnoremap <silent><buffer><expr> t
                     \ denite#do_map('do_action', 'tabopen')
