@@ -10,72 +10,89 @@ build = 'make'
 
 
 #--
-# vimfiler
+# filer
 #--
 
 [[plugins]]
-# vimfilerのために残している
-repo             = 'Shougo/unite.vim'
-#hook_post_source = '''
-#    nnoremap [unite] <Nop>
-#    nmap U [unite]
-#    nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-#    nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-#    nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-#    nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-#    nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-#    nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-#    nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-#    nnoremap <silent> [unite]w :<C-u>Unite window<CR>
-#
-#    " start unite in insert mode
-#    let g:unite_enable_start_insert = 1
-#    " use vimfiler to open directory
-#    call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-#    call unite#custom_default_action("directory", "vimfiler")
-#    call unite#custom_default_action("directory_mru", "vimfiler")
-#
-#    " これhook側で実行させれるきがする
-#    autocmd MyAutoCmd FileType unite call s:unite_settings()
-#    function! s:unite_settings()
-#        imap <buffer> <Esc><Esc> <Plug>(unite_exit)
-#        nmap <buffer> <Esc> <Plug>(unite_exit)
-#        nmap <buffer> <C-n> <Plug>(unite_select_next_line)
-#        nmap <buffer> <C-p> <Plug>(unite_select_previous_line)
-#    endfunction
-#'''
+repo = 'kristijanhusak/defx-icons'
 
 [[plugins]]
-# ファイル操作
-#
-# https://twitter.com/ShougoMatsu/status/814072124742606848
-# > 後継プラグインがないので正式発表はしてませんが、vimfiler の開発を続ける気はないです。
-# > denite.nvimベースのファイラープラグインを作る気ではいます
-repo     = 'Shougo/vimfiler'
-depends  = ['unite.vim']
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
+repo     = 'Shougo/defx.nvim'
+depends  = ['kristijanhusak/defx-icons', 'kristijanhusak/defx-git']
 hook_add = '''
-    nnoremap <silent><C-e> :VimFilerExplorer<CR>
-    " なんか動かない
-    nnoremap <Leader>e :VimFilerExplorer<CR>
-
-    " close vimfiler automatically when there are only vimfiler open
-    autocmd MyAutoCmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'vimfiler') | q | endif
-
-    let g:vimfiler_as_default_explorer = 1
-    let g:vimfiler_enable_auto_cd = 1
-
+    "TODO: 後でこれが出来るようにする
     " .から始まるファイルおよび.pycで終わるファイルを不可視パターンに
-    let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
+    "let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 
-    " vimfiler specific key mappings
-    autocmd MyAutoCmd FileType vimfiler call s:vimfiler_settings()
-    function! s:vimfiler_settings()
-        " ^^ to go up
-        nmap <buffer> ^^ <Plug>(vimfiler_switch_to_parent_directory)
-        " use R to refresh
-        nmap <buffer> R <Plug>(vimfiler_redraw_screen)
-        " overwrite C-l
-        nmap <buffer> <C-l> <C-w>l
+    call defx#custom#option('_', {
+                \ 'columns': 'indent:git:icons:filename',
+                \ 'show_ignored_files': 0,
+                \ })
+
+    " -auto-cd: Change the working directory while navigating with defx.
+    nnoremap <silent><C-e> :Defx -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
+    nnoremap <Leader>e     :Defx -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
+
+    " 現在のファイルがあるフォルダーを探索する
+    " よさげなキーマップが見つかるまで放置
+    "nnoremap ?             :Defx -split=vertical -winwidth=35 `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+    " defxのみが開かれている時はdefxを自動的に閉じる
+    autocmd MyAutoCmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'defx') | q | endif
+
+    autocmd FileType defx call s:defx_my_settings()
+    function! s:defx_my_settings() abort
+        nnoremap <silent><buffer><expr> <CR>        defx#do_action('open')
+        nnoremap <silent><buffer><expr> l           defx#do_action('open_or_close_tree')
+        nnoremap <silent><buffer><expr> h           defx#do_action('close_tree')
+        nnoremap <silent><buffer><expr> -           defx#do_action('open', 'split')
+        nnoremap <silent><buffer><expr> s           defx#do_action('open', 'split')
+        nnoremap <silent><buffer><expr> <Bar>       defx#do_action('open', 'vsplit')
+        nnoremap <silent><buffer><expr> v           defx#do_action('open', 'vsplit')
+        nnoremap <silent><buffer><expr> P           defx#do_action('open', 'pedit')
+
+        nnoremap <silent><buffer><expr> c           defx#do_action('copy')
+        nnoremap <silent><buffer><expr> m           defx#do_action('move')
+        nnoremap <silent><buffer><expr> p           defx#do_action('paste')
+
+        nnoremap <silent><buffer><expr> K           defx#do_action('new_directory')
+        nnoremap <silent><buffer><expr> N           defx#do_action('new_file')
+        nnoremap <silent><buffer><expr> M           defx#do_action('new_multiple_files')
+        nnoremap <silent><buffer><expr> C           defx#do_action('toggle_columns', 'mark:indent:icon:filename:type:size:time')
+        nnoremap <silent><buffer><expr> S           defx#do_action('toggle_sort', 'time')
+        nnoremap <silent><buffer><expr> d           defx#do_action('remove')
+        nnoremap <silent><buffer><expr> r           defx#do_action('rename')
+        nnoremap <silent><buffer><expr> !           defx#do_action('execute_command')
+        nnoremap <silent><buffer><expr> x           defx#do_action('execute_system')
+        nnoremap <silent><buffer><expr> yy          defx#do_action('yank_path')
+        nnoremap <silent><buffer><expr> .           defx#do_action('toggle_ignored_files')
+        nnoremap <silent><buffer><expr> ;           defx#do_action('repeat')
+        nnoremap <silent><buffer><expr> <BS>           defx#do_action('cd', ['..'])
+        nnoremap <silent><buffer><expr> ~           defx#do_action('cd')
+        nnoremap <silent><buffer><expr> q           defx#do_action('quit')
+        nnoremap <silent><buffer><expr> <C-e>       defx#do_action('quit')
+        nnoremap <silent><buffer><expr> <Leader>e   defx#do_action('quit')
+        nnoremap <silent><buffer><expr> <Space>     defx#do_action('toggle_select') . 'j'
+        nnoremap <silent><buffer><expr> *           defx#do_action('toggle_select_all')
+        nnoremap <silent><buffer><expr> j           line('.') == line('$') ? 'gg' : 'j'
+        nnoremap <silent><buffer><expr> k           line('.') == 1 ? 'G' : 'k'
+        nnoremap <silent><buffer><expr> <C-l>       defx#do_action('redraw')
+        nnoremap <silent><buffer><expr> <C-g>       defx#do_action('print')
+        nnoremap <silent><buffer><expr> cd          defx#do_action('change_vim_cwd')
+
+        " :drop 風に開く
+        " 別のtabやwindowで開かれていた時はそっちにジャンプする
+        nnoremap <silent><buffer><expr> <Leader><CR>
+                    \ defx#do_action('drop')
+
+        " windowのリサイズ
+        nnoremap <silent><buffer><expr> > defx#do_action('resize',
+                    \ defx#get_context().winwidth + 10)
+        nnoremap <silent><buffer><expr> < defx#do_action('resize',
+                    \ defx#get_context().winwidth - 10)
     endfunction
 '''
 
