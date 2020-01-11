@@ -25,6 +25,7 @@ hook_add = '''
     nnoremap <silent> [denite]b     :Denite -split=floating buffer          file:new<CR>
     nnoremap <silent> [denite]c     :Denite -split=floating changes         file:new<CR>
     nnoremap <silent> [denite]f     :Denite -split=floating file            file:new<CR>
+    "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]h     :Denite -split=floating help            file:new<CR>
     nnoremap <silent> [denite]h     :Denite -split=floating command_history file:new<CR>
     nnoremap <silent> [denite]l     :Denite -split=floating line            file:new<CR>
@@ -35,15 +36,16 @@ hook_add = '''
     nnoremap <silent> [denite]y     :Denite -split=floating neoyank         file:new<CR>
 
     nnoremap <silent> [denite]gg    :Denite           -split=floating grep    -buffer-name=search<CR>
-    "カーソル位置の単語でgrep
+    " カーソル位置の単語でgrep
     nnoremap <silent> [denite]g,    :DeniteCursorWord -split=floating grep    -buffer-name=search line<CR>
-    "grep結果を再表示
+    " grep結果を再表示
     nnoremap <silent> [denite]gu    :Denite           -split=floating -resume -buffer-name=search<CR>
 
     nnoremap <silent> [denite]<C-a> :Denite -split=floating file buffer     file:new<CR>
     nnoremap <silent> [denite]<C-b> :Denite -split=floating buffer          file:new<CR>
     nnoremap <silent> [denite]<C-c> :Denite -split=floating changes         file:new<CR>
     nnoremap <silent> [denite]<C-f> :Denite -split=floating file            file:new<CR>
+    "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]<C-h> :Denite -split=floating help            file:new<CR>
     nnoremap <silent> [denite]<C-h> :Denite -split=floating command_history  file:new<CR>
     nnoremap <silent> [denite]<C-l> :Denite -split=floating line            file:new<CR>
