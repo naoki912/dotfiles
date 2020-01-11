@@ -388,3 +388,21 @@ hook_add = '''
 [[plugins]]
 repo = 'beeender/Comrade'
 
+
+[[plugins]]
+# Dark powered shell interface for NeoVim and Vim8.
+repo     = 'Shougo/deol.nvim'
+hook_add = '''
+    " terminalをfloatingで開く
+    nnoremap <silent> <Leader>``     :Deol -split=floating<CR>
+    " terminalをsplitで開く
+    nnoremap <silent> <Leader>`-     :Deol -split=horizontal<CR>
+    nnoremap <silent> <Leader>`s     :Deol -split=horizontal<CR>
+    " terminalをvsplitで開く
+    nnoremap <silent> <Leader>`<BAR> :Deol -split=vertical<CR>
+    nnoremap <silent> <Leader>`v     :Deol -split=vertical<CR>
+
+    " command mode
+    tnoremap <ESC>   <C-\><C-n>
+'''
+
