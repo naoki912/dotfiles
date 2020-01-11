@@ -20,6 +20,9 @@ repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
 # TODO: tabごとにdefxを生やす
+# TODO: defxがtab内で開かれている時に、defxではないwindow上で<C-e>を呼び出した時はdefxを閉じる
+#       あえてそうしなくてもいいかも？いつも別ファイルを開こうとする時に<C-e><C-e>でvimfilerにカーソル移動してたしdefxを終了する別の方法があってもいい？
+#       もしくはファイルを開いた時点でdefxを閉じるとか
 repo     = 'Shougo/defx.nvim'
 depends  = ['kristijanhusak/defx-icons', 'kristijanhusak/defx-git']
 hook_add = '''
@@ -49,12 +52,11 @@ hook_add = '''
 
     autocmd FileType defx call s:defx_my_settings()
     function! s:defx_my_settings() abort
-        nnoremap <silent><buffer><expr> <CR>         defx#do_action('open')
         " :drop 風に開く (defxがいるwindowに開かずに直前に開いていたwindow上で開く / 別のtabやwindowで開かれていた時はそっちにジャンプする)
-        nnoremap <silent><buffer><expr> <Leader><CR> defx#do_action('drop')
+        nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
         " directoryならtreeの開閉。ファイルなら開く。
-        "nnoremap <silent><buffer><expr> l            getline(line(".")) =~ ".*/.*$" ? defx#do_action('open_or_close_tree') : defx#do_action('open')
-        nnoremap <silent><buffer><expr> l            defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('open')
+        "nnoremap <silent><buffer><expr> l            getline(line(".")) =~ ".*/.*$" ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
+        nnoremap <silent><buffer><expr> l            defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
         " directory treeが開いていたら閉じる。
         " また、カーソル位置のdirectory treeが閉じているかつ、表示されているtreeのrootにいる場合は1つ上のdirectoryに移動する
         " こっちはエラーになる
