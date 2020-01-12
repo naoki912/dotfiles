@@ -22,10 +22,8 @@
         dest: ~/.tmux.conf
       - src: _vimperatorrc
         dest: ~/.vimperatorrc
-      - src: _vimrc
+      - src: _config/nvim/init.vim
         dest: ~/.vimrc
-      - src: _vimrc
-        dest: ~/.config/nvim/init.vim
       - src: _xinitrc
         dest: ~/.xinitrc
       - src: _XMODMAPRC
@@ -55,6 +53,8 @@
       - src: _config/gtk-3.0/settings.ini
         dest: ~/.config/gtk-3.0/settings.ini
 
+      - src: _config/nvim
+        dest: ~/.config/nvim
       - src: _config/qtile
         dest: ~/.config/qtile
       - src: _config/terminator

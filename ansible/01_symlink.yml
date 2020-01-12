@@ -5,7 +5,8 @@
     state: directory
   loop:
     - ~/.config
-    - ~/.config/nvim
+    - ~/.config/oni
+    #- ~/.config/nvim
 
 - name: symlink
   file:

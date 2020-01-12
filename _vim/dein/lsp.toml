@@ -1,4 +1,96 @@
+[[plugins]]
+repo     = 'neoclide/coc.nvim'
+#build    = ['pacman -S yarn']
+#rev      = 'release'
+hook_add = '''
+    let g:coc_global_extensions = [
+                \     'coc-actions',
+                \     'coc-browser',
+                \     'coc-calc',
+                \     'coc-css',
+                \     'coc-docker',
+                \     'coc-explorer',
+                \     'coc-git',
+                \     'coc-highlight',
+                \     'coc-html',
+                \     'coc-json',
+                \     'coc-lbdbq',
+                \     'coc-lists',
+                \     'coc-markdownlint',
+                \     'coc-marketplace',
+                \     'coc-pyright',
+                \     'coc-python',
+                \     'coc-rls',
+                \     'coc-rust-analyzer',
+                \     'coc-sh',
+                \     'coc-snippets',
+                \     'coc-spell-checker',
+                \     'coc-svg',
+                \     'coc-tsserver',
+                \     'coc-vetur',
+                \     'coc-vimlsp',
+                \     'coc-vimtex',
+                \     'coc-xml',
+                \     'coc-yaml',
+                \     'coc-yank',
+                \ ]
+
+    nmap <silent> gk <Plug>(coc-diagnostic-prev)
+    nmap <silent> gj <Plug>(coc-diagnostic-next)
+
+    nmap <silent> gd <Plug>(coc-definition)
+    "nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    nmap <leader>rn <Plug>(coc-rename)
+    xmap <leader>f  <Plug>(coc-format-selected)
+    nmap <leader>f  <Plug>(coc-format-selected)
+
+    nmap <silent> <Leader>: :<C-u>CocList<cr>
+    nmap <silent> <Leader>h :<C-u>call CocAction('doHover')<cr>
+    "nmap <silent> <space>df <Plug>(coc-definition)
+    "nmap <silent> <space>rf <Plug>(coc-references)
+    nmap <silent> <F2>      <Plug>(coc-rename)
+    "nmap <silent> <space>fmt <Plug>(coc-format)
+'''
+
+
 #[[plugins]]
-#repo  = 'neoclide/coc.nvim'
-##build = './install.sh nightly'
+## <F5>      -> メニュー
+## K         -> docを表示
+## gd        -> 定義場所にジャンプ
+## <F2>      -> リネーム
+##
+## こっちでも良いかも
+## https://github.com/neovim/neovim/pull/10222
+## https://github.com/Shougo/deoplete-lsp
+##
+#repo     = 'autozimu/LanguageClient-neovim'
+#build    = ['bash install.sh']
+#rev      = 'next'
+#hook_add = '''
+#    " Required for operations modifying multiple buffers like rename.
+#    set hidden
+#
+#    " Launch gopls when Go files are in use
+#    let g:LanguageClient_serverCommands = {
+#    \   'go': ['gopls']
+#    \ }
+#
+#    nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+#    " Or map each action separately
+#    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+#    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+#    nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+#'''
+
+
+#[[plugins]]
+#repo        = 'deoplete-plugins/deoplete-go'
+#depends     = ['deoplete.nvim']
+#build       = 'make'
+#hook_source = '''
+#    let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+#'''
 
