@@ -12,6 +12,7 @@ _tmux/resurrect/
 _vim/bundle/
 _vim/undo/*
 _vim/black/*
+_vim/sessions/*
 
 # i3
 _i3/i3log
