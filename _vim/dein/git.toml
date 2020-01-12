@@ -64,11 +64,6 @@ hook_add = '''
 
 
 [[plugins]]
-# ::: # Warning!!!
-# syntasticが使えなくなるっぽい
-# :::
-#
-#
 # Git plugin
 #
 # :GitGutterToggle                  - gitgutter自体のon/off
