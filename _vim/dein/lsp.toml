@@ -36,25 +36,25 @@ hook_add = '''
                 \     'coc-yank',
                 \ ]
 
-    nmap <silent> gk <Plug>(coc-diagnostic-prev)
-    nmap <silent> gj <Plug>(coc-diagnostic-next)
+    nnoremap <silent> <Leader>: :<C-u>CocList<CR>
+    nnoremap <silent> <Leader>; :<C-u>CocList<CR>
 
-    nmap <silent> gd <Plug>(coc-definition)
-    "nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> <Leader>h :<C-u>call CocAction('doHover')<CR>
+    nnoremap <silent> K         :<C-u>call CocAction('doHover')<CR>
 
-    nmap <leader>rn <Plug>(coc-rename)
-    xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+    nnoremap <silent> gj        <Plug>(coc-diagnostic-next)
+    nnoremap <silent> gk        <Plug>(coc-diagnostic-prev)
+    nnoremap <silent> gl        <Plug>(coc-diagnostic-next-error)
+    nnoremap <silent> gh        <Plug>(coc-diagnostic-prev-error)
 
-    nmap <silent> <Leader>: :<C-u>CocList<cr>
-    nmap <silent> <Leader>; :<C-u>CocList<cr>
-    nmap <silent> <Leader>h :<C-u>call CocAction('doHover')<cr>
-    nmap <silent> <F5>      <Plug>(coc-definition)
-    nmap <silent> <F4>      <Plug>(coc-references)
-    nmap <silent> <F2>      <Plug>(coc-rename)
-    "nmap <silent> <space>fmt <Plug>(coc-format)
+    nnoremap <silent> gd        <Plug>(coc-definition)
+    nnoremap <silent> gn        <Plug>(coc-rename)
+    nnoremap <silent> <F2>      <Plug>(coc-rename)
+    nnoremap <silent> gf        <Plug>(coc-format)
+    vnoremap <silent> gf        <Plug>(coc-format-selected)
+    nnoremap <silent> gt        <Plug>(coc-type-definition)
+    nnoremap <silent> gr        <Plug>(coc-references)
+    nnoremap <silent> gi        <Plug>(coc-implementation)
 '''
 
 

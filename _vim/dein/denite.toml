@@ -34,6 +34,7 @@ hook_add = '''
     nnoremap <silent> [denite]t     :Denite -split=floating tag             file:new<CR>
     nnoremap <silent> [denite]u     :Denite -split=floating menu            file:new<CR>
     nnoremap <silent> [denite]y     :Denite -split=floating neoyank         file:new<CR>
+    nnoremap <silent> <F5>          :Denite -split=floating menu:coc_lps<CR>
 
     nnoremap <silent> [denite]gg    :Denite           -split=floating grep    -buffer-name=search<CR>
     " カーソル位置の単語でgrep
@@ -54,6 +55,7 @@ hook_add = '''
     nnoremap <silent> [denite]<C-t> :Denite -split=floating tag             file:new<CR>
     nnoremap <silent> [denite]<C-u> :Denite -split=floating menu            file:new<CR>
     nnoremap <silent> [denite]<C-y> :Denite -split=floating neoyank         file:new<CR>
+    nnoremap <silent> <F5>          :Denite -split=floating menu:coc_lps<CR>
 
     nnoremap <silent> [denite]<C-g><C-g> :Denite           -split=floating grep    -buffer-name=search<CR>
     "カーソル位置の単語でgrep
@@ -169,6 +171,54 @@ hook_add = '''
                 \ ['Split the window', 'vnew'],
                 \ ['Open zsh menu', 'Denite menu:zsh'],
                 \ ['Format code', 'FormatCode', 'go,python'],
+                \ ]
+
+
+    " coc.nvim
+
+    " `<Plug>(coc-.*)` のmapping
+    "     https://github.com/neoclide/coc.nvim/blob/bd2a781f3b0e3fa0014583a7959b2d70392930c0/plugin/coc.vim#L346-L382
+
+    " NOTE: LanguageClient_contextMenu()
+    " 1) Type Definition
+    " 2) Code Action
+    " 3) Workspace Symbol
+    " 4) Rename
+    " 5) Definition
+    " 6) References
+    " 7) Formatting
+    " 8) Range Formatting
+    " 9) Document Highlight
+    " 10) Signature Help
+    " 11) Hover
+    " 12) Document Symbol
+    " 13) Implementation
+
+    let s:menus.coc_menus = {
+                \ 'description': 'coc menu'
+                \ }
+    let s:menus.coc_menus.command_candidates = [
+                \ ['action.open', 'CocCommand actions.open'],
+                \ ]
+
+    let s:menus.coc_lps = {
+                \ 'description': 'coc lsp'
+                \ }
+    let s:menus.coc_lps.command_candidates = [
+                \ ['1)  Type Definition',    "call CocAction('jumpTypeDefinition')<CR>"],
+                \ ['2)  Code Action',        "call CocActionAsync('codeAction', '')<CR>"],
+                \ ['3)  Workspace Symbol',   ""],
+                \ ['4)  Rename',             "call CocActionAsync('rename')<CR>"],
+                \ ['5)  Definition',         "call CocAction('jumpDefinition')<CR>"],
+                \ ['6)  References',         "call CocAction('jumpReferences')<CR>"],
+                \ ['7)  Formatting',         "call CocActionAsync('format')<CR>"],
+                \ ['8)  Range Formatting',   "call CocActionAsync('formatSelected', visualmode())<CR>"],
+                \ ['9)  Document Highlight', ""],
+                \ ['10) Signature Help',     ""],
+                \ ['11) Hover',              ""],
+                \ ['12) Document Symbol',    ""],
+                \ ['13) Implementation',     "call CocAction('jumpImplementation')<CR>"],
+                \ ['14) Declaration',        "call CocAction('jumpDeclaration')<CR>"],
                 \ ]
 
     call denite#custom#var('menu', 'menus', s:menus)
