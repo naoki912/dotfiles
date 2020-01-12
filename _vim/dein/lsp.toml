@@ -14,11 +14,11 @@ hook_add = '''
                 \     'coc-highlight',
                 \     'coc-html',
                 \     'coc-json',
-                \     'coc-lbdbq',
                 \     'coc-lists',
                 \     'coc-markdownlint',
                 \     'coc-marketplace',
                 \     'coc-pyright',
+                " TODO: config https://github.com/neoclide/coc-python
                 \     'coc-python',
                 \     'coc-rls',
                 \     'coc-rust-analyzer',
