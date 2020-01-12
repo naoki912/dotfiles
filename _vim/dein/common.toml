@@ -13,25 +13,30 @@ build = 'make'
 #--
 
 [[plugins]]
-repo = 'kristijanhusak/defx-icons'
+# icons
+# 無くても問題無さそう？
+repo  = 'ryanoasis/vim-devicons'
+#build = ['aur -S nerd-fonts-complete']
 
 [[plugins]]
+# > Custom implementation of vim-devicons for defx.nvim.
+repo    = 'kristijanhusak/defx-icons'
+depends = ['ryanoasis/vim-devicons']
+
+[[plugins]]
+# > Git status implementation for defx.nvim.
 repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
-# TODO: tabごとにdefxを生やす
-# TODO: defxがtab内で開かれている時に、defxではないwindow上で<C-e>を呼び出した時はdefxを閉じる
-#       あえてそうしなくてもいいかも？いつも別ファイルを開こうとする時に<C-e><C-e>でvimfilerにカーソル移動してたしdefxを終了する別の方法があってもいい？
-#       もしくはファイルを開いた時点でdefxを閉じるとか
 repo     = 'Shougo/defx.nvim'
-depends  = ['kristijanhusak/defx-icons', 'kristijanhusak/defx-git']
+depends  = ['defx-icons', 'defx-git']
 hook_add = '''
     "TODO: 後でこれが出来るようにする
     " .から始まるファイルおよび.pycで終わるファイルを不可視パターンに
     "let g:vimfiler_ignore_pattern = "\%(^\..*\|\.pyc$\)"
 
     call defx#custom#option('_', {
-                \ 'columns': 'indent:git:icons:filename',
+                \ 'columns': 'mark:indent:git:icons:filename:type',
                 \ 'show_ignored_files': 0,
                 \ })
 
@@ -39,13 +44,13 @@ hook_add = '''
     "            \ expand('%:p:h'),
     "            \ ])
 
-    " -auto-cd: Change the working directory while navigating with defx.
-    nnoremap <silent> <C-e>     :Defx -listed -resume -buffer-name=defx -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
-    nnoremap <silent> <Leader>e :Defx -listed -resume -buffer-name=defx -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
+    " 変えても良いかも？
+    nnoremap <silent> <C-e>     :Defx -listed -resume -buffer-name=explorer-`tabpagenr()` -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
+    nnoremap <silent> <Leader>e :Defx -listed -resume -buffer-name=explorer-`tabpagenr()` -split=vertical -winwidth=35 -direction=topleft -auto-cd<CR>
 
     " 現在のファイルがあるフォルダーを探索する
     " TODO: よさげなキーマップを見つける
-    nnoremap <silent> <Leader>f :Defx -resume -buffer-name=defx-search -split=vertical -winwidth=35 `expand('%:p:h')` -search=`expand('%:p')`<CR>
+    nnoremap <silent> <Leader>f :Defx -listed -resume -buffer-name=explorer-search-`tabpagenr()` -split=vertical -winwidth=35 `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
     " defxのみが開かれている時はdefxを自動的に閉じる
     autocmd MyAutoCmd BufEnter * if (winnr('$') == 1 && &filetype ==# 'defx') | q | endif
@@ -53,15 +58,20 @@ hook_add = '''
     autocmd FileType defx call s:defx_my_settings()
     function! s:defx_my_settings() abort
         " :drop 風に開く (defxがいるwindowに開かずに直前に開いていたwindow上で開く / 別のtabやwindowで開かれていた時はそっちにジャンプする)
-        nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
+        " ついでに開いたタイミングでdefxを閉じる
+        nnoremap <silent><buffer><expr> <CR>         defx#is_directory() ? defx#do_action('drop') : defx#do_action('multi', ['drop', 'quit'])
+
         " directoryならtreeの開閉。ファイルなら開く。
-        "nnoremap <silent><buffer><expr> l            getline(line(".")) =~ ".*/.*$" ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
+        " vimfiler_smart_l っぽい何か
         nnoremap <silent><buffer><expr> l            defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
+
         " directory treeが開いていたら閉じる。
         " また、カーソル位置のdirectory treeが閉じているかつ、表示されているtreeのrootにいる場合は1つ上のdirectoryに移動する
+        " vimfiler_smart_h っぽい何か
         " こっちはエラーになる
         "nnoremap <silent><buffer><expr> h            defx#is_opened_tree() || (defx#get_candidate().level != 0) ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
         nnoremap <silent><buffer><expr> h            defx#is_opened_tree() ? defx#do_action('close_tree') : defx#get_candidate().level != 0 ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
+
         nnoremap <silent><buffer><expr> -            defx#do_action('open', 'split')
         nnoremap <silent><buffer><expr> s            defx#do_action('open', 'split')
         nnoremap <silent><buffer><expr> <Bar>        defx#do_action('open', 'vsplit')
