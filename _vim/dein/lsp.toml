@@ -49,6 +49,7 @@ hook_add = '''
     nmap <leader>f  <Plug>(coc-format-selected)
 
     nmap <silent> <Leader>: :<C-u>CocList<cr>
+    nmap <silent> <Leader>; :<C-u>CocList<cr>
     nmap <silent> <Leader>h :<C-u>call CocAction('doHover')<cr>
     nmap <silent> <F5>      <Plug>(coc-definition)
     nmap <silent> <F4>      <Plug>(coc-references)
