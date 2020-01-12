@@ -5,12 +5,13 @@ repo     = 'neoclide/coc.nvim'
 hook_add = '''
     let g:coc_global_extensions = [
                 \     'coc-actions',
-                \     'coc-browser',
-                \     'coc-calc',
+                "\     'coc-browser',
+                "\     'coc-calc',
                 \     'coc-css',
                 \     'coc-docker',
-                \     'coc-explorer',
+                "\     'coc-explorer',
                 \     'coc-git',
+                \     'coc-go',
                 \     'coc-highlight',
                 \     'coc-html',
                 \     'coc-json',
@@ -23,13 +24,13 @@ hook_add = '''
                 \     'coc-rls',
                 \     'coc-rust-analyzer',
                 \     'coc-sh',
-                \     'coc-snippets',
+                "\     'coc-snippets',
                 \     'coc-spell-checker',
-                \     'coc-svg',
+                \     'coc-cspell-dicts',
+                "\     'coc-svg',
                 \     'coc-tsserver',
                 \     'coc-vetur',
                 \     'coc-vimlsp',
-                \     'coc-vimtex',
                 \     'coc-xml',
                 \     'coc-yaml',
                 \     'coc-yank',
@@ -49,8 +50,8 @@ hook_add = '''
 
     nmap <silent> <Leader>: :<C-u>CocList<cr>
     nmap <silent> <Leader>h :<C-u>call CocAction('doHover')<cr>
-    "nmap <silent> <space>df <Plug>(coc-definition)
-    "nmap <silent> <space>rf <Plug>(coc-references)
+    nmap <silent> <F5>      <Plug>(coc-definition)
+    nmap <silent> <F4>      <Plug>(coc-references)
     nmap <silent> <F2>      <Plug>(coc-rename)
     "nmap <silent> <space>fmt <Plug>(coc-format)
 '''
