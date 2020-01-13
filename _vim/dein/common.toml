@@ -8,6 +8,7 @@ repo = 'Shougo/dein.vim'
 repo  = 'Shougo/vimproc.vim'
 build = 'make'
 
+
 #--
 # filer
 #--
@@ -156,12 +157,14 @@ repo = 'vim-scripts/YankRing.vim'
 #
 # cs"'      - "foo" -> 'foo'
 # ds"       - "foo" -> foo
+# ds[       - [foo] -> foo
 # cs[{      - [foo] -> {foo}
 repo = 'tpope/vim-surround'
 
 [[plugins]]
 # " を入力で "" を自動で入力する
-repo = 'Townk/vim-autoclose'
+#repo = 'Townk/vim-autoclose'
+repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 # [vim-precious-の導入でtoml管理が快適に](https://qiita.com/kawaz/items/ee725f6214f91337b42b#vim-precious-%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%A7toml%E7%AE%A1%E7%90%86%E3%81%8C%E5%BF%AB%E9%81%A9%E3%81%AB)
@@ -305,7 +308,7 @@ hook_add = '''
 
 [[plugins]]
 # コメントを操作するプラギン
-repo     = 'scrooloose/nerdcommenter'
+repo     = 'preservim/nerdcommenter'
 hook_add = '''
     let NERDSpaceDelims = 1
     nmap ,, <Plug>NERDCommenterToggle
@@ -441,4 +444,11 @@ hook_add = '''
     " command mode
     tnoremap <ESC>   <C-\><C-n>
 '''
+
+
+[[plugins]]
+# > A solid language pack for Vim.
+# いろんな言語のsyntax highlightとかの言語パック
+repo  = 'sheerun/vim-polyglot'
+build = ['./build']
 
