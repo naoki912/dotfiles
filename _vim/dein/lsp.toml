@@ -1,7 +1,8 @@
 [[plugins]]
 repo     = 'neoclide/coc.nvim'
 #build    = ['pacman -S yarn']
-#rev      = 'release'
+build    =['./install.sh nightly']
+rev      = 'release'
 hook_add = '''
     let g:coc_global_extensions = [
                 \     'coc-actions',
