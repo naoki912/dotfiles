@@ -10,28 +10,24 @@ if type zplug > /dev/null 2>&1; then
     # git rootへcdするやつ
     zplug "mollifier/cd-gitroot"
 
-    #zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, of:"*linux*amd64*"
-    #zplug "junegunn/fzf", from:gh-r, as:command, use:bin/fzf-tmux
-    #zplug "peco/peco", as:command, from:gh-r, of:"*linux*amd64*"
+    # grep にaliasが設定されていると失敗する
+    zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+    zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+    zplug "peco/peco", as:command, from:gh-r, use:"*linux*amd64*"
 
     # tmux-xpanesのssh補完
     zplug "greymd/tmux-xpanes"
 
-    #zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, use:"*linux*amd64*", at:0.17.5 # 依存
-    #zplug "junegunn/fzf-bin", \
-    #    from:gh-r, \
-    #    as:command, \
-    #    rename-to:fzf, \
-    #    use:"*linux*amd64*"
-    #zplug "junegunn/fzf", as:command, use:bin/fzf-tmux # 依存
-
     # Install plugins if there are plugins that have not been installed
+    # grepにaliasが設定されているとfzf系のインストールに失敗するので一旦aliasを解除している
+    unalias grep
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
         if read -q; then
             echo; zplug install
         fi
     fi
+    alias grep='grep -n --color=auto'
 
     # Then, source plugins and add commands to $PATH
     zplug load #--verbose

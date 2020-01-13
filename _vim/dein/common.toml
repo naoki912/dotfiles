@@ -452,3 +452,7 @@ hook_add = '''
 repo  = 'sheerun/vim-polyglot'
 build = ['./build']
 
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
