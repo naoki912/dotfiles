@@ -21,13 +21,14 @@ hook_add = '''
     nmap <Leader>u  [denite]
     nmap <C-u>      [denite]
 
-    nnoremap <silent> [denite]a     :Dejite -split=floating file buffer     file:new<CR>
+    nnoremap <silent> [denite]a     :Denite -split=floating file buffer     file:new<CR>
     nnoremap <silent> [denite]b     :Denite -split=floating buffer          file:new<CR>
-    nnoremap <silent> [denite]c     :Denite -split=floating changes         file:new<CR>
+    nnoremap <silent> [denite]c     :Denite -split=floating change          file:new<CR>
     nnoremap <silent> [denite]f     :Denite -split=floating file            file:new<CR>
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]h     :Denite -split=floating help            file:new<CR>
-    nnoremap <silent> [denite]h     :Denite -split=floating command_history file:new<CR>
+    nnoremap <silent> [denite]h     :Denite -split=floating command_history         <CR>
+    nnoremap <silent> [denite]i     :Denite -split=floating file_mru                <CR>
     nnoremap <silent> [denite]l     :Denite -split=floating line            file:new<CR>
     nnoremap <silent> [denite]m     :Denite -split=floating mark            file:new<CR>
     nnoremap <silent> [denite]r     :Denite -split=floating file/rec        file:new<CR>
@@ -44,11 +45,12 @@ hook_add = '''
 
     nnoremap <silent> [denite]<C-a> :Denite -split=floating file buffer     file:new<CR>
     nnoremap <silent> [denite]<C-b> :Denite -split=floating buffer          file:new<CR>
-    nnoremap <silent> [denite]<C-c> :Denite -split=floating changes         file:new<CR>
+    nnoremap <silent> [denite]<C-c> :Denite -split=floating change          file:new<CR>
     nnoremap <silent> [denite]<C-f> :Denite -split=floating file            file:new<CR>
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]<C-h> :Denite -split=floating help            file:new<CR>
-    nnoremap <silent> [denite]<C-h> :Denite -split=floating command_history  file:new<CR>
+    nnoremap <silent> [denite]<C-h> :Denite -split=floating command_history         <CR>
+    nnoremap <silent> [denite]<C-i> :Denite -split=floating file_mru                <CR>
     nnoremap <silent> [denite]<C-l> :Denite -split=floating line            file:new<CR>
     nnoremap <silent> [denite]<C-m> :Denite -split=floating mark            file:new<CR>
     nnoremap <silent> [denite]<C-r> :Denite -split=floating file/rec        file:new<CR>
