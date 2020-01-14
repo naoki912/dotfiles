@@ -51,3 +51,9 @@ vim scp://admin@example.org//home/admin/test.txt
 EOF
 '
 
+
+alias h-vim-mark='\cat << EOF
+``  直前にいた場所に移動
+g;  直前に編集した場所に移動
+'
+
