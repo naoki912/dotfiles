@@ -28,7 +28,7 @@ hook_add = '''
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]h     :Denite -split=floating help            file:new<CR>
     nnoremap <silent> [denite]h     :Denite -split=floating command_history         <CR>
-    nnoremap <silent> [denite]i     :Denite -split=floating file_mru                <CR>
+    nnoremap <silent> [denite]i     :Denite -split=floating file_mru -default-action=drop<CR>
     nnoremap <silent> [denite]l     :Denite -split=floating line            file:new<CR>
     nnoremap <silent> [denite]m     :Denite -split=floating mark            file:new<CR>
     nnoremap <silent> [denite]r     :Denite -split=floating file/rec        file:new<CR>
@@ -50,7 +50,7 @@ hook_add = '''
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]<C-h> :Denite -split=floating help            file:new<CR>
     nnoremap <silent> [denite]<C-h> :Denite -split=floating command_history         <CR>
-    nnoremap <silent> [denite]<C-i> :Denite -split=floating file_mru                <CR>
+    nnoremap <silent> [denite]<C-i> :Denite -split=floating file_mru -default-action=drop<CR>
     nnoremap <silent> [denite]<C-l> :Denite -split=floating line            file:new<CR>
     nnoremap <silent> [denite]<C-m> :Denite -split=floating mark            file:new<CR>
     nnoremap <silent> [denite]<C-r> :Denite -split=floating file/rec        file:new<CR>
