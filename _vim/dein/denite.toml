@@ -23,7 +23,7 @@ hook_add = '''
 
     nnoremap <silent> [denite]a     :Denite -split=floating file buffer     file:new<CR>
     nnoremap <silent> [denite]b     :Denite -split=floating buffer          file:new<CR>
-    nnoremap <silent> [denite]c     :Denite -split=floating change          file:new<CR>
+    nnoremap <silent> [denite]c     :Denite -split=floating change                  <CR>
     nnoremap <silent> [denite]f     :Denite -split=floating file            file:new<CR>
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]h     :Denite -split=floating help            file:new<CR>
@@ -45,7 +45,7 @@ hook_add = '''
 
     nnoremap <silent> [denite]<C-a> :Denite -split=floating file buffer     file:new<CR>
     nnoremap <silent> [denite]<C-b> :Denite -split=floating buffer          file:new<CR>
-    nnoremap <silent> [denite]<C-c> :Denite -split=floating change          file:new<CR>
+    nnoremap <silent> [denite]<C-c> :Denite -split=floating change                  <CR>
     nnoremap <silent> [denite]<C-f> :Denite -split=floating file            file:new<CR>
     "nnoremap <silent> [denite]f     :Denite -split=floating defx/drive      file:new<CR>
     "nnoremap <silent> [denite]<C-h> :Denite -split=floating help            file:new<CR>
