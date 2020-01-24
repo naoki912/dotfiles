@@ -13,7 +13,7 @@ compton -b
 
 # https://github.com/jonls/redshift/issues/445
 # インストールし直しても直る
-redshift-gtk &
+#redshift-gtk &
 
 #twmnd &
 blueman-applet &
