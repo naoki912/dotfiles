@@ -3,6 +3,9 @@
 # sudoで環境変数とaliasを引き継ぐ
 alias sudo='sudo -E '
 
+# コマンド無効化
+alias fc='echo 無効化中'
+
 # コマンド省略
 alias g='grep'
 alias i='ip'
