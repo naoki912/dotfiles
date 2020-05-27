@@ -1,0 +1,23 @@
+{
+    "editor.fontFamily": "'Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.colorTheme": "Dark (Molokai)",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.otherModesKeyBindings": [
+        {
+            "before": ["leader","w"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        }
+    ]
+}
