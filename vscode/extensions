@@ -1,12 +1,13 @@
+MS-CEINTL.vscode-language-pack-ja
 dbaeumer.vscode-eslint
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 johnpapa.vscode-peacock
 karigari.chat
 ms-azuretools.vscode-docker
-MS-CEINTL.vscode-language-pack-ja
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
+ms-vscode-remote.remote-wsl
 ms-vscode.Go
 ms-vscode.vscode-typescript-tslint-plugin
 ms-vsliveshare.vsliveshare
