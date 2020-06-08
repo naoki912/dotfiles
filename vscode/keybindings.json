@@ -1,0 +1,40 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    { "key": "ctrl+e",        "command": "workbench.action.toggleSidebarVisibility" },
+    { "key": "ctrl+l",       "command": "workbench.action.focusNextGroup" },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openGlobalSettings"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]
