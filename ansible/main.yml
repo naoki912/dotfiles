@@ -38,6 +38,10 @@
         dest: ~/.zshrc.local
       - src: _sommelierrc
         dest: ~/.sommelierrc
+      - src: _tern-project
+        dest: ~/.tern-project
+      - src: _eslintrc
+        dest: ~/.eslintrc
 
       - src: _i3
         dest: ~/.i3
