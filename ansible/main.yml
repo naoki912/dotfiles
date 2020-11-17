@@ -81,6 +81,8 @@
         #- neovim-python
         #- autopep8
         #- flake8
+        # asdfで使う
+        - unzip
       Debian:
         - git
         - neovim
