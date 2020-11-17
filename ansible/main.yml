@@ -124,13 +124,13 @@
 
 
     pyenv:
-      - version: 3.8.3
+      - version: 3.9.0
         virtualenv: neovim3
         packages:
           - pynvim
           - flake8
           - black
-      - version: 2.7.16
+      - version: 2.7.18
         virtualenv: neovim2
         packages:
           - pynvim
