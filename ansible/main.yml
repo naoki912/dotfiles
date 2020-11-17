@@ -150,6 +150,7 @@
           - typescript
           - eslint
           - tslint
+          - yarn
 
 
   tasks:
