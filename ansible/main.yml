@@ -54,8 +54,8 @@
 
       - src: _gtkrc-2.0
         dest: ~/.gtkrc-2.0
-      - src: _config/gtk-3.0/settings.ini
-        dest: ~/.config/gtk-3.0/settings.ini
+      - src: _config/gtk-3.0
+        dest: ~/.config/gtk-3.0
 
       - src: _config/nvim
         dest: ~/.config/nvim
