@@ -1,14 +1,14 @@
 ---
-- name: pyenv | install required packages
-  package:
-    name: "{{ item }}"
-    state: present
-    #update_cache: yes
-  become: yes
-  loop:
-    - openssl-1.0
-  when:
-    - ansible_distribution == "Archlinux"
+#- name: pyenv | install required packages
+#  package:
+#    name: "{{ item }}"
+#    state: present
+#    #update_cache: yes
+#  become: yes
+#  loop:
+#    - openssl-1.0
+#  when:
+#    - ansible_distribution == "Archlinux"
 
 - name: pyenv | install pyenv
   git:
@@ -36,9 +36,9 @@
   # pyenv install -s だと changed になるので回避
   - name: pyenv | install python by pyenv
     shell: "pyenv install {{ item.item.version }}"
-    environment:
-      CFLAGS: "-I/usr/include/openssl-1.0"
-      LDFLAGS: "-L/usr/lib64/openssl-1.0"
+    #environment:
+    #  CFLAGS: "-I/usr/include/openssl-1.0"
+    #  LDFLAGS: "-L/usr/lib64/openssl-1.0"
     when: item.stdout == ''
     loop:
       "{{ result.results }}"

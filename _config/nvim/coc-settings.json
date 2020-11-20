@@ -5,5 +5,9 @@
             "rootPatterns": ["go.mod", ".vim/", ".git/"],
             "filetypes": ["go"]
         }
-    }
+    },
+    "yaml.schemas": {
+        "kubernetes": "/*.yaml"
+    },
+    "suggest.autoTrigger": "none"
 }

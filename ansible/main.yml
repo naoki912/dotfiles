@@ -38,6 +38,10 @@
         dest: ~/.zshrc.local
       - src: _sommelierrc
         dest: ~/.sommelierrc
+      - src: _tern-project
+        dest: ~/.tern-project
+      - src: _eslintrc
+        dest: ~/.eslintrc
 
       - src: _i3
         dest: ~/.i3
@@ -50,8 +54,8 @@
 
       - src: _gtkrc-2.0
         dest: ~/.gtkrc-2.0
-      - src: _config/gtk-3.0/settings.ini
-        dest: ~/.config/gtk-3.0/settings.ini
+      - src: _config/gtk-3.0
+        dest: ~/.config/gtk-3.0
 
       - src: _config/nvim
         dest: ~/.config/nvim
@@ -77,6 +81,8 @@
         #- neovim-python
         #- autopep8
         #- flake8
+        # asdfで使う
+        - unzip
       Debian:
         - git
         - neovim
@@ -113,18 +119,18 @@
         global: 3.1.0
       - name: terraform
         versions:
-          - 0.12.8
-        global: 0.12.8
+          - 0.13.5
+        global: 0.13.5
 
 
     pyenv:
-      - version: 3.7.4
+      - version: 3.9.0
         virtualenv: neovim3
         packages:
           - pynvim
           - flake8
           - black
-      - version: 2.7.16
+      - version: 2.7.18
         virtualenv: neovim2
         packages:
           - pynvim
@@ -144,6 +150,7 @@
           - typescript
           - eslint
           - tslint
+          - yarn
 
 
   tasks:
