@@ -74,3 +74,13 @@ on_source = ['vim-markdown']
 repo      = 'tyru/open-browser.vim'
 on_source = ['previm']
 
+[[plugins]]
+# クリップボードの画像をmarkdownに貼り付ける
+# :call mdip#MarkdownClipboardImage()
+repo     = 'ferrine/md-img-paste.vim'
+on_ft    = ['md', 'markdown']
+#build    = 'pacman -S xclip'
+hook_add = '''
+    nnoremap <silent> <Leader>mp :call mdip#MarkdownClipboardImage()<CR>
+'''
+
