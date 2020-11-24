@@ -1,19 +1,18 @@
 [global_config]
   focus = mouse
-  geometry_hinting = False
   title_transmit_bg_color = "#af0d00"
   title_transmit_fg_color = "#dd454c"
 [keybindings]
   close_term = None
   close_window = None
-  copy = None
+  copy = <Primary><Shift>c
   layout_launcher = None
   move_tab_left = None
   move_tab_right = None
   new_tab = None
   new_window = None
   next_tab = None
-  paste = None
+  paste = <Primary><Shift>v
   prev_tab = None
   split_horiz = None
   split_vert = None
@@ -31,15 +30,32 @@
   [[default]]
     active_encodings = SHIFT-JIS, UTF-8, ISO-8859-1
     background_darkness = 0.0
-    background_image = None
     background_type = transparent
+    cursor_color = "#ffffff"
     custom_command = env TERM=xterm-256color zsh
     delete_binding = ascii-del
     font = Ricty Discord 12
     foreground_color = "#ffffff"
     icon_bell = False
-    palette = "#000000:#ff4949:#40ff40:#ffa448:#5a5aff:#ff5eff:#44ffff:#aaaaaa:#555555:#ff9999:#a3ffa3:#ffff58:#a1a1ff:#ffa8ff:#bfffff:#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     scrollback_infinite = True
     scrollbar_position = hidden
+    use_custom_command = True
+    use_system_font = False
+  [[molokai]]
+    active_encodings = SHIFT-JIS, UTF-8, ISO-8859-1
+    background_color = "#121212"
+    background_darkness = 0.0
+    background_type = transparent
+    cursor_color = "#c20257"
+    custom_command = env TERM=xterm-256color zsh
+    delete_binding = ascii-del
+    font = Ricty Discord 12
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#181915:#7a0137:#498702:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#1d71ca:#af5fff:#5cd1f8:#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
     use_custom_command = True
     use_system_font = False
