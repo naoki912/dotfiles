@@ -20,6 +20,11 @@ hook_add = '''
 
     " 複数行の文字列強調を許可する
     "let g:vim_markdown_emphasis_multiline = 1
+
+    " 構文の隠蔽を無効化
+    " `[link text](link url)` が `link text` みたいに表示されるやつ
+    " カーソル位置がずれるので無効化
+    let g:vim_markdown_conceal = 0
 '''
 
 [[plugins]]
