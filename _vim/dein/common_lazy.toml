@@ -168,3 +168,9 @@ on_map = ['<C-a>', '<C-x>']
 repo   = 'tpope/vim-repeat'
 on_map = ['.']
 
+
+[[plugins]]
+# Vagrant
+repo   = 'hashivim/vim-vagrant'
+on_cmd = ['Vagrant']
+
