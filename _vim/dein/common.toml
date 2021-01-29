@@ -254,6 +254,8 @@ hook_add = '''
         highlight IndentGuidesOdd ctermbg=237
         highlight IndentGuidesEven ctermbg=240
     endfunction
+
+    :Molokai
 '''
 
 
