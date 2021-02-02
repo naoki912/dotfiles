@@ -90,6 +90,7 @@ alias h-machinectl-pull-dkr='echo "machinectl pull-dkr --verify=no --dkr-index-u
 alias h-machinectl-shell='echo "sudo machinectl shell user@container /bin/zsh"'
 
 alias h-tcpdump='echo "tcpdump -n -i eth0 -s 0 -w dumpfile.cap [filter]"'
+alias h-tcpdump-tips="echo \"tcpdump -i eth0 'tcp[20:2]=0x4745 or tcp[20:2]=0x4854'\""
 alias h-eth='echo "sudo ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules"'
 
 alias h-tar-rename='echo "\
