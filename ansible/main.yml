@@ -93,38 +93,38 @@
     asdf_plugins:
       - name: adr-tools
         versions:
-          - 3.0.0
-        global: 3.0.0
+          - latest
+        global: latest
       - name: helm
         versions:
           - 2.14.3
-        global: 2.14.3
+          - 3.5.2
+          - latest
+        global: latest
       - name: istioctl
         versions:
-          - 1.3.0
-        global: 1.3.0
+          - latest
+        global: latest
       - name: kubectl
         versions:
-          - 1.13.10
-          - 1.14.6
-          - 1.15.3
-        global: 1.15.3
+          - latest
+        global: latest
       - name: kubeseal
         versions:
-          - 0.8.3
-        global: 0.8.3
+          - latest
+        global: latest
       - name: kustomize
         versions:
-          - 3.1.0
-        global: 3.1.0
+          - latest
+        global: latest
       - name: terraform
         versions:
-          - 0.13.5
-        global: 0.13.5
+          - latest
+        global: latest
       - name: vagrant
         versions:
-          - 2.2.14
-        global: 2.2.14
+          - latest
+        global: latest
 
 
     pyenv:
