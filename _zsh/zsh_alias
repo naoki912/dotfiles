@@ -223,3 +223,8 @@ alias kgetyamlrolebinding='kubectl get rolebinding'
 alias kgetyamlsecrets='kubectl get secrets'
 alias kgetyamlserviceaccounts='kubectl get serviceaccounts'
 
+#---
+# fzf
+#---
+
+alias fzf='fzf --height="50%"'
