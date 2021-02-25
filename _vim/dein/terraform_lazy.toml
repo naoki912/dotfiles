@@ -3,8 +3,7 @@
 repo     = 'hashivim/vim-terraform'
 on_ft    = ['tf', 'terraform']
 hook_source = '''
-  " terraform fmtがしんどいので使わない
-  "let g:terraform_fmt_on_save=1
+  let g:terraform_fmt_on_save=1
 
   " 折りたたみ関連
   " うまく動作してくれない

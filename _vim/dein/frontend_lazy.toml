@@ -15,7 +15,7 @@ on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx'
 [[plugins]]
 repo     = 'othree/javascript-libraries-syntax.vim'
 on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx', 'tsx', 'html']
-hook_add = '''
+hook_source = '''
   let g:used_javascript_libs = 'jquery,underscore,react,flux,jasmine,d3'
   let b:javascript_lib_use_jquery = 1
   let b:javascript_lib_use_underscore = 1
@@ -32,6 +32,10 @@ on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx'
 [[plugins]]
 repo  = 'maxmellon/vim-jsx-pretty'
 on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx', 'tsx', 'html']
+hook_source = '''
+  let g:vim_jsx_pretty_highlight_close_tag = 1
+  let g:vim_jsx_pretty_colorful_config = 1
+'''
 
 [[plugins]]
 # .tern-project
@@ -52,3 +56,9 @@ on_source = ['mhartington/nvim-typescript']
 repo  = 'mhartington/nvim-typescript'
 on_ft = ['typescript']
 build = ['./install.sh']
+
+[[plugins]]
+# Formatter
+repo  = 'prettier/vim-prettier'
+on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx', 'tsx', 'html']
+build = ['yarn install']

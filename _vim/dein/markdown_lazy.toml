@@ -89,3 +89,9 @@ hook_add = '''
     nnoremap <silent> <Leader>mp :call mdip#MarkdownClipboardImage()<CR>
 '''
 
+#[[plugins]]
+# 動かない
+# 箇条書きで <Tab> でインデントする
+#repo  = 'violetyk/iikanji-markdown.vim'
+#on_ft = ['md', 'markdown']
+
