@@ -121,6 +121,10 @@
         versions:
           - 0.13.5
         global: 0.13.5
+      - name: vagrant
+        versions:
+          - 2.2.14
+        global: 2.2.14
 
 
     pyenv:
