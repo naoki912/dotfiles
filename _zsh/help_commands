@@ -332,6 +332,11 @@ alias h-gif="echo 'ffmpeg -i input.mp4 -an -r 15  -pix_fmt rgb24 -f gif output.g
 
 alias h-git-status-current-dir="echo 'git status | \grep -v \"\.\./\"'"
 alias h-git-add-p-new-file="echo 'git add -N FILE && git add -p FILE'"
+alias h-git-stash-force-pop="echo '\
+git commit -a -m 'tmp'
+git stash pop
+git add -a
+git reset HEAD^'"
 
 alias h-zsh-grml-zsh-config="echo '\
 wget -O ~/.zshrc http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
