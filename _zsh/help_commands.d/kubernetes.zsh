@@ -491,3 +491,9 @@ alias h-k8s-calico-reset='cat --bg=dark << EOF
 kubectl get pods -n kube-system | \\grep calico-node | awk "{print \$1}" | xargs kubectl -n kube-system delete pods
 EOF
 '
+
+alias h-k8s-port-forward='cat --bg=dark << EOF
+kubectl port-forward nginx-xxxxxxxxxx-xxxxx 30080:80 --address 0.0.0.0
+EOF
+'
+
