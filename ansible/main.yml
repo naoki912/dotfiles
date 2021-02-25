@@ -125,6 +125,15 @@
         versions:
           - latest
         global: latest
+      - name: firebase
+        versions:
+          - latest
+        global: latest
+      - name: usacloud
+        url: https://github.com/naoki912/asdf-usacloud
+        versions:
+          - latest
+        global: latest
 
 
     pyenv:
