@@ -6,10 +6,11 @@
 
 # TODO: ~/.tool-versions にまとめておいて `asdf install` でもいいかも
 - name: tools | asdf | add plugin
-  shell: "asdf plugin-add {{ item.name }}"
+  shell: "asdf plugin-add {{ item.name }} {% if item.url is defined %}{{ item.url }}{% endif %}"
   loop:
     "{{ asdf_plugins }}"
   ignore_errors: yes
+  tags: hoge
 
 - name: tools | asdf | plugin-update
   shell: "asdf plugin-update {{ item.name }}"
