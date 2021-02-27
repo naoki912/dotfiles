@@ -2,6 +2,7 @@
 
 # h-* commands
 
+alias h-tail='echo "tail -f sample.log | grep --line-buffered hoge"'
 alias h-awk='echo "\
 awk '\''{print \$1 \" \" \$1 }'\'' a.sh
 "'
