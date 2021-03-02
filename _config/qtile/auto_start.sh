@@ -3,7 +3,7 @@
 feh --bg-scale $HOME/.wallpaper.*
 #nitrogen --restore
 
-compton -b
+picom
 
 #franz &
 #google-musicmanager &
