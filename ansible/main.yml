@@ -8,8 +8,8 @@
     dotfiles:
       - src: _archey3.cfg
         dest: ~/.archey3.cfg
-      - src: _compton.conf
-        dest: ~/.compton.conf
+      - src: _picom.conf
+        dest: ~/.picom.conf
       - src: _gvimrc
         dest: ~/.gvimrc
       - src: _i3status.conf
