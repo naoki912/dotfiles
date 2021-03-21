@@ -25,7 +25,7 @@ hook_add         = '''
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
                 \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ], [ 'nyanmodoki' ] ],
+                \   'left': [ [ 'mode', 'paste' ], [ 'pyenv' ], [ 'fugitive', 'filename', 'method' ], [ 'ctrlpmark' ], [ 'nyanmodoki' ] ],
                 \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
                 \ },
                 \ 'component_function': {
@@ -38,6 +38,7 @@ hook_add         = '''
                 \   'ctrlpmark': 'CtrlPMark',
                 \   'pyenv' : 'MyPyenv',
                 \   'nyanmodoki': 'g:NyanModoki',
+                \   'method': 'NearestMethodOrFunction',
                 \ },
                 \ 'component_expand': {
                 \ },
@@ -47,6 +48,21 @@ hook_add         = '''
                 \ },
                 \ 'subseparator': { 'left': '|', 'right': '|' }
                 \ }
+
+    " https://github.com/liuchengxu/vista.vim#usage
+    function! NearestMethodOrFunction() abort
+        return get(b:, 'vista_nearest_method_or_function', '')
+    endfunction
+
+    set statusline+=%{NearestMethodOrFunction()}
+
+    " By default vista.vim never run if you don't call it explicitly.
+    "
+    " If you want to show the nearest function in your statusline automatically,
+    " you can add the following line to your vimrc
+    autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+    " ===END=== https://github.com/liuchengxu/vista.vim#usage
+
     function! MyPyenv()
         " lambdalisue/vim-pyenvが必要
         " 詳細は :help pyenv#info#(format|preset)

@@ -412,6 +412,10 @@ hook_add = '''
     endfunction"}}}
 '''
 
+[[plugins]]
+# deoplete source for vim-lsp
+repo = 'lighttiger2505/deoplete-vim-lsp'
+
 #[[plugins]]
 #repo = 'roxma/nvim-yarp'
 

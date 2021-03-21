@@ -1,62 +1,129 @@
 [[plugins]]
-repo     = 'neoclide/coc.nvim'
-#build    = ['pacman -S yarn']
-build    =['./install.sh nightly']
-rev      = 'release'
+repo     = 'prabirshrestha/vim-lsp'
 hook_add = '''
-    let g:coc_global_extensions = [
-                \     'coc-actions',
-                "\     'coc-browser',
-                "\     'coc-calc',
-                \     'coc-css',
-                \     'coc-docker',
-                "\     'coc-explorer',
-                "\     'coc-git',
-                \     'coc-go',
-                \     'coc-highlight',
-                \     'coc-html',
-                \     'coc-json',
-                \     'coc-lists',
-                "\     'coc-markdownlint',
-                \     'coc-marketplace',
-                \     'coc-pyright',
-                " TODO: config https://github.com/neoclide/coc-python
-                \     'coc-python',
-                \     'coc-rls',
-                \     'coc-rust-analyzer',
-                \     'coc-sh',
-                "\     'coc-snippets',
-                "\     'coc-spell-checker',
-                "\     'coc-cspell-dicts',
-                "\     'coc-svg',
-                "\     'coc-tsserver',
-                \     'coc-vetur',
-                \     'coc-vimlsp',
-                \     'coc-xml',
-                \     'coc-yaml',
-                \     'coc-yank',
-                \ ]
+    " グローバルに折りたたみを無効化
+    let g:lsp_fold_enabled = 0
 
-    nnoremap <silent> <Leader>: :<C-u>CocList<CR>
-    nnoremap <silent> <Leader>; :<C-u>CocList<CR>
+    " exampleそのまま
+    " https://github.com/prabirshrestha/vim-lsp/blob/350b3219cf917785426602a4b4870c1e8e3a5bc2/README.md
+    function! s:on_lsp_buffer_enabled() abort
+        setlocal omnifunc=lsp#complete
+        setlocal signcolumn=yes
+        if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+        nmap <buffer> gd <plug>(lsp-definition)
+        nmap <buffer> gs <plug>(lsp-document-symbol-search)
+        nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+        nmap <buffer> gr <plug>(lsp-references)
+        nmap <buffer> gi <plug>(lsp-implementation)
+        nmap <buffer> gt <plug>(lsp-type-definition)
+        nmap <buffer> <leader>rn <plug>(lsp-rename)
+        nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+        nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+        nmap <buffer> K <plug>(lsp-hover)
+        inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+        inoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
-    nnoremap <silent> <Leader>h :<C-u>call CocAction('doHover')<CR>
-    nnoremap <silent> K         :<C-u>call CocAction('doHover')<CR>
+        let g:lsp_format_sync_timeout = 1000
+        autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 
-    nnoremap <silent> gj        <Plug>(coc-diagnostic-next)
-    nnoremap <silent> gk        <Plug>(coc-diagnostic-prev)
-    nnoremap <silent> gl        <Plug>(coc-diagnostic-next-error)
-    nnoremap <silent> gh        <Plug>(coc-diagnostic-prev-error)
+        " refer to doc to add more commands
+    endfunction
 
-    nnoremap <silent> gd        <Plug>(coc-definition)
-    nnoremap <silent> gn        <Plug>(coc-rename)
-    nnoremap <silent> <F2>      <Plug>(coc-rename)
-    nnoremap <silent> gf        <Plug>(coc-format)
-    vnoremap <silent> gf        <Plug>(coc-format-selected)
-    nnoremap <silent> gt        <Plug>(coc-type-definition)
-    nnoremap <silent> gr        <Plug>(coc-references)
-    nnoremap <silent> gi        <Plug>(coc-implementation)
+    augroup lsp_install
+        au!
+        " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+        autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+    augroup END
 '''
+
+[[plugins]]
+# :LspInstallServer
+# 更新も同じコマンド
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+# ctagsのlsp版的な奴
+repo = 'liuchengxu/vista.vim'
+hook_add = '''
+    let g:vista_fzf_preview = ['right:50%']
+
+    " https://qiita.com/lighttiger2505/items/3065164798bc9cd615d4#%E3%82%A2%E3%82%A6%E3%83%88%E3%83%A9%E3%82%A4%E3%83%B3%E8%A1%A8%E7%A4%BA
+    let g:vista_sidebar_width = 40
+    let g:vista_echo_cursor = 0
+
+    " デフォルトの情報ソースをctagsにする
+    let g:vista_default_executive = 'ctags'
+    " 特定の言語の場合vim-lspを利用した情報ソースを利用するようにする
+    let g:vista_executive_for = {
+        \ 'go':     'vim_lsp',
+        \ 'python': 'vim_lsp',
+        \ }
+
+    " トグル(アウトラインを非表示の場合は表示、表示済みの場合は非表示に)
+    "nnoremap <silent> <Leader>o :<C-u>Vista!!<CR>
+    nnoremap <silent> <Leader>t :<C-u>Vista!!<CR>
+'''
+
+
+#[[plugins]]
+#repo     = 'neoclide/coc.nvim'
+##build    = ['pacman -S yarn']
+#build    =['./install.sh nightly']
+#rev      = 'release'
+#hook_add = '''
+#    let g:coc_global_extensions = [
+#                \     'coc-actions',
+#                "\     'coc-browser',
+#                "\     'coc-calc',
+#                \     'coc-css',
+#                \     'coc-docker',
+#                "\     'coc-explorer',
+#                "\     'coc-git',
+#                \     'coc-go',
+#                \     'coc-highlight',
+#                \     'coc-html',
+#                \     'coc-json',
+#                \     'coc-lists',
+#                "\     'coc-markdownlint',
+#                \     'coc-marketplace',
+#                \     'coc-pyright',
+#                " TODO: config https://github.com/neoclide/coc-python
+#                \     'coc-python',
+#                \     'coc-rls',
+#                \     'coc-rust-analyzer',
+#                \     'coc-sh',
+#                "\     'coc-snippets',
+#                "\     'coc-spell-checker',
+#                "\     'coc-cspell-dicts',
+#                "\     'coc-svg',
+#                "\     'coc-tsserver',
+#                \     'coc-vetur',
+#                \     'coc-vimlsp',
+#                \     'coc-xml',
+#                \     'coc-yaml',
+#                \     'coc-yank',
+#                \ ]
+#
+#    nnoremap <silent> <Leader>: :<C-u>CocList<CR>
+#    nnoremap <silent> <Leader>; :<C-u>CocList<CR>
+#
+#    nnoremap <silent> <Leader>h :<C-u>call CocAction('doHover')<CR>
+#    nnoremap <silent> K         :<C-u>call CocAction('doHover')<CR>
+#
+#    nnoremap <silent> gj        <Plug>(coc-diagnostic-next)
+#    nnoremap <silent> gk        <Plug>(coc-diagnostic-prev)
+#    nnoremap <silent> gl        <Plug>(coc-diagnostic-next-error)
+#    nnoremap <silent> gh        <Plug>(coc-diagnostic-prev-error)
+#
+#    nnoremap <silent> gd        <Plug>(coc-definition)
+#    nnoremap <silent> gn        <Plug>(coc-rename)
+#    nnoremap <silent> <F2>      <Plug>(coc-rename)
+#    nnoremap <silent> gf        <Plug>(coc-format)
+#    vnoremap <silent> gf        <Plug>(coc-format-selected)
+#    nnoremap <silent> gt        <Plug>(coc-type-definition)
+#    nnoremap <silent> gr        <Plug>(coc-references)
+#    nnoremap <silent> gi        <Plug>(coc-implementation)
+#'''
 
 
 #[[plugins]]

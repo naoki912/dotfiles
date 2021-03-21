@@ -101,16 +101,17 @@ hook_source = '''
 '''
 
 
-[[plugins]]
-# Tarbarによるクラスアウトライン
-repo        = 'majutsushi/tagbar'
-build       = ['pacman -S ctags']
-on_map      = ['<Leader>t']
-on_cmd      = ['TagbarToggle']
-hook_source = '''
-    nmap <Leader>t :TagbarToggle<CR>
-    " Exuberant ctags必須
-'''
+#[[plugins]]
+## liuchengxu/vista.vim を使うので無効化
+## Tarbarによるクラスアウトライン
+#repo        = 'majutsushi/tagbar'
+#build       = ['pacman -S ctags']
+#on_map      = ['<Leader>t']
+#on_cmd      = ['TagbarToggle']
+#hook_source = '''
+#    nmap <Leader>t :TagbarToggle<CR>
+#    " Exuberant ctags必須
+#'''
 
 
 [[plugins]]
