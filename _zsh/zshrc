@@ -131,6 +131,9 @@ function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
 
 function tmux_automatically_attach_session()
 {
+    # vscodeの時はtmuxを起動しない
+    [[ $TERM_PROGRAM == "vscode" ]] && return
+
     if is_screen_or_tmux_running; then
         ! is_exists 'tmux' && return 1
 
