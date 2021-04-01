@@ -6,25 +6,33 @@
 
 # TODO: ~/.tool-versions にまとめておいて `asdf install` でもいいかも
 - name: tools | asdf | add plugin
-  shell: "asdf plugin-add {{ item.name }} {% if item.url is defined %}{{ item.url }}{% endif %}"
+  shell: |
+    . ~/.asdf/asdf.sh
+    asdf plugin-add {{ item.name }} {% if item.url is defined %}{{ item.url }}{% endif %}
   loop:
     "{{ asdf_plugins }}"
   ignore_errors: yes
   tags: hoge
 
 - name: tools | asdf | plugin-update
-  shell: "asdf plugin-update {{ item.name }}"
+  shell: |
+    . ~/.asdf/asdf.sh
+    asdf plugin-update {{ item.name }}
   loop:
     "{{ asdf_plugins }}"
   ignore_errors: yes
 
 - name: tools | asdf | install
-  shell: "asdf install {{ item.0.name }} {{ item.1 }}"
+  shell: |
+    . ~/.asdf/asdf.sh
+    asdf install {{ item.0.name }} {{ item.1 }}
   loop:
     "{{ asdf_plugins | subelements('versions') }}"
 
 - name: tools | asdf | global
-  shell: "asdf global {{ item.name }} {{ item.global }}"
+  shell: |
+    . ~/.asdf/asdf.sh
+    asdf global {{ item.name }} {{ item.global }}
   loop:
     "{{ asdf_plugins }}"
 

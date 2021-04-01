@@ -22,7 +22,10 @@
 # 指定したversionのうち、未インストールのものをリストにする
 - name: nodenv | check node version
   # exit code操作のためにuniqに渡している
-  shell: "nodenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq"
+  shell: |
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    nodenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq
   register: result
   changed_when: result.stdout == ''
   check_mode: no
@@ -30,13 +33,19 @@
     "{{ nodenv }}"
 
 - name: nodenv | install node by nodenv
-  shell: "nodenv install {{ item.item.version }}"
+  shell: |
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    nodenv install {{ item.item.version }}
   when: item.stdout == ''
   loop:
     "{{ result.results }}"
 
 - name: nodenv | check nodenv alias version
-  shell: "nodenv alias --list | grep {{ item.virtualenv }} | cut -f3 -d' '"
+  shell: |
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    nodenv alias --list | grep {{ item.virtualenv }} | cut -f3 -d' '
   register: result
   changed_when: (item.version != result.stdout) and result.stdout != ''
   check_mode: no
@@ -44,7 +53,10 @@
     "{{ nodenv }}"
 
 - name: nodenv | create aliases
-  shell: "nodenv alias {{ item.item.virtualenv }} {{ item.item.version }}"
+  shell: |
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    nodenv alias {{ item.item.virtualenv }} {{ item.item.version }}
   when: (item.item.version != item.stdout) or item.stdout == ''
   loop:
     "{{ result.results }}"

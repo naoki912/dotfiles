@@ -26,7 +26,12 @@
   # 指定したversionのうち、未インストールのものをリストにする
   - name: pyenv | register specified python that is not installed
     # exit code操作のためにuniqに渡している
-    shell: "pyenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq
     register: result
     changed_when: result.stdout == ''
     check_mode: no
@@ -35,7 +40,12 @@
 
   # pyenv install -s だと changed になるので回避
   - name: pyenv | install python by pyenv
-    shell: "pyenv install {{ item.item.version }}"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv install {{ item.item.version }}
     #environment:
     #  CFLAGS: "-I/usr/include/openssl-1.0"
     #  LDFLAGS: "-L/usr/lib64/openssl-1.0"
@@ -51,7 +61,12 @@
   # そもそもインストールされていない場合はokにしている
   # Example: result.stdout == 3.7.2 (<- nvim3のpythonのversion, 未インストールなら '' になる)
   - name: pyenv | check the python version used in the specified virtualenv
-    shell: "pyenv virtualenvs --bare --skip-aliases | grep {{ item.virtualenv }} | cut -f1 -d'/'"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv virtualenvs --bare --skip-aliases | grep {{ item.virtualenv }} | cut -f1 -d'/'
     register: result
     changed_when: (item.version != result.stdout) and result.stdout != ''
     check_mode: no
@@ -60,7 +75,12 @@
 
   # 前の結果からpythonのバージョン違いのものだけを削除する
   - name: pyenv | delete virtualenv different from the specified version
-    shell: "pyenv virtualenv-delete -f {{ item.item.virtualenv }}"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv virtualenv-delete -f {{ item.item.virtualenv }}
     when: (item.item.version != item.stdout) and item.stdout != ''
     loop:
       "{{ result.results }}"
@@ -69,7 +89,12 @@
   # Example: result.stdout == neovim3 (未インストールなら '' になる)
   - name: pyenv | check for not installed version
     # exit code操作のためにuniqに渡している
-    shell: "pyenv virtualenvs --bare --skip-aliases | cut -f3 -d'/' | grep '^{{ item.virtualenv }}$' | uniq"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv virtualenvs --bare --skip-aliases | cut -f3 -d'/' | grep '^{{ item.virtualenv }}$' | uniq
     register: result
     changed_when: result.stdout == ''
     check_mode: no
@@ -78,7 +103,12 @@
 
   # pyenv virtualenv -f だと changed になるので回避
   - name: pyenv | create virtualenv
-    shell: "pyenv virtualenv {{ item.item.version }} {{ item.item.virtualenv }}"
+    shell: |
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH=$PYENV_ROOT/bin:$PATH
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+      pyenv virtualenv {{ item.item.version }} {{ item.item.virtualenv }}
     when: item.stdout == ''
     loop:
       "{{ result.results }}"

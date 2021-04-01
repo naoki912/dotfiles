@@ -12,7 +12,11 @@
 # 指定したversionのうち、未インストールのものをリストにする
 - name: rbenv | check ruby version
   # exit code操作のためにuniqに渡している
-  shell: "rbenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq"
+  shell: |
+    export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+    export PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+    rbenv versions --bare --skip-aliases | grep '^{{ item.version }}$' | uniq
   register: result
   changed_when: result.stdout == ''
   check_mode: no
@@ -20,7 +24,11 @@
     "{{ rbenv }}"
 
 - name: rbenv | install ruby by rbenv
-  shell: "rbenv install {{ item.item.version }}"
+  shell: |
+    export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+    export PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+    rbenv install {{ item.item.version }}
   when: item.stdout == ''
   loop:
     "{{ result.results }}"
