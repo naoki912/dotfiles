@@ -148,10 +148,6 @@ repo = 'elzr/vim-json'
 repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
-# 'p'によるペースト後Ctrl-p,Ctrl-nで履歴と置き換え
-repo = 'vim-scripts/YankRing.vim'
-
-[[plugins]]
 # 囲まれているものに対していろいろする
 # 使ってない
 #

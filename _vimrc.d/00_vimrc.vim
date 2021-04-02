@@ -159,7 +159,7 @@ set matchpairs& matchpairs+=<:>
 " バックスペースでなんでも消せるようにする
 set backspace=indent,eol,start
 
-" クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
+" クリップボードをデフォルトのレジスタとして指定。~~後にYankRingを使うので~~
 " 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
 if has('unnamedplus')
     set clipboard& clipboard+=unnamedplus,unnamed
