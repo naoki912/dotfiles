@@ -7,4 +7,5 @@
   with_items:
     "{{ services }}"
   become: yes
+  when: services is defined
 

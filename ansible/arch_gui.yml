@@ -10,7 +10,7 @@
       - rofi # dmenu
       - xorg-xinput
       - xorg-xmodmap
-      - xrandr
+      - xorg-xrandr
       - xss-lock
 
       # WM
@@ -18,7 +18,6 @@
 
       # Display Manager
       - lxdm
-      - lxdm-themes
       - adapta-gtk-theme
       - papirus-icon-theme
 
@@ -48,22 +47,32 @@
       - chromium
       - firefox
       - firefox-i18n-ja
-      - google-chrome
 
       # Developer Tools
       - dbeaver
       - gparted
       - remmina # VMC
+      - freerdp
       - vagrant
       - virtualbox
-      - wireshark-gtk
+      - wireshark-qt
+
+      # NetworkManager
+      - networkmanager
+      - network-manager-applet
+      - networkmanager-l2tp
+      - strongswan
+      - networkmanager-openconnect
+      - openconnect
 
     aur_packages:
       # WM
       - qtile-plasma
 
       # Display Manager
-      #- betterlockscreen
+      - lxdm-themes
+      - i3lock-color #betterlockscreenが依存
+      - betterlockscreen
 
       # Audio
       - pa-applet-git
@@ -76,6 +85,8 @@
 
     services:
       - bluetooth
+      - lxdm
+      - networkmanager
 
   roles:
     - arch_base
