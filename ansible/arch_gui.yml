@@ -1,0 +1,82 @@
+---
+# GUIデスクトップ
+
+- hosts: localhost
+  vars:
+    packages:
+      # Xorg系  / システム系
+      - arandr
+      - picom # compton
+      - rofi # dmenu
+      - xorg-xinput
+      - xorg-xmodmap
+      - xrandr
+      - xss-lock
+
+      # WM
+      - qtile
+
+      # Display Manager
+      - lxdm
+      - lxdm-themes
+      - adapta-gtk-theme
+      - papirus-icon-theme
+
+      # Audio
+      - pulseaudio
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+      - pavucontrol
+
+      # Bluetooth
+      - bluez
+      - bluez-utils
+
+      # Desktop Utils
+      #- azpainter
+      #- gimp
+      #- mc # Midnight Commander ファイルブラウザ
+      #- qtfm # ファイルマネージャー
+      #- shutter
+      - feh
+      - geeqie
+      - pcmanfm
+      - vlc
+      - xclip #  https://github.com/ferrine/md-img-paste.vim
+
+      # Browser
+      - chromium
+      - firefox
+      - firefox-i18n-ja
+      - google-chrome
+
+      # Developer Tools
+      - dbeaver
+      - gparted
+      - remmina # VMC
+      - vagrant
+      - virtualbox
+      - wireshark-gtk
+
+    aur_packages:
+      # WM
+      - qtile-plasma
+
+      # Display Manager
+      #- betterlockscreen
+
+      # Audio
+      - pa-applet-git
+
+      # Browser
+      - google-chrome
+
+      # Other
+      - ttf-ricty
+
+    services:
+      - bluetooth
+
+  roles:
+    - arch_base
+

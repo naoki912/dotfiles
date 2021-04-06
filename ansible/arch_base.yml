@@ -4,11 +4,71 @@
   vars:
 
     packages:
+      # shell
+      - archey3
+      - grml-zsh-config
+      - neovim
+      - pacman-contrib
+      - tmux
+      - tree
+      - unarchiver
+      - unzip
+      - zip
       - zsh
+
+      # Developer tools
+      - docker
+      - docker-compose
+      - go
+      - ipython
+      - npm
+
+      # network
+      - bind
+      - hping
+      - iftop
+      - lsof
+      - net-tools
+      - netcat
+      - nmap
+      - openssh
+      - picocom
+      - screen
+      - screen
+      - socat
+      - sshuttle
+      - tcpdump
+      - traceroute
+      - whois
+      - wscat
+
+      # stat系
+      - hddtemp
+      - hdparm
+      - lm_sensors
+      - procinfo-ng
+      - smartmontools
+      - sysstat
+
+      # Security
+      - chkrootkit # ルートキット検出ツール
+      - nessus #脆弱性スキャナ
+
+      # その他
+      - asp
+      - arch-wiki-docs
+      - arch-wiki-lite
+      - ctags # vim
+      - glances # alt top
+      - rfc-get
+      - w3m
 
     aur_packages:
       - paru
-      - google-chrome
+      - ptpython
+      - tmux-xpanes
+
+    services:
 
   roles:
     - arch_base

@@ -1,9 +1,17 @@
 ---
 - include_tasks: 01_packages.yml
+  tags:
+    - packages
 
 - include_tasks: 02_aur.yml
   with_items:
     "{{ aur_packages }}"
   loop_control:
     loop_var: aur_package
+  tags:
+    - aur
+
+- include_tasks: 03_services.yml
+  tags:
+    - services
 

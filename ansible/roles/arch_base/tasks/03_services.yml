@@ -1,0 +1,10 @@
+---
+- name: Service | Enable systemd.service
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    "{{ services }}"
+  become: yes
+
