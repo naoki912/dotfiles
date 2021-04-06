@@ -8,16 +8,23 @@
       - arandr
       - picom # compton
       - rofi # dmenu
+      - termite
+      - xf86-video-intel
+      - xorg-server
+      - xorg-xinit
       - xorg-xinput
       - xorg-xmodmap
       - xorg-xrandr
       - xss-lock
+      #- iio-sensor-proxy # xps13
 
       # WM
       - qtile
 
       # Display Manager
-      - lxdm
+      #- lxdm
+      - lightdm
+      - lightdm-webkit2-greeter # lightdm-webkit-theme-aetherが依存
       - adapta-gtk-theme
       - papirus-icon-theme
 
@@ -26,6 +33,7 @@
       - pulseaudio-alsa
       - pulseaudio-bluetooth
       - pavucontrol
+      #- sof-firmware # xps13
 
       # Bluetooth
       - bluez
@@ -70,7 +78,8 @@
       - qtile-plasma
 
       # Display Manager
-      - lxdm-themes
+      #- lxdm-themes
+      - lightdm-webkit-theme-aether
       - i3lock-color #betterlockscreenが依存
       - betterlockscreen
 
@@ -80,13 +89,11 @@
       # Browser
       - google-chrome
 
-      # Other
-      - ttf-ricty
-
     services:
-      - bluetooth
-      - lxdm
-      - networkmanager
+      - bluetooth.service
+      #- lxdm.service
+      - lightdm.service
+      - NetworkManager.service
 
   roles:
     - arch_base
