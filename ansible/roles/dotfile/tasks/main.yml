@@ -1,0 +1,51 @@
+---
+- import_tasks: 01_symlink.yml
+  tags:
+    - 01
+    - symlink
+
+- import_tasks: 10_packages.yml
+  tags:
+    - 10
+    - packages
+
+- import_tasks: 21_pyenv.yml
+  tags:
+    - 21
+    - pyenv
+
+- import_tasks: 22_rbenv.yml
+  tags:
+    - 22
+    - rbenv
+
+- import_tasks: 23_nodenv.yml
+  tags:
+    - 23
+    - nodenv
+
+- import_tasks: 24_goenv.yml
+  tags:
+    - 24
+    - goenv
+
+- import_tasks: 30_tools.yml
+  tags:
+    - 30
+    - tools
+
+- import_tasks: 31_vim.yml
+  tags:
+    - 31
+    - vim
+
+- import_tasks: 32_tmux.yml
+  tags:
+    - 32
+    - tmux
+
+- import_tasks: 33_zsh.yml
+  tags:
+    - 33
+    - zsh
+
