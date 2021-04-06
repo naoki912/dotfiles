@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+
+  vars:
+
+    packages:
+      - zsh
+
+    aur_packages:
+      - paru
+      - google-chrome
+
+  roles:
+    - arch_base
+

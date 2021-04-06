@@ -1,0 +1,44 @@
+---
+- name: aur | Check whether package is installed
+  ansible.builtin.shell: pacman -Qi {{ aur_package }}
+  register: result
+  ignore_errors: yes
+
+- block: # install package
+  - name: aur | Create temporary build directory
+    ansible.builtin.tempfile:
+      state: directory
+      suffix: build
+    register: build_dir
+
+  - name: aur | Download package.tar.gz
+    ansible.builtin.get_url:
+      url: https://aur.archlinux.org/cgit/aur.git/snapshot/{{ aur_package }}.tar.gz
+      dest: "{{ build_dir.path }}/{{ aur_package }}.tar.gz"
+
+  - name: aur | unarchive package.tar.gz
+    ansible.builtin.unarchive:
+      src: "{{ build_dir.path }}/{{ aur_package }}.tar.gz"
+      dest: "{{ build_dir.path }}"
+      remote_src: yes
+
+  - name: aur | build package
+    ansible.builtin.shell: makepkg --noconfirm -sf
+    args:
+      chdir: "{{ build_dir.path }}/{{ aur_package }}"
+
+  - name: aur | find package file
+    ansible.builtin.find:
+      paths: "{{ build_dir.path }}/{{ aur_package }}"
+      patterns: "*.pkg.tar.zst"
+    register: package_path
+
+  - name: aur | install package
+    community.general.pacman:
+      name: "{{ item.path }}"
+    with_items:
+      - "{{ package_path.files }}"
+    become: true
+
+  when: result.rc == 1
+

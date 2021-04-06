@@ -1,0 +1,9 @@
+---
+- include_tasks: 01_packages.yml
+
+- include_tasks: 02_aur.yml
+  with_items:
+    "{{ aur_packages }}"
+  loop_control:
+    loop_var: aur_package
+

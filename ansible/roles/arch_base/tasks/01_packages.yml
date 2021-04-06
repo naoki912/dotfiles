@@ -1,0 +1,14 @@
+---
+- name: packages | Upgrade packages
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+  become: yes
+
+- name: packages | Install packages
+  community.general.pacman:
+    name:
+      "{{ packages }}"
+    state: latest
+  become: yes
+
