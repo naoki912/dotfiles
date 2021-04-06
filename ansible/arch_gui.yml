@@ -9,6 +9,8 @@
       - picom # compton
       - rofi # dmenu
       - termite
+      - ttf-ubuntu-font-family
+      - xf86-input-libinput
       - xf86-video-intel
       - xorg-server
       - xorg-xinit
@@ -73,6 +75,10 @@
       - networkmanager-openconnect
       - openconnect
 
+      # network
+      - iwd
+      - wpa_supplicant
+
     aur_packages:
       # WM
       - qtile-plasma
@@ -89,11 +95,14 @@
       # Browser
       - google-chrome
 
+      # Developer tools
+      - visual-studio-code-bin
+
     services:
       - bluetooth.service
       #- lxdm.service
       - lightdm.service
-      - NetworkManager.service
+      #- NetworkManager.service
 
   roles:
     - arch_base
