@@ -1,0 +1,10 @@
+---
+- name: gui | libinput
+  ansible.builtin.template:
+    src: 30-touchpad.conf.j2
+    dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+

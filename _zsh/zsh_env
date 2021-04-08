@@ -33,10 +33,15 @@ fi
 export PATH=${HOME}/dotfiles/bin:${PATH}
 
 # ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS="@im=ibus"
-export DefaultIMModule=ibus
+#export GTK_IM_MODULE=ibus
+#export QT_IM_MODULE=ibus
+#export XMODIFIERS="@im=ibus"
+#export DefaultIMModule=ibus
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
 
 # asdf
 if [ -e ${HOME}/.asdf/asdf.sh ]; then

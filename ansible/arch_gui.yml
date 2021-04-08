@@ -18,6 +18,10 @@
       - xorg-xmodmap
       - xorg-xrandr
       - xss-lock
+      - fcitx5-mozc
+      - fcitx5-configtool
+      - fcitx5-gtk
+      - fcitx5-qt
       #- iio-sensor-proxy # xps13
 
       # WM
@@ -40,6 +44,7 @@
       # Bluetooth
       - bluez
       - bluez-utils
+      - blueman
 
       # Desktop Utils
       #- azpainter
@@ -79,9 +84,11 @@
       - iwd
       - wpa_supplicant
 
+      - acpi
+
     aur_packages:
       # WM
-      - qtile-plasma
+      - qtile-plasma-git
 
       # Display Manager
       #- lxdm-themes
@@ -94,9 +101,15 @@
 
       # Browser
       - google-chrome
+      - slack-desktop
 
       # Developer tools
       - visual-studio-code-bin
+
+      # Fonts
+      - nerd-fonts-complete
+
+      - zoom
 
     services:
       - bluetooth.service
@@ -106,4 +119,5 @@
 
   roles:
     - arch_base
+    - gui
 

@@ -19,6 +19,7 @@ picom -bc
 blueman-applet &
 fcitx-autostart &
 ibus-daemon -drx &
+fcitx5 -d
 nm-applet &
 pa-applet &
 parcellite &
