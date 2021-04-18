@@ -28,9 +28,9 @@
       - qtile
 
       # Display Manager
-      #- lxdm
-      - lightdm
-      - lightdm-webkit2-greeter # lightdm-webkit-theme-aetherが依存
+      - lxdm
+      #- lightdm
+      #- lightdm-webkit2-greeter # lightdm-webkit-theme-aetherが依存
       - adapta-gtk-theme
       - papirus-icon-theme
 
@@ -91,8 +91,8 @@
       - qtile-plasma-git
 
       # Display Manager
-      #- lxdm-themes
-      - lightdm-webkit-theme-aether
+      - lxdm-themes
+      #- lightdm-webkit-theme-aether
       - i3lock-color #betterlockscreenが依存
       - betterlockscreen
 
@@ -113,8 +113,8 @@
 
     services:
       - bluetooth.service
-      #- lxdm.service
-      - lightdm.service
+      - lxdm.service
+      #- lightdm.service
       #- NetworkManager.service
 
   roles:
