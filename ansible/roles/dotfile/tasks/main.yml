@@ -1,4 +1,9 @@
 ---
+#- name: git pull dotfiles
+#  ansible.builtin.git:
+#    repo: 'https://github.com/naoki912/dotfiles'
+#    dest: ~/dotfiles
+
 - import_tasks: 01_symlink.yml
   tags:
     - 01

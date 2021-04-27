@@ -8,3 +8,32 @@
     mode: '0644'
   become: yes
 
+- block:
+
+  - name: gui | lxdm | Ensure "session=/usr/bin/qtile" is in section "[base]" in specified file
+    community.general.ini_file:
+      path: /etc/lxdm/lxdm.conf
+      section: base
+      option: session
+      value: /usr/bin/cinnamon-session
+      #value: /usr/bin/qtile
+      no_extra_spaces: yes
+
+  - name: gui | lxdm | Ensure "gtk_theme=" is in section "[display]" in specified file
+    community.general.ini_file:
+      path: /etc/lxdm/lxdm.conf
+      section: display
+      option: gtk_theme
+      value: Adapta-Nokto-Eta
+      no_extra_spaces: yes
+
+  - name: gui | lxdm | Ensure "gtk_theme=" is in section "[display]" in specified file
+    community.general.ini_file:
+      path: /etc/lxdm/lxdm.conf
+      section: display
+      option: theme
+      value: ArchlinuxFull
+      no_extra_spaces: yes
+
+  become: yes
+
