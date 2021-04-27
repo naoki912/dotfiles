@@ -133,6 +133,11 @@
         versions:
           - latest
         global: latest
+      - name: etcd
+        versions:
+          # latestだと失敗する
+          - v3.4.15
+        global: v3.4.15
       - name: usacloud
         url: https://github.com/naoki912/asdf-usacloud
         versions:
