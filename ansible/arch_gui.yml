@@ -22,9 +22,12 @@
       - fcitx5-configtool
       - fcitx5-gtk
       - fcitx5-qt
+      - xclip # wslで使う
       #- iio-sensor-proxy # xps13
 
-      # WM
+      # DE / WM
+      - cinnamon
+      - blueberry # cinnamonで使うbluetooth manager
       - qtile
 
       # Display Manager
@@ -111,11 +114,14 @@
 
       - zoom
 
+      - netdata
+
     services:
       - bluetooth.service
       - lxdm.service
       #- lightdm.service
       #- NetworkManager.service
+      #- netdata.service
 
   roles:
     - arch_base
