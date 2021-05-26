@@ -1,14 +1,14 @@
-alias h-k8s-xpanes='cat --bg=dark << EOF
+alias h-k8s-xpanes='cat << EOF
 xpanes -c "kubectl exec -ti {} sh" \$(kubectl get pods -l app=sample-app -o jsonpath="{.items[*].metadata.name}")
 EOF
 '
 
-alias h-k8s-kubectl-get-pod-all='cat --bg=dark << EOF
+alias h-k8s-kubectl-get-pod-all='cat << EOF
 kubectl get pods --all-namespaces --include-uninitialized
 EOF
 '
 
-alias h-k8s-busybox='cat --bg=dark << EOF
+alias h-k8s-busybox='cat << EOF
 # - h-k8s-run
 # - h-k8s-manifest-pod
 
@@ -24,12 +24,12 @@ spec:
 EOF
 '
 
-alias h-k8s-kubectl-exec='cat --bg=dark << EOF
+alias h-k8s-kubectl-exec='cat << EOF
 kubectl exec -ti \$POD_NAME -c \$CONTAINER_NAME -- ls
 EOF
 '
 
-alias h-k8s-run='cat --bg=dark << EOF
+alias h-k8s-run='cat << EOF
 kubectl run busybox --image=busybox:1.28 --command -- sleep 3600
 kubectl get pods -l run=busybox
 POD_NAME=\$(kubectl get pods -l run=busybox -o jsonpath="{.items[0].metadata.name}")
@@ -37,7 +37,7 @@ kubectl exec -ti \$POD_NAME -- nslookup kubernetes
 EOF
 '
 
-alias h-k8s-manifest-pod='cat --bg=dark << EOF
+alias h-k8s-manifest-pod='cat << EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -55,7 +55,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-deployment='cat --bg=dark << EOF
+alias h-k8s-manifest-deployment='cat << EOF
 # https://github.com/MasayaAoyama/kubernetes-perfect-guide/blob/master/samples/chapter06/sample-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -79,7 +79,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-clusterip='cat --bg=dark << EOF
+alias h-k8s-manifest-clusterip='cat << EOF
 # https://github.com/MasayaAoyama/kubernetes-perfect-guide/blob/master/samples/chapter06/sample-clusterip-multi.yaml
 apiVersion: v1
 kind: Service
@@ -107,7 +107,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-nodeport='cat --bg=dark << EOF
+alias h-k8s-manifest-nodeport='cat << EOF
 # https://github.com/MasayaAoyama/kubernetes-perfect-guide/blob/master/samples/chapter06/sample-nodeport.yaml
 apiVersion: v1
 kind: Service
@@ -128,7 +128,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-lb='cat --bg=dark << EOF
+alias h-k8s-manifest-lb='cat << EOF
 # https://github.com/MasayaAoyama/kubernetes-perfect-guide/blob/master/samples/chapter06/sample-lb.yaml
 apiVersion: v1
 kind: Service
@@ -151,7 +151,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-daemonset='cat --bg=dark << EOF
+alias h-k8s-manifest-daemonset='cat << EOF
 # https://github.com/MasayaAoyama/kubernetes-perfect-guide/blob/master/samples/chapter05/sample-ds.yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -185,7 +185,7 @@ spec:
 EOF
 '
 
-alias h-k8s-manifest-pod-security-policy='cat --bg=dark << EOF
+alias h-k8s-manifest-pod-security-policy='cat << EOF
 # https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 
 apiVersion: policy/v1beta1
@@ -208,7 +208,7 @@ spec:
 EOF
 '
 
-alias h-k8s-config-value='cat --bg=dark << EOF
+alias h-k8s-config-value='cat << EOF
 # go-templateの外側の"はシングルクオートに変更すること
 kubectl config view -o go-template="{{ range .users }}{{ if eq .name "k8s-traning-admin" }}{{ index .user "client-certificate-data" }}{{ end }}{{ end }}" --raw=true
 base64 -d ...
@@ -217,18 +217,18 @@ kubectl config view -o jsonpath="{.users[?(@.name=="admin")].user.client-certifi
 EOF
 '
 
-alias h-k8s-manifest-help='cat --bg=dark << EOF
+alias h-k8s-manifest-help='cat << EOF
 kubectl explain deployment.spec
 EOF
 '
 
-alias h-k8s-patch-serial='cat --bg=dark << EOF
+alias h-k8s-patch-serial='cat << EOF
 # -pの"はシングルクオートに変更すること
 kubectl patch deployments nginx-deployment --type="json" -p="[{"op": "replace", "path": "/spec/template/metadata/annotations/serial", "value": "201812121620"}]"
 EOF
 '
 
-alias h-k8s-node-label='cat --bg=dark << EOF
+alias h-k8s-node-label='cat << EOF
 kubectl label nodes worker-0 key=value
 kubectl get nodes --show-labels
 
@@ -237,7 +237,7 @@ kubectl label node worker-0 node-role.kubernetes.io/worker=worker
 EOF
 '
 
-alias h-k8s-node-taint='cat --bg=dark << EOF
+alias h-k8s-node-taint='cat << EOF
 kubectl patch node worker-x --type="json" -p="[{"op": "add", "path": "/spec/taints", "value": [{"effect": "NoSchedule", "key": "node-role.kubernetes.io/worker"}] }]"
 or
 kubectl taint nodes worker-x key=value:NoSchedule
@@ -270,7 +270,7 @@ tolerations:
 EOF
 '
 
-alias h-k8s-node-drain='cat --bg=dark << EOF
+alias h-k8s-node-drain='cat << EOF
 # drainはScheduleされないようにするだけで、trait NoExecuteなどでPodを別に移す必要がある。
 
 kubectl drain master-0
@@ -287,7 +287,7 @@ kubectl uncordon master-0
 EOF
 '
 
-alias h-k8s-helm-install='cat --bg=dark << EOF
+alias h-k8s-helm-install='cat << EOF
 helm init
 
 kubectl create serviceaccount -n kube-system tiller
@@ -304,12 +304,12 @@ kubectl patch deployment \
 EOF
 '
 
-alias h-k8s-helm-ingress='cat --bg=dark << EOF
+alias h-k8s-helm-ingress='cat << EOF
 helm install stable/nginx-ingress --name my-ingress --set rbac.create=true --namespace kube-system --set controller.kind=DaemonSet,controller.hostNetwork=true
 EOF
 '
 
-alias h-k8s-preset-try-clusterip='cat --bg=dark << EOF
+alias h-k8s-preset-try-clusterip='cat << EOF
 ---
 apiVersion: v1
 kind: Pod
@@ -361,7 +361,7 @@ spec:
 EOF
 '
 
-alias h-k8s-preset-useradd-user='cat --bg=dark << EOF
+alias h-k8s-preset-useradd-user='cat << EOF
 # 新しくnamespaceを作成し、そのnamespaceのみを操作できるユーザーを作成する手順
 # develop namespaceだけ操作できるユーザーの作成例
 # Userを作成する方法
@@ -423,7 +423,7 @@ kubectl apply -f role-kero.yaml -f rolebind.yaml
 EOF
 '
 
-alias h-k8s-preset-useradd-sa='cat --bg=dark << EOF
+alias h-k8s-preset-useradd-sa='cat << EOF
 # default namespaceだけ操作できるユーザーの作成例
 # ServiceAccountを作成する方法
 
@@ -487,12 +487,12 @@ kubectl apply -f role-and-rolebind.yaml -n default
 EOF
 '
 
-alias h-k8s-calico-reset='cat --bg=dark << EOF
+alias h-k8s-calico-reset='cat << EOF
 kubectl get pods -n kube-system | \\grep calico-node | awk "{print \$1}" | xargs kubectl -n kube-system delete pods
 EOF
 '
 
-alias h-k8s-port-forward='cat --bg=dark << EOF
+alias h-k8s-port-forward='cat << EOF
 kubectl port-forward nginx-xxxxxxxxxx-xxxxx 30080:80 --address 0.0.0.0
 EOF
 '

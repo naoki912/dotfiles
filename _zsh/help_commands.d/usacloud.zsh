@@ -1,4 +1,4 @@
-alias h-usacloud-server-build='cat --bg=dark << EOF
+alias h-usacloud-server-build='cat << EOF
 usacloud server build \\
     --core=1 \\
     --memory=1 \\
@@ -32,7 +32,7 @@ usacloud server build --core=1 --memory=1 --disk-mode=create --os-type=ubuntu --
 EOF
 '
 
-alias h-usacloud-server-build-template='cat --bg=dark << EOF
+alias h-usacloud-server-build-template='cat << EOF
 usacloud server build -y --param-template {
     "core": 1,
     "memory": 1,

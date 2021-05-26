@@ -130,6 +130,8 @@ alias v='vim'
 
 if type ccat > /dev/null 2>&1; then
     alias cat='ccat --bg=dark '
+else
+    alias ccat='cat'
 fi
 
 # これを有効にするとzplugがエラーになる
