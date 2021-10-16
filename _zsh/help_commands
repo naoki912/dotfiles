@@ -38,6 +38,8 @@ alias h-mount2='echo "mount -t cifs -o username=USER //XXX.XXX.XXX.XXX/FILE /mnt
 
 alias h-pacstrap='echo "pacstrap -i -c -d SERVERDIR base base-devel zsh grml-zsh-config vim git openssh tmux"'
 alias h-grep-comment="echo \"grep -v -e '^\s*#' -e '^\s*$' FILE.txt\""
+alias h-grep-a='echo "grepで引っ掛けた行の下5行を追加で表示する
+grep -A 5 FILE.txt"'
 alias h-sed-comment="echo \"cat FILE.txt | sed '/^#/d' | sed '/^$/d'\""
 
 alias h-wake-on-lan='echo "wol --ipaddr=192.168.0.1 aa:aa:aa:aa:aa:aa"'
