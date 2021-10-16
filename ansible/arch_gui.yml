@@ -23,12 +23,22 @@
       - fcitx5-gtk
       - fcitx5-qt
       - xclip # wslで使う
+      - xorg-xbacklight
       #- iio-sensor-proxy # xps13
 
       # DE / WM
+      ## cinnamon
       - cinnamon
       - blueberry # cinnamonで使うbluetooth manager
+      - nemo
+      ## qtile
       - qtile
+      ## KDE
+      #- plasma-meta
+      #- kde-applications-meta
+      #- sddm
+      #- phonon-qt5-vlc #選択パッケージ (plasmaではこっちが推奨されているらしい？)
+      #- cronie #選択パッケージ (デフォルトの方)
 
       # Display Manager
       - lxdm
@@ -42,7 +52,12 @@
       - pulseaudio-alsa
       - pulseaudio-bluetooth
       - pavucontrol
-      #- sof-firmware # xps13
+      - alsa-utils
+
+      # xps13
+      - alsa-firmware
+      - alsa-ucm-conf
+      - sof-firmware
 
       # Bluetooth
       - bluez
@@ -88,6 +103,11 @@
       - wpa_supplicant
 
       - acpi
+      - flameshot
+      #- ccat
+
+      # other
+      - exfat-utils
 
     aur_packages:
       # WM
@@ -108,20 +128,28 @@
 
       # Developer tools
       - visual-studio-code-bin
+      - google-cloud-sdk
 
       # Fonts
       - nerd-fonts-complete
 
       - zoom
+      - discord
 
       - netdata
+
+      - insync
+      - insync-nemo
+
+      - obs-studio
 
     services:
       - bluetooth.service
       - lxdm.service
       #- lightdm.service
+      #- sddm.service
       #- NetworkManager.service
-      #- netdata.service
+      - netdata.service
 
   roles:
     - arch_base

@@ -115,6 +115,10 @@
         versions:
           - latest
         global: latest
+      - name: kubectx
+        versions:
+          - latest
+        global: latest
       - name: kustomize
         versions:
           - latest
