@@ -448,11 +448,13 @@ hook_add = '''
 '''
 
 
-[[plugins]]
+#[[plugins]]
+# バグるからコメントアウト
+#
 # > A solid language pack for Vim.
 # いろんな言語のsyntax highlightとかの言語パック
-repo  = 'sheerun/vim-polyglot'
-build = ['./build']
+#repo  = 'sheerun/vim-polyglot'
+#build = ['./build']
 
 
 [[plugins]]
