@@ -42,6 +42,8 @@
         dest: ~/.tern-project
       - src: _eslintrc
         dest: ~/.eslintrc
+      - src: _Xresources
+        dest: ~/.Xresources
 
       - src: _i3
         dest: ~/.i3
