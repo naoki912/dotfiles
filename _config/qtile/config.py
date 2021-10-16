@@ -251,14 +251,14 @@ for k, _ in bars.items():
             ),
             widget.CurrentLayout(),
             widget.Spacer(),
-            widget.Systray(),
+            widget.Systray(icon_size=40, padding=10),
             # widget.TextBox(text=' | Update '),
             # widget.Pacman(),
             # widget.TextBox(text=' | Screen:' + bars[k]['screen_name'] + ' |'),
             widget.TextBox(text=" |"),
             widget.Clock(format=" %Y-%m-%d %a %H:%M"),
         ],
-        25,
+        40,
         background="#333333",
         opacity=0.8,
     )
@@ -289,7 +289,7 @@ for k, _ in bars.items():
             # widget.TextBox(text='Net'),
             # widget.NetGraph(width=_GRAPH_WIDTH),
         ],
-        20,
+        35,
         background="#333333",
         opacity=0.8,
     )
@@ -299,13 +299,14 @@ screens = []
 for key, _ in bars.items():
     screens.append(Screen(top=bars[key]["top"], bottom=bars[key]["bottom"]))
 
-widget_defaults = dict(font="RictyDiscord", fontsize=16, padding=1)
+# widget_defaults = dict(font="RictyDiscord", fontsize=16, padding=1)
+widget_defaults = dict(font="RictyDiscord", fontsize=32, padding=1)
 
 auto_fullscreen = True
 
 
 def main(qtile):
-    """ This function is called when Qtile starts. """
+    """This function is called when Qtile starts."""
     pass
 
 

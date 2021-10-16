@@ -27,6 +27,8 @@ shutter &
 slack &
 xmodmap ~/.xmodmaprc
 xremap .xremaprc &
+insync start &
+flameshot &
 
 /usr/bin/xscreensaver -no-capture-stderr -no-splash &
 
