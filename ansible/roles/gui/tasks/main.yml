@@ -37,3 +37,17 @@
 
   become: yes
 
+
+#- block:
+#
+#  - name: gui | plasma | Create /usr/share/xsessions/plasma-qtile.desktop
+#    ansible.builtin.template:
+#      src: plasma-qtile.desktop.j2
+#      dest: /usr/share/xsessions/plasma-qtile.desktop
+#      owner: root
+#      group: root
+#      mode: '0644'
+#    become: yes
+#
+#  tags: plasma
+
