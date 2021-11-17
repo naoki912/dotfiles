@@ -111,10 +111,10 @@
         versions:
           - latest
         global: latest
-      - name: kubeseal
-        versions:
-          - latest
-        global: latest
+      #- name: kubeseal
+      #  versions:
+      #    - latest
+      #  global: latest
       - name: kubectx
         versions:
           - latest
@@ -124,10 +124,6 @@
           - latest
         global: latest
       - name: terraform
-        versions:
-          - latest
-        global: latest
-      - name: vagrant
         versions:
           - latest
         global: latest
@@ -144,6 +140,10 @@
           # latestだと失敗する
           - v3.4.15
         global: v3.4.15
+      - name: ghq
+        versions:
+          - latest
+        global: latest
       - name: usacloud
         url: https://github.com/naoki912/asdf-usacloud
         versions:
