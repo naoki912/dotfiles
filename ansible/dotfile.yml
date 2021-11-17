@@ -146,8 +146,8 @@
         global: latest
       - name: hub
         versions:
-          - latest
-        global: latest
+          - v2.14.2
+        global: v2.14.2
       - name: usacloud
         url: https://github.com/naoki912/asdf-usacloud
         versions:
