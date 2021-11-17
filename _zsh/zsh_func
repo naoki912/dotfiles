@@ -69,3 +69,9 @@ zle -N peco-src
 #bindkey '^]' peco-src
 bindkey '^g' peco-src
 
+
+# `$ ghq-update hoge`
+function ghq-update () {
+  ghq list ${1} | ghq get --update --parallel
+}
+
