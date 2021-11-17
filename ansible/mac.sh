@@ -43,6 +43,8 @@ brew install jq
 brew install tmux
 brew install neovim
 brew install iproute2-mac
+brew install ghq
+brew install hub
 
 # language
 brew install go
