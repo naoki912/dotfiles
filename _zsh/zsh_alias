@@ -115,6 +115,9 @@ alias ssh-config-update='echo "\
 Include ~/.ssh/config.d/*"'
 alias update-pkgbuild='updpkgsums && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git diff --cached'
 
+#alias g='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+
 # エイリアス
 alias Xterm='termite'
 alias xterm='termite'
