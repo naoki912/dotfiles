@@ -38,9 +38,11 @@ brew install openstackclient
 
 # command line tools
 brew install fzf
+brew install peco
 brew install jq
 brew install tmux
 brew install neovim
+brew install iproute2-mac
 
 # language
 brew install go
