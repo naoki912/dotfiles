@@ -251,14 +251,16 @@ for k, _ in bars.items():
             ),
             widget.CurrentLayout(),
             widget.Spacer(),
-            widget.Systray(icon_size=40, padding=10),
+            # widget.Systray(icon_size=40, padding=10),
+            widget.Systray(icon_size=20, padding=10),
             # widget.TextBox(text=' | Update '),
             # widget.Pacman(),
             # widget.TextBox(text=' | Screen:' + bars[k]['screen_name'] + ' |'),
             widget.TextBox(text=" |"),
             widget.Clock(format=" %Y-%m-%d %a %H:%M"),
         ],
-        40,
+        # 40,
+        20,
         background="#333333",
         opacity=0.8,
     )
@@ -289,7 +291,8 @@ for k, _ in bars.items():
             # widget.TextBox(text='Net'),
             # widget.NetGraph(width=_GRAPH_WIDTH),
         ],
-        35,
+        # 35,
+        20,
         background="#333333",
         opacity=0.8,
     )
@@ -299,8 +302,8 @@ screens = []
 for key, _ in bars.items():
     screens.append(Screen(top=bars[key]["top"], bottom=bars[key]["bottom"]))
 
-# widget_defaults = dict(font="RictyDiscord", fontsize=16, padding=1)
-widget_defaults = dict(font="RictyDiscord", fontsize=32, padding=1)
+widget_defaults = dict(font="RictyDiscord", fontsize=16, padding=1)
+# widget_defaults = dict(font="RictyDiscord", fontsize=32, padding=1)
 
 auto_fullscreen = True
 
