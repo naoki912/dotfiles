@@ -44,6 +44,8 @@
         dest: ~/.eslintrc
       - src: _Xresources
         dest: ~/.Xresources
+      - src: _alacritty.yml
+        dest: ~/.alacritty.yml
 
       - src: _i3
         dest: ~/.i3
@@ -65,8 +67,6 @@
         dest: ~/.config/qtile
       - src: _config/terminator
         dest: ~/.config/terminator
-      - src: _config/termite
-        dest: ~/.config/termite
       # TODO: mkdir
       - src: _config/oni/config.tsx
         dest: ~/.config/oni/config.tsx
