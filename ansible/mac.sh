@@ -26,6 +26,8 @@ brew install gnu-time
 brew install gnu-getopt
 brew install gnupg
 
+brew install tree
+
 # docker, kubernetes
 brew install docker
 brew install docker-compose
