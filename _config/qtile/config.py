@@ -13,7 +13,8 @@ class Commands(object):
     dmenu = "dmenu_wrapper"
     # terminal = 'terminator'
     # terminal = 'termite'
-    terminal = "termite --title=tmux -e tmux"
+    # terminal = "termite --title=tmux -e tmux"
+    terminal = "alacritty"
     nm_dmenu = "networkmanager_dmenu"
     rofi_window = "rofi_window"
     rofi_windowcd = "rofi_windowcd"
