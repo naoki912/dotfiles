@@ -41,6 +41,7 @@ brew install stern
 brew install openstackclient
 
 # command line tools
+brew install watch
 brew install fzf
 brew install peco
 brew install jq
@@ -49,6 +50,8 @@ brew install neovim
 brew install iproute2-mac
 brew install ghq
 brew install hub
+brew install tmux-xpanes
+brew install etcd
 
 # language
 brew install go
