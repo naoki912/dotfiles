@@ -11,7 +11,7 @@ function install_ansible_on_mac_with_brew() {
 }
 
 
-function install_ansible() {
+function install_ansible_on_mac() {
     if [ -d ${HOME}/.pyenv ]; then
         git clone https://github.com/pyenv/pyenv.git ~/.pyenv
         git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
