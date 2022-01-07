@@ -1,15 +1,4 @@
 ---
-#- name: pyenv | install required packages
-#  package:
-#    name: "{{ item }}"
-#    state: present
-#    #update_cache: yes
-#  become: yes
-#  loop:
-#    - openssl-1.0
-#  when:
-#    - ansible_distribution == "Archlinux"
-
 - name: pyenv | install pyenv
   git:
     repo: https://github.com/pyenv/pyenv.git

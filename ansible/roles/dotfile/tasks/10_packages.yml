@@ -1,8 +1,16 @@
 ---
-- name: packages | install packages
+- name: packages | install packages | Linux
   package:
     name: "{{ packages[ansible_distribution] }}"
     state: present
     #update_cache: yes
   become: yes
+  when: ansible_distribution != "MacOSX"
+
+- name: packages | install packages | Mac
+  homebrew:
+    name: "{{ packages[ansible_distribution] }}"
+    state: present
+  become: no
+  when: ansible_distribution == "MacOSX"
 
