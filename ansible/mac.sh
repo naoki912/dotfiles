@@ -41,17 +41,15 @@ brew install stern
 brew install openstackclient
 
 # command line tools
-brew install watch
-brew install fzf
-brew install peco
-brew install jq
-brew install tmux
-brew install neovim
-brew install iproute2-mac
+brew install etcd
 brew install ghq
 brew install hub
+brew install iproute2-mac
+brew install jq
+brew install neovim
+brew install tmux
 brew install tmux-xpanes
-brew install etcd
+brew install watch
 
 # language
 brew install go
