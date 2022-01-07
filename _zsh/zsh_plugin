@@ -11,9 +11,13 @@ if type zplug > /dev/null 2>&1; then
     zplug "mollifier/cd-gitroot"
 
     # grep にaliasが設定されていると失敗する
-    zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
-    zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
-    zplug "peco/peco", as:command, from:gh-r, use:"*linux*amd64*"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        zplug "junegunn/fzf", from:gh-r, as:command, rename-to:fzf, use:"*darwin*amd64*"
+        zplug "peco/peco", as:command, from:gh-r, use:"*darwin*amd64*"
+    else
+        zplug "junegunn/fzf", from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
+        zplug "peco/peco", as:command, from:gh-r, use:"*linux*amd64*"
+    fi
 
     # tmux-xpanesのssh補完
     zplug "greymd/tmux-xpanes"
