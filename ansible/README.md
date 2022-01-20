@@ -10,7 +10,9 @@ ansible-playbook arch_gui.yml --ask-become-pass
 ```
 
 macの場合
+
 ```sh
+. ~/dotfiles/_zsh/zsh_env
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -19,4 +21,3 @@ pyenv activate ansible
 
 pyenv exec ansible-playbook dotfile.yml --ask-become-pass
 ```
-
