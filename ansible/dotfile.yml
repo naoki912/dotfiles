@@ -90,6 +90,75 @@
         - neovim
         - exuberant-ctags
       MacOSX:
+        #--
+        # gnu
+        #--
+        - binutils
+        - coreutils
+        - diffutils
+        - findutils
+        - moreutils
+        - gawk
+        - gnu-sed
+        - gnu-tar
+        - gnutls
+        - grep
+        - gzip
+        - screen
+        - wdiff
+        - wget
+        - ed
+        - gnu-indent
+        - gnu-which
+        - gnu-time
+        - gnu-getopt
+        - gnupg
+        - tree
+        #--
+        # docker, kubernetes
+        #--
+        - docker
+        - docker-compose
+        - kind
+        - kubebuilder
+        - kubectx
+        - kubernetes-cli
+        - stern
+        #--
+        # openstack
+        #--
+        - brew install openstackclient
+        #--
+        # command line tools
+        #--
+        - etcd
+        - ghq
+        - hub
+        - iproute2-mac
+        - jq
+        - neovim
+        - tmux
+        - tmux-xpanes
+        - watch
+        #--
+        # language
+        #--
+        - go
+        - python
+        #--
+        # Casks
+        #--
+        - /homebrew/cask/docker
+        - /homebrew/cask/iterm2
+        - /homebrew/cask/visual-studio-code
+        #--
+        # Casks home
+        #--
+        - /homebrew/cask/google-chrome
+        - /homebrew/cask/discord
+        - /homebrew/cask/atok
+        - /homebrew/cask/karabiner-elements
+        - /homebrew/cask/vlc
 
 
     # https://github.com/cimon-io/ansible-role-asdf
