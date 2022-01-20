@@ -7,11 +7,20 @@
   become: yes
   when: ansible_distribution != "MacOSX"
 
+
 - name: packages | install packages | Mac
   homebrew:
     name: "{{ item }}"
     state: present
   become: no
-  loop: "{{ packages[ansible_distribution] }}"
+  loop: "{{ packages[ansible_distribution]["formula"] }}"
+  when: ansible_distribution == "MacOSX"
+
+- name: packages | install packages | Mac cask
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  become: no
+  loop: "{{ packages[ansible_distribution]["cask"] }}"
   when: ansible_distribution == "MacOSX"
 
