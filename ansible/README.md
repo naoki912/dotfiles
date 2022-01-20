@@ -18,7 +18,5 @@ eval "$(pyenv virtualenv-init -)"
 pyenv activate ansible
 
 pyenv exec ansible-playbook dotfile.yml --ask-become-pass
-pyenv exec ansible-playbook arch_base.yml --ask-become-pass
-pyenv exec ansible-playbook arch_gui.yml --ask-become-pass
 ```
 
