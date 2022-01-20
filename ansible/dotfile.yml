@@ -150,17 +150,17 @@
           #--
           # Casks
           #--
-          - /homebrew/cask/docker
-          - /homebrew/cask/iterm2
-          - /homebrew/cask/visual-studio-code
+          - docker
+          - iterm2
+          - visual-studio-code
           #--
           # Casks home
           #--
-          - /homebrew/cask/google-chrome
-          - /homebrew/cask/discord
-          - /homebrew/cask/atok
-          - /homebrew/cask/karabiner-elements
-          - /homebrew/cask/vlc
+          - google-chrome
+          - discord
+          - atok
+          - karabiner-elements
+          - vlc
 
 
     # https://github.com/cimon-io/ansible-role-asdf
