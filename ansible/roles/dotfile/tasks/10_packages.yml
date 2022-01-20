@@ -13,7 +13,7 @@
     name: "{{ item }}"
     state: present
   become: no
-  loop: "{{ packages[ansible_distribution]["formula"] }}"
+  loop: "{{ packages[ansible_distribution]['formula'] }}"
   when: ansible_distribution == "MacOSX"
 
 - name: packages | install packages | Mac cask
@@ -21,6 +21,6 @@
     name: "{{ item }}"
     state: present
   become: no
-  loop: "{{ packages[ansible_distribution]["cask"] }}"
+  loop: "{{ packages[ansible_distribution]['cask'] }}"
   when: ansible_distribution == "MacOSX"
 
