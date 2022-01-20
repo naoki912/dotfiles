@@ -9,8 +9,9 @@
 
 - name: packages | install packages | Mac
   homebrew:
-    name: "{{ packages[ansible_distribution] }}"
+    name: "{{ item }}"
     state: present
   become: no
+  loop: "{{ packages[ansible_distribution] }}"
   when: ansible_distribution == "MacOSX"
 
