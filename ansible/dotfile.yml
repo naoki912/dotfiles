@@ -134,7 +134,7 @@
         - etcd
         - ghq
         - hub
-        - iproute2-mac
+        - iproute2mac
         - jq
         - neovim
         - tmux

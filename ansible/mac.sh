@@ -44,7 +44,7 @@ brew install openstackclient
 brew install etcd
 brew install ghq
 brew install hub
-brew install iproute2-mac
+brew install iproute2mac
 brew install jq
 brew install neovim
 brew install tmux
