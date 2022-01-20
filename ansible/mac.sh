@@ -42,7 +42,6 @@ brew install openstackclient
 
 # command line tools
 brew install etcd
-brew install ghq
 brew install hub
 brew install iproute2mac
 brew install jq

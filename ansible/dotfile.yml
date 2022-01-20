@@ -133,7 +133,6 @@
           # command line tools
           #--
           - etcd
-          - ghq
           - hub
           - iproute2mac
           - jq
