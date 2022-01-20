@@ -8,7 +8,7 @@
   loop:
     # tmuxのクリップボード周り
     - xsel
-  when: ansible_distribution != "ArchLinux"
+  when: ansible_distribution == "ArchLinux"
 
 - name: tmux | install tpm
   git:
