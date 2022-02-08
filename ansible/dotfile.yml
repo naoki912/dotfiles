@@ -152,6 +152,7 @@
           - docker
           - iterm2
           - visual-studio-code
+          - scroll-reverser
           #--
           # Casks home
           #--
