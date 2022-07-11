@@ -74,5 +74,9 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export MANPATH="/usr/local/opt/gnu-which/libexec/gnuman:$MANPATH"
   export MANPATH="/usr/local/opt/gnu-time/libexec/gnubin:$MANPATH"
   export MANPATH="/usr/local/opt/gnu-getopt/libexec/gnubin:$MANPATH"
+
+  # java
+  export PATH="/usr/local/opt/openjdk/bin:$PATH"
+  export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 fi
 
