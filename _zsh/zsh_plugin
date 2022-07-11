@@ -11,7 +11,10 @@ if type zplug > /dev/null 2>&1; then
     zplug "mollifier/cd-gitroot"
 
     # grep にaliasが設定されていると失敗する
-    if [[ "$(uname -s)" == "Darwin" ]]; then
+    if [[ "$(uname -s)" == "Darwin" && "$(uname -p)" == "arm" ]]; then
+        zplug "junegunn/fzf", from:gh-r, as:command, rename-to:fzf, use:"*darwin*arm64*"
+        zplug "peco/peco", as:command, from:gh-r, use:"*darwin*arm64*"
+    elif [[ "$(uname -s)" == "Darwin" ]]; then
         zplug "junegunn/fzf", from:gh-r, as:command, rename-to:fzf, use:"*darwin*amd64*"
         zplug "peco/peco", as:command, from:gh-r, use:"*darwin*amd64*"
     else
