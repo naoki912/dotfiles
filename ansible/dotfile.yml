@@ -248,7 +248,7 @@
           - json # vim-terraform-completion
 
     nodenv:
-      - version: 12.7.0
+      - version: 18.2.0
         virtualenv: nvim
         packages:
           - neovim
