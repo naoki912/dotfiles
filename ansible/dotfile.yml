@@ -235,11 +235,11 @@
           - pynvim
           - flake8
           - black
-      - version: 2.7.18
-        virtualenv: neovim2
-        packages:
-          - pynvim
-          - flake8
+      #- version: 2.7.18
+      #  virtualenv: neovim2
+      #  packages:
+      #    - pynvim
+      #    - flake8
 
     rbenv:
       - version: 2.6.3
