@@ -169,6 +169,9 @@ alias gcheckout='git checkout'
 #--
 # kubectl
 #--
+
+alias k='kubectl'
+
 alias kget='kubectl get'
 alias kgetyaml='kubectl get -o yaml'
 alias klogs='kubectl logs'
@@ -233,3 +236,10 @@ alias kgetyamlserviceaccounts='kubectl get serviceaccounts'
 #---
 
 alias fzf='fzf --height="50%"'
+
+#---
+# docker
+#---
+
+alias compose='docker compose'
+
