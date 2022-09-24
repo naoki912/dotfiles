@@ -424,12 +424,6 @@ repo = 'lighttiger2505/deoplete-vim-lsp'
 #--
 
 
-# JetBrains + nvim
-# Brings JetBrains/IntelliJ IDEs magic to Neovim with minimal setup.
-[[plugins]]
-repo = 'beeender/Comrade'
-
-
 [[plugins]]
 # Dark powered shell interface for NeoVim and Vim8.
 repo     = 'Shougo/deol.nvim'
