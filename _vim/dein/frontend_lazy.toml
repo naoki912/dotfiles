@@ -46,7 +46,6 @@ on_ft = ['javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'jsx'
 # typescript
 #--
 
-# beeender/Comrade とコンフリクトするときがある
 [[plugins]]
 repo      = 'HerringtonDarkholme/yats.vim'
 on_ft     = ['typescript']
