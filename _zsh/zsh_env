@@ -78,5 +78,10 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # java
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
   export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+  # mysqlclient
+  export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 fi
 
