@@ -115,33 +115,40 @@
           #--
           # docker, kubernetes
           #--
-          - docker
-          - docker-compose
           - kind
           - kubebuilder
           - kubectx
           - kubernetes-cli
           - stern
           #--
-          # openstack
-          #--
-          - openstackclient
-          #--
           # command line tools
           #--
           - etcd
           - hub
-          - iproute2mac
           - jq
           - neovim
           - tmux
           - tmux-xpanes
           - watch
+          - bat
+          - fzf
+          - peco
+          - ghq
+          #--
+          # zsh
+          #--
+          - zsh-completions
+          - zsh-syntax-highlighting
+          - zsh-autosuggestions
           #--
           # language
           #--
           - go
           - python
+          #--
+          # infra
+          #--
+          - terraform
         cask:
           #--
           # Casks
@@ -157,15 +164,17 @@
           - google-drive
           - discord
           - atok
-          - karabiner-elements
           - vlc
+          - dbeaver-community
+          - background-music
+          - postman
 
 
     # https://github.com/cimon-io/ansible-role-asdf
     asdf_plugins:
 
     pyenv:
-      - version: 3.10.1
+      - version: 3.11.4
         virtualenv: neovim3
         packages:
           - pynvim
@@ -178,13 +187,13 @@
       #    - flake8
 
     rbenv:
-      - version: 2.6.3
+      - version: 3.2.2
         packages:
           - neovim
           - json # vim-terraform-completion
 
     nodenv:
-      - version: 18.2.0
+      - version: 20.4.0
         virtualenv: nvim
         packages:
           - neovim

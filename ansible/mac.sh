@@ -35,18 +35,15 @@ brew install kubectx
 brew install kubernetes-cli
 brew install stern
 
-# openstack
-brew install openstackclient
-
 # command line tools
 brew install etcd
 brew install hub
-brew install iproute2mac
 brew install jq
 brew install neovim
 brew install tmux
 brew install tmux-xpanes
 brew install watch
+brew install bat
 brew install fzf
 brew install peco
 brew install ghq
@@ -67,4 +64,4 @@ brew install terraform
 brew install --cask docker
 brew install --cask iterm2
 brew install --cask visual-studio-code
-
+brew install --cask scroll-reverser

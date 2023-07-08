@@ -16,3 +16,6 @@ export DefaultIMModule=fcitx
 
 light-locker &
 
+# Added by Docker Desktop
+source ${HOME}/.docker/init-bash.sh || true
+

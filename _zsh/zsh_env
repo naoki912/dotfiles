@@ -33,6 +33,7 @@ fi
 # local bin
 # PATHの先頭に持ってこないと bin/openstack が .pyenv/shims/openstack を参照して無限ループするので注意
 export PATH=${HOME}/dotfiles/bin:${PATH}
+export PATH=${HOME}/.local/bin:${PATH}
 
 # ibus
 #export GTK_IM_MODULE=ibus
@@ -83,5 +84,23 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
-fi
 
+
+  # zsh-completions
+  if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+  fi
+  # You may also need to force rebuild `zcompdump`:
+  #rm -f ~/.zcompdump; compinit
+  # "zsh compinit: insecure directories" という警告が出る場合は以下を実行する
+  #chmod -R go-w '/opt/homebrew/share/zsh'
+
+  # zsh-syntax-highlighting
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  # zsh-autosuggestions
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
