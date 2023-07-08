@@ -138,10 +138,9 @@ else
     alias ccat='cat'
 fi
 
-# これを有効にするとzplugがエラーになる
-#if type hub > /dev/null 2>&1; then
-#    alias git='hub'
-#fi
+if type hub > /dev/null 2>&1; then
+    alias git='hub'
+fi
 
 # 情報を表示させる
 alias jmeter='cd /usr/local/java/apache-jmeter-2.12/bin/ ; echo "LANG=C(eng) and ./jmeter"'

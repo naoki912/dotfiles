@@ -80,11 +80,14 @@
         - npm
         - archey3
         - neovim
-        #- neovim-python
-        #- autopep8
-        #- flake8
+        - fzf
+        - peco
         # asdfで使う
         - unzip
+        # zsh
+        - zsh-completions
+        - zsh-syntax-highlighting
+        - zsh-autosuggestions
       Debian:
         - git
         - neovim

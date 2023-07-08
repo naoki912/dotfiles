@@ -111,13 +111,3 @@ chmod 700 ~/dotfiles/_vim/undo/
 
 sudo -E pacman -S --noconfirm xsel
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-
-#--
-# zsh
-#--
-
-if type packer > /dev/null 2>&1; then
-    packer -S --noconfirm zplug
-fi
-

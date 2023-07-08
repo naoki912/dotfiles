@@ -49,6 +49,14 @@ brew install neovim
 brew install tmux
 brew install tmux-xpanes
 brew install watch
+brew install fzf
+brew install peco
+brew install hub
+
+# zsh
+brew install zsh-completions
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
 
 # language
 brew install go

@@ -1,13 +1,4 @@
 ---
-#- name: zsh | install zplug
-#  aur:
-#    name: zplug
-
-- name: zsh | install zplug
-  git:
-    repo: https://github.com/zplug/zplug.git
-    dest: ~/.zplug
-
 - name: zsh | download grml-zsh-config
   get_url:
     url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
