@@ -1,6 +1,3 @@
-# Created by newuser for 5.0.7
-
-# .bashrc Imput
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -17,14 +14,7 @@ zstyle ':completion:*' verbose yes
 #zstyle ':completion:*:warnings' format 'No matches for: %d'
 #zstyle ':completion:*' group-name ''
 
-# android-ndk
-#source /etc/profile.d/android-ndk.sh
-
-# java font アンチエイリアス
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
-
 export EDITOR="nvim"
-#export TERM=xterm-256color
 
 # ryan 256 color support
 if [[ -z $TMUX ]]; then
@@ -65,12 +55,12 @@ ls_abbrev() {
             fi
             ;;
     esac
- 
+
     local ls_result
     ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
- 
+
     local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
- 
+
     if [ $ls_lines -gt 35 ]; then
         echo "$ls_result" | head -n 18
         echo '...'
@@ -85,22 +75,15 @@ ls_abbrev() {
 
 
 ## Command history configuration
-##
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt hist_ignore_dups     # ignore duplication command history list
-# setopt share_history        # share command history data 
-
-# functions
-#function spam() {
-#
-#}
 
 # ssh先のIPを補完
-function print_known_hosts (){ 
+function print_known_hosts (){
     if [ -f $HOME/.ssh/known_hosts ]; then
-        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1 
+        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1
     fi
 }
 _cache_hosts=($( print_known_hosts ))
@@ -127,16 +110,6 @@ function tmux_automatically_attach_session()
 
     if is_screen_or_tmux_running; then
         ! is_exists 'tmux' && return 1
-
-        #if is_tmux_runnning; then
-        #    echo "${fg_bold[green]} _____ __  __ _   ___  __ ${reset_color}"
-        #    echo "${fg_bold[green]}|_   _|  \/  | | | \ \/ / ${reset_color}"
-        #    echo "${fg_bold[green]}  | | | |\/| | | | |\  /  ${reset_color}"
-        #    echo "${fg_bold[green]}  | | | |  | | |_| |/  \  ${reset_color}"
-        #    echo "${fg_bold[green]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
-        #elif is_screen_running; then
-        #    echo "This is on screen."
-        #fi
     else
         if shell_has_started_interactively && ! is_ssh_running; then
             if ! is_exists 'tmux'; then
@@ -176,20 +149,3 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
-
-# ユーザによってpromptを変更
-case ${UID} in
-0)
-    prompt grml
-    echo "${fg_bold[red]}
- ██▀███   ▒█████   ▒█████  ▄▄▄█████▓
- ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓  ██▒ ▓▒
- ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▒ ▓██░ ▒░
- ▒██▀▀█▄  ▒██   ██░▒██   ██░░ ▓██▓ ░ 
- ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░  ▒██▒ ░ 
- ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░   ▒ ░░   
-   ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░     ░    
-     ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒    ░      
-        ░         ░ ░      ░ ░  ${reset_color}"
-esac
-

@@ -35,15 +35,6 @@ if [ -d $HOME/.zsh/ ]; then
     echo "load func"
     load_config ${config_dir}/zsh_func
 
-    echo "load autoload"
-    load_config ${config_dir}/zsh_autoload
-
-    echo "load var"
-    load_config ${config_dir}/zsh_var
-
-    echo "load startup"
-    load_config ${config_dir}/zsh_startup
-
     echo "load plugin"
     load_config ${config_dir}/zsh_plugin
 
