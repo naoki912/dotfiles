@@ -108,15 +108,6 @@ _cache_hosts=($( print_known_hosts ))
 # ーバインドをemacsに変更
 bindkey -e
 
-# 変態キーバインド
-function cdup() {
-    echo
-    cd ..
-    zle reset-prompt
-}
-zle -N cdup
-bindkey '\^' cdup
-
 ##########
 # TMUX
 ##########
