@@ -25,6 +25,10 @@
       - go
       - ipython
       - npm
+      - kubectl
+      - kubectx
+      - terraform
+      - goreleaser
 
       # network
       - iptables
@@ -53,6 +57,11 @@
       - smartmontools
       - sysstat
 
+      # zsh
+      - zsh-completions
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+
       # その他
       - asp
       - arch-wiki-docs
@@ -60,11 +69,14 @@
       - ctags # vim
       - glances # alt top
       - w3m
+      - fzf
+      - peco
 
     aur_packages:
       - paru
       - ptpython
       - tmux-xpanes
+      - ghq
 
       # Network
       #- wscat

@@ -80,14 +80,8 @@
         - npm
         - archey3
         - neovim
-        - fzf
-        - peco
         # asdfで使う
         - unzip
-        # zsh
-        - zsh-completions
-        - zsh-syntax-highlighting
-        - zsh-autosuggestions
       Debian:
         - git
         - neovim
@@ -169,67 +163,6 @@
 
     # https://github.com/cimon-io/ansible-role-asdf
     asdf_plugins:
-      - name: adr-tools
-        versions:
-          - latest
-        global: latest
-      - name: helm
-        versions:
-          - 2.14.3
-          - 3.5.2
-          - latest
-        global: latest
-      - name: istioctl
-        versions:
-          - latest
-        global: latest
-      - name: kubectl
-        versions:
-          - latest
-        global: latest
-      #- name: kubeseal
-      #  versions:
-      #    - latest
-      #  global: latest
-      - name: kubectx
-        versions:
-          - latest
-        global: latest
-      - name: kustomize
-        versions:
-          - latest
-        global: latest
-      - name: terraform
-        versions:
-          - latest
-        global: latest
-      - name: firebase
-        versions:
-          - latest
-        global: latest
-      - name: goreleaser
-        versions:
-          - latest
-        global: latest
-      - name: etcd
-        versions:
-          # latestだと失敗する
-          - v3.4.15
-        global: v3.4.15
-      - name: ghq
-        versions:
-          - latest
-        global: latest
-      - name: hub
-        versions:
-          - v2.14.2
-        global: v2.14.2
-      - name: usacloud
-        url: https://github.com/naoki912/asdf-usacloud
-        versions:
-          - latest
-        global: latest
-
 
     pyenv:
       - version: 3.10.1

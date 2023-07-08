@@ -29,8 +29,6 @@ brew install gnupg
 brew install tree
 
 # docker, kubernetes
-brew install docker
-brew install docker-compose
 brew install kind
 brew install kubebuilder
 brew install kubectx
@@ -51,7 +49,7 @@ brew install tmux-xpanes
 brew install watch
 brew install fzf
 brew install peco
-brew install hub
+brew install ghq
 
 # zsh
 brew install zsh-completions
@@ -61,6 +59,9 @@ brew install zsh-autosuggestions
 # language
 brew install go
 brew install python
+
+# infra
+brew install terraform
 
 #==> Casks
 brew install --cask docker
