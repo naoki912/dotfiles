@@ -11,7 +11,6 @@ from plasma import layout as plasma_layout
 
 class Commands(object):
     dmenu = "dmenu_wrapper"
-    # terminal = 'terminator'
     # terminal = 'termite'
     # terminal = "termite --title=tmux -e tmux"
     terminal = "alacritty"

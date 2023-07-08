@@ -17,9 +17,7 @@ xss-lock -- xscreensaver-command -lock &
 #Virtual 2048 2048
 
 # Here i3 is kept as default
-#session=${1:-i3}
 session=${1:-qtile}
-#session=${1:-wingo}
 
 case $session in
     awesome           ) exec awesome;;

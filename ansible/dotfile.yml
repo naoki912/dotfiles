@@ -12,8 +12,6 @@
         dest: ~/.picom.conf
       - src: _gvimrc
         dest: ~/.gvimrc
-      - src: _i3status.conf
-        dest: ~/.i3status.conf
       - src: _ideavimrc
         dest: ~/.ideavimrc
       - src: _profile
@@ -47,8 +45,6 @@
       - src: _alacritty.yml
         dest: ~/.alacritty.yml
 
-      - src: _i3
-        dest: ~/.i3
       - src: _vim
         dest: ~/.vim
       - src: _vimrc.d
@@ -65,8 +61,6 @@
         dest: ~/.config/nvim
       - src: _config/qtile
         dest: ~/.config/qtile
-      - src: _config/terminator
-        dest: ~/.config/terminator
       # TODO: mkdir
       - src: _config/oni/config.tsx
         dest: ~/.config/oni/config.tsx
