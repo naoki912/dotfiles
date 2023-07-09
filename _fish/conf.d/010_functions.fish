@@ -5,6 +5,7 @@ function cd-ghq
         commandline -f repaint
     end
     clear
+    commandline -f repaint
 end
 
 bind \cg cd-ghq
