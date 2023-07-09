@@ -55,6 +55,14 @@
       - src: _config/oni/config.tsx
         dest: ~/.config/oni/config.tsx
 
+      # fish
+      - src: _fish/config.fish
+        dest: ~/.config/fish/config.fish
+      - src: _fish/conf.d
+        dest: ~/.config/fish/conf.d
+      - src: _fish/completions
+        dest: ~/.config/fish/completion
+
     # ansible_distribution
     packages:
       Archlinux:

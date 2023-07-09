@@ -9,10 +9,8 @@ if command -v pyenv &> /dev/null; then
 fi
 
 # ruby
-export PATH=${HOME}/.gem/ruby/2.3.0/bin:${PATH}
-export PATH=${HOME}/.rbenv/bin:${PATH}
 if command -v rbenv &> /dev/null; then
-  eval "$(rbenv init -)"
+  eval "$(~/.rbenv/bin/rbenv init - zsh)"
 fi
 
 # node
@@ -31,9 +29,7 @@ if [ -d ${HOME}/.zsh/completions ]; then
 fi
 
 # local bin
-# PATHの先頭に持ってこないと bin/openstack が .pyenv/shims/openstack を参照して無限ループするので注意
 export PATH=${HOME}/dotfiles/bin:${PATH}
-export PATH=${HOME}/.local/bin:${PATH}
 
 # ibus
 #export GTK_IM_MODULE=ibus
@@ -54,27 +50,27 @@ fpath=(${ASDF_DIR}/completions $fpath)
 
 # brew
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/ed/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-time/libexec/gnubin:$PATH"
-  export PATH="/usr/local/opt/gnu-getopt/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/ed/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-indent/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-which/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-time/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-getopt/libexec/gnubin:$PATH"
 
-  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/ed/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-indent/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-which/libexec/gnuman:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-time/libexec/gnubin:$MANPATH"
-  export MANPATH="/usr/local/opt/gnu-getopt/libexec/gnubin:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/findutils/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-sed/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-tar/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/grep/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/ed/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-indent/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-which/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-time/libexec/gnuman:$MANPATH"
+  export MANPATH="/opt/homebrew/opt/gnu-getopt/libexec/gnuman:$MANPATH"
 
   # java
   export PATH="/usr/local/opt/openjdk/bin:$PATH"
