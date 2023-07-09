@@ -6,12 +6,8 @@
     path: ~/dotfiles
 
     dotfiles:
-      - src: _archey3.cfg
-        dest: ~/.archey3.cfg
       - src: _picom.conf
         dest: ~/.picom.conf
-      - src: _gvimrc
-        dest: ~/.gvimrc
       - src: _ideavimrc
         dest: ~/.ideavimrc
       - src: _profile
@@ -34,12 +30,6 @@
         dest: ~/.zprofile
       - src: _zshrc.local
         dest: ~/.zshrc.local
-      - src: _sommelierrc
-        dest: ~/.sommelierrc
-      - src: _tern-project
-        dest: ~/.tern-project
-      - src: _eslintrc
-        dest: ~/.eslintrc
       - src: _Xresources
         dest: ~/.Xresources
       - src: _alacritty.yml
