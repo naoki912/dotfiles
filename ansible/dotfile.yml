@@ -127,12 +127,6 @@
           - peco
           - ghq
           #--
-          # zsh
-          #--
-          - zsh-completions
-          - zsh-syntax-highlighting
-          - zsh-autosuggestions
-          #--
           # language
           #--
           - go

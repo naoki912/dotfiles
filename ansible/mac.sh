@@ -48,11 +48,6 @@ brew install fzf
 brew install peco
 brew install ghq
 
-# zsh
-brew install zsh-completions
-brew install zsh-syntax-highlighting
-brew install zsh-autosuggestions
-
 # language
 brew install go
 brew install python

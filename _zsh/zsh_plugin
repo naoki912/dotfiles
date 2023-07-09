@@ -1,0 +1,29 @@
+source ~/.zplug/init.zsh
+
+if type zplug > /dev/null 2>&1; then
+    zplug "zsh-users/zsh-completions"
+    zplug "zsh-users/zsh-syntax-highlighting"
+
+    # fishみたいな補完
+    zplug "zsh-users/zsh-autosuggestions"
+
+    # git rootへcdするやつ
+    zplug "mollifier/cd-gitroot"
+
+    # tmux-xpanesのssh補完
+    zplug "greymd/tmux-xpanes"
+
+    # Install plugins if there are plugins that have not been installed
+    # grepにaliasが設定されているとfzf系のインストールに失敗するので一旦aliasを解除している
+    unalias grep
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+    alias grep='grep -n --color=auto'
+
+    # Then, source plugins and add commands to $PATH
+    zplug load #--verbose
+fi
