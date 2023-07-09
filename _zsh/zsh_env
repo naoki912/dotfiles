@@ -42,14 +42,14 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 
-# asdf
-if [ -e ${HOME}/.asdf/asdf.sh ]; then
-  . ${HOME}/.asdf/asdf.sh
+# asdf home
+if command -v brew &> /dev/null; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
 fi
-fpath=(${ASDF_DIR}/completions $fpath)
+
 
 # brew
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if command -v brew &> /dev/null; then
   export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
   export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
   export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -80,3 +80,4 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+fi
