@@ -1,5 +1,9 @@
 # https://qiita.com/mkeeda/items/c5fa878436f1cc957892
 function attach_tmux_session_if_needed
+    if test $TERM_PROGRAM = "vscode"
+        return
+    end
+
     set ID (tmux list-sessions)
     if test -z "$ID"
         tmux new-session

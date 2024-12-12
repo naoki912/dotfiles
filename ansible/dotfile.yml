@@ -135,12 +135,17 @@
           # infra
           #--
           - terraform
+          #--
+          # shell
+          #--
+          - starship
         cask:
           #--
           # Casks
           #--
           - docker
           - iterm2
+          - alacritty
           - visual-studio-code
           - scroll-reverser
           #--

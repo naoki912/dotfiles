@@ -55,8 +55,12 @@ brew install python
 # infra
 brew install terraform
 
+# shell
+brew install starship
+
 #==> Casks
 brew install --cask docker
 brew install --cask iterm2
+brew install --cask alacritty
 brew install --cask visual-studio-code
 brew install --cask scroll-reverser
