@@ -1,0 +1,67 @@
+[font]
+size = 16.0
+offset = { y = 1 }
+
+normal = { family = "Ricty Diminished Discord", style = "Regular" }
+bold = { family = "Ricty Diminished Discord", style = "Bold" }
+italic = { family = "Ricty Diminished Discord", style = "Italic" }
+bold_italic = { family = "Ricty Diminished Discord", style = "Bold Italic" }
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+opacity = 0.8
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[cursor]
+style = "Beam"
+
+[keyboard]
+bindings = [
+  # word left
+  { key = "Left", mods = "Alt", action = "WordLeft" },
+  { key = "Left", mods = "Command", action = "WordLeft" },
+  # word right
+  { key = "Right", mods = "Alt", action = "WordRight" },
+  { key = "Right", mods = "Command", action = "WordRight" },
+]
+
+# monokai
+# https://unpkg.com/browse/alacritty-themes@4.1.5/themes/Monokai.dark.yml
+[colors]
+# name = "Monokai (dark)"
+# author = "Chris Kempson"
+
+  [colors.primary]
+  background = "#272822"
+  foreground = "#f8f8f2"
+
+  [colors.cursor]
+  text = "#272822"
+  cursor = "#f8f8f2"
+
+  [colors.normal]
+  black = "#272822"
+  red = "#f92672"
+  green = "#a6e22e"
+  yellow = "#f4bf75"
+  blue = "#66d9ef"
+  magenta = "#ae81ff"
+  cyan = "#a1efe4"
+  white = "#f8f8f2"
+
+  [colors.bright]
+  black = "#75715e"
+  red = "#f92672"
+  green = "#a6e22e"
+  yellow = "#f4bf75"
+  blue = "#66d9ef"
+  magenta = "#ae81ff"
+  cyan = "#a1efe4"
+  white = "#f9f8f5"

@@ -1,0 +1,16 @@
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[docker_context]
+disabled = true
+
+[directory]
+# git リポジトリで親のPATHを省略するかどうか
+#truncate_to_repo = false
+
