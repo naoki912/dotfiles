@@ -19,8 +19,8 @@ opacity = 0.8
 history = 100000
 multiplier = 3
 
-[cursor]
-style = "Beam"
+#[cursor]
+#style = "Beam"
 
 [keyboard]
 bindings = [
