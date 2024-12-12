@@ -32,8 +32,10 @@
         dest: ~/.zshrc.local
       - src: _Xresources
         dest: ~/.Xresources
-      - src: _alacritty.yml
-        dest: ~/.alacritty.yml
+      - src: _alacritty.toml
+        dest: ~/.alacritty.toml
+      - src: _starship.toml
+        dest: ~/.config/starship.toml
 
       - src: _vim
         dest: ~/.vim
