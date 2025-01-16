@@ -57,10 +57,16 @@ brew install terraform
 
 # shell
 brew install starship
+brew install fish
+brew install atuin
 
 #==> Casks
 brew install --cask docker
 brew install --cask iterm2
+brew install --cask raycast
 brew install --cask alacritty
 brew install --cask visual-studio-code
 brew install --cask scroll-reverser
+brew install --cask bartender
+brew install --cask rectangle
+
